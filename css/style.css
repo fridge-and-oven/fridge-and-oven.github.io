@@ -206,7 +206,7 @@
 
 /*** Hero Header ***/
 .hero-header {
-    background: url(../img/hero-bg.jpg) top left no-repeat;
+    /***background: url(../img/cookies.jpg) top left no-repeat;***/
     background-size: cover;
 }
 
