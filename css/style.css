@@ -21,7 +21,30 @@
     bottom: 45px;
     z-index: 99;
 }
+.orderbutton {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 100px
+}
 
+.detailsbutton {
+    background-color: #fbb321; /* Green */
+}
+
+.preorderbutton {
+    background-color: #5894bf; /* Green */
+}
 /*** Fonts ***/
 .font-work-sans {
   font-family: "Work Sans", sans-serif;
@@ -322,7 +345,7 @@
     left: -50%;
     transform: translateY(-50%);
     margin-top: 1rem;
-    background: var(--bs-primary);
+    /***background: var(--bs-primary);***/
 }
 
 .team-item img {

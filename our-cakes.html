@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Salone - Beauty Salon Website Template</title>
+    <title>Fridge and Oven-Our Cakes</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -31,9 +31,10 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="scripts.js"></script>
 </head>
 
-<body>
+<body class="bg-cakepink">
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -48,7 +49,7 @@
     <div class="container-fluid bg-light sticky-top p-0">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <a href="index.html" class="navbar-brand bg-primary py-4 px-5 me-0">
-                <h1 class="mb-0"><i class="bi bi-scissors"></i>FRIDGE AND OVEN</h1>
+                <h1 class="mb-0">FRIDGE AND OVEN</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -69,7 +70,6 @@
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a class="btn btn-sm btn-primary" href="https://htmlcodex.com/downloading/?item=3597">Buy Pro Version</a>
             </div>
         </nav>
     </div>
@@ -106,17 +106,14 @@
                         <div class=" w-100 align-items-center">
                             <h4>Hazelnut Chocolate Cake</h4>
                             <p class="text-primary mb-1">Dark chocolate, Chantaburi chocolate, hazelnut praline, sea salt, cocoa nibs</p>
-                              <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <button onclick="openIframePopup('hazelnut-choco.html')" class="orderbutton detailsbutton">
+                                details
+                            </button>
+                            <br>
+                            
+                            <a class="orderbutton preorderbutton" href="https://line.me/R/oaMessage/@fridgeandoven/?HazelnutChocolateCake#~">
+                                    pre order
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -126,17 +123,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Peanut Butter Chocolate Cake</h4>
                             <p class="text-primary mb-1">Peanut butter, dark chocolate, burnt caramel</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -146,17 +133,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Yogurt Exotique</h4>
                             <p class="text-primary mb-1">Passionfruit, mango, pineapple, white chocolate, yogurt</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -166,17 +143,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Foret Vert</h4>
                             <p class="text-primary mb-1">Pistachio, Genmai and cherry</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -188,17 +155,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ryokucha Kurogoma</h4>
                             <p class="text-primary mb-1">Green tea, black sesame, matcha, white chocolate, buckwheat, cocoa</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -208,17 +165,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Vanilla jasmine caramel nuts</h4>
                             <p class="text-primary mb-1">Pecan, hazelnut, macadamia, caramel, vanilla, jasmine tea, white chocolate, mascarpone</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -228,17 +175,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Li-mon Pie in Tart</h4>
                             <p class="text-primary mb-1">/lemon curd, candied lemon peel, honey crumbles, vanilla chantilly</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -248,17 +185,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Apple Caramel Oolong Tart</h4>
                             <p class="text-primary mb-1">Oolong tea, white chocolate, cinnamon apple, caramel, hazelnuts, pecan, cocoa nibs</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -268,17 +195,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -288,17 +205,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -308,17 +215,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -328,17 +225,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -348,17 +235,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -368,17 +245,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -388,17 +255,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -408,17 +265,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -428,17 +275,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -448,17 +285,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -468,17 +295,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -488,17 +305,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -508,17 +315,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -528,17 +325,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -548,17 +335,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -568,17 +345,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -588,17 +355,7 @@
                         <div class=" w-50 align-items-center">
                             <h4>Ava Brown</h4>
                             <p class="text-primary mb-1">lemon curd</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2 me-3" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-dark btn-sm-square border-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
+                            <a class="orderbutton detailsbutton" href="">                                     detail                                 </a><br>                                                          <a class="orderbutton preorderbutton" href="">                                     pre order                             </a>
                         </div>
                     </div>
                 </div>
@@ -679,7 +436,16 @@
     </div>
     <!-- Copyright End -->
 
-
+    <div id="popupContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 9999;">
+            <div id="popupContent" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 5px;">
+                <!-- Iframe will be inserted here -->
+                <button 
+                onclick="closePopup()" 
+                style="font-size: medium; font-weight: bolder; padding: 4px 6px; float: right;" >
+                    &times;
+                </button>
+            </div>
+        </div>
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 

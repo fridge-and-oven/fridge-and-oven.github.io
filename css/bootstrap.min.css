@@ -26,6 +26,7 @@
  --bs-danger: #dc3545;
  --bs-light: #f8f7f4;
  --bs-dark: #e2d251;
+ --bs-cakepink: #FCA490;
  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
   "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -6917,6 +6918,9 @@ fieldset:disabled .btn {
 }
 .bg-primary {
  background-color: #519ccf !important;
+}
+.bg-cakepink{
+ background-color: #FCA490 !important;
 }
 .bg-secondary {
  background-color: #444 !important;
