@@ -30,7 +30,6 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet" />
-        
     </head>
 
     <body>
@@ -83,12 +82,10 @@
         <!-- Hero Start -->
         <div class="container-fluid bg-light page-header py-5 mb-5">
             <div class="container text-center py-5">
-                <h1 class="display-1 animated slideInLeft">Contact</h1>
+                <h1 class="display-1 animated slideInLeft">Pre Order</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
-                        <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-primary" href="#">Pages</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                        <li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li>
                     </ol>
                 </nav>
             </div>
@@ -99,7 +96,7 @@
         <div class="container-fluid py-5">
             <div class="container">
                 <div class="text-center wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="font-dancing-script text-primary">Pre Order</h1>
+                    <h1 class="font-dancing-script text-primary" id="cake">Pre Order</h1>
                     <h1 class="mb-5">cake</h1>
                 </div>
                 <div class="row justify-content-center">
@@ -108,71 +105,65 @@
                             Pre order needs to be at least 5 days before delivery date. (not including Sundays)
                         </h4>
                         <div class="wow fadeIn" data-wow-delay="0.3s">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name" />
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input
-                                                type="tel"
-                                                class="form-control"
-                                                id="phone"
-                                                placeholder="Phone number" />
-                                            <label for="email">Phone number</label>
-                                        </div>
-                                    </div>
-                                    <div></div>
-                                    <div class="col-9">
-                                        <div style="display: inline-block;">
-                                            <label style="display: inline-block;">
-                                                <input type="radio" name="size" value="small" checked />
-                                                <img
-                                                    src="icons/cake.svg"
-                                                     width=30px
-                                                    alt="Option 1" />
-                                            </label>
-
-                                            <label style="display: inline-block;">
-                                                <input type="radio" name="size" value="medium" />
-                                                <img
-                                                    src="icons/cake.svg"
-                                                    alt="Option 2" width=50px/>
-                                            </label>
-                                            <label style="display: inline-block;">
-                                                <input type="radio" name="size" value="large" />
-                                                <img
-                                                    src="icons/cake.svg"
-                                                    alt="Option 3" width=72px/>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-floating">
-                                            <input type="tel" class="form-control" id="amount" placeholder="amount" />
-                                            <label for="subject">Amount</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea
-                                                class="form-control"
-                                                placeholder="Leave a message here"
-                                                id="notes"
-                                                style="height: 150px"></textarea>
-                                            <label for="message">Notes</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        
-                                        <button class="btn btn-primary w-100 py-3 ms-0"  onclick="order()">
-                                            Order on LINE
-                                        </button>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="name"
+                                            placeholder="Your Name"
+                                            required />
+                                        <label for="name">Your Name</label>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="phone" placeholder="Phone number" />
+                                        <label for="email">Phone number</label>
+                                    </div>
+                                </div>
+                                <div></div>
+                                <div class="col-9">
+                                    <div style="display: inline-block">
+                                        <label for="size">Size</label>
+                                        <label style="display: inline-block">
+                                            <input type="radio" name="size" value="small" checked />
+                                            <img src="icons/cake.svg" width="30px" alt="Option 1" />
+                                        </label>
+
+                                        <label style="display: inline-block">
+                                            <input type="radio" name="size" value="medium" />
+                                            <img src="icons/cake.svg" alt="Option 2" width="50px" />
+                                        </label>
+                                        <label style="display: inline-block">
+                                            <input type="radio" name="size" value="large" />
+                                            <img src="icons/cake.svg" alt="Option 3" width="72px" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="amount" placeholder="amount" />
+                                        <label for="subject">Amount</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea
+                                            class="form-control"
+                                            placeholder="Leave a message here"
+                                            id="notes"
+                                            style="height: 150px"></textarea>
+                                        <label for="message">Notes</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3 ms-0" onclick="order()">
+                                        Order on LINE
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,29 +260,49 @@
 
         <!-- JavaScript Libraries -->
         <script>
-            function order(){
-                var name = document.getElementById('name').value; // Nomad
-                var phone = document.getElementById('phone').value;
-                var size = RadioValue();
-                var amount = document.getElementById('amount').value;
-                var notes = document.getElementById('notes').value;
-                var url = "https://line.me/R/oaMessage/@fridgeandoven/?";
-                var message = "Pre-order:%20cake%20name:%20"+name+"%20phone:%20"+phone+"%20size:%20"+size+"%20amount:%20"+amount+"%20notes:%20"+notes;
-                console.log(url+message);
-                
-                window.open(url+message);
-                }
-            function RadioValue() {
-            var ele = document.getElementsByName('size');
+                        var cake;
+                        function setCake(){
+                            try{
+                            const queryString = window.location.search;
+                            const urlParams = new URLSearchParams(queryString);
 
-            for (i = 0; i < ele.length; i++) {
-                if (ele[i].checked)
-                    return ele[i].value;
-            }
-        }
-            function test(){
-                document.getElementById("demo").innerHTML = "Hello World";
-            }
+                            // Get a specific parameter
+                                cake = urlParams.get('cake'); // cake name
+                                document.getElementById('cake').innerHTML = cake.replaceAll("-"," ");
+                                
+                            }
+                            catch (error) {
+                                console.error(error);
+                                document.getElementById('cake').innerHTML = "Please order a cake";
+                            }
+
+                        }
+                        function order(){
+                            var name = document.getElementById('name').value; // Nomad
+                            var phone = document.getElementById('phone').value;
+                            var size = RadioValue();
+                            var amount = document.getElementById('amount').value;
+                            var notes = document.getElementById('notes').value;
+                            var url = "https://line.me/R/oaMessage/@fridgeandoven/?";
+                            var message = "Pre-order:%20"+cake.replaceAll("-","%20")+"%20name:%20"+name+"%20phone:%20"+phone+"%20size:%20"+size+"%20amount:%20"+amount+"%20notes:%20"+notes;
+                            console.log(url+message);
+
+                            window.open(url+message);
+                            }
+                        function RadioValue() {
+                        var ele = document.getElementsByName('size');
+
+                        for (i = 0; i < ele.length; i++) {
+                            if (ele[i].checked)
+                                return ele[i].value;
+                        }
+                    }
+                        function test(){
+                            document.getElementById("demo").innerHTML = "Hello World";
+                        }
+                        window.onload = setCake();
+              
+            
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
