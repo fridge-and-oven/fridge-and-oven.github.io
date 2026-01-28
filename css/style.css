@@ -548,14 +548,14 @@
 /* Base Menu Styling */
   ul { list-style: none; padding: 0; margin: 0; }
   li { float: left; position: relative; }
-  label, a { display: block; color: #f5e78e; padding: 14px 20px; text-decoration: none; cursor: pointer; }
+  label, a { display: block !important; color: #f5e78e; padding: 14px 20px; text-decoration: none; cursor: pointer; }
   label:hover, a:hover { background-color: rgba(85, 81, 81, 0.24); }
 
   /* 1. Hide the actual checkboxes */
   input[type="checkbox"] {
     display: none;
   }
-
+    
   /* 2. Submenus are hidden by default */
   .submenu, .submenu2, .nested-submenu, .nested-submenu2{
     display: none;
@@ -564,9 +564,16 @@
   }
 
   .submenu, .submenu2 { position: absolute; top: 100%; left: 0; z-index: 10; padding-left: 5px; }
-  .nested-submenu, .nested-submenu2 { background-color: #b41212; padding-left: 20px; }
+  .nested-submenu, .nested-submenu2 { background-color: #b41212; padding-left: 15px; }
   .submenu, .submenu2 li { float: none; }
-
+    .submenu li, 
+    .submenu2 li, 
+    .nested-submenu li, 
+    .nested-submenu2 li {
+        float: none;       /* This cancels the horizontal floating */
+        display: block;    /* This forces the item to take up the full width */
+        width: 100%;
+    }
   /* 3. LOGIC: Show submenu when the checkbox is checked */
   #menu-toggle:checked ~ .submenu {
     display: block;
