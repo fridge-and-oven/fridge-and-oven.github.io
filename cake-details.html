@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+        <style>
+            .gallery-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .main-image-viewer img {
+                max-width: 100%;
+                height: auto;
+                /* Set a specific size for the main image area if desired */
+                width: 400px;
+                height: 400px;
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                padding: 5px;
+            }
+
+            .thumbnail-container {
+                display: flex;
+                gap: 5px;
+                flex-wrap: wrap;
+            }
+
+            .thumbnail-container img {
+                width: 90px; /* Set a fixed width for thumbnails */
+                height: 70px;
+                object-fit: cover;
+                cursor: pointer; /* Changes cursor to a hand to indicate interactivity */
+                border: 1px solid #ccc;
+                transition: border-color 0.3s; /* Smooth transition for hover effect */
+            }
+
+            .thumbnail-container img:hover {
+                border-color: #777; /* Visual feedback on hover */
+            }
+        </style>
+    </head>
+    <body class="bg-light">
+        <div class="gallery-container">
+            <!-- Main image viewer -->
+            <div class="main-image-viewer">
+                <img id="main-image" src="img/hazel-yuzu.jpg" alt="Main image" />
+            </div>
+
+            <!-- Thumbnail gallery -->
+            <div class="thumbnail-container">
+                <img
+                    class="thumbnail"
+                    src="img/hazelchoc-exotique.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('img/hazelchoc-exotique.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="img/appleoolong-tart.jpg"
+                    alt="Thumbnail 2"
+                    onclick="changeMainImage('img/appleoolong-tart.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="img/apple-pie.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('img/apple-pie.jpg', this)" />
+                <img
+                     class="thumbnail"
+                    src="img/raspberry-coffee-fig.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('img/raspberry-coffee-fig.jpg', this)" />
+                <!-- Add more thumbnails as needed -->
+            </div>
+        </div>
+        <h4 style="font-family: monospace; color: black; padding-top: 10px; padding-left: 50px">AVAILABLE SIZES</h4>
+        <p style="font-family: monospace; color: black; padding-top: 5px; padding-left: 80px"> put available sizes here</p>
+        <h4 style="font-family: monospace; color: black; padding-top: 10px; padding-left: 50px">CARE GUIDE</h4>
+        <p style="font-family: monospace; color: black; padding-top: 5px; padding-left: 80px"> put care guide here</p>
+        <script>
+            function changeMainImage(largeImageSrc, clickedThumbnail) {
+                // Get the main image element by its ID
+                const mainImage = document.getElementById("main-image");
+
+                // Update the main image's src attribute to the large image source
+                mainImage.src = largeImageSrc;
+
+                // Optional: Add/remove an 'active' class on thumbnails for visual feedback
+                // You would need to add CSS for .active-thumbnail as well
+               /* const thumbnails = document.querySelectorAll(".thumbnail-container img");
+                thumbnails.forEach((thumb) => {
+                    thumb.classList.remove("active-thumbnail");
+                });
+                clickedThumbnail.classList.add("active-thumbnail");*/
+            }
+            
+
+           let slideIndex = 0;
+            let slideTimer;
+
+            // Start the process
+            showSlides();
+
+            function showSlides() {
+                clearTimeout(slideTimer); 
+
+                let slides = document.getElementsByClassName("thumbnail");
+                if (slides.length === 0) return;
+
+                // 1. Show the CURRENT image first
+                let currentSlide = slides[slideIndex];
+                changeMainImage(currentSlide.src, currentSlide);
+
+                // 2. Prepare the index for the NEXT time the function runs
+                slideIndex = (slideIndex + 1) % slides.length;
+
+                // 3. Wait 5 seconds before showing that next index
+                slideTimer = setTimeout(showSlides, 5000);
+            }
+
+        </script>
+    </body>
+</html>

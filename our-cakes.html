@@ -43,37 +43,7 @@
         </div>
     </div>
     <!-- Spinner End -->
-
-
-    <!-- Navbar Start >
-    <div class="container-fluid bg-light sticky-top p-0">
-        <nav class="navbar navbar-expand-lg navbar-light p-0">
-            <a href="index.html" class="navbar-brand bg-primary py-4 px-5 me-0">
-                <h1 class="mb-0">FRIDGE AND OVEN</h1>
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse p-3" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Service</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu bg-light mt-2">
-                            <a href="our-cakes.html" class="dropdown-item active">Our Team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->         
+        
     <span id="navtool"></span>         
     <script src="nav.js"></script>         
     <script>window.onload=addNavTool();</script>
@@ -109,7 +79,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Hazelnut Chocolate Cake</h4>
                             <p class="text-primary mb-1">Dark chocolate, Chantaburi chocolate, hazelnut praline, sea salt, cocoa nibs</p>
-                            <button onclick="openIframePopup('hazelnut-choco.html')" class="orderbutton detailsbutton">                                 
+                            <button onclick="openIframePopup('cake-details.html')" class="orderbutton detailsbutton">                                 
                                 details                             </button>
                             <br>
                             
@@ -125,7 +95,7 @@
                         <div class=" w-100 align-items-center">
                             <h4>Peanut Butter Chocolate Cake</h4>
                             <p class="text-primary mb-1">Peanut butter, dark chocolate, burnt caramel</p>
-                            <button onclick="openIframePopup('hazelnut-choco.html')" class="orderbutton detailsbutton">                                 
+                            <button onclick="openIframePopup('test.html')" class="orderbutton detailsbutton">                                 
                                 details                             </button><br>                                                          
                             <a class="orderbutton preorderbutton" href="order.html?cake=Peanut-Butter-Chocolate-Cake">                                     
                                 pre order                             </a>
@@ -551,12 +521,12 @@
     </div>
     <!-- Copyright End -->
 
-    <div id="popupContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 9999;">
-            <div id="popupContent" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 5px;">
+    <div id="popupContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #00000080; z-index: 9999;">
+            <div id="popupContent" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f5e4af; padding: 20px; border-radius: 20px; border: 8px solid #b41212;">
                 <!-- Iframe will be inserted here -->
                 <button 
                 onclick="closePopup()" 
-                style="font-size: medium; font-weight: bolder; padding: 4px 6px; float: right;" >
+                style="font-size: medium; font-weight: bolder; padding: 4px 10px; float: right; border-radius: 10px" >
                     &times;
                 </button>
             </div>
