@@ -162,6 +162,56 @@
     top: -150px;
     transition: .5s;
 }
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #b87777;
+}
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
+}
 
 .navbar .navbar-nav .nav-link {
     margin: 0 12px;
@@ -493,4 +543,67 @@
     font-weight: 900;
     color: rgba(255, 255, 255, .5);
     margin-right: 10px;
+}
+
+/* Base Menu Styling */
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { float: left; position: relative; }
+  label, a { display: block; color: #f5e78e; padding: 14px 20px; text-decoration: none; cursor: pointer; }
+  label:hover, a:hover { background-color: rgba(85, 81, 81, 0.24); }
+
+  /* 1. Hide the actual checkboxes */
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  /* 2. Submenus are hidden by default */
+  .submenu, .submenu2, .nested-submenu, .nested-submenu2{
+    display: none;
+    background-color: #b41212;
+    min-width: 200px;
+  }
+
+  .submenu, .submenu2 { position: absolute; top: 100%; left: 0; z-index: 10; padding-left: 5px; }
+  .nested-submenu, .nested-submenu2 { background-color: #b41212; padding-left: 20px; }
+  .submenu, .submenu2 li { float: none; }
+
+  /* 3. LOGIC: Show submenu when the checkbox is checked */
+  #menu-toggle:checked ~ .submenu {
+    display: block;
+  }
+    
+  /* Show nested menu when its specific checkbox is checked */
+  #nested-toggle:checked ~ .nested-submenu{
+    display: block;
+  }
+
+  #nested-toggle2:checked ~ .nested-submenu2{
+    display: block;
+  }
+
+  #menu-toggle2:checked ~ .submenu2 {
+    display: block;
+  }
+
+
+/**choices for ordering**/
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  
+    
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid #6787e4;
+    border-radius: 10px;
 }

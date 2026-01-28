@@ -6919,8 +6919,8 @@ fieldset:disabled .btn {
 .bg-primary {
  background-color: #519ccf !important;
 }
-.bg-cakepink{
- background-color: #FCA490 !important;
+.bg-cake{
+ background-color: #ac854d !important;
 }
 .bg-secondary {
  background-color: #444 !important;
@@ -6942,6 +6942,9 @@ fieldset:disabled .btn {
 }
 .bg-dark {
  background-color: #f5e4af !important;
+}
+.bg-nav {
+   background-color: #b41212 !important;
 }
 .bg-body {
  background-color: #f5e4af !important;
