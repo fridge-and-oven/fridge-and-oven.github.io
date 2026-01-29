@@ -347,10 +347,11 @@
 /*** Service ***/
 @media (max-width: 768px) {
     .service .service-item {
-        border: none !important;
+        border: 50px !important;
         box-shadow: 0 0 45px rgba(0, 0, 0, .05);
     }
 }
+
 
 @media (min-width: 992px) {
     .service .service-item.border-lg-end {
@@ -364,6 +365,46 @@
     .service .service-item.border-lg-bottom-0 {
         border-bottom: none !important;
     }
+}
+
+/* 1. The Parent Container (The Row) */
+.service {
+    display: flex;            /* Stacks children horizontally */
+    flex-direction: row;      /* Ensures horizontal alignment */
+    justify-content: center;  /* Centers the cards in the middle of the screen */
+    flex-wrap: nowrap;        /* Keeps them on one line (use 'wrap' for mobile) */
+    gap: 20px;                /* Space between the cards */
+    overflow-x: auto;         /* Adds a scrollbar if the screen gets too small */
+    padding: 40px;
+    align-items: center;
+    text-align: center;
+}
+@media (min-width: 992px) {
+    .service {
+        flex-wrap: nowrap; /* Horizontal on desktop */
+    }
+}
+
+@media (max-width: 991px) {
+    .service {
+        flex-wrap: wrap;   /* Vertical on mobile */
+    }
+}
+
+/* 2. The Service Item (The Card) */
+.service-item {
+    /* Set your fixed width here */
+    width: 350px;             
+         /* Prevents the card from shrinking */
+    
+    /* Styles from the image */
+    background-color: #f1e4d9; 
+    border-radius: 60px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .service .service-item .btn-primary {

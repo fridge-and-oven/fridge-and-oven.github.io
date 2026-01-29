@@ -1,0 +1,90 @@
+/* Container & Background Setup */
+.services-section {
+  background-color: #2b3a4a; /* Dark navy from the image border */
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.services-container {
+  display: flex;
+  gap: 25px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap; /* Allows stacking on mobile */
+  justify-content: center;
+}
+
+/* The Service Card */
+.service-card {
+  background-color: #f1e4d9; /* The soft beige card color */
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  padding: 60px 35px;
+  border-radius: 100px; /* High radius for the "pill" look */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Icon Container */
+.icon-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-red { background-color: #f9dcc4; }
+.icon-blue { background-color: #d1e3f0; }
+.icon-orange { background-color: #fbe6d5; }
+
+/* Typography */
+.subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif; /* Or Times New Roman */
+  font-size: 2.2rem;
+  line-height: 1.1;
+  color: #2b3a4a;
+  margin-bottom: 25px;
+}
+
+p {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+/* Buttons */
+.btn {
+  margin-top: auto; /* Keeps buttons aligned even if text varies */
+  padding: 12px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.btn-red { background-color: #d66d4c; }
+.btn-blue { background-color: #a7c4e0; color: #2b3a4a; }
+.btn-orange { background-color: #d66d4c; }
+
+.btn:hover { opacity: 0.8; }

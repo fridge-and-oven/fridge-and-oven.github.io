@@ -2097,7 +2097,7 @@ textarea.form-control-lg {
  box-shadow: 0 0 0 0.25rem rgba(191, 148, 86, 0.25);
 }
 .form-check-input:checked {
- background-color: #bf9456;
+ background-color: #eed6b4;
  border-color: #bf9456;
 }
 .form-check-input:checked[type="checkbox"] {
@@ -6920,7 +6920,7 @@ fieldset:disabled .btn {
  background-color: #519ccf !important;
 }
 .bg-cake{
- background-color: #ac854d !important;
+ background-color: #f5e4af !important;
 }
 .bg-secondary {
  background-color: #444 !important;
