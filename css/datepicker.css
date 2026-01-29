@@ -1,0 +1,70 @@
+
+/* Blue Highlight: Tue, Wed, Fri, Sat (Bakery) */
+.highlight-blue a.ui-state-default {
+    color: black !important;
+    border-color: #0056b3 !important;
+}
+
+/* Yellow Highlight: Mon, Thu (Home) */
+.highlight-yellow a.ui-state-default {
+    color: black !important;
+    border-color: #fbc02d !important;
+}
+.datepicker-footer-legend {
+    padding: 10px; background: #f9f9f9; border-top: 1px solid #ddd; font-size: 11px; font-family: Arial, sans-serif;
+}
+.legend-row { display: flex; align-items: center; margin-bottom: 4px; }
+.legend-box { width: 12px; height: 12px; margin-right: 8px; border: 1px solid #ccc; border-radius: 2px; }
+.box-yellow { background-color: #ffeb3b; }
+.box-blue { background-color: #007bff; }
+
+.selection-group { margin-bottom: 20px; font-family: Arial, sans-serif; border: 1px solid #eee; padding: 15px; border-radius: 5px; width: fit-content; }
+
+/* Container styling */
+.selection-group {
+    font-family: Arial, sans-serif;
+    display: block !important;
+}
+
+/* Row alignment */
+.radio-row {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* The actual radio button */
+.force-radio {
+    /* Reset visibility and positioning */
+    display: block !important; 
+    visibility: visible !important; 
+    opacity: 1 !important; 
+    position: static !important;
+    left: auto !important;
+    
+    /* Force native browser look */
+    appearance: auto !important; 
+    -webkit-appearance: radio !important; 
+    -moz-appearance: radio !important;
+    
+    /* Fixed sizing to prevent flex-shrinking */
+    flex-shrink: 0 !important; 
+    width: 18px !important; 
+    height: 18px !important; 
+    margin: 0 10px 0 0 !important; 
+    padding: 0 !important;
+    cursor: pointer !important;
+}
+
+/* The text labels */
+.radio-label {
+    cursor: pointer !important;
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    font-size: 16px !important;
+}
