@@ -23,7 +23,17 @@ function order(){
     var deliveryDate = document.getElementById('datepicker').value;
     var notes = document.getElementById('notes').value;
     var url = "https://line.me/R/oaMessage/@fridgeandoven/?";
-    var message = "Pre-order:%20"+cake.replaceAll("-","%20")+"%20name:%20"+name+"%20phone:%20"+phone+"%20size:%20"+size+"%20amount:%20"+amount+"%20Delivery%20Date:%20"+deliveryDate+"%20notes:%20"+notes;
+
+    var rawMessage = `Pre-order: ${cake.replaceAll("-", " ")}
+    Name: ${name}
+    Phone: ${phone}
+    Size: ${size}
+    Amount: ${amount}
+    Delivery Date: ${deliveryDate}
+    Notes: ${notes}`;
+
+    var message = encodeURIComponent(rawMessage);
+
     console.log(url+message);
 
     window.open(url+message);
