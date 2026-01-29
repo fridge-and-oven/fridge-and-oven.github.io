@@ -68,3 +68,23 @@
     line-height: 1.2 !important;
     font-size: 16px !important;
 }
+
+/* Custom Line Green Button */
+#orderButton {
+    background-color: #06C755 !important;
+    border-color: #06C755 !important;
+    color: white !important;
+}
+
+/* Ensure it stays green on hover */
+#orderButton:hover {
+    background-color: #05b04a !important; /* Slightly darker green */
+    border-color: #05b04a !important;
+}
+
+/* Keep it faded when disabled */
+#orderButton:disabled {
+    background-color: #06C755 !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
