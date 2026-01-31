@@ -88,3 +88,19 @@
     opacity: 0.5 !important;
     cursor: not-allowed !important;
 }
+
+/* Makes all form labels, input text, textareas, and dropdowns black */
+label, 
+input, 
+textarea, 
+select {
+    color: #000000 !important;
+}
+
+
+/* Optional: Ensures placeholder text is also black (or a dark grey) */
+input::placeholder, 
+textarea::placeholder {
+    color: #000000;
+    opacity: 1; /* Fixes default low opacity in some browsers */
+}
