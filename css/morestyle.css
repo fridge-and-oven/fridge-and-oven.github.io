@@ -1,90 +1,107 @@
-/* Container & Background Setup */
-.services-section {
-  background-color: #2b3a4a; /* Dark navy from the image border */
-  padding: 80px 40px;
-  display: flex;
-  justify-content: center;
+:root {
+  --levain-blue: #0033a0;
+  --text-color: #2d2d2d;
 }
 
-.services-container {
-  display: flex;
-  gap: 25px;
+.fan-favorites {
+  padding: 60px 0; /* Removed side padding so scroll hits edges */
+  overflow: hidden;
+}
+
+.container {
   max-width: 1200px;
-  width: 100%;
-  flex-wrap: wrap; /* Allows stacking on mobile */
-  justify-content: center;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* The Service Card */
-.service-card {
-  background-color: #f1e4d9; /* The soft beige card color */
-  flex: 1;
-  min-width: 300px;
-  max-width: 380px;
-  padding: 60px 35px;
-  border-radius: 100px; /* High radius for the "pill" look */
+.section-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Icon Container */
-.icon-box {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  justify-content: space-between;
+  align-items: flex-end;
   margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.icon-red { background-color: #f9dcc4; }
-.icon-blue { background-color: #d1e3f0; }
-.icon-orange { background-color: #fbe6d5; }
+.section-header h2 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--levain-blue);
+  margin: 0;
+}
 
-/* Typography */
-.subtitle {
-  font-family: 'Arial', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  color: #333;
+/* Scroll Container Setup */
+.product-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+  /* Snap behavior */
+  scroll-snap-type: x mandatory;
+  /* Hide scrollbar for Chrome/Safari */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: Custom Scrollbar Styling */
+.product-scroll-container::-webkit-scrollbar {
+  height: 4px;
+}
+.product-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.product-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--levain-blue);
+  border-radius: 10px;
+}
+
+/* Product Card Sizing */
+.product-card {
+  flex: 0 0 320px; /* Cards won't shrink, fixed width of 320px */
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  overflow: hidden;
   margin-bottom: 15px;
 }
 
-h2 {
-  font-family: 'Cormorant Garamond', serif; /* Or Times New Roman */
-  font-size: 2.2rem;
-  line-height: 1.1;
-  color: #2b3a4a;
-  margin-bottom: 25px;
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-p {
-  font-family: 'Arial', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #444;
-  margin-bottom: 40px;
+.product-card:hover img {
+  transform: scale(1.05);
 }
 
-/* Buttons */
-.btn {
-  margin-top: auto; /* Keeps buttons aligned even if text varies */
-  padding: 12px 35px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--levain-blue);
   color: white;
-  transition: opacity 0.3s;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 20px;
+  z-index: 10;
 }
 
-.btn-red { background-color: #d66d4c; }
-.btn-blue { background-color: #a7c4e0; color: #2b3a4a; }
-.btn-orange { background-color: #d66d4c; }
+.product-title {
+  font-family: "Times New Roman", serif;
+  font-size: 1.25rem;
+  margin: 0 0 5px 0;
+}
 
-.btn:hover { opacity: 0.8; }
+.product-price {
+  font-family: Arial, sans-serif;
+  color: #555;
+  margin: 0;
+}
