@@ -1,0 +1,93 @@
+/* Using Google Fonts to mimic the typography */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;600&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Left Side Styling */
+.content-side {
+    flex: 1;
+    background-color: #fdf6cc; /* Pale yellow background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.text-wrapper {
+    max-width: 400px;
+}
+
+.main-title {
+    font-family: 'DM+Serif+Display', serif;
+    color: #b8432e; /* Rust/Red color */
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 80px;
+}
+
+.sub-text {
+    color: #7ab3bc; /* Muted blue */
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.order-link {
+    display: block;
+    color: #b8432e;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.divider {
+    width: 60%;
+    height: 1px;
+    background-color: #7ab3bc;
+    margin: 0 auto 50px auto;
+}
+
+.shipping-note {
+    color: #b8432e;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Right Side Styling */
+.image-side {
+    flex: 1;
+    overflow: hidden;
+}
+
+.image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills space without stretching */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .image-side {
+        order: -1; /* Image on top for mobile */
+        height: 50vh;
+    }
+}

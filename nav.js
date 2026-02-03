@@ -40,7 +40,7 @@ function addNavTool(){
                                                 <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">tart and pie</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#" class="dropdown-item nav-link" style="font-size: small">sliced cakes</a></li>
+                                        <li><a href="sliced-cakes.html" class="dropdown-item nav-link" style="font-size: small">sliced cakes</a></li>
                                         <li>
                                             <label for="nested-toggle2" class="dropdown-item nav-link" style="font-size: small">cookies ▾</label>
                                             <input type="checkbox" id="nested-toggle2" />
