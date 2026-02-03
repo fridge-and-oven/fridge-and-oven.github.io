@@ -175,7 +175,20 @@
                                         <p><strong>Select Delivery Date:</strong></p>
                                         <input type="text" id="datepicker" placeholder="Select a date" readonly style="padding: 8px; cursor: pointer; width: 200px;" />
                                     </div>
+                                     <!-- pickup time Group -->
+                                     <div class="selection-group">
+                                        <p><strong >Select Time:</strong></p>
+                                        <select class="form-select" id="pickup-time" name="pickup-time" required>
+                                            <option value="" selected disabled >Select Pickup Time</option>
+                                            <option value="09:00">11:00 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="15:00">01:00 PM</option>
+                                            <option value="17:00">02:00 PM</option>
+                                            <option value="17:00">03:00 PM</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea

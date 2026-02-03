@@ -56,6 +56,7 @@ function order(){
     var size = document.getElementById('size').value;
     var amount = document.getElementById('amount').value;
     var deliveryDate = document.getElementById('datepicker').value;
+    var pickupTime = document.getElementById('pickup-time').value;
     var notes = document.getElementById('notes').value;
     var url = "https://line.me/R/oaMessage/@fridgeandoven/?";
 
@@ -65,6 +66,7 @@ function order(){
     Size: ${size}
     Amount: ${amount}
     Delivery Date: ${deliveryDate}
+    Pickup Time: ${pickupTime}
     Notes: ${notes}`;
 
     var message = encodeURIComponent(rawMessage);

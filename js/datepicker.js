@@ -8,12 +8,13 @@ $(function () {
         var amount = $('#amount').val().trim();
         var date = $('#datepicker').val().trim();
         var pickup = $("input[name='pickupMethod']:checked").val();
+        var pickupTime = $('#pickup-time').val();
     
         // 1. Check if Amount is a valid number
         var isAmountNumeric = (amount !== "" && !isNaN(amount));
         
         // 2. Check if all fields are filled
-        var allFilled = (name !== "" && phone !== "" && size !== null && amount !== "" && date !== "" && pickup !== undefined);
+        var allFilled = (name !== "" && phone !== "" && size !== null && amount !== "" && date !== "" && pickup !== undefined && pickupTime !== null);
     
         // 3. Logic to determine error message text
         if (!isAmountNumeric && amount !== "") {
@@ -81,7 +82,7 @@ $(function () {
     });
 
     // 3. Listeners for input changes
-    $('#name, #phone, #amount, #size').on('keyup change input', validateForm);
+    $('#name, #phone, #amount, #size, #pickup-time').on('keyup change input', validateForm);
 
     $("input[name='pickupMethod']").on("change", function() {
         $("#datepicker").val(""); 
