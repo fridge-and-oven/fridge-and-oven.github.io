@@ -657,14 +657,5 @@
 }
 
 
-/* Media query for screens 600px or smaller */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%; /* Stack columns vertically on mobile */
-    float: none;
-  }
-}
 
-h1 {
-  font-size: 10vw;
-}
+
