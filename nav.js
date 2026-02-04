@@ -16,11 +16,10 @@ function addNavTool(){
 
                 <div class="collapse navbar-collapse p-3" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
-                        <ul>
-                            <li><a href="index.html" class="nav-item nav-link active">Home</a></li>
-                            <li><a href="about.html" class="nav-item nav-link">About</a></li>
-                            <li><a href="service.html" class="nav-item nav-link">How to Order</a></li>
-                            <li>
+                        
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="about.html" class="nav-item nav-link">About</a>
+                            <a href="service.html" class="nav-item nav-link">How to Order</a>
                                 <div class="nav-item dropdown">
                                     
                                     <label for="menu-toggle" class="nav-link">Menu ▾</label>
@@ -52,8 +51,7 @@ function addNavTool(){
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li>
+                            
                                 <div class="nav-item dropdown">
                                     
                                     <label for="menu-toggle2" class="nav-link">workshops ▾</label>
@@ -67,9 +65,7 @@ function addNavTool(){
                                         
                                     </ul>
                                 </div>
-                            </li>
-                            <li><a href="contact.html" class="nav-item nav-link">Contact</a></li>
-                        </ul>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>
