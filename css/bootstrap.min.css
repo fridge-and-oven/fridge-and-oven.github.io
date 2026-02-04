@@ -527,7 +527,7 @@ progress {
 }
 .figure-caption {
  font-size: 0.875em;
- color: #74aada;
+ color: #364b5d;
 }
 .container,
 .container-fluid,
@@ -990,7 +990,7 @@ progress {
  }
  .col-md-6 {
   flex: 0 0 auto;
-  width: 25%;
+  width: 20%;
  }
  .col-md-7 {
   flex: 0 0 auto;
@@ -6875,7 +6875,7 @@ fieldset:disabled .btn {
  word-break: break-word !important;
 }
 .text-primary {
- color: #487db8 !important;
+ color: #000307 !important;
 }
 .text-secondary {
  color: #ad2f2f !important;
