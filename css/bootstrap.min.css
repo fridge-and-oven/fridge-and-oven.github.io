@@ -1105,7 +1105,7 @@ progress {
  .col-lg {
   flex: 1 0 0%;
  }
- .row-cols-lg-auto > * {
+ .row-cols-3auto > * {
   flex: 0 0 auto;
   width: auto;
  }
