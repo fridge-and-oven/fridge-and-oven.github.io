@@ -45,7 +45,7 @@ function addNavTool(){
                                             <input type="checkbox" id="nested-toggle2" />
 
                                             <ul class="nested-submenu2">
-                                                <li><a href="#" class="dropdown-item nav-link" style="font-size:x-small">soft baked</a></li>
+                                                <li><a href="cookies.html" class="dropdown-item nav-link" style="font-size:x-small">soft baked</a></li>
                                                 <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">sables</a></li>
                                             </ul>
                                         </li>
