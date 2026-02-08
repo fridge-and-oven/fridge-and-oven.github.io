@@ -990,7 +990,7 @@ progress {
  }
  .col-md-6 {
   flex: 0 0 auto;
-  width: 25%;
+  width: %;
  }
  .col-md-7 {
   flex: 0 0 auto;
@@ -4318,7 +4318,7 @@ fieldset:disabled .btn {
 .breadcrumb-item + .breadcrumb-item::before {
  float: left;
  padding-right: 0.5rem;
- color: #6c757d;
+ color: #7d746c;
  content: var(--bs-breadcrumb-divider, "/"); /* rtl: var(--bs-breadcrumb-divider, "/") */
 }
 .breadcrumb-item.active {
