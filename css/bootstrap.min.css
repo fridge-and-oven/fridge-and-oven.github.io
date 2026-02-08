@@ -765,7 +765,7 @@ progress {
 }
 @media (min-width: 576px) {
  .col-sm {
-  flex: 1 0 0%;
+  flex:100%;
  }
  .row-cols-sm-auto > * {
   flex: 0 0 auto;
@@ -934,7 +934,7 @@ progress {
 }
 @media (min-width: 768px) {
  .col-md {
-  flex: 1 0 0%;
+  flex: 100%;
  }
  .row-cols-md-auto > * {
   flex: 0 0 auto;
@@ -989,9 +989,9 @@ progress {
   width: 41.6666666667%;
  }
  .col-md-6 {
-  flex: 0 0 auto;
+  flex: 0 0auto;
   width: %;
- }
+ } 
  .col-md-7 {
   flex: 0 0 auto;
   width: 58.3333333333%;
@@ -3497,7 +3497,7 @@ fieldset:disabled .btn {
 }
 .dropdown-item.active,
 .dropdown-item:active {
- color: #fff5bd;
+ color: #5684bf;
  text-decoration: none;
  background-color: #bf9456;
 }
@@ -3533,7 +3533,7 @@ fieldset:disabled .btn {
 }
 .dropdown-menu-dark .dropdown-item:hover,
 .dropdown-menu-dark .dropdown-item:focus {
- color: #f5edae;
+ color: #4585c2;
  background-color: rgba(255, 255, 255, 0.15);
 }
 .dropdown-menu-dark .dropdown-item.active,
@@ -4533,7 +4533,7 @@ fieldset:disabled .btn {
  flex-direction: column;
  justify-content: center;
  overflow: hidden;
- color: #fbf6cd;
+ color: #5c87b4;
  text-align: center;
  white-space: nowrap;
  background-color: #bf9456;
@@ -6951,6 +6951,9 @@ fieldset:disabled .btn {
 }
 .bg-white {
  background-color: #f5e4af !important;
+}
+.bg-index{
+ background-color: #e2d18b !important;
 }
 .bg-transparent {
  background-color: rgba(0, 0, 0, 0) !important;
