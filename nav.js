@@ -36,7 +36,7 @@ function addNavTool(){
                                                 <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">nuts</a></li>
                                                 <li><a href="#" class="dropdown-item nav-link" style="font-size:x-small">fruits</a></li>
                                                 <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">chocolate</a></li><li><a href="#" class="dropdown-item nav-link" style="font-size:x-small">tea</a></li>
-                                                <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">tart and pie</a></li>
+                                                <li><a href="tart-n-pie.html" class="dropdown-item nav-link" style="font-size: x-small">tart and pie</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="sliced-cakes.html" class="dropdown-item nav-link" style="font-size: small">sliced cakes</a></li>
@@ -46,7 +46,7 @@ function addNavTool(){
 
                                             <ul class="nested-submenu2">
                                                 <li><a href="cookies.html" class="dropdown-item nav-link" style="font-size:x-small">soft baked</a></li>
-                                                <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">sables</a></li>
+                                                <li><a href="sables.html" class="dropdown-item nav-link" style="font-size: x-small">sables</a></li>
                                             </ul>
                                         </li>
                                     </ul>
