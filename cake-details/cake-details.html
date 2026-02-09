@@ -8,45 +8,7 @@
 
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
-        <style>
-            .gallery-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .main-image-viewer img {
-                max-width: 100%;
-                height: auto;
-                /* Set a specific size for the main image area if desired */
-                width: 400px;
-                height: 400px;
-                object-fit: cover; /* Ensures images cover the area without distortion */
-                border: 1px solid #ccc;
-                border-radius: 20px;
-                padding: 5px;
-            }
-
-            .thumbnail-container {
-                display: flex;
-                gap: 5px;
-                flex-wrap: wrap;
-            }
-
-            .thumbnail-container img {
-                width: 90px; /* Set a fixed width for thumbnails */
-                height: 70px;
-                object-fit: cover;
-                cursor: pointer; /* Changes cursor to a hand to indicate interactivity */
-                border: 1px solid #ccc;
-                transition: border-color 0.3s; /* Smooth transition for hover effect */
-            }
-
-            .thumbnail-container img:hover {
-                border-color: #777; /* Visual feedback on hover */
-            }
-        </style>
+    <link href="cake-gallery.css" rel="stylesheet">
     </head>
     <body class="bg-light">
         <div class="gallery-container">
@@ -91,40 +53,6 @@
         <p style="font-family: monospace; color: black; padding-top: 5px; padding-left: 80px"> please keep refrigerated!Travel time max. 2 hours</p>
         <p style="font-family: monospace; color: black; padding-top: 0.1px; padding-left: 80px">*WE SHIP OUR CAKES FROZEN TO HAVE THEM ARRIVE PERFECTLY TO YOU.</p>
         <p style="font-family: monospace; color: black; padding-top: 0.1px; padding-left: 80px">3-5 days in refrigerator or 2 weeks in freezer(please store in airtight container)</p>
-        <script>
-            function changeMainImage(largeImageSrc, clickedThumbnail) {
-                // Get the main image element by its ID
-                const mainImage = document.getElementById("main-image");
-
-                // Update the main image's src attribute to the large image source
-                mainImage.src = largeImageSrc;
-
-            }
-            
-
-           let slideIndex = 0;
-            let slideTimer;
-
-            // Start the process
-            showSlides();
-
-            function showSlides() {
-                clearTimeout(slideTimer); 
-
-                let slides = document.getElementsByClassName("thumbnail");
-                if (slides.length === 0) return;
-
-                // 1. Show the CURRENT image first
-                let currentSlide = slides[slideIndex];
-                changeMainImage(currentSlide.src, currentSlide);
-
-                // 2. Prepare the index for the NEXT time the function runs
-                slideIndex = (slideIndex + 1) % slides.length;
-
-                // 3. Wait 5 seconds before showing that next index
-                slideTimer = setTimeout(showSlides, 5000);
-            }
-
-        </script>
+        <script src="gallery.js"></script>
     </body>
 </html>
