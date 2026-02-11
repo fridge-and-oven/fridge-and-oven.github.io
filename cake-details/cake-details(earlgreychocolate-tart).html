@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="cake-gallery.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="gallery-container">
+            <!-- Main image viewer -->
+            <div class="main-image-viewer">
+                <img id="main-image" src="../img/earlgrey-chocotart.jpg" alt="Main image" />
+            </div>
+
+            <!-- Thumbnail gallery -->
+            <div class="thumbnail-container">
+                <img
+                    class="thumbnail"
+                    src="../img/earlgrey-chocotart02.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/earlgrey-chocotart02.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/earlgrey-chocotart03.jpg"
+                    alt="Thumbnail 2"
+                    onclick="changeMainImage('../img/earlgrey-chocotart03.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/earlgrey-chocotart04.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/earlgrey-chocotart04.jpg', this)" />
+                <img
+                     class="thumbnail"
+                    src="../img/earlgrey-chocotartsection-01.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/earlgrey-chocotartsection-01.jpg', this)" />
+
+                <!-- Add more thumbnails as needed -->
+            </div>
+        </div>
+        <h4 style="font-family: dutch801; color: black; padding-top: 10px; padding-left: 50px">AVAILABLE SIZES</h4>
+        <h4 style="font-family: dutch801; color: black; padding-top: 10px; padding-left: 80px"> 1 lb 2,550.-  </h4>
+        <p style="font-family: monospace; color: #777; padding-top: 5px; padding-left: 80px">(Tea time 5-6 serves, after meal 6-8 serves)</p>
+
+        <h4 style="font-family: dutch801; color: black; padding-top: 10px; padding-left: 50px">CARE GUIDE</h4>
+        <p style="font-family: monospace; color: black; padding-top: 5px; padding-left: 80px"> please keep refrigerated! Travel time max. 2 hours</p>
+        <p style="font-family: monospace; color: black; padding-top: 0.1px; padding-left: 80px">*WE SHIP OUR CAKES FROZEN TO HAVE THEM ARRIVE PERFECTLY TO YOU.</p>
+        <p style="font-family: monospace; color: black; padding-top: 0.1px; padding-left: 80px">3-5 days in refrigerator or 2 weeks in freezer(please store in airtight container)</p>
+        <script src="gallery.js"></script>
+    </body>
+</html>
