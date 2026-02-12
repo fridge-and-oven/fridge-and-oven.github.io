@@ -71,6 +71,19 @@
     font-style: normal;
 }
 
+/**bebas**/
+@font-face {
+  font-family: bebas;
+  src: url(Bebas-Regular.otf);
+}
+
+.font-bebas {
+    font-family: bebas;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 
 /*** Button ***/
 .btn {
