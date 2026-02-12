@@ -31,6 +31,34 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet" />
         <script src="scripts.js"></script>
+        <style>
+            .cake-img{
+                border-radius: 20px;
+                
+            }
+            .cake-box{
+                width: 150px;
+                height: 100%;
+                overflow: hidden;
+                padding: 10px;
+                text-align: center;
+            }
+            .flex-block{
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+            }
+            .grid-block{
+                display: grid; 
+                grid-template-columns: repeat(3, 1fr);
+                justify-content: center; 
+            }
+            .btt{
+                position: absolute;
+                right:    0;
+                bottom:   0;
+            }
+        </style>
     </head>
 
     <body class="bg-cake">
@@ -66,16 +94,12 @@
         <!-- Hero End -->
 
         <!-- Team Start -->
-        <div class="container-fluid overflow-hidden py-5">
-            <div class="container">
-                <div class="text-center wow fadeIn" data-wow-delay="0.2s">
-                    <!--h1 class="font-dancing-script text-primary">****************</!--h1>
-                <h1 class="mb-5">************************</h1-->
-                </div>
-                <div class="row g-4 team mb-4">
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/8.jpg" alt="" />
+        <div>
+            <div>
+                
+                <div class="flex-block">
+                    <div class="cake-box">
+                            <img class="cake-img" src="img/8.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Hazelnut Chocolate Cake</h4>
                                 <p class="text-primary mb-1">
@@ -91,12 +115,11 @@
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-Chocolate-Cake">
                                     pre order
                                 </a>
-                            </div>
+                            
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/peanutbutter-choco.jpg" alt="" />
+                    <div class="cake-box">
+                            <img class="cake-img" src="img/peanutbutter-choco.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Peanut Butter Chocolate Cake</h4>
                                 <p class="text-primary mb-1">Peanut butter, dark chocolate, burnt caramel</p>
@@ -111,11 +134,9 @@
                                     pre order
                                 </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/tropic-yo.jpg" alt="" />
+                    <div class="cake-box">
+                            <img class="cake-img" src="img/tropic-yo.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Yogurt Exotique</h4>
                                 <p class="text-primary mb-1">Passionfruit, mango, pineapple, white chocolate, yogurt</p>
@@ -128,11 +149,10 @@
                                     pre order
                                 </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/foret-vert.jpg" alt="" />
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/foret-vert.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Foret Vert</h4>
                                 <p class="text-primary mb-1">Pistachio, Genmai and cherry</p>
@@ -142,14 +162,11 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Foret-Vert"> pre order </a>
-                            </div>
-                        </div>
+                            </div>             
                     </div>
-                </div>
-                <div class="row g-4 team">
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/ryokucha-goma.jpg" alt="" />
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/ryokucha-goma.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Ryokucha Kurogoma</h4>
                                 <p class="text-primary mb-1">
@@ -163,12 +180,10 @@
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ryokucha-Kurogoma">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/jasmine-caramel.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/jasmine-caramel.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Vanilla jasmine caramel nuts</h4>
                                 <p class="text-primary mb-1">
@@ -185,12 +200,10 @@
                                     href="order.html?cake=Vanilla-jasmine-caramel-nuts">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/limon-intart.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/limon-intart.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Li-mon Pie in Tart</h4>
                                 <p class="text-primary mb-1">
@@ -204,12 +217,10 @@
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Li-mon-Pie-in-Tart">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/appleoolong-tart.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/appleoolong-tart.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Apple Caramel Oolong Tart</h4>
                                 <p class="text-primary mb-1">
@@ -223,12 +234,10 @@
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Apple-Caramel-Oolong-Tart">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/earlgrey-chocotart.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/earlgrey-chocotart.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Earlgrey Chocolate Tart</h4>
                                 <p class="text-primary mb-1">
@@ -243,12 +252,10 @@
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Earlgrey-Chocolate-Tart">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/yuzulavender-tart.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/yuzulavender-tart.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Yuzu Lavender Cheese Tart</h4>
                                 <p class="text-primary mb-1">
@@ -262,12 +269,10 @@
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Yuzu-Lavender-Cheese-Tart">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/cinnamon-cappu-honore.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/cinnamon-cappu-honore.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Cinnamon Cappucino Saint Honore</h4>
                                 <p class="text-primary mb-1">
@@ -283,12 +288,10 @@
                                     href="order.html?cake=Cinnamon-Cappucino-Saint-Honore">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/misochoc-tart.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/misochoc-tart.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Miso Caramel Chocolate Tart</h4>
                                 <p class="text-primary mb-1">miso caramel, hazelnut, darkchocolate, coffee</p>
@@ -302,12 +305,10 @@
                                     href="order.html?cake=Miso-Caramel-Chocolate-Tart">
                                     pre order
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/hazelchoc-exotique.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/hazelchoc-exotique.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Hazelnut exotique</h4>
                                 <p class="text-primary mb-1">
@@ -321,12 +322,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-Exotique"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/mocha-almond.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/mocha-almond.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Mocha Almond</h4>
                                 <p class="text-primary mb-1">
@@ -339,12 +338,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/hojicha-cherry.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/hojicha-cherry.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Hojicha cherry</h4>
                                 <p class="text-primary mb-1">
@@ -357,12 +354,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/lemoncheesepie-dacqcake.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/lemoncheesepie-dacqcake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Lemon Pie Dacquoise Cake</h4>
                                 <p class="text-primary mb-1">almond, cream cheese, lemon curd, honey, vanilla</p>
@@ -372,12 +367,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/pb-bananacake.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/pb-bananacake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Peanut Butter Banana Cake</h4>
                                 <p class="text-primary mb-1">
@@ -389,12 +382,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/apollo-brownies.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/apollo-brownies.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Apollo Brownies Sandwich Cake</h4>
                                 <p class="text-primary mb-1">
@@ -406,12 +397,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/raspberry-coffee-fig.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/raspberry-coffee-fig.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Raspberry Coffee Fig</h4>
                                 <p class="text-primary mb-1">
@@ -424,12 +413,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/pistachio-rasp.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/pistachio-rasp.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Pistachio Raspberry Cake</h4>
                                 <p class="text-primary mb-1">
@@ -441,12 +428,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/hazel-yuzu.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/hazel-yuzu.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Hazelnut Yuzu Cake</h4>
                                 <p class="text-primary mb-1">hazelnut, yuzu, dulcey chocolate, mascarpone</p>
@@ -456,12 +441,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-yuzu-cake"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/hojicha-miso.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/hojicha-miso.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Hojicha Miso Cake</h4>
                                 <p class="text-primary mb-1">
@@ -474,12 +457,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/carrot%20cake.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/carrot%20cake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Carrot Cake</h4>
                                 <p class="text-primary mb-1">
@@ -492,12 +473,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/strawberry-tart.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/strawberry-tart.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Strawberry Tart</h4>
                                 <p class="text-primary mb-1">strawberry, rhubarb, vanilla, almond</p>
@@ -507,12 +486,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/apple-pie.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/apple-pie.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Apple Pie</h4>
                                 <p class="text-primary mb-1">apple, cinnamon, allspice,</p>
@@ -522,12 +499,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/hazelnut-parisbrest.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/hazelnut-parisbrest.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Paris-Brest</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -537,12 +512,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/vanilla-mascarpone-millefeuille.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/vanilla-mascarpone-millefeuille.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Mille feuille</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -552,12 +525,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/matchagenmai-dacqcake.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/matchagenmai-dacqcake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Matcha and Genmai Dacquoise Cake</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -567,12 +538,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/raspberry-creamcheese-dacqcake.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/raspberry-creamcheese-dacqcake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Raspberry Cream Cheese Dacquoise Cake</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -582,12 +551,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/hazelchoco-dacqcake.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/hazelchoco-dacqcake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Hazelnut Chocolate Dacquoise Cake</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -597,12 +564,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/tartetatin.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/tartetatin.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Tarte Tatin</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -612,12 +577,10 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/earlstraw-basque.jpg" alt="" />
+                        </div>                     </div>
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/earlstraw-basque.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Earlgrey Strawberry Basque Cheesecake</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -628,11 +591,10 @@
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/straw-sourcreamcheesecake.jpg" alt="" />
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/straw-sourcreamcheesecake.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Vanilla Sour Cream Cheesecake with Strawberry</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -643,11 +605,10 @@
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/pistachio-tiramisu.jpg" alt="" />
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/pistachio-tiramisu.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Pistachio Tiramisu</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -658,11 +619,10 @@
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/pistachio-apricotjasmine.jpg" alt="" />
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/pistachio-apricotjasmine.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Pistachio Apricot Jasmine</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -673,11 +633,10 @@
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/tiramisu-bowl.jpg" alt="" />
+                    <div class="cake-box">
+                        
+                            <img class="cake-img" src="img/tiramisu-bowl.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Ava Brown</h4>
                                 <p class="text-primary mb-1">lemon curd</p>
@@ -688,7 +647,6 @@
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Ava-Brown"> pre order </a>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -696,7 +654,7 @@
         <!-- Team End -->
 
         <!-- Footer Start -->
-        <div class="container-fluid footer bg-primary text-white p-0">
+        <div class="container-fluid bg-primary text-white p-0">
             <div class="container">
                 <div class="row">
                     <div class="col-6 d-flex flex-column align-items-start">
