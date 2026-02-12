@@ -67,7 +67,8 @@ function order(){
     if (serviceType === "delivery") {
         var address = document.getElementById('deliveryAddress').value;
         var addressPin = document.getElementById('deliveryAddressPin').value;
-        locationDetail = `Delivery Address: ${address}
+        locationDetail = `Location: ${method}
+    Delivery Address: ${address}
     Delivery Pin: ${addressPin}`;
     } else {
         var method = document.querySelector('input[name="pickupMethod"]:checked').value;
