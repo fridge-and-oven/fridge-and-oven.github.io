@@ -51,14 +51,29 @@ function setCakeSizes(urlParams){
 }
 
 function order(){
-    var name = document.getElementById('name').value; // Nomad
+    var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
     var size = document.getElementById('size').value;
     var amount = document.getElementById('amount').value;
     var deliveryDate = document.getElementById('datepicker').value;
     var pickupTime = document.getElementById('pickup-time').value;
     var notes = document.getElementById('notes').value;
+    var serviceType = document.querySelector('input[name="serviceType"]:checked').value;// Get Service Type (Pickup or Delivery)  
+
     var url = "https://line.me/R/oaMessage/@fridgeandoven/?";
+
+    // Build the dynamic part of the message
+    var locationDetail = "";
+    var method = document.querySelector('input[name="pickupMethod"]:checked').value;
+    if (serviceType === "delivery") {
+        var address = document.getElementById('deliveryAddress').value;
+        var addressPin = document.getElementById('deliveryAddressPin').value;
+        locationDetail = `Location: ${method}
+    Delivery Address: ${address}
+    Delivery Pin: ${addressPin}`;
+    } else {
+        locationDetail = `Pickup Location: ${method}`;
+    }
 
     var rawMessage = `Pre-order: ${cake.replaceAll("-", " ")}
     Name: ${name}
@@ -67,7 +82,8 @@ function order(){
     Amount: ${amount}
     Delivery Date: ${deliveryDate}
     Pickup Time: ${pickupTime}
-    Notes: ${notes}`;
+    Notes: ${notes}
+    ${locationDetail}`;
 
     var message = encodeURIComponent(rawMessage);
 

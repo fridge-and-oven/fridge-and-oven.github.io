@@ -104,16 +104,16 @@
         <!-- Contact Start -->
         <div class="container-fluid py-5">
             <div class="container">
-                <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <div >
                     <h1 class="font-dancing-script text-primary" id="cake">Pre Order</h1>
-                    <h1 class="mb-5">cake</h1>
+                    
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <h4 class="text-center lh-base mb-4" id="demo">
                             Pre order needs to be at least 5 days before delivery date. (not including Sundays)
                         </h4>
-                        <div class="wow fadeIn" data-wow-delay="0.3s">
+                        <div >
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -151,23 +151,58 @@
                                     </div>
                                 </div>
                                 <div></div>
+
+                                <!-- Service Type Selection -->
+                                <div class="col-12">
+                                    <div class="selection-group">
+                                        <label class="form-label">How would you like to receive your cake?</label>
+                                        
+                                        <!-- Pickup Option -->
+                                        <div class="radio-row">
+                                            <input 
+                                                type="radio" 
+                                                name="serviceType" 
+                                                id="typePickup" 
+                                                value="pickup" 
+                                                class="force-radio" 
+                                                checked>
+                                            <label for="typePickup" class="radio-label">Pickup</label>
+                                        </div>
+
+                                        <!-- Delivery Option -->
+                                        <div class="radio-row">
+                                            <input 
+                                                type="radio" 
+                                                name="serviceType" 
+                                                id="typeDelivery" 
+                                                value="delivery" 
+                                                class="force-radio">
+                                            <label for="typeDelivery" class="radio-label">Delivery</label>
+                                        </div>
+                                    </div>
+                                </div>
+
         
                                 <div class="col-md-6">
                                     <!-- Radio Button Group for date picker -->
-                                    <div class="selection-group">
-                                        <p><strong>Choose Pickup location:</strong></p>
+
+                                    <div id="pickupMethodContainer">
+                                        <div class="selection-group" id="pickupMethodContainer">
+                                            <p><strong>Choose Location:</strong></p>
                                         
-                                    <p>***we're closed on Sunday</p>
-                                        <!-- Row 1 -->
-                                        <div class="radio-row">
-                                            <input type="radio" id="store" name="pickupMethod" value="store" class="force-radio" checked>
-                                            <label for="store" class="radio-label">Srinakarin 38(Mon/Thu)</label>
-                                        </div>
-                                    
-                                        <!-- Row 2 -->
-                                        <div class="radio-row">
-                                            <input type="radio" id="home" name="pickupMethod" value="home" class="force-radio">
-                                            <label for="home" class="radio-label">Chongnonsi (Tue/Wed/Fri/Sat)</label>
+                                            <p>***we're closed on Sunday</p>
+                                            <!-- Row 1 -->
+                                            <div class="radio-row">
+                                                <input type="radio" id="store" name="pickupMethod" value="Srinakarin 38" class="force-radio" checked>
+                                                <label for="store" class="radio-label">Srinakarin 38(Mon/Thu)</label>
+                                            </div>
+                                        
+                                            <!-- Row 2 -->
+                                            <div class="radio-row">
+                                                <input type="radio" id="home" name="pickupMethod" value="Chongnonsi" class="force-radio">
+                                                <label for="home" class="radio-label">Chongnonsi (Tue/Wed/Fri/Sat)</label>
+                                            </div>
+
                                         </div>
                                     </div>
                                     
@@ -189,7 +224,22 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
+                                <!-- Delivery Address (Hidden by default) -->
+                                <div class="col-12" id="deliveryAddressContainer" style="display: none;">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="deliveryAddress" placeholder="Enter Delivery Address">
+                                        <label for="deliveryAddress">Delivery Address</label>
+                                    </div>
+                                </div>
+                                <!-- Delivery Address PIN (Hidden by default) -->
+                                <div class="col-12" id="deliveryAddressPinContainer" style="display: none;">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="deliveryAddressPin" placeholder="Copy Link For Delivery Location Pin Here">
+                                        <label for="deliveryAddress">Copy Link For Delivery Location Pin Here</label>
+                                    </div>
+                                </div>
+                                                                
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea
@@ -221,7 +271,7 @@
         <!-- Contact End -->
 
         <!-- Footer Start -->
-        <div class="container-fluid footer bg-primary text-white p-0">
+        <div class="container-fluid bg-primary text-white p-0">
     <div class="container">
         <div class="row">
             <div class="col-6 d-flex flex-column align-items-start">

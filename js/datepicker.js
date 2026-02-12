@@ -13,8 +13,15 @@ $(function () {
         // 1. Check if Amount is a valid number
         var isAmountNumeric = (amount !== "" && !isNaN(amount));
         
-        // 2. Check if all fields are filled
-        var allFilled = (name !== "" && phone !== "" && size !== null && amount !== "" && date !== "" && pickup !== undefined && pickupTime !== null);
+        var serviceType = $("input[name='serviceType']:checked").val();
+        var address = $('#deliveryAddress').val().trim();
+        var addressPin = $('#deliveryAddressPin').val().trim();
+
+        var allFilled = (name !== "" && phone !== "" && size !== null && amount !== "" && date !== "" && pickupTime !== null && pickup !== undefined);
+
+        if (serviceType === "delivery") {
+            allFilled = allFilled && (address !== "") && (addressPin !== "");
+        } 
     
         // 3. Logic to determine error message text
         if (!isAmountNumeric && amount !== "") {
@@ -37,8 +44,8 @@ $(function () {
     function addLegend() {
         setTimeout(function() {
             var footer = $('<div class="datepicker-footer-legend">' +
-                '<div class="legend-row"><div class="legend-box box-yellow"></div>Pickup in Store (Mon/Thu)</div>' +
-                '<div class="legend-row"><div class="legend-box box-blue"></div>Pickup at Home (Tue/Wed/Fri/Sat)</div>' +
+                '<div class="legend-row"><div class="legend-box box-yellow"></div>Srinakarin 38 (Mon/Thu)</div>' +
+                '<div class="legend-row"><div class="legend-box box-blue"></div>Chongnonsi (Tue/Wed/Fri/Sat)</div>' +
             '</div>');
             if ($('#ui-datepicker-div').find('.datepicker-footer-legend').length === 0) {
                 $('#ui-datepicker-div').append(footer);
@@ -69,10 +76,10 @@ $(function () {
             var className = "";
 
             if (!isSunday) {
-                if (pickupType === "store" && isStoreDay) {
+                if (pickupType === "Srinakarin 38" && isStoreDay) {
                     isSelectable = true;
                     className = "highlight-yellow";
-                } else if (pickupType === "home" && isHomeDay) {
+                } else if (pickupType === "Chongnonsi" && isHomeDay) {
                     isSelectable = true;
                     className = "highlight-blue";
                 }
@@ -82,11 +89,33 @@ $(function () {
     });
 
     // 3. Listeners for input changes
-    $('#name, #phone, #amount, #size, #pickup-time').on('keyup change input', validateForm);
+    $('#name, #phone, #amount, #size, #pickup-time, #deliveryAddress, #deliveryAddressPin').on('keyup change input', validateForm);
 
     $("input[name='pickupMethod']").on("change", function() {
         $("#datepicker").val(""); 
         $("#datepicker").datepicker("refresh");
         validateForm(); // Re-validate when method changes
     });
+
+    $("input[name='serviceType']").on("change", function() {
+        var serviceType = $(this).val();
+        
+        if (serviceType === "pickup") {
+            $("#deliveryAddressContainer").hide();
+            $("#deliveryAddressPinContainer").hide();
+            $("#deliveryAddress").val(""); // Clear address if switching back
+            $("#deliveryAddressPin").val(""); // Clear address Pin if switching back
+        } else {
+            $("#deliveryAddressContainer").show();
+            $("#deliveryAddressPinContainer").show();
+        }
+        
+        // Refresh datepicker and validation
+        $("#datepicker").val(""); 
+        $("#datepicker").datepicker("refresh");
+        validateForm();
+    });
+    
+
+
 });
