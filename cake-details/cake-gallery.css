@@ -3,6 +3,8 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
+                padding-top: 50px;
+                
             }
 
             .main-image-viewer img {
@@ -10,28 +12,29 @@
                 height: auto;
                 /* Set a specific size for the main image area if desired */
                 width: 400px;
-                height: 400px;
+                
                 object-fit: cover; /* Ensures images cover the area without distortion */
-                border: 1px solid #ccc;
+                border: 1px solid #ff0014;
                 border-radius: 20px;
                 padding: 5px;
             }
 
             .thumbnail-container {
                 display: flex;
-                gap: 5px;
+                gap: 10px;
                 flex-wrap: wrap;
             }
 
             .thumbnail-container img {
                 width: 90px; /* Set a fixed width for thumbnails */
-                height: 70px;
+                height: 90px;
                 object-fit: cover;
                 cursor: pointer; /* Changes cursor to a hand to indicate interactivity */
-                border: 1px solid #ccc;
+                border: 1px solid #fff3cb;
+                border-radius: 15px;
                 transition: border-color 0.3s; /* Smooth transition for hover effect */
             }
 
             .thumbnail-container img:hover {
-                border-color: #777; /* Visual feedback on hover */
+                border-color: #f0e9c9; /* Visual feedback on hover */
             }

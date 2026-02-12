@@ -31,6 +31,33 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet" />
         <script src="scripts.js"></script>
+        <style>
+            .cake-img{
+                border-radius: 20px;
+                
+            }
+            .cake-box{
+                width: 140px;
+                height: 100%;
+                overflow: hidden;
+                padding: 10px;
+                text-align: center;
+            }
+            .flex-block{
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+            }
+            .grid-block{
+                display: grid; 
+                grid-template-columns: repeat(3, 1fr);
+                justify-content: center; 
+            }
+            .btt{
+                position: absolute;
+                right:    0;
+                bottom:   0;
+            }</style>
     </head>
 
     <body class="bg-cake">
@@ -66,8 +93,7 @@
         <!-- Hero End -->
 
         <!-- Team Start -->
-        <div class="container-fluid overflow-hidden py-5">
-            <div class="container">
+        <div class="flex-block" style="padding-bottom: 5px ;"> 
                 <div class="text-center wow fadeIn" data-wow-delay="0.2s">
                     <h1 class="font-dancing-script text-primary">MELTAWAY COOKIES</h1>
                          <div class="cta-section">
@@ -75,19 +101,16 @@
                     <a href="https://r.grab.com/g/6-20260205_214056_F70FA8902A7046A6A245E85E50435FEE_MEXMPS-3-C7BZRUNFJJ52E6" class="order-link">ORDER NOW</a>
                     <div class="divider"></div>
                 </div>
-                </div>
-                <div class="row g-4 team mb-4">
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="team-item position-relative overflow-hidden">
+       <div class="flex-block" style="padding-bottom: 5px ;">         
+                    <div class="cake-box">
                             <img class="img-fluid w-100" src="img/pecan-meltaway.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Pecan Meltaway</h4>
                                 <p class="text-primary mb-1">melty texture vanilla base butter cookies with chopped dark roast pecan</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="team-item position-relative overflow-hidden">
+
+                    <div class="cake-box">
                             <img class="img-fluid w-100" src="img/matcha-melt.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Matcha Meltaway</h4>
@@ -96,10 +119,9 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
+                    <div class="cake-box">
                             <img class="img-fluid w-100" src="img/choc-melt.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Chocolate Meltaway</h4>
@@ -107,19 +129,21 @@
                                     melty texture dark chocolate cookies
                                 </p>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
+                    
+                    <div class="cake-box">
                             <img class="img-fluid w-100" src="img/parmesan-melt.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Purple sweet potato parmesan meltaway</h4>
                                 <p class="text-primary mb-1">purple sweet potato cookies with parmesan cheese</p>
                             </div>
                         </div>
-                    </div>
-                                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item position-relative overflow-hidden">
+                    
+        </div>
+                    
+                    
+                    
+                                        <div class="cake-box">
                             <img class="img-fluid w-100" src="img/b4.jpg" alt="" />
                             <div class="w-100 align-items-center">
                                 <h4>Bourbon brown butter burnt caramel pecan</h4>
@@ -164,8 +188,7 @@
                 </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
         <!-- Team End -->
 
         <!-- Footer Start -->

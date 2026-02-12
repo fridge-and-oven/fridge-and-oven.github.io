@@ -31,11 +31,9 @@ function addNavTool(){
                                             <input type="checkbox" id="nested-toggle" />
 
                                             <ul class="nested-submenu nav-item">
-                                                <li><a href="our-cakes.html" class="dropdown-item nav-link" style="font-size:x-small">all cakes</a>
+                                                <li><a href="our-cakes-edited.html" class="dropdown-item nav-link" style="font-size:x-small">all cakes</a>
                                                 </li>
-                                                <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">nuts</a></li>
-                                                <li><a href="#" class="dropdown-item nav-link" style="font-size:x-small">fruits</a></li>
-                                                <li><a href="#" class="dropdown-item nav-link" style="font-size: x-small">chocolate</a></li><li><a href="#" class="dropdown-item nav-link" style="font-size:x-small">tea</a></li>
+                                                <li><a href="categories.html" class="dropdown-item nav-link" style="font-size: x-small">by categories</a></li>
                                                 <li><a href="tart-n-pie.html" class="dropdown-item nav-link" style="font-size: x-small">tart and pie</a></li>
                                             </ul>
                                         </li>
