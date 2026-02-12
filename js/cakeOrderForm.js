@@ -64,6 +64,7 @@ function order(){
 
     // Build the dynamic part of the message
     var locationDetail = "";
+    var method = document.querySelector('input[name="pickupMethod"]:checked').value;
     if (serviceType === "delivery") {
         var address = document.getElementById('deliveryAddress').value;
         var addressPin = document.getElementById('deliveryAddressPin').value;
@@ -71,7 +72,6 @@ function order(){
     Delivery Address: ${address}
     Delivery Pin: ${addressPin}`;
     } else {
-        var method = document.querySelector('input[name="pickupMethod"]:checked').value;
         locationDetail = `Pickup Location: ${method}`;
     }
 
