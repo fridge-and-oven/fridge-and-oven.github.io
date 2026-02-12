@@ -68,7 +68,7 @@ function order(){
         var address = document.getElementById('deliveryAddress').value;
         var addressPin = document.getElementById('deliveryAddressPin').value;
         locationDetail = `Delivery Address: ${address}
-Delivery Pin: ${addressPin}`;
+    Delivery Pin: ${addressPin}`;
     } else {
         var method = document.querySelector('input[name="pickupMethod"]:checked').value;
         locationDetail = `Pickup Location: ${method}`;
