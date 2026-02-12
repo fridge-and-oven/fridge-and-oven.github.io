@@ -44,8 +44,8 @@ $(function () {
     function addLegend() {
         setTimeout(function() {
             var footer = $('<div class="datepicker-footer-legend">' +
-                '<div class="legend-row"><div class="legend-box box-yellow"></div>Pickup in Store (Mon/Thu)</div>' +
-                '<div class="legend-row"><div class="legend-box box-blue"></div>Pickup at Home (Tue/Wed/Fri/Sat)</div>' +
+                '<div class="legend-row"><div class="legend-box box-yellow"></div>Srinakarin 38 (Mon/Thu)</div>' +
+                '<div class="legend-row"><div class="legend-box box-blue"></div>Chongnonsi (Tue/Wed/Fri/Sat)</div>' +
             '</div>');
             if ($('#ui-datepicker-div').find('.datepicker-footer-legend').length === 0) {
                 $('#ui-datepicker-div').append(footer);
@@ -76,10 +76,10 @@ $(function () {
             var className = "";
 
             if (!isSunday) {
-                if (pickupType === "store" && isStoreDay) {
+                if (pickupType === "Srinakarin 38" && isStoreDay) {
                     isSelectable = true;
                     className = "highlight-yellow";
-                } else if (pickupType === "home" && isHomeDay) {
+                } else if (pickupType === "Chongnonsi" && isHomeDay) {
                     isSelectable = true;
                     className = "highlight-blue";
                 }
