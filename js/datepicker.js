@@ -13,8 +13,15 @@ $(function () {
         // 1. Check if Amount is a valid number
         var isAmountNumeric = (amount !== "" && !isNaN(amount));
         
-        // 2. Check if all fields are filled
-        var allFilled = (name !== "" && phone !== "" && size !== null && amount !== "" && date !== "" && pickup !== undefined && pickupTime !== null);
+        var serviceType = $("input[name='serviceType']:checked").val();
+        var address = $('#deliveryAddress').val().trim();
+        var addressPin = $('#deliveryAddressPin').val().trim();
+
+        var allFilled = (name !== "" && phone !== "" && size !== null && amount !== "" && date !== "" && pickupTime !== null && pickup !== undefined);
+
+        if (serviceType === "delivery") {
+            allFilled = allFilled && (address !== "") && (addressPin !== "");
+        } 
     
         // 3. Logic to determine error message text
         if (!isAmountNumeric && amount !== "") {
@@ -82,11 +89,33 @@ $(function () {
     });
 
     // 3. Listeners for input changes
-    $('#name, #phone, #amount, #size, #pickup-time').on('keyup change input', validateForm);
+    $('#name, #phone, #amount, #size, #pickup-time, #deliveryAddress, #deliveryAddressPin').on('keyup change input', validateForm);
 
     $("input[name='pickupMethod']").on("change", function() {
         $("#datepicker").val(""); 
         $("#datepicker").datepicker("refresh");
         validateForm(); // Re-validate when method changes
     });
+
+    $("input[name='serviceType']").on("change", function() {
+        var serviceType = $(this).val();
+        
+        if (serviceType === "pickup") {
+            $("#deliveryAddressContainer").hide();
+            $("#deliveryAddressPinContainer").hide();
+            $("#deliveryAddress").val(""); // Clear address if switching back
+            $("#deliveryAddressPin").val(""); // Clear address Pin if switching back
+        } else {
+            $("#deliveryAddressContainer").show();
+            $("#deliveryAddressPinContainer").show();
+        }
+        
+        // Refresh datepicker and validation
+        $("#datepicker").val(""); 
+        $("#datepicker").datepicker("refresh");
+        validateForm();
+    });
+    
+
+
 });
