@@ -12,6 +12,9 @@ $(function () {
     
         // 1. Check if Amount is a valid number
         var isAmountNumeric = (amount !== "" && !isNaN(amount));
+
+        //check if phone is valid phone number
+        var isPhoneGood = (phone !== "" && !isNaN(phone) && phone.length === 10);
         
         var serviceType = $("input[name='serviceType']:checked").val();
         var address = $('#deliveryAddress').val().trim();
@@ -24,7 +27,12 @@ $(function () {
         } 
     
         // 3. Logic to determine error message text
-        if (!isAmountNumeric && amount !== "") {
+        if (!isPhoneGood && phone !== "") {
+            $('#validationMsg').html('<i class="bi bi-exclamation-circle me-1"></i>Phone number must be 10 numbers.');
+            $('#validationMsg').fadeIn(200);
+            $('#orderButton').prop('disabled', true);
+        }
+        else if (!isAmountNumeric && amount !== "") {
             $('#validationMsg').html('<i class="bi bi-exclamation-circle me-1"></i>Amount must be a number.');
             $('#validationMsg').fadeIn(200);
             $('#orderButton').prop('disabled', true);
