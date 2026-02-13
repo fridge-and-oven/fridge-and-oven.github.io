@@ -58,6 +58,12 @@
                 right:    0;
                 bottom:   0;
             }
+            .link{
+            padding: 0 px;
+            text-align: center;
+            cursor: pointer;
+            
+        }
         </style>
     </head>
 
@@ -96,38 +102,24 @@
         <!-- Team Start -->
         <div>
             <div>
-    <div class="flex-block" style="padding-bottom: 5px ;">
+    <div class="flex-block" style="padding-bottom: 5px ;" >
                     <div class="cake-box">
-                            <img class="cake-img" src="img/8.jpg" alt="" />
+                            <img class="cake-img link" src="img/8.jpg" alt="" onclick="openIframePopup('cake-details/cake-details.html')"/>
                             <div class="w-100 align-items-center">
-                                <h5>Hazelnut Chocolate Cake</h5>
-                                <button
-                                    onclick="openIframePopup('cake-details/cake-details.html')"
-                                    class="orderbutton detailsbutton">
-                                    details
-                                </button>
-                                <br />
-
+                                <h5 style="font-family: bebas;">Hazelnut Chocolate Cake</h5>
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-Chocolate-Cake">
-                                    pre order
+                                    PRE 0RDER
                                 </a>
                             
                         </div>
                     </div>
                     <div class="cake-box">
-                            <img class="cake-img" src="img/peanutbutter-choco.jpg" alt="" />
+                            <img class="cake-img link" src="img/peanutbutter-choco.jpg" alt="" onclick="openIframePopup('cake-details/cake-details(peanut-choco).html')"/>
                             <div class="w-100 align-items-center">
-                                <h5>Peanut Butter Chocolate Cake</h5>
-                                
-                                <button
-                                    onclick="openIframePopup('cake-details/cake-details(peanut-choco).html')"
-                                    class="orderbutton detailsbutton">
-                                    details</button
-                                ><br />
-                                <a
-                                    class="orderbutton preorderbutton"
+                                <h5 style="font-family: bebas;">Peanut Butter Chocolate Cake</h5>
+                                <a class="orderbutton preorderbutton"
                                     href="order.html?cake=Peanut-Butter-Chocolate-Cake">
-                                    pre order
+                                    PRE 0RDER
                                 </a>
                             </div>
                     </div>
@@ -142,7 +134,7 @@
                                     details</button
                                 ><br />
                                 <a class="orderbutton preorderbutton" href="order.html?cake=Yogurt-Exotique">
-                                    pre order
+                                    PRE 0RDER
                                 </a>
                             </div>
                     </div>
@@ -278,7 +270,7 @@
                                 <h4>Miso Caramel Chocolate Tart</h4>
                                 <p class="text-primary mb-1"></p>
                                 <button
-                                    onclick="openIframePopup('cake-details/hazelnut-choco.html')"
+                                    onclick="openIframePopup('cake-details/cake-details(misocaramel-choctart).html')"
                                     class="orderbutton detailsbutton">
                                     details</button
                                 ><br />
@@ -294,12 +286,9 @@
                             <div class="w-100 align-items-center">
                                 <h4>Hazelnut exotique</h4>
                                 <p class="text-primary mb-1">
-                                    hazelnut dacquoise, hazelnut feuillantine, hazelnut dulcey chocolate mousse,
-                                    pineapple, mango and passionfruit jelly, dark chocolate orange ganache, chocolate
-                                    chantilly, hazelnut dulcey chocolate chantilly
                                 </p>
                                 <button
-                                    onclick="openIframePopup('cake-details/hazelnut-choco.html')"
+                                    onclick="openIframePopup('cake-details/cake-details(hazelnut-exotique).html')"
                                     class="orderbutton detailsbutton">
                                     details</button
                                 ><br />
@@ -315,7 +304,7 @@
                                     chantilly, mocha ganache, almond crumbles
                                 </p>
                                 <button
-                                    onclick="openIframePopup('cake-details/hazelnut-choco.html')"
+                                    onclick="openIframePopup('cake-details/cake-details(mochaalmond).html')"
                                     class="orderbutton detailsbutton">
                                     details</button
                                 ><br />
