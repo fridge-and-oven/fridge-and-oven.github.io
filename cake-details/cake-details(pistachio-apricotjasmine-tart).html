@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="cake-gallery.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="gallery-container">
+            <!-- Main image viewer -->
+            <div class="main-image-viewer">
+                <img id="main-image" src="../img/pistachio-apricotjasmine.jpg" alt="Main image" />
+            </div>
+
+            <!-- Thumbnail gallery -->
+            <div class="thumbnail-container">
+                <img
+                    class="thumbnail"
+                    src="../img/pistachio-apricotjasmine.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/pistachio-apricotjasmine.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/pistachio-apricotjasmine02.jpg"
+                    alt="Thumbnail 2"
+                    onclick="changeMainImage('../img/pistachio-apricotjasmine02.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/pistachio-apricotjasmine03.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/pistachio-apricotjasmine03.jpg', this)" />
+                <img
+                     class="thumbnail"
+                    src="../img/pistachio-apricotjasmine04.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/pistachio-apricotjasmine04.jpg', this)" />
+                                <img
+                     class="thumbnail"
+                    src="../img/pistachio-apricotjasmine05-01.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/pistachio-apricotjasmine05-01.jpg', this)" />
+                <!-- Add more thumbnails as needed -->
+            </div>
+        </div>
+        <p style="font-family: dutch801; padding-top: 10px; text-align: center">Sicilain pistachio, almond, vanilla, dark rum, Cointreau, Valrhona Ivoire white chocolate, apricot, Oolong jasmine tea, lemon, cardamom</p>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">AVAILABLE SIZES</h5>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 15px"> 1 lb 2,400.-  </h5>
+        <p style="font-family: dutch801; color: #777; padding-top: 5px; padding-left: 15px">(Tea time 4-6 serves, after meal 6-8 serves)</p>
+
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">CARE GUIDE</h5>
+        <p style="font-family: dutch801; color: black; padding-top: 5px; padding-left: 15px"> please keep refrigerated! Travel time max. 2 hours</p>
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">*WE SHIP OUR CAKES FROZEN TO HAVE THEM ARRIVE PERFECTLY TO YOU.</p>
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">3-5 days in refrigerator or 2 weeks in freezer(please store in airtight container)</p>
+        <script src="gallery.js"></script>
+    </body>
+</html>
