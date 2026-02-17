@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="cake-gallery.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="gallery-container">
+            <!-- Main image viewer -->
+            <div class="main-image-viewer">
+                <img id="main-image" src="../img/tartetatin.jpg" alt="Main image" />
+            </div>
+
+            <!-- Thumbnail gallery -->
+            <div class="thumbnail-container">
+                <img
+                    class="thumbnail"
+                    src="../img/tartetatin.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/tartetatin.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/tartetatin02.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/tartetatin02.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/tartetatin03.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/tartetatin03.jpg', this)" />
+                <!-- Add more thumbnails as needed -->
+            </div>
+        </div>
+        <p style="font-family: dutch801; padding-top: 10px; text-align: center">Apple baked in caramel with flaky puff pastry<br>
+        honey, bourbon, vanilla, cinnamon, apple cider</p>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">AVAILABLE SIZES</h5>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 15px"> 2 lb 2,500.-  </h5>
+        <p style="font-family: dutch801; color: #777; padding-top: 5px; padding-left: 15px">(Tea time 6-8 serves, after meal 8-10 serves)</p>
+
+       <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">CARE GUIDE</h5>
+        <p style="font-family: dutch801; color: black; padding-top: 5px; padding-left: 15px">Can be kept at room temperature and travels well for long journeys.</p>
+
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">3-5 days in refrigerator or 2 weeks in freezer(please store in airtight container)<br>
+        *consumed on the day of receipt for the best crispness, as the apple filling may soften the pastry over time.</p>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">REHEAT GUIDE</h5>
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">1. preheat oven to 150 c<br>
+        2. bake for 6-8 minutes with fan on</p>
+        <script src="gallery.js"></script>
+    </body>
+</html>

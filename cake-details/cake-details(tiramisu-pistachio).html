@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="cake-gallery.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="gallery-container">
+            <!-- Main image viewer -->
+            <div class="main-image-viewer">
+                <img id="main-image" src="../img/pistachio-tiramisu.jpg" alt="Main image" />
+            </div>
+
+            <!-- Thumbnail gallery -->
+            <div class="thumbnail-container">
+                <img
+                    class="thumbnail"
+                    src="../img/pistachio-tiramisu.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/pistachio-tiramisu.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/pistachio-tiramisu02.jpg"
+                    alt="Thumbnail 2"
+                    onclick="changeMainImage('../img/pistachio-tiramisu02.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/pistachio-tiramisu03.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/pistachio-tiramisu03.jpg', this)" />
+
+                <!-- Add more thumbnails as needed -->
+            </div>
+        </div>
+        <p style="font-family: dutch801; padding-top: 10px; text-align: center">cocoa honey genoise sponge, espresso and Sicilian pistachio white chocolate mascarpone cream topped with lots of chopped pistachio all in a tart<br>
+        Valrhona cocoa powder, honey, Captain morgan dark rum, Disaronno, Sicilian pistachio paste,Valrhona ivoire white chocolate, Valrhona Guanaja dark chocolate for decoration</p>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">AVAILABLE SIZES</h5>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 15px"> 1 lb  2,650.-  </h5>
+        <p style="font-family: dutch801; color: #777; padding-top: 5px; padding-left: 15px">(Tea time 4-6 serves, after meal 6-8 serves)</p>
+
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">CARE GUIDE</h5>
+        <p style="font-family: dutch801; color: black; padding-top: 5px; padding-left: 15px"> please keep refrigerated! Travel time max. 2 hours</p>
+        
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">3-5 days in refrigerator(please store in airtight container)</p>
+        <script src="gallery.js"></script>
+    </body>
+</html>
