@@ -293,7 +293,9 @@
     background: var(--bs-primary);
 }
 
-
+.primary-text{
+    color: var(--bs-primary);
+}
 /*** Hero Header ***/
 .hero-header {
     /***background: url(../img/cookies.jpg) top left no-repeat;***/
