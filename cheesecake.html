@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Fridge and Oven-Our Cakes</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="keywords" />
+        <meta content="" name="description" />
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon" />
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
+            rel="stylesheet" />
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet" />
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet" />
+        <script src="scripts.js"></script>
+        <style>
+            .cake-img {
+                border-radius: 20px;
+            }
+            .cake-box {
+                width: 140px;
+                height: 100%;
+                overflow: hidden;
+                padding: 10px;
+                text-align: center;
+            }
+            .flex-block {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .grid-block {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-content: center;
+            }
+            .btt {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            .link {
+                padding: 0 px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .fontcake {
+                font-family: bebas;
+            }
+        </style>
+    </head>
+
+    <body class="bg-cake">
+        <!-- Spinner Start -->
+        <div
+            id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <span id="navtool"></span>
+        <script src="nav.js"></script>
+        <script>
+            window.onload = addNavTool();
+        </script>
+
+        <!-- Hero Start -->
+        <div class="flex-box padding-top: 50px;">
+            <div class="container text-center py-5">
+                <h1 class="display-1 animated slideInLeft">Cheesecakes</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
+                        <li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-primary" href="categories.html">Categories</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cheesecake</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <!-- Team Start -->
+        <div>
+            <div>
+                <div class="flex-block" style="padding-bottom: 5px">
+                    
+                        <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/plainbasque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(plain-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Plain basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Plain-Basque-Cheesecake"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/earlstraw-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(earlstraw-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Earlgrey Strawberry Basque Cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Earlgrey-Strawberry-Basque-Cheesecake">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    
+                                        <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/blackstickyrice-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(blacksticky-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">black sticky rice basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Black-Sticky-Rice-Basque-Cheesecake"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/straw-sourcreamcheesecake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(sourcream-cheesecake).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Vanilla Sour Cream Cheesecake with Strawberry</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Strawberry-Sour-Cream-Cheesecake">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    
+
+                    
+                    
+                </div>
+            </div>
+            <!-- Team End -->
+
+            <!-- Footer Start -->
+            <div class="container-fluid bg-primary text-white p-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 d-flex flex-column align-items-start">
+                            <a href="#" class="footer-link">ORDER ONLINE</a>
+                            <a href="#" class="footer-link">ABOUT US</a>
+                            <a href="#" class="footer-link">INSTAGRAM</a>
+                            <a href="#" class="footer-link">LOCATIONS</a>
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-end align-items-end">
+                            <div class="footer-logo-box bg-nav" style="padding: 15px">
+                                <h1
+                                    class="footer-logo-text"
+                                    style="color: #f5e4af; font-size: 20px; white-space: nowrap">
+                                    FRIDGE AND OVEN
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <div
+            id="popupContainer"
+            style="
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #00000080;
+                z-index: 9999;
+            ">
+            <div
+                id="popupContent"
+                style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #f5e4af;
+                    padding: 20px;
+                    border-radius: 20px;
+                    border: 8px solid #b41212;
+                ">
+                <!-- Iframe will be inserted here -->
+                <button
+                    onclick="closePopup()"
+                    style="
+                        font-size: medium;
+                        font-weight: bolder;
+                        padding: 4px 10px;
+                        float: right;
+                        border-radius: 10px;
+                    ">
+                    &times;
+                </button>
+            </div>
+        </div>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
