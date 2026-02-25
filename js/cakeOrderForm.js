@@ -32,7 +32,7 @@ function setCakeSizes(urlParams){
             sizeSelect.innerHTML = '<option value="" selected disabled>Select Cake Size</option>';
             
             // Split string by comma and create new options
-            const sizesArray = cakeSizes.split(',');
+            const sizesArray = cakeSizes.split('{');
             sizesArray.forEach(size => {
                 const option = document.createElement('option');
                 option.value = size.trim().toLowerCase();
