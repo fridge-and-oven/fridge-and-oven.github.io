@@ -32,148 +32,74 @@
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/morestyle.css" rel="stylesheet" />
         <style>
-            :root {
-                --bg-blue: #6d9bb4;
-                --card-cream: #ece6d1;
-                --text-red: #cc5d4c;
-                --text-black: #000000;
-            }
-
+            /* Responsive container for the iframe */
             .container {
-                width: 100%;
-                max-width: 900px;
+                width: 95%;
+                max-width: 600px; /* Keeps it tight for popups */
+                margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 30px; /* Space between images */
+                padding-bottom: 50px;
             }
 
-            .card {
-                background-color: var(--card-cream);
-                border-radius: 40px;
-                padding: 40px;
-                position: relative;
-                min-height: 40px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .content-grid {
-                display: flex;
-                gap: 40px;
-                flex-wrap: wrap;
-            }
-
-            .left-column {
-                flex: 1;
-                min-width: 300px;
-            }
-
-            .right-column {
-                flex: 1;
-                min-width: 250px;
-                padding-top: 40px;
-            }
-
-            h2 {
-                color: var(--text-red);
-                font-size: 2.5rem;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                margin-top: 0;
-                margin-bottom: 20px;
-            }
-
-            .image-box {
+            /* Ensure images don't explode out of the iframe */
+            .container img {
                 width: 100%;
-                height: 250px;
-                border-radius: 60px;
-                overflow: hidden;
-                border: 1px solid #333;
-                margin-bottom: 15px;
+                height: auto;
+                display: block;
+                border-radius: 12px; /* Softer look */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Adds depth */
+                border: 1px solid #eee;
             }
 
-            .image-box img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .caption {
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 3px;
-                font-size: 0.85rem;
-                line-height: 1.6;
+            /* Optional: Add a label for each image if needed */
+            .size-guide-item {
                 text-align: center;
             }
 
-            h3 {
-                font-size: 2.2rem;
-                margin: 0 0 15px 0;
-                font-weight: 800;
-            }
-
-            .info-text {
-                font-size: 0.9rem;
-                line-height: 1.5;
-                margin-bottom: 20px;
-            }
-
-            .status-bold {
-                font-weight: bold;
-                font-size: 0.85rem;
-                margin-top: 25px;
+            .size-guide-item span {
                 display: block;
-            }
-
-            .btn-resume {
-                position: absolute;
-                bottom: 30px;
-                right: 40px;
-                border: 1px solid #333;
-                padding: 8px 35px;
-                border-radius: 10px;
-                text-decoration: none;
-                color: #0a0000;
-                font-size: 0.75rem;
+                margin-bottom: 10px;
+                font-family: 'Playfair Display', serif;
+                font-weight: bold;
+                color: var(--text-red);
+                text-transform: uppercase;
                 letter-spacing: 1px;
-                background: transparent;
             }
 
-            @media (max-width: 600px) {
-                .card {
-                    padding: 25px;
-                }
-                .content-grid {
-                    flex-direction: column;
-                }
-                .btn-resume {
-                    position: static;
-                    display: block;
-                    text-align: center;
-                    margin-top: 20px;
-                }
+            /* Remove that massive bottom padding you had in the inline style */
+            .guide-wrapper {
+                text-align: center;
+                padding-bottom: 40px !important; 
             }
+
         </style>
     </head>
 
     <body class="bg-index">
         
-        <h1 style="text-align: center; font-size: 30px; padding-top: 20px;">SIZE GUIDE</h1>
-        <div style="text-align: center; padding-bottom: 270px;">
-           
-            
-                <div class="container">
-                    
+        <h1 style="text-align: center; font-size: 24px; padding: 20px 0; font-family: 'Playfair Display';">
+            <b>SIZE GUIDE</b>
+        </h1>
+    
+        <div class="guide-wrapper">
+            <div class="container">
+                <div class="size-guide-item">
+                    <span>Limon Cakes</span>
+                    <img src="img/limon-size.jpg" alt="Limon Cake Size Guide" />
+                </div>
 
-                                <h2></h2>
-                                
-                    <img src="img/limon-size.jpg" alt="Shop Interior" />
-                     <img src="img/squarecake-sizes.jpg" alt="Portrait" />
-                    <img src="img/basque-size.jpg" alt="Portrait" />
-                
-            
+                <div class="size-guide-item">
+                    <span>Square Cakes</span>
+                    <img src="img/squarecake-sizes.jpg" alt="Square Cake Size Guide" />
+                </div>
+
+                <div class="size-guide-item">
+                    <span>Basque Cakes</span>
+                    <img src="img/basque-size.jpg" alt="Basque Cake Size Guide" />
+                </div>
             </div>
-     
         </div>
             
         <!-- JavaScript Libraries -->
