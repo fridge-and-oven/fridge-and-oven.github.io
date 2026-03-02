@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+        
         <meta charset="utf-8" />
         <title>FRIDEG AND OVEN: Size Guide</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -78,7 +79,7 @@
             padding: 10px;
             text-align: center;
             }
-                    .flex-block{
+            .flex-block{
             display: flex; 
             flex-wrap: wrap; 
             justify-content: center; 
@@ -108,17 +109,34 @@
 
     <body class="bg-index">
         
-        <h1 style="text-align: center; font-size: 24px; padding: 20px 0; font-family: 'Playfair Display';">
-            <b>HOW TO ORDER</b>
-        </h1>
-                <h5 style="text-align: center; font-size: 15px; padding: 5px 0; font-family: 'Playfair Display';">
-            วิธีการสั่งซื้อเค้กก้อนจ้า
-        </h5>
+                <!-- Spinner Start -->
+        <div
+            id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <span id="navtool"></span>
+        <script src="nav.js"></script>
+        <script>
+            window.onload = addNavTool();
+        </script>
+
+        <!-- Hero Start -->
+        <div class="flex-box padding-top: 10px;">
+            <div class="container text-center py-5">
+                <h4 class="display-1 animated slideInLeft">HOW TO ORDER</h4><br><p>วิธีการสั่งซื้อเค้กก้อนจ้า</p>
+            </div>
+        </div>
+        <!-- Hero End -->
     
         <div class="guide-wrapper">
             <div class="container">
                 <div class="size-guide-item">
-                    <a>กดเข้าไปที่กล่องสีเหลืองๆแล้วจะมีตัวเลือกเด้งลงมาจ้า</a>
+                    <p>กดเข้าไปที่กล่องสีเหลืองๆแล้วจะมีตัวเลือกเด้งลงมาจ้า</p>
                     <img src="img/howto1.png" alt="Limon Cake Size Guide" />
                 </div>
 
@@ -127,7 +145,7 @@
                 </div>
 
                 <div class="size-guide-item">
-                    <a>ลองไถดูก่อนนะราคาและรายละเอียดอื่นๆมันล้นจอน่ะ ไถลงไปเลยจ้า</a>
+                    <p>ลองไถดูก่อนนะราคาและรายละเอียดอื่นๆมันล้นจอน่ะ ไถลงไปเลยจ้า</p>
                     <img src="img/howto3.png" alt="Basque Cake Size Guide" />
                 </div>
                 
@@ -136,44 +154,44 @@
                 </div>
                 
                 <div class="size-guide-item">
-                    <a>ชื่อตรงนี้กับชื่อตอนรับขนมรบกวนแจ้งชื่อเดียวกันนะจ้ะ มาสั่งแจ้งไว้ชื่อเดียร์ตอนมารับชื่อบัฟฟาโล่วนี่ส่งไม่ถูกนาจา</a>
+                    <p>ชื่อตรงนี้กับชื่อตอนรับขนมรบกวนแจ้งชื่อเดียวกันนะจ้ะ มาสั่งแจ้งไว้ชื่อเดียร์ตอนมารับชื่อบัฟฟาโล่วนี่ส่งไม่ถูกนาจา</p>
                     <img src="img/howto5.png" alt="Basque Cake Size Guide" />
                 </div>
                 
                 <div class="size-guide-item">
-                    <a>หยุดวันอาทิตย์!!!!! ทำงาน 6 วันแล้วขอหยุด 1 วันเถิดดดดดด<br>
+                    <p>หยุดวันอาทิตย์!!!!! ทำงาน 6 วันแล้วขอหยุด 1 วันเถิดดดดดด<br>
                     ใครอยากรับจากที่ไหนให้วางแผนมา เค้กส่วนมากอยู่ข้ามวันได้จ้า<br>
-                    ***แต่เค้กตกแต่งผลไม้สดไม่แนะนำข้ามวันน้าา</a>
+                    ***แต่เค้กตกแต่งผลไม้สดไม่แนะนำข้ามวันน้าา</p>
                     <img src="img/howto6.png" alt="Basque Cake Size Guide" />
                 </div>
                 
                 <div class="size-guide-item">
-                    <a>ระบบจะกดได้แค่วันที่ห่างจากวันนี้ไปอย่างน้อย 5 วันขึ้นไปเท่านั้นจ้า<br>
+                    <p>ระบบจะกดได้แค่วันที่ห่างจากวันนี้ไปอย่างน้อย 5 วันขึ้นไปเท่านั้นจ้า<br>
                     ใครลืมวางแผนชีวิต ลืมวันเกิดเพื่อนจะกดสั่งทางนี้ไม่ได้<br>
-                    ต้องทักไลน์ @fridgeandoven แต่จะทันไม่ทันก็ต้องลุ้น ที่แน่ๆวันนี้ไม่ทัน พรุ่งนี้ก็ปวดใจอยู่</a>
+                    ต้องทักไลน์ @fridgeandoven แต่จะทันไม่ทันก็ต้องลุ้น ที่แน่ๆวันนี้ไม่ทัน พรุ่งนี้ก็ปวดใจอยู่</p>
                     <img src="img/howto7.png" alt="Basque Cake Size Guide" />
                 </div>
                 
                 <div class="size-guide-item">
-                    <a>ตรงนี้ใครไม่สนใจส่วนลดก็เลือกวันที่คิดว่าใช่ไปก่อน ไม่ใช่ค่อยมาว่ากันแต่บอกด้วยนะว่ายังไม่แน่นอน<br>
+                    <p>ตรงนี้ใครไม่สนใจส่วนลดก็เลือกวันที่คิดว่าใช่ไปก่อน ไม่ใช่ค่อยมาว่ากันแต่บอกด้วยนะว่ายังไม่แน่นอน<br>
                     **ถ้าเลือกรับเองกล่องใส่ที่อยู่จะไม่เด้งขึ้นมาจ้า<br>
-                    </a>
+                    </p>
                     <img src="img/howto8.png" alt="Basque Cake Size Guide" />
                 </div>
                 
                 <div class="size-guide-item">
-                    <a fontfamily="bebas">อย่าลืมตรวจเช็คข้อมูลให้ถูกต้องน้าาา</a>
+                    <p>อย่าลืมตรวจเช็คข้อมูลให้ถูกต้องน้าาา</p>
                     <img src="img/howto9.png" alt="Basque Cake Size Guide" />
                 </div>
                 
                 <div class="size-guide-item">
-                    <a>ระบบจะรวบรวมข้อมูลที่กรอกไว้มาเรียงใส่ช่องข้อความทาง LINE ถ้าถูกต้องและมั่นใจแล้วกดส่งได้เลยจ้า</a>
+                    <p>ระบบจะรวบรวมข้อมูลที่กรอกไว้มาเรียงใส่ช่องข้อความทาง LINE ถ้าถูกต้องและมั่นใจแล้วกดส่งได้เลยจ้า</p>
                     <img src="img/howto10.png" alt="Basque Cake Size Guide" />
                 </div>
           
                 
                 
-                <div style="margin: 0 auto; width: 50%; padding-top: 5px"><a fontfamily="babas">พร้อมแล้วไปดูเมนูกันเล้ยย</a>
+                <div style="margin: 0 auto; width: 50%; padding-top: 1px; padding-bottom: 10px;"><p>พร้อมแล้วไปดูเมนูกันเล้ยย</p>
                     <a href="our-cakes-edited.html" class="ourcakemenu ordernowbutton">OUR MENU</a>
                     
                 <div class="divider">
@@ -181,7 +199,7 @@
                 </div>
                     
                 
-                <div style="margin: 0 auto; width: 100%; padding-top: 5px"><a fontfamily="babas">หรือไม่พร้อม ไม่ไหวยากไปก็ทัก LINE OA มาเล้ย @fridgeandoven หรือกดลิงค์ด้านล่างได้เล้ย</a>
+                <div style="margin: 0 auto; width: 100%; padding-top: 5px; padding-bottom: 10px;"><p>หรือไม่พร้อม ไม่ไหวยากไปก็ทัก LINE OA มาเล้ย @fridgeandoven หรือกดลิงค์ด้านล่างได้เล้ย</p>
                 <a style="margin: 0 auto; width: 50%; padding-top: 10px" href="https://lin.ee/tlYKTz7" class="ourcakemenu ordernowbutton">
                     LINE OA</a>
                     
