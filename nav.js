@@ -19,7 +19,7 @@ function addNavTool(){
                         
                             <a href="index.html" class="nav-item nav-link active">Home</a>
                             <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">How to Order</a>
+                            <a href="how-to-order.html" class="nav-item nav-link">How to Order</a>
                                 <div class="nav-item dropdown">
                                     
                                     <label for="menu-toggle" class="nav-link">Menu ▾</label>
