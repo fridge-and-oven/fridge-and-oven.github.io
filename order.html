@@ -101,6 +101,7 @@
                         <h4 class="text-center lh-base mb-4" id="demo">
                             Pre order needs to be at least 5 days before delivery date. (not including Sundays)
                         </h4>
+                        <p class="text-center">รบกวนสั่งล่วงหน้าอย่างน้อย 5 วันจ้า</p>
                         <div >
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -170,7 +171,7 @@
                                                 value="pickup" 
                                                 class="force-radio" 
                                                 checked>
-                                            <label for="typePickup" class="radio-label">Pickup</label>
+                                            <label for="typePickup" class="radio-label">Self Pickup (รับขนมด้วยตนเองหรือเรียกไรเดอร์มารับเอง)</label>
                                         </div>
 
                                         <!-- Delivery Option -->
@@ -181,7 +182,7 @@
                                                 id="typeDelivery" 
                                                 value="delivery" 
                                                 class="force-radio">
-                                            <label for="typeDelivery" class="radio-label">Delivery</label>
+                                            <label for="typeDelivery" class="radio-label">Delivery (ให้ร้านเรียกรถจัดส่งให้ ค่าจัดส่งตามจริงด้วย GRAB Express จ้า)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -258,7 +259,8 @@
                                 <div class="col-12 text-center mt-3">
                                     <!-- The Validation Message -->
                                     <p id="validationMsg" class="text-danger small mb-2" style="display: block;">
-                                        <i class="bi bi-exclamation-circle me-1"></i>Please fill in all fields before submitting
+                                        <i class="bi bi-exclamation-circle me-1"></i>Please fill in all fields before submitting<br>
+                                        ลายมือคนทำขนมเลวร้ายมากเลยไม่สามารถเขียนหน้าเค้กได้ แต่เรามีป้ายและเทียนแถมไปให้นะคะ (ถ้าไม่ใช้ก็เขียนใน note ได้เลยค่า)
                                     </p>
                                     
                                     <button class="btn btn-primary w-100 py-3 ms-0" id="orderButton" onclick="order()" disabled>
