@@ -1,0 +1,361 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FRIDGE AND OVEN: Workshop</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .workshop{
+            border-radius: 20px;
+            width: 200px;
+            height: 100px;
+        }
+        .link{
+            padding: 10px;
+            text-align: center;
+        }
+        .flex-block{
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .grid-block{
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center; 
+        }
+
+
+    
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #f5f5f5;
+            }
+
+            /* Header */
+
+            header{
+    position:sticky;
+    top:0;
+    background:white;
+    padding:15px 30px;
+    display:flex;
+    align-items:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    z-index:100;
+}
+
+.logo{
+    font-weight:700;
+    font-size:22px;
+}
+
+/* GALLERY */
+
+.gallery{
+    column-count:5;
+    column-gap:16px;
+    padding:20px;
+}
+
+@media(max-width:1200px){
+.gallery{column-count:4;}
+}
+
+@media(max-width:900px){
+.gallery{column-count:3;}
+}
+
+@media(max-width:600px){
+.gallery{column-count:2;}
+}
+
+.card{
+    break-inside:avoid;
+    margin-bottom:16px;
+    border-radius:16px;
+    overflow:hidden;
+    background:white;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card img{
+    width:100%;
+    display:block;
+}
+
+.caption{
+    padding:12px;
+    font-size:14px;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+}
+
+.popup.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.popup img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+.close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+}
+        
+body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+    background:#f1f1f1;
+}
+
+        </style>
+    </head>
+
+    <body class="bg-cake">
+                <!-- Spinner Start -->
+        <div
+            id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <span id="navtool"></span>
+        <script src="nav.js"></script>
+        <script>
+            window.onload = addNavTool();
+        </script>
+
+        
+                <!-- Hero Start -->
+        <div class="flex-box padding-top: 50px;">
+            <div class="container text-center py-5">
+                <h3 class="display-1 animated slideInLeft">Our Classroom</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
+                        <li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-primary" href="workshop.html">Back to Workshop</a></li>
+                        
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Hero End -->
+        
+           
+        
+
+<div class="gallery">
+    
+
+<div class="card">
+<img src="img/classroom01.jpg">
+<div class="caption">สถานที่จริง</div>
+</div>
+
+<div class="card">
+<img src="img/classroom011.jpg">
+<div class="caption">มีหลายโคมอยู่นะ</div>
+</div>
+
+<div class="card">
+<img src="img/classroom013.jpg">
+<div class="caption">ของตกแต่งภายในห้องเรียน</div>
+</div>
+
+<div class="card">
+<img src="img/classroom014.jpg">
+<div class="caption">มุมแขวนผ้ากันเปื้อนพนักงาน ลูกค้ากรุณาใช้อันพับสวยๆบนโต๊ะนะคะ</div>
+</div>
+    
+<div class="card">
+<img src="img/classroom015.jpg">
+<div class="caption">ผลงานลูกค้าตัวจริง</div>
+</div>    
+
+    
+<div class="card">
+<img src="img/classroom016.jpg">
+<div class="caption">ถ้าเดินมาทางนี้แปลว่ามาผิดทาง เดินกลับไปที่ถนนค่ะ และถ้ามาแล้วมืดขนาดนี้แปลว่าดูเวลามาผิด หรือไม่ก็คุณครูลงเวลาผิด</div>
+</div>
+
+    
+<div class="card">
+<img src="img/classroom02.jpg">
+<div class="caption">เดินเข้ามาจะเจอป้ายรุงรังแบบนี้ แปลว่ามาถูกทาง</div>
+</div>
+
+    
+<div class="card">
+<img src="img/classroom03.jpg">
+<div class="caption">มาถึงแล้วแวะทักทายตรงนี้ก่อนได้เลยค่า หรือถ้าอยากสั่งขนมแบบลูกค้าที่ผ่านมาสามารถสั่งได้ตรงนี้เช่นกัน</div>
+</div>
+    
+ <div class="card">
+<img src="img/classroom04.jpg">
+<div class="caption">คลาสที่มีนักเรียนจริง</div>
+</div>   
+
+<div class="card">
+<img src="img/classroom05.jpg">
+<div class="caption">มีอุปกรณ์ทุ่นแรงเกะกะเล็กน้อย ระวังเดินชนนะคะ</div>
+</div>
+
+    
+<div class="card">
+<img src="img/classroom06.jpg">
+<div class="caption">เชฟแชมป์คุณครูประจำอาหารญี่ปุ่น แต่ก็คิดอยู่ว่าจะสอนอย่างอื่นบางที</div>
+</div>
+
+    
+<div class="card">
+<img src="img/classroom07.jpg">
+<div class="caption">ถ้ามาถึงคลาสเร็วไปอาจจะเจอคนนอนพักแบบนี้ ขอเวลาเราขับไล่เพื่อนสักครู่ค่ะ</div>
+</div>
+    
+ <div class="card">
+<img src="img/classroom08.jpg">
+<div class="caption">โคมไฟแบบหรี่ๆโรแมนติกนิดๆ</div>
+</div>
+
+    
+<div class="card">
+<img src="img/classroom09.jpg">
+<div class="caption"></div>
+</div>
+    
+<div class="card">
+<img src="img/classroom012.jpg">
+<div class="caption">ของตกแต่งที่เก็บสะสมจากการท่องเที่ยว</div>
+</div>
+    
+    
+    
+    
+</div>
+
+<div class="popup" id="popup">
+<span class="close" id="close">&times;</span>
+<img id="popupImg">
+</div>
+
+
+
+            <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-white p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 d-flex flex-column align-items-start">
+                <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                <a href="about.html" class="footer-link">ABOUT US</a>
+                <a href="https://www.instagram.com/fridgeandoven/" class="footer-link">INSTAGRAM</a>
+                <a href="locations.html" class="footer-link">LOCATIONS</a>
+            </div>
+
+            <div class="col-6 d-flex justify-content-end align-items-end">
+                <div class="footer-logo-box bg-nav" style="padding: 15px;">
+                    <h1 class="footer-logo-text" style="color: #f5e4af; font-size: 20px; white-space: nowrap;">FRIDGE AND OVEN</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Footer End -->
+                <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<script>
+const images = document.querySelectorAll(".card img");
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const closeBtn = document.getElementById("close");
+
+images.forEach(img=>{
+    img.addEventListener("click", ()=>{
+        popup.classList.add("active");
+        popupImg.src = img.src;
+    });
+});
+
+closeBtn.onclick = ()=>{
+    popup.classList.remove("active");
+};
+
+popup.onclick = (e)=>{
+    if(e.target === popup){
+        popup.classList.remove("active");
+    }
+};
+</script>
+ <!-- Template Javascript -->
+
+    </body>
+</html>

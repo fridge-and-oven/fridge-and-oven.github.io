@@ -50,19 +50,9 @@ function addNavTool(){
                                     </ul>
                                 </div>
                             
-                                <div class="nav-item dropdown">
-                                    
-                                    <label for="menu-toggle2" class="nav-link">workshops ▾</label>
-                                    <input type="checkbox" id="menu-toggle2" />
 
-                                    <ul class="submenu2">
-                                        <li><a href="#" class="dropdown-item nav-link" style="font-size: small">monthly schedule</a></li>
-                                        <li><a href="#" class="dropdown-item nav-link" style="font-size: small">private class</a></li>
-                                        <li><a href="#" class="dropdown-item nav-link" style="font-size: small">class menu</a></li>
-                                        <li><a href="#" class="dropdown-item nav-link" style="font-size: small">gallery</a></li>
-                                        
-                                    </ul>
-                                </div>
+                                
+                        <a href="workshop.html" class="nav-item nav-link active">Workshops</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>

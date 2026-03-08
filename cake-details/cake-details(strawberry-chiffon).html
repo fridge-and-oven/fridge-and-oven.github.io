@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="cake-gallery.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="gallery-container">
+            <!-- Main image viewer -->
+            <div class="main-image-viewer">
+                <img id="main-image" src="../img/strawberry-chiffon.jpg" alt="Main image" />
+            </div>
+
+            <!-- Thumbnail gallery -->
+            <div class="thumbnail-container">
+                <img
+                    class="thumbnail"
+                    src="../img/strawberry-chiffon.jpg"
+                    alt="Thumbnail 1"
+                    onclick="changeMainImage('../img/strawberry-chiffon.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/strawberry-chiffon02.jpg"
+                    alt="Thumbnail 2"
+                    onclick="changeMainImage('../img/strawberry-chiffon02.jpg', this)" />
+                <img
+                    class="thumbnail"
+                    src="../img/strawberry-chiffon03.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/strawberry-chiffon03.jpg', this)" />
+                <img
+                     class="thumbnail"
+                    src="../img/strawberry-chiffon04.jpg"
+                    alt="Thumbnail 3"
+                    onclick="changeMainImage('../img/strawberry-chiffon04.jpg', this)" />
+                <!-- Add more thumbnails as needed -->
+            </div>
+        </div>
+        <p style="font-family: dutch801; padding-top: 10px; text-align: center">Vanilla chiffon cake with Vanilla chantilly cream, strawberry rhubarb vanilla rose compote and vanilla viennese cookies dipped in dark chocolate.</p>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">AVAILABLE SIZES</h5>
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 15px"> 1 lb 1,550.- plain / extra strawberry 2,550.-  </h5>
+        <p style="font-family: dutch801; color: #777; padding-top: 5px; padding-left: 15px">(Tea time 6-8 serves, after meal 8-10 serves)</p>
+                <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 15px"> 2 lb 2,000.- plain / extra strawberry 3,000.- </h5>
+        <p style="font-family: dutch801; color: #777; padding-top: 5px; padding-left: 15px">(Tea time 8-10 serves, after meal 10-12 serves)</p>
+                <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 15px"> 3 lb 2,550.- plain / extra strawberry 3,990.-  </h5>
+        <p style="font-family: dutch801; color: #777; padding-top: 5px; padding-left: 15px">(Tea time 10-12 serves, after meal 12-14 serves)</p>
+
+        <h5 style="font-family: bebas; color: black; padding-top: 10px; padding-left: 10px">CARE GUIDE</h5>
+        <p style="font-family: dutch801; color: black; padding-top: 5px; padding-left: 15px"> please keep refrigerated! Travel time max. 2 hours</p>
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">***For the best quality, please consume the fresh fruit on the cake on the day you receive it.</p>
+        <p style="font-family: dutch801; color: black; padding-top: 0.1px; padding-left: 15px">3-5 days in refrigerator or 2 weeks in freezer(please store in airtight container)</p>
+        
+        
+        
+        <script src="gallery.js"></script>
+    </body>
+</html>
