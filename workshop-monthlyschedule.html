@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Workshops | Fridge and Oven</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+background:#f5f1e8;
+font-family:'Inter',sans-serif;
+color:#222;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:70px 30px 120px;
+}
+
+.header{
+text-align:center;
+margin-bottom:70px;
+}
+
+.brand{
+font-family:'Playfair Display',serif;
+font-size:18px;
+letter-spacing:3px;
+color:#2f8f4e;
+margin-bottom:8px;
+}
+
+.title{
+font-family:'Playfair Display',serif;
+font-size:72px;
+letter-spacing:5px;
+color:#2f8f4e;
+margin:0;
+}
+
+.subtitle{
+margin-top:14px;
+font-size:18px;
+opacity:0.7;
+}
+
+.month-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:32px;
+margin-top:50px;
+}
+
+.month-card{
+background:white;
+border-radius:22px;
+text-decoration:none;
+color:#222;
+box-shadow:0 14px 40px rgba(0,0,0,0.08);
+overflow:hidden;
+transition:all .28s ease;
+position:relative;
+}
+
+.month-card:hover{
+transform:translateY(-8px);
+box-shadow:0 24px 55px rgba(0,0,0,0.14);
+}
+
+.month-image{
+height:170px;
+background-size:cover;
+background-position:center;
+}
+
+.month-content{
+padding:28px 26px 30px;
+}
+
+.month-name{
+font-family:'Playfair Display',serif;
+font-size:32px;
+color:#c24d2c;
+margin-bottom:6px;
+}
+
+.class-count{
+font-size:14px;
+opacity:.6;
+margin-bottom:14px;
+}
+
+.menu-preview{
+font-size:14px;
+line-height:1.7;
+opacity:.8;
+}
+
+.badge{
+position:absolute;
+top:14px;
+right:14px;
+background:#2f8f4e;
+color:white;
+font-size:12px;
+padding:6px 11px;
+border-radius:20px;
+letter-spacing:.5px;
+}
+
+.footer{
+margin-top:90px;
+text-align:center;
+font-size:15px;
+opacity:0.75;
+}
+
+@media (max-width:700px){
+
+.title{
+font-size:46px;
+}
+
+.month-image{
+height:150px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="brand">FRIDGE AND OVEN</div>
+<h1 class="title">WORKSHOPS</h1>
+<div class="subtitle">Monthly baking & cooking classes</div>
+</div>
+
+<div class="month-grid">
+
+<a class="month-card" href="workshop-march.html">
+
+<div class="badge">4 classes</div>
+
+<div class="month-image" style="background-image:url('img/bananacreampie.jpg')"></div>
+
+<div class="month-content">
+
+<div class="month-name">March</div>
+
+<div class="class-count">View full workshop schedule</div>
+
+<div class="menu-preview">
+Banana Cream Pie<br>
+Matcha Miso Macadamia Cookies<br>
+Cha Choux<br>
+Dumpling Folding Club
+</div>
+
+</div>
+
+</a>
+
+
+<a class="month-card" href="workshop-april.html">
+<div class="badge">3 classes</div>
+
+<div class="month-image" style="background-image:url('img/matcha-basque.jpg')"></div>
+
+<div class="month-content">
+
+<div class="month-name">April</div>
+
+<div class="class-count">View full workshop schedule</div>
+
+<div class="menu-preview">
+Carrot Cake<br>
+Earl Grey Chocolate Tart<br>
+Basque Cheesecake
+</div>
+
+</div>
+
+</a>
+
+
+<a class="month-card" href="may.html">
+
+<div class="month-image" style="background-image:url('images/may.jpg')"></div>
+
+<div class="month-content">
+
+<div class="month-name">May</div>
+
+<div class="class-count">Schedule coming soon</div>
+
+<div class="menu-preview">
+Stay tuned for upcoming pastry & dessert classes.
+</div>
+
+</div>
+
+</a>
+
+
+<a class="month-card" href="june.html">
+
+<div class="month-image" style="background-image:url('images/june.jpg')"></div>
+
+<div class="month-content">
+
+<div class="month-name">June</div>
+
+<div class="class-count">Schedule coming soon</div>
+
+<div class="menu-preview">
+Future workshops will appear here.
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+<div class="footer">
+Select a month to explore the full workshop schedule and reserve your seat.
+</div>
+
+</div>
+
+</body>
+</html>
