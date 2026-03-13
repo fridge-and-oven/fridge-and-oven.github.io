@@ -51,6 +51,35 @@
             grid-template-columns: repeat(3, 1fr);
             justify-content: center; 
         }
+        
+.workshop{
+    font-family:'Playfair Display', serif;
+    font-size:22px;
+}
+
+.link{
+    padding:18px 35px;
+    text-align:center;
+    text-decoration:none;
+
+    background:#b3262e;     /* แดง */
+    color:#f5e4af;          /* เหลืองทอง */
+
+    border-radius:30px;
+    transition:0.25s;
+}
+
+.link:hover{
+    background:#f4f1e8;     /* เหลืองอ่อน */
+    color:#b3262e;          /* ตัวหนังสือแดง */
+}
+
+.flex-block{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
     </style>
 
 </head>
@@ -58,17 +87,30 @@
 
 
 <span id="navtool"></span>         <script src="nav.js"></script>         <script>window.onload=addNavTool();</script>
-    <h1 style="text-align: center; padding-bottom: 50px; padding-top: 20px;" class="font-bebas">Workshop</h1>
-    <div class="flex-block" style="padding-bottom: 50px;">
-        <a class="link" href="workshop-monthlyschedule.html"><img class="workshop" src="img/ourclassed-01.jpg"></a>
-        <a class="link" href="index.html"><img class="workshop" src="img/ourinstructor-01.jpg"></a>
-        <a class="link" href="index.html"><img class="workshop" src="img/groupclass-01.jpg"></a>
-        <a class="link" href="index.html"><img class="workshop" src="img/privateclass-01.jpg"></a>
-        <a class="link" href="workshop-classroom.html"><img class="workshop" src="img/ourclassroom-01.jpg"></a>
-        <a class="link" href="index.html"><img class="workshop" src="img/apollo-brownies.jpg"></a>
-        
-    </div>    
-    
+<div class="flex-block" style="padding-bottom:50px; padding-top: 50px;">
+
+<a class="link workshop" href="workshop-monthlyschedule.html">
+Monthly Schedule
+</a>
+
+<a class="link workshop" href="index.html">
+Our Instructors
+</a>
+
+
+<a class="link workshop" href="index.html">
+Private Class
+</a>
+
+<a class="link workshop" href="workshop-classroom.html">
+Our Classroom
+</a>
+
+<a class="link workshop" href="index.html">
+Special Workshop
+</a>
+
+</div>
     
     
 
