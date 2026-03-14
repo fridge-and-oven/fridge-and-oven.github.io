@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>FRIDGE AND OVEN: Workshop</title>
+    
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -32,178 +31,318 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <title>April Workshops</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
+
 body{
 margin:0;
-background:#f4ebcc;
+background:#f4f1e8;
 font-family:'Inter',sans-serif;
-color:#2b2b2b;
+color:#222;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:50px 25px 80px;
-}
+/* NAVBAR */
 
-.header{
+.navbar{
 display:flex;
 justify-content:space-between;
-align-items:flex-end;
-flex-wrap:wrap;
-margin-bottom:40px;
+align-items:center;
+background:#c62828;
+padding:25px 40px;
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:36px;
+color:#c62828;
+}
+
+.menu-btn{
+background:#e7c77c;
+padding:12px 16px;
+border-radius:4px;
+}
+
+/* SCHEDULE */
+
+.schedule{
+max-width:900px;
+margin:90px auto;
+padding:0 20px;
+position:relative;
+}
+
+.brand-side{
+position:absolute;
+right:-120px;
+top:30px;
+text-align:right;
+color:#c62828;
+line-height:1.7;
+font-weight:600;
 }
 
 .month{
 font-family:'Playfair Display',serif;
-font-size:64px;
-color:#b3262e;
-letter-spacing:3px;
+font-size:100px;
+color:#c62828;
+margin-bottom:60px;
 }
 
-.brand{
-text-align:right;
-font-weight:600;
-color:#b3262e;
-}
+/* WORKSHOP */
 
-.workshop{
-padding:26px 0;
-border-bottom:2.5px dashed #8b0909;
+a.workshop{
 display:flex;
-gap:24px;
+align-items:flex-start;
+gap:18px;
+
+text-decoration:none;
+color:inherit;
+
+padding:18px 0;
+
 }
+    
+a.workshop{
+display:flex !important;
+align-items:flex-start;
+gap:20px;
+}
+
+.workshop:hover{
+transform:translateX(6px);
+opacity:.85;
+}
+
+/* DATE CIRCLE */
 
 .date{
-font-size:40px;
+width:70px;
+height:70px;
+
+background:#c62828;
+color:white;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
 font-weight:700;
-color:#b3262e;
-min-width:60px;
+font-size:26px;
+
+flex-shrink:0;
+}
+
+.workshop:hover .date{
+transform:scale(1.1);
+}
+
+/* DETAILS */
+
+.details h2{
+font-family:'Playfair Display',serif;
+color:#c62828;
+font-size:34px;
+margin:0 0 5px 0;
+}
+
+.time{
+margin:10px 0;
+font-size:18px;
+}
+
+.price{
+font-size:26px;
+font-weight:700;
+}
+
+/* DIVIDER */
+
+.divider{
+margin:35px 0;
+}
+
+.divider svg{
+width:100%;
+height:16px;
+}
+
+/* FOOTER */
+
+.info-footer{
+margin-top:80px;
+text-align:right;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+.brand-side{
+display:none;
+}
+
+.month{
+font-size:70px;
+}
+
+.details h2{
+font-size:26px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+a.workshop{
+display:flex !important;
+align-items:flex-start;
+}
+
+}
+.date{
+width:46px;
+height:46px;
+font-size:18px;
+}
+
+.month{
+font-size:55px;
+}
+
+.details h2{
+font-size:22px;
+}
+
+.time{
+font-size:16px;
+}
+
+.price{
+font-size:18px;
+}
+
+.navbar{
+padding:18px 20px;
+}
+
+.logo{
+font-size:26px;
 }
 
 .details{
 flex:1;
 }
 
-.title{
-font-family:'Playfair Display',serif;
-font-size:28px;
-color:#b3262e;
-text-decoration:none;
-}
-
-.title:hover{
-color:#8f1f26;
-text-decoration:underline;
-}
-
-.subtitle{
-font-size:15px;
-opacity:0.8;
-margin-top:4px;
-}
-
-.time{
-margin-top:8px;
-font-size:16px;
-}
-
-.price{
-font-weight:700;
-margin-top:6px;
-color:#b3262e;
-}
-
-.footer{
-margin-top:60px;
-font-size:15px;
-border-top:2px solid #b3262e;
-padding-top:20px;
-}
-
-.footer strong{
-font-weight:700;
-color:#b3262e;
-}
-
-@media (max-width:600px){
-
-.month{
-font-size:48px;
-}
-
-.workshop{
-flex-direction:column;
-}
-
-.date{
-font-size:32px;
- background:#b3262e;
-color:#f5e4af;
-padding:6px 12px;
-border-radius:8px;
-text-align:center;
-}
-
-.title{
-font-size:24px;
-}
-
+.details h2{
+margin:0 0 6px 0;
+line-height:1.2;
 }
 
 </style>
+
 </head>
 
 <body>
-    
             <span id="navtool"></span>
         <script src="nav.js"></script>
         <script>
-            window.onload = addNavTool();
+            window.onload = addNavTool;
         </script>
 
-<div class="container">
 
-<div class="header">
-<div class="month">APRIL</div>
-<div class="brand">FRIDGE<br>AND<br>OVEN</div>
+<section class="schedule">
+
+<div class="brand-side">
+FRIDGE<br>
+AND<br>
+OVEN
 </div>
 
-<div class="workshop">
-<div class="date">4</div>
+<h1 class="month">APRIL</h1>
+
+
+<a href="banana-cream-pie.html" class="workshop">
+
+<div class="date">14</div>
+
 <div class="details">
-<a class="title" href="banana-cream-pie.html">CARROT CAKE</a>
-<div class="time">14:00 – 16:30</div>
-<div class="price">5,500 / PERSON</div>
-</div>
+<h2>CARROT CAKE</h2>
+<p class="time">14:00 – 16:30</p>
+<p class="price">5,500.- / PERSON</p>
 </div>
 
-<div class="workshop">
+</a>
+
+<div class="divider">
+<svg viewBox="0 0 1440 20">
+<path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+stroke="#2f8f44"
+stroke-width="3"
+fill="none"/>
+</svg>
+</div>
+
+
+<a href="matcha-cookies.html" class="workshop">
+
 <div class="date">18</div>
+
 <div class="details">
-<a class="title" href="matcha-cookie.html">EARL GREY CHOCOLATE TART</a>
-<div class="time">10:00 – 17:30</div>
-<div class="price">12,000 / PERSON</div>
-</div>
+<h2>EARL GREY CHOCOLATE TART</h2>
+<p class="time">10:00 – 17:00</p>
+<p class="price">12,000.- / PERSON<br>lunch + snacks and cake delivery fee included</p>
 </div>
 
-<div class="workshop">
-<div class="date">25</div>
+</a>
+
+<div class="divider">
+<svg viewBox="0 0 1440 20">
+<path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+stroke="#2f8f44"
+stroke-width="3"
+fill="none"/>
+</svg>
+</div>
+
+
+<a href="workshop-menu-chachoux.html" class="workshop">
+
+<div class="date">21</div>
+
 <div class="details">
-<a class="title" href="cha-choux.html">BASQUE CHEESECAKE</a>
-<div class="subtitle">Matcha, Earl Grey, Oolong, Jasmine</div>
-<div class="time">14:00 – 17:30</div>
-<div class="price">5,500 / PERSON</div>
-</div>
+<h2>BASQUE CHEESECAKE</h2>
+<p class="time">14:00 – 16:30</p>
+<p class="price">5,000.- / PERSON</p>
 </div>
 
+</a>
 
-<div class="footer">
-Number of Participants: <strong>4 / class</strong><br>
-More info: Line OA @fridgeandoven
+
+<div class="info-footer">
+
+<p>Number of Participants: <strong>4 / CLASS</strong></p>
+<p>More Info: LINE OA @fridgeandoven</p>
+
 </div>
 
-</div>
+</section>
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
+<script src="js/main.js"></script>
 </body>
 </html>

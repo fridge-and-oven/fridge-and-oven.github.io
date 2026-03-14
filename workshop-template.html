@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Banana Cream Pie | Workshop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Workshop | Fridge and Oven</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* BACKGROUND */
+/* PAGE BACKGROUND */
 
 body{
 margin:10;
@@ -37,10 +38,9 @@ transition:.25s;
 
 .back-btn:hover{
 transform:translateX(-4px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* MENU SHEET */
+/* MENU CARD */
 
 .menu-sheet{
 max-width:1000px;
@@ -59,7 +59,7 @@ text-align:center;
 margin-bottom:40px;
 }
 
-.header .category{
+.category{
 font-family:'Playfair Display',serif;
 letter-spacing:4px;
 font-size:18px;
@@ -73,9 +73,8 @@ color:#b51c33;
 margin:10px 0;
 }
 
-.header .subtitle{
+.subtitle{
 opacity:.7;
-font-size:15px;
 }
 
 /* HERO IMAGE */
@@ -87,7 +86,7 @@ background-size:cover;
 background-position:center;
 border-radius:14px;
 margin-bottom:40px;
-transition:transform .6s ease;
+transition:transform .6s;
 }
 
 .hero-image:hover{
@@ -102,21 +101,17 @@ grid-template-columns:1fr 340px;
 gap:40px;
 }
 
-/* DESCRIPTION */
+/* TEXT */
 
 .description h2{
 font-family:'Playfair Display',serif;
-font-size:28px;
-margin-bottom:10px;
 }
 
 .description p{
 line-height:1.7;
-margin-bottom:16px;
 }
 
 .description ul{
-padding-left:18px;
 line-height:1.8;
 }
 
@@ -127,17 +122,6 @@ background:white;
 padding:28px;
 border-radius:12px;
 box-shadow:0 10px 30px rgba(0,0,0,0.12);
-}
-
-.info-box h3{
-margin-top:0;
-font-family:'Playfair Display',serif;
-font-size:22px;
-}
-
-.info-row{
-margin:10px 0;
-font-size:15px;
 }
 
 .price{
@@ -156,12 +140,10 @@ color:white;
 text-decoration:none;
 border-radius:8px;
 font-weight:600;
-margin-top:10px;
 transition:.25s;
 }
 
 .reserve-btn:hover{
-background:#256c3c;
 transform:translateY(-3px);
 box-shadow:0 10px 20px rgba(0,0,0,0.18);
 }
@@ -180,15 +162,6 @@ width:100%;
 border-radius:10px;
 }
 
-/* FOOTER */
-
-.footer{
-margin-top:50px;
-text-align:center;
-font-size:14px;
-opacity:.7;
-}
-
 /* MOBILE */
 
 @media(max-width:900px){
@@ -198,7 +171,7 @@ grid-template-columns:1fr;
 }
 
 .hero-image{
-height:300px;
+height:280px;
 }
 
 .gallery{
@@ -218,11 +191,15 @@ grid-template-columns:1fr 1fr;
 
 <div class="header">
 <div class="category">WORKSHOP MENU</div>
-<h1>Banana Cream Pie</h1>
+
+<h1>WORKSHOP NAME</h1>
+
 <div class="subtitle">Fridge and Oven Workshop</div>
 </div>
 
-<div class="hero-image" style="background-image:url('img/bananacreampie.jpg')"></div>
+
+<div class="hero-image" style="background-image:url('img/workshop.jpg')"></div>
+
 
 <div class="content">
 
@@ -231,48 +208,50 @@ grid-template-columns:1fr 1fr;
 <h2>About this workshop</h2>
 
 <p>
-มาทำพายกล้วยหอมสุดละมุนด้วยกันจ้า
+Describe your workshop here
 </p>
 
 <p>During this workshop you will learn:</p>
 
 <ul>
-<li>วิธีการผสม pâte sucrée</li>
-<li>การรีดแป้งและการกรุแป้งทาร์ตลงพิมพ์ รวมถึงวิธีการทำให้กรอบทนทาน</li>
-<li>การทำ crème pâtissière</li>
-<li>ตีวิปปิ้งครีมยังไงให้พอดิบพอดีสำหรับคัสตาร์ดและการเป็นท็อปปิ้ง</li>
-<li>การนำไปดัดแปลงเป็นเมนูต่างๆ</li>
+
+<li>Skill 1</li>
+<li>Skill 2</li>
+<li>Skill 3</li>
+
 </ul>
 
-<p>
-Each participant will complete one full pie and take it home.<br>
-ทุกคนจะได้รับผลงานตัวเองขนาดเส้นผ่านศูนย์กลาง 15 ซม. กลับบ้าน
-</p>
-
 </div>
+
 
 <div class="info-box">
 
 <h3>Workshop Info</h3>
 
-<div class="info-row"><strong>Date:</strong> March 14</div>
-<div class="info-row"><strong>Time:</strong> 14:00 – 17:00</div>
-<div class="info-row"><strong>Participants:</strong> 4 per class</div>
+<p><strong>Date:</strong> DATE</p>
+<p><strong>Time:</strong> TIME</p>
+<p><strong>Participants:</strong> 4 per class</p>
 
-<div class="price">5,000 THB / person</div>
+<div class="price">PRICE</div>
 
-<a class="reserve-btn" href="https://line.me/R/oaMessage/@fridgeandoven/?Hello">Reserve via LINE</a>
+<a class="reserve-btn"
+href="https://line.me/R/oaMessage/@fridgeandoven/?Hello">
+
+Reserve via LINE
+
+</a>
 
 </div>
 
 </div>
+
 
 <div class="gallery">
-<img src="img/bananacreampie.jpg">
-</div>
 
-<div class="footer">
-Fridge and Oven • Workshop Series
+<img src="img/photo1.jpg">
+<img src="img/photo2.jpg">
+<img src="img/photo3.jpg">
+
 </div>
 
 </div>
