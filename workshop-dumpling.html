@@ -235,18 +235,7 @@ transform:translateY(-3px);
 box-shadow:0 10px 20px rgba(0,0,0,0.18);
 }
 
-    .lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
+
 
 .lightbox img{
 max-width:90%;
@@ -264,11 +253,30 @@ transition:transform .25s;
 .gallery img:hover{
 transform:scale(1.03);
 }
+    
+ .lightbox {
+    display: none;             /* ซ่อนไว้ก่อน */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* พื้นหลังดำโปร่งแสง */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 3px solid white;
+}
 </style>
 </head>
 
 <body>
-<a href="workshop.html" class="back-btn">← Back to Schedule</a>
+<a href="workshop-march.html" class="back-btn">← Back</a>
 
 <div class="menu-sheet">
 
@@ -376,10 +384,10 @@ Dumpling Folding Club
 </div>
 
 <div class="gallery">
-<img src="img/dumpling.jpg">
-<img src="img/chefview.jpg">
-<img src="img/dumpling03.jpg">
-<img src="img/dumpling04.jpg">
+    <img src="img/dumpling.jpg" onclick="openLightbox(this.src)">
+    <img src="img/chefview.jpg" onclick="openLightbox(this.src)">
+    <img src="img/dumpling03.jpg" onclick="openLightbox(this.src)">
+    <img src="img/dumpling04.jpg" onclick="openLightbox(this.src)">
 </div>
 
 <div class="footer">
@@ -388,25 +396,31 @@ Fridge and Oven • Workshop Series
 
 </div>
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
+<img id="lightbox-img" src="img/dumpling.jpg" >
 </div>
-    <script>
+<script>
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
 
-const images = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
+    // ส่วนนี้จะดักจับการคลิกที่รูปใน Gallery ทั้งหมด
+    images.forEach(img => {
+        img.addEventListener("click", () => {
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src; // แก้ไขจาก lightboxImgmg เป็น lightboxImg
+        });
+    });
 
-images.forEach(img => {
-img.addEventListener("click", () => {
-lightbox.style.display = "flex";
-lightboxImgmg.src = img.src;
-});
-});
+    // ฟังก์ชันสำหรับเปิด (เรียกใช้จาก onclick ใน HTML)
+    function openLightbox(src) {
+        document.getElementById('lightbox').style.display = 'flex';
+        document.getElementById('lightbox-img').src = src;
+    }
 
-function closeLightbox(){
-lightbox.style.display = "none";
-}
-
+    // ฟังก์ชันสำหรับปิด Lightbox เมื่อคลิกที่พื้นที่ว่างหรือตัวรูป
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
 </script>
 </body>
 </html>

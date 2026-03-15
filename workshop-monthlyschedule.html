@@ -1,242 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Workshops | Fridge and Oven</title>
+    <meta charset="utf-8">
+    <title>FRIDGE AND OVEN: Workshop</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- BASE STYLES --- */
+        body {
+            margin: 0;
+            background: #f4f1e8;
+            font-family: 'Inter', sans-serif;
+            color: #222;
+        }
 
-<style>
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 15px 100px;
+        }
 
-body{
-margin:0;
-background:#f5f1e8;
-font-family:'Inter',sans-serif;
-color:#222;
-}
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:70px 30px 120px;
-}
+        .brand-label {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #c62828;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
 
-.header{
-text-align:center;
-margin-bottom:70px;
-}
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 8vw, 72px); /* ปรับขนาดตามจอ */
+            color: #c62828;
+            margin: 0;
+            font-weight: 700;
+        }
 
-.brand{
-font-family:'Playfair Display',serif;
-font-size:18px;
-letter-spacing:3px;
-color:#2f8f4e;
-margin-bottom:8px;
-}
+        /* เส้นคลื่นใต้ Workshop */
+        .divider {
+            max-width: 600px;
+            margin: 15px auto 40px;
+        }
+        .divider svg {
+            width: 100%;
+            height: 16px;
+        }
 
-.title{
-font-family:'Playfair Display',serif;
-font-size:72px;
-letter-spacing:5px;
-color:#2f8f4e;
-margin:0;
-}
+        /* --- GRID 4 COLUMNS --- */
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
 
-.subtitle{
-margin-top:14px;
-font-size:18px;
-opacity:0.7;
-}
+        .month-card {
+            background: #ffffff;
+            border-radius: 15px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            
+            /* แก้ไขรูปไม่ชิดขอบ: ล้างค่าจาก Bootstrap */
+            border: none !important;
+            padding: 0 !important;
+        }
 
-.month-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:32px;
-margin-top:50px;
-}
+        .month-card:hover {
+            transform: translateY(-8px);
+        }
 
-.month-card{
-background:white;
-border-radius:22px;
-text-decoration:none;
-color:#222;
-box-shadow:0 14px 40px rgba(0,0,0,0.08);
-overflow:hidden;
-transition:all .28s ease;
-position:relative;
-}
+        /* รูปชิดขอบ 100% */
+        .month-image {
+            width: 100% !important;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 !important;
+            display: block !important;
+        }
 
-.month-card:hover{
-transform:translateY(-8px);
-box-shadow:0 24px 55px rgba(0,0,0,0.14);
-}
+        .month-content {
+            padding: 20px 15px;
+            flex-grow: 1;
+        }
 
-.month-image{
-height:170px;
-background-size:cover;
-background-position:center;
-}
+        .month-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
 
-.month-content{
-padding:28px 26px 30px;
-}
+        /* สีชื่อเดือน */
+        .month-march .month-name { color: #c62828; }
+        .month-april .month-name { color: #2f8f44; }
+        .month-may .month-name { color: #1481de; }
+        .month-june .month-name { color: #888; }
 
-.month-name{
-font-family:'Playfair Display',serif;
-font-size:32px;
-color:#c24d2c;
-margin-bottom:6px;
-}
+        .class-count {
+            font-size: 11px;
+            font-weight: 700;
+            opacity: 0.5;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+            letter-spacing: 1px;
+        }
 
-.class-count{
-font-size:14px;
-opacity:.6;
-margin-bottom:14px;
-}
+        .menu-preview {
+            font-size: 12px;
+            line-height: 1.5;
+            opacity: 0.8;
+            color: #444;
+        }
 
-.menu-preview{
-font-size:14px;
-line-height:1.7;
-opacity:.8;
-}
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .month-grid { 
+                grid-template-columns: repeat(2, 1fr); /* แสดง 2 คอลัมน์ในมือถือ/แท็บเล็ต */
+                gap: 12px;
+            }
+            .month-image {
+                height: 140px; /* ลดความสูงรูปในมือถือ */
+            }
+            .month-name {
+                font-size: 20px;
+            }
+            .container {
+                padding-top: 20px;
+            }
+        }
 
-.badge{
-position:absolute;
-top:14px;
-right:14px;
-background:#2f8f4e;
-color:white;
-font-size:12px;
-padding:6px 11px;
-border-radius:20px;
-letter-spacing:.5px;
-}
-
-.footer{
-margin-top:90px;
-text-align:center;
-font-size:15px;
-opacity:0.75;
-}
-
-@media (max-width:700px){
-
-.title{
-font-size:46px;
-}
-
-.month-image{
-height:150px;
-}
-
-}
-
-</style>
+        @media (max-width: 480px) {
+            .month-content {
+                padding: 15px 10px;
+            }
+            .menu-preview {
+                font-size: 11px; /* ย่อตัวหนังสือเมนูให้พอดีการ์ดเล็ก */
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <span id="navtool"></span>
+    <script src="nav.js"></script>
+    <script>window.onload = addNavTool;</script>
 
-<div class="header">
-<div class="brand">FRIDGE AND OVEN</div>
-<h1 class="title">WORKSHOPS</h1>
-<div class="subtitle">Monthly baking & cooking classes</div>
-</div>
+    <div class="container">
+        <div class="header">
+            <div class="brand-label">FRIDGE AND OVEN</div>
+            <h1 class="title">WORKSHOPS</h1>
+            
+            <div class="divider">
+                <svg viewBox="0 0 1440 20">
+                    <path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+                        stroke="#2f8f44" stroke-width="4" fill="none" />
+                </svg>
+            </div>
+            
+            <p style="font-size: 14px; opacity: 0.8;">Monthly baking & cooking classes</p>
+        </div>
 
-<div class="month-grid">
+        <div class="month-grid">
+            <a class="month-card month-march" href="workshop-march.html">
+                <div class="month-image" style="background-image:url('img/dumpling04.jpg')"></div>
+                <div class="month-content">
+                    <span class="class-count">4 classes available</span>
+                    <div class="month-name">MARCH</div>
+                    <div class="menu-preview">
+                        Banana Cream Pie<br>Matcha Miso Cookies<br>Cha Choux<br>Dumpling Club
+                    </div>
+                </div>
+            </a>
 
-<a class="month-card" href="workshop-march.html">
+            <a class="month-card month-april" href="workshop-april.html">
+                <div class="month-image" style="background-image:url('img/matcha-basque.jpg')"></div>
+                <div class="month-content">
+                    <span class="class-count">3 classes available</span>
+                    <div class="month-name">APRIL</div>
+                    <div class="menu-preview">
+                        Carrot Cake<br>Earl Grey Choco Tart<br>Basque Cheesecake
+                    </div>
+                </div>
+            </a>
 
-<div class="badge">4 classes</div>
+            <a class="month-card month-may" href="workshop-may.html">
+                <div class="month-image" style="background-image:url('img/applecrumbles-tart03.jpg')"></div>
+                <div class="month-content">
+                    <span class="class-count">8 classes available</span>
+                    <div class="month-name">MAY</div>
+                    <div class="menu-preview">
+                        Apple Crumbles Tart<br>Ryokucha Cake<br>Tiramisu & More
+                    </div>
+                </div>
+            </a>
 
-<div class="month-image" style="background-image:url('img/bananacreampie.jpg')"></div>
-
-<div class="month-content">
-
-<div class="month-name">March</div>
-
-<div class="class-count">View full workshop schedule</div>
-
-<div class="menu-preview">
-Banana Cream Pie<br>
-Matcha Miso Macadamia Cookies<br>
-Cha Choux<br>
-Dumpling Folding Club
-</div>
-
-</div>
-
-</a>
-
-
-<a class="month-card" href="workshop-april.html">
-<div class="badge">3 classes</div>
-
-<div class="month-image" style="background-image:url('img/matcha-basque.jpg')"></div>
-
-<div class="month-content">
-
-<div class="month-name">April</div>
-
-<div class="class-count">View full workshop schedule</div>
-
-<div class="menu-preview">
-Carrot Cake<br>
-Earl Grey Chocolate Tart<br>
-Basque Cheesecake
-</div>
-
-</div>
-
-</a>
-
-
-<a class="month-card" href="may.html">
-
-<div class="month-image" style="background-image:url('images/may.jpg')"></div>
-
-<div class="month-content">
-
-<div class="month-name">May</div>
-
-<div class="class-count">Schedule coming soon</div>
-
-<div class="menu-preview">
-Stay tuned for upcoming pastry & dessert classes.
-</div>
-
-</div>
-
-</a>
-
-
-<a class="month-card" href="june.html">
-
-<div class="month-image" style="background-image:url('images/june.jpg')"></div>
-
-<div class="month-content">
-
-<div class="month-name">June</div>
-
-<div class="class-count">Schedule coming soon</div>
-
-<div class="menu-preview">
-Future workshops will appear here.
-</div>
-
-</div>
-
-</a>
-
-</div>
-
-<div class="footer">
-Select a month to explore the full workshop schedule and reserve your seat.
-</div>
-
-</div>
-
+            <a class="month-card month-june" href="#">
+                <div class="month-image" style="background-image:url('images/june.jpg')"></div>
+                <div class="month-content">
+                    <span class="class-count">Coming soon</span>
+                    <div class="month-name">JUNE</div>
+                    <div class="menu-preview">Stay tuned for new seasonal menus.</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

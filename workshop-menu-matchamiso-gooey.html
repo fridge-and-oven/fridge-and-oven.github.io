@@ -172,15 +172,24 @@ body{
 }
 
 /* 11. LIGHTBOX */
-.lightbox{
-    display:none;
-    position:fixed;
-    top:0; left:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.85);
-    justify-content:center; align-items:center;
-    z-index:10000;
+.lightbox {
+    display: none;             /* ซ่อนไว้ก่อน */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* พื้นหลังดำโปร่งแสง */
+    justify-content: center;
+    align-items: center;
 }
-.lightbox img{ max-width:90%; max-height:90%; border-radius:10px; }
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 3px solid white;
+}
 
 /* 12. FOOTER */
 .footer{
@@ -199,10 +208,12 @@ body{
 }
 </style>
 </head>
+    
+
 
 <body>
 
-<a href="workshops.html" class="back-btn">← Back to Workshops</a>
+<a href="workshop-march.html" class="back-btn">← Back</a>
 
 <div class="menu-sheet">
 
@@ -237,7 +248,6 @@ body{
 
         <div class="info-box">
             <h3>Workshop Info</h3>
-            <div class="info-row"><strong>Date:</strong> March 18</div>
             <div class="info-row"><strong>Time:</strong> 14:00 – 16:00</div>
             <div class="info-row"><strong>Participants:</strong> 4 per class</div>
             
@@ -247,19 +257,42 @@ body{
         </div>
     </div>
 
-    <div class="gallery">
-        </div>
+<div class="gallery">
+    <img src="img/matchamiso-cookies.jpg" onclick="openLightbox(this.src)">
+
+</div>
 
     <div class="footer">
         Fridge and Oven • Workshop Series
     </div>
 
 </div>
-
-<div id="lightbox" class="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="">
+    
+    
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="img/dumpling02.jpg" >
 </div>
+    
 
 <script>
-    const images = document.querySelectorAll(".gallery img");
     const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    // ฟังก์ชันสำหรับเปิด Lightbox
+    function openLightbox(src) {
+        if (lightbox && lightboxImg) {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = src;
+        }
+    }
+
+    // ฟังก์ชันสำหรับปิด Lightbox
+    function closeLightbox() {
+        if (lightbox) {
+            lightbox.style.display = 'none';
+        }
+    }
+</script>
+
+    
+    </body></html>

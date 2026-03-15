@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking | Fridge and Oven</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f4f1e8; text-align: center; padding: 50px; }
+        .booking-box { background: white; padding: 40px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .highlight { color: #c62828; font-weight: bold; }
+        .btn-line { background: #06C755; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; display: inline-block; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="booking-box">
+        <h2>Confirm Your Workshop</h2>
+        <p>You are booking for: <span id="display-month" class="highlight">...</span></p>
+        <p>Menu: <span id="display-menu" class="highlight">...</span></p>
+        
+        <input type="text" id="userName" placeholder="Your Name" style="padding:10px; width:80%; margin-bottom:10px;"><br>
+        
+        <a href="#" id="lineLink" class="btn-line">Confirm via LINE</a>
+    </div>
+
+<script>
+    // ดึงค่าทั้งหมดจาก URL (?month=...&date=...&menu=...)
+    const params = new URLSearchParams(window.location.search);
+    const month = params.get('month') || '-';
+    const date = params.get('date') || '-';
+    const menu = params.get('menu') || '-';
+
+    // เอาไปแปะโชว์บนหน้าจอให้ลูกค้าเห็นว่าจองอะไรอยู่
+    document.getElementById('display-month').innerText = month;
+    document.getElementById('display-date').innerText = date;
+    document.getElementById('display-menu').innerText = menu;
+
+    function sendToLine() {
+        const name = document.getElementById('custName').value;
+        if(!name) { alert("กรุณาใส่ชื่อด้วยครับ"); return; }
+
+        // ข้อความที่จะเด้งเข้า LINE (จะสรุปมาให้ครบทั้ง วัน เดือน เมนู)
+        const msg = `สวัสดีค่ะ จอง Workshop ค่ะ%0A------------------------%0A🗓 เดือน: ${month}%0A📅 วันที่: ${date}%0A🍰 เมนู: ${menu}%0A👤 ชื่อผู้จอง: ${name}`;
+        
+        window.location.href = `https://line.me/R/oaMessage/@fridgeandoven/?${msg}`;
+    }
+</script>
+</body>
+</html>

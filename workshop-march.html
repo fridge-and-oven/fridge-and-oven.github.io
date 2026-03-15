@@ -1,270 +1,281 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-<title>March Workshops</title>
-
-<link href="img/favicon.ico" rel="icon">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-
-<style>
-
-body{
-margin:0;
-background:#f4f1e8;
-font-family:'Inter',sans-serif;
-color:#222;
-}
-
-.schedule{
-max-width:900px;
-margin:110px auto;
-padding:0 20px;
-position:relative;
-}
-
-.brand-side{
-position:absolute;
-right:-120px;
-top:30px;
-text-align:right;
-color:#c62828;
-line-height:1.7;
-font-weight:600;
-}
-
-.month{
-font-family:'Playfair Display',serif;
-font-size:100px;
-color:#c62828;
-margin-bottom:60px;
-}
-
-a.workshop{
-
-display:grid;
-grid-template-columns:70px 1fr;
-gap:20px;
-
-text-decoration:none;
-color:inherit;
-padding:18px 0;
-
-}
-
-a.workshop:hover{
-transform:translateX(6px);
-opacity:.85;
-}
-
-.date{
-
-width:70px;
-height:70px;
-
-background:#c62828;
-color:white;
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-weight:700;
-font-size:26px;
-
-}
-
-.details h2{
-font-family:'Playfair Display',serif;
-color:#c62828;
-font-size:34px;
-margin:0 0 6px 0;
-line-height:1.2;
-}
-
-.time{
-margin:8px 0;
-font-size:18px;
-}
-
-.price{
-font-size:26px;
-font-weight:700;
-}
-
-.divider{
-margin:35px 0;
-}
-
-.divider svg{
-width:100%;
-height:16px;
-}
-
-.info-footer{
-margin-top:80px;
-text-align:right;
-}
-
-@media(max-width:900px){
-
-.brand-side{
-display:none;
-}
-
-.month{
-font-size:70px;
-}
-
-.details h2{
-font-size:26px;
-}
-
-}
-
-@media(max-width:600px){
-
-a.workshop{
-grid-template-columns:46px 1fr;
-gap:14px;
-}
-
-.date{
-width:46px;
-height:46px;
-font-size:18px;
-}
-
-.month{
-font-size:55px;
-}
-
-.details h2{
-font-size:22px;
-}
-
-.time{
-font-size:16px;
-}
-
-.price{
-font-size:18px;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<span id="navtool"></span>
-
-<script src="nav.js"></script>
-<script>
-window.onload = addNavTool;
-</script>
-
-<section class="schedule">
-
-<div class="brand-side">
-FRIDGE<br>
-AND<br>
-OVEN
-</div>
-
-<h1 class="month">MARCH</h1>
-
-
-<a href="workshop-menu-banana.html" class="workshop">
-<div class="date">14</div>
-<div class="details">
-<h2>BANANA CREAM PIE</h2>
-<p class="time">14:00 – 17:00</p>
-<p class="price">5,000.- / PERSON</p>
-</div>
-</a>
-
-
-<div class="divider">
-<svg viewBox="0 0 1440 20">
-<path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
-stroke="#2f8f44"
-stroke-width="3"
-fill="none"/>
-</svg>
-</div>
-
-
-<a href="workshop-menu-matchamiso-gooey.html" class="workshop">
-<div class="date">18</div>
-<div class="details">
-<h2>MATCHA MISO MACADAMIA SOFTBAKED COOKIES</h2>
-<p class="time">14:00 – 16:00</p>
-<p class="price">4,500.- / PERSON</p>
-</div>
-</a>
-
-
-<div class="divider">
-<svg viewBox="0 0 1440 20">
-<path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
-stroke="#2f8f44"
-stroke-width="3"
-fill="none"/>
-</svg>
-</div>
-
-
-<a href="workshop-menu-chachoux.html" class="workshop">
-<div class="date">21</div>
-<div class="details">
-<h2>CHA CHOUX</h2>
-<p class="time">14:00 – 16:30</p>
-<p class="price">5,000.- / PERSON</p>
-</div>
-</a>
-
-
-<div class="divider">
-<svg viewBox="0 0 1440 20">
-<path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
-stroke="#2f8f44"
-stroke-width="3"
-fill="none"/>
-</svg>
-</div>
-
-
-<a href="workshop-march(menu-4).html" class="workshop">
-<div class="date">28</div>
-<div class="details">
-<h2>DUMPLING FOLDING CLUB</h2>
-<p class="time">10:00 – 12:00 / 14:00 – 16:00</p>
-<p class="price">3,900.- / PERSON</p>
-</div>
-</a>
-
-
-<div class="info-footer">
-<p>Number of Participants: <strong>4 / CLASS</strong></p>
-<p>More Info: LINE OA @fridgeandoven</p>
-</div>
-
-</section>
-
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>March Workshops - Fridge and Oven</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;500;700&display=swap"
+            rel="stylesheet" />
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+
+        <style>
+            body {
+                margin: 0;
+                background: #f4f1e8;
+                font-family: "Inter", sans-serif;
+                color: #222;
+            }
+
+            /* SCHEDULE LAYOUT */
+            .schedule {
+                max-width: 1000px;
+                margin: 60px auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            .brand-side {
+                position: absolute;
+                right: -120px;
+                top: 30px;
+                text-align: right;
+                color: #c62828;
+                line-height: 1.7;
+                font-weight: 600;
+            }
+
+            .month {
+                font-family: "Playfair Display", serif;
+                font-size: 80px;
+                color: #c62828;
+                margin-bottom: 40px;
+            }
+
+            /* GRID SYSTEM */
+            .workshop-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+
+            /* การ์ดแบบรูปเต็มขอบ */
+            .workshop-card {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                background: #ffffff;
+                border-radius: 12px;
+                overflow: hidden; /* บังคับให้รูปที่ล้นออกมาถูกตัดตามความโค้งของการ์ด */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+
+                /* **สำคัญมาก!** ขจัดขอบขาวจาก Bootstrap */
+                border: none !important;
+                padding: 0 !important;
+            }
+
+            /* ส่วนรูปภาพ (ต้องเต็ม 100% และไม่มีระยะห่าง) */
+            .card-image {
+                width: 100%;
+                height: 180px; /* หรือความสูงที่คุณตั้งไว้ */
+                background-size: cover;
+                background-position: center;
+
+                /* **สำคัญมาก!** ขจัดระยะห่าง */
+                margin: 0 !important;
+                display: block !important;
+            }
+
+            .card-content {
+                padding: 15px;
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            /* DATE & DAY */
+            .date-zone {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-shrink: 0;
+                width: 50px;
+            }
+
+            .date-circle {
+                width: 45px;
+                height: 45px;
+                background: #c62828;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 18px;
+            }
+
+            .day-name {
+                font-size: 11px;
+                font-weight: 700;
+                color: #c62828;
+                margin-top: 4px;
+            }
+
+            /* DETAILS */
+            .card-details h2 {
+                font-family: "Playfair Display", serif;
+                color: #c62828;
+                font-size: 18px;
+                margin: 0;
+                line-height: 1.2;
+            }
+
+            .card-details .time,
+            .card-details .price {
+                font-size: 13px;
+                margin: 3px 0;
+            }
+
+            /* FOOTER */
+            .info-footer {
+                margin-top: 60px;
+                text-align: right;
+                border-top: 2px solid #c62828;
+                padding-top: 20px;
+            }
+
+            /* MOBILE RESPONSIVE */
+            @media (max-width: 900px) {
+                .brand-side {
+                    display: none;
+                }
+                .workshop-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 600px) {
+                .month {
+                    font-size: 50px;
+                }
+                .workshop-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                }
+                .card-image {
+                    height: 130px;
+                }
+                .card-content {
+                    padding: 10px;
+                    gap: 8px;
+                }
+                .card-details h2 {
+                    font-size: 15px;
+                }
+            }
+
+            /* DIVIDER */
+            .divider {
+                margin: 35px 0; /* ระยะห่างบนล่าง */
+            }
+
+            .divider svg {
+                width: 100%;
+                height: 16px; /* ความสูงของเส้นคลื่น */
+            }
+        </style>
+    </head>
+
+    <body>
+        <span id="navtool"></span>
+        <script src="nav.js"></script>
+        <script>
+            window.onload = addNavTool;
+        </script>
+
+        <section class="schedule">
+            <div class="brand-side">FRIDGE<br />AND<br />OVEN</div>
+            <h1 class="month">MARCH</h1>
+
+            <div class="divider">
+                <svg viewBox="0 0 1440 20">
+                    <path
+                        d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+                        stroke="#2f8f44"
+                        stroke-width="3"
+                        fill="none" />
+                </svg>
+            </div>
+
+
+            <div class="workshop-grid">
+                <a href="workshop-menu-banana.html" class="workshop-card">
+                    <div class="card-image" style="background-image: url(&quot;img/bananacreampie.jpg&quot;)"></div>
+                    <div class="card-content">
+                        <div class="date-zone">
+                            <div class="date-circle">14</div>
+                            <div class="day-name">SAT</div>
+                        </div>
+                        <div class="card-details">
+                            <h2>BANANA CREAM PIE</h2>
+                            <p class="time">14:00 – 17:00</p>
+                            <p class="price">5,000.- / PERSON</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="workshop-menu-matchamiso-gooey.html" class="workshop-card">
+                    <div class="card-image" style="background-image: url(&quot;img/matchamiso-cookies.jpg&quot;)"></div>
+                    <div class="card-content">
+                        <div class="date-zone">
+                            <div class="date-circle">18</div>
+                            <div class="day-name">WED</div>
+                        </div>
+                        <div class="card-details">
+                            <h2>MATCHA MISO COOKIES</h2>
+                            <p class="time">14:00 – 16:00</p>
+                            <p class="price">4,500.- / PERSON</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="workshop-menu-chachoux.html" class="workshop-card">
+                    <div class="card-image" style="background-image: url(&quot;img/choux01.jpg&quot;)"></div>
+                    <div class="card-content">
+                        <div class="date-zone">
+                            <div class="date-circle">21</div>
+                            <div class="day-name">SAT</div>
+                        </div>
+                        <div class="card-details">
+                            <h2>CHA CHOUX</h2>
+                            <p class="time">14:00 – 16:30</p>
+                            <p class="price">5,000.- / PERSON</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="workshop-dumpling.html" class="workshop-card">
+                    <div class="card-image" style="background-image: url(&quot;img/dumpling02.jpg&quot;)"></div>
+                    <div class="card-content">
+                        <div class="date-zone">
+                            <div class="date-circle">28</div>
+                            <div class="day-name">SAT</div>
+                        </div>
+                        <div class="card-details">
+                            <h2>DUMPLING FOLDING CLUB</h2>
+                            <p class="time">14:00 – 16:00</p>
+                            <p class="price">3,900.- / PERSON</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="info-footer">
+                <p>Number of Participants: <strong>4 / CLASS</strong></p>
+                <p>More Info: LINE OA @fridgeandoven</p>
+            </div>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

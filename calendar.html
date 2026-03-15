@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Workshop Calendar | Fridge and Oven</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f4f1e8; font-family: 'Inter', sans-serif; text-align: center; padding: 40px 20px; }
+        .month-title { font-family: 'Playfair Display', serif; font-size: 48px; color: #c62828; margin-bottom: 10px; }
+        .calendar-container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .schedule-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid #eee; text-align: left; }
+        .date-box { font-weight: 700; color: #c62828; min-width: 80px; }
+        .menu-info { flex-grow: 1; margin-left: 20px; }
+        .menu-name { font-weight: 600; font-size: 18px; display: block; }
+        .btn-book { background: #c62828; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 14px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <h1 id="displayMonth" class="month-title">MONTH</h1>
+    <p>Please select your workshop date</p>
+
+    <div class="calendar-container" id="scheduleList">
+        </div>
+
+    <script>
+        // 1. ดึงชื่อเดือนจาก URL
+        const params = new URLSearchParams(window.location.search);
+        const currentMonth = (params.get('month') || 'MARCH').toUpperCase();
+        document.getElementById('displayMonth').innerText = currentMonth;
+
+        // 2. ฐานข้อมูล Workshop (คุณมาแก้ตรงนี้ที่เดียวจบ!)
+        const allSchedules = {
+            'MARCH': [
+                { date: '18 Mar', menu: 'Banana Cream Pie', price: '2,500' },
+                { date: '20 Mar', menu: 'Matcha Miso Cookies', price: '1,800' }
+            ],
+            'APRIL': [
+                { date: '05 Apr', menu: 'Carrot Cake', price: '2,200' },
+                { date: '12 Apr', menu: 'Basque Cheesecake', price: '2,000' }
+            ]
+        };
+
+        // 3. แสดงผลรายการตามเดือน
+        const listContainer = document.getElementById('scheduleList');
+        const schedules = allSchedules[currentMonth] || [];
+
+        if(schedules.length === 0) {
+            listContainer.innerHTML = "<p>Coming soon...</p>";
+        } else {
+            schedules.forEach(item => {
+                const html = `
+                <div class="schedule-item">
+                    <div class="date-box">${item.date}</div>
+                    <div class="menu-info">
+                        <span class="menu-name">${item.menu}</span>
+                        <small>Price: ${item.price} THB</small>
+                    </div>
+                    <a href="booking.html?month=${currentMonth}&date=${item.date}&menu=${encodeURIComponent(item.menu)}" class="btn-book">BOOK</a>
+                </div>`;
+                listContainer.innerHTML += html;
+            });
+        }
+    </script>
+</body>
+</html>
