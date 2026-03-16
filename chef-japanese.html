@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JAPANESE CHEF | FRIDGE AND OVEN</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f4f1e8; font-family: 'Inter', sans-serif; color: #222; margin: 0; }
+        .container { max-width: 800px; margin: auto; padding: 60px 15px; }
+        .header-back { margin-bottom: 30px; }
+        .btn-back { color: #b3262e; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 1px; }
+        .chef-intro { text-align: center; margin-bottom: 50px; }
+        .chef-intro h1 { font-family: 'Playfair Display', serif; font-size: 42px; color: #2f8f44; margin-bottom: 10px; } /* สีเขียวแบบญี่ปุ่น */
+        .menu-item { background: #fff; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); border: 1px solid rgba(47, 143, 68, 0.1); overflow: hidden; }
+        .menu-header { width: 100%; padding: 25px 30px; background: none; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .menu-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #2f8f44; margin: 0; }
+        .schedule-list { display: none; padding: 0 30px 25px; background: #fff; border-top: 1px dashed #eee; }
+        .schedule-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; }
+        .month-label { background: #2f8f44; color: #fff; padding: 2px 10px; border-radius: 5px; font-size: 10px; font-weight: 700; margin-right: 10px; }
+        .btn-book { background: #2f8f44; color: #fff; padding: 8px 20px; border-radius: 50px; text-decoration: none !important; font-size: 12px; font-weight: 700; }
+        .active .icon-plus { transform: rotate(45deg); color: #2f8f44; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header-back"><a href="workshop-instructors.html" class="btn-back">← BACK TO INSTRUCTORS</a></div>
+    <div class="chef-intro">
+        <h1>Japanese Chef Selection</h1>
+        <p>สัมผัสศาสตร์แห่งรสชาติที่เรียบง่ายแต่ลุ่มลึก</p>
+    </div>
+    <div id="workshop-list"></div>
+</div>
+<script src="workshop-data.js"></script>
+<script>
+    const currentChef = "japanese"; 
+    const container = document.getElementById('workshop-list');
+    const chefMenus = workshopDatabase.filter(item => item.chef === currentChef);
+
+    if (chefMenus.length === 0) {
+        container.innerHTML = "<p style='text-align:center; color:#999;'>Coming soon: เมนูใหม่กำลังเตรียมการอยู่ค่ะ</p>";
+    } else {
+        chefMenus.forEach((menu, index) => {
+            let schedulesHTML = '';
+            menu.schedules.forEach(sched => {
+                schedulesHTML += `<div class="schedule-row">
+                    <div class="date-info"><span class="month-label">${sched.month}</span>${sched.date}</div>
+                    <a href="${sched.link}#${menu.id}" class="btn-book">BOOK NOW</a>
+                </div>`;
+            });
+            container.innerHTML += `<div class="menu-item" id="item-${index}">
+                <button class="menu-header" onclick="toggleAccordion(${index})">
+                    <h2 class="menu-title">${menu.menuName}</h2>
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="schedule-list" id="sched-${index}">${schedulesHTML}</div>
+            </div>`;
+        });
+    }
+    function toggleAccordion(index) {
+        const list = document.getElementById(`sched-${index}`);
+        const isVisible = list.style.display === "block";
+        document.querySelectorAll('.schedule-list').forEach(el => el.style.display = 'none');
+        if (!isVisible) list.style.display = "block";
+    }
+</script>
+</body>
+</html>

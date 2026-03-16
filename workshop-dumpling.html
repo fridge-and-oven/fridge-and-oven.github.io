@@ -371,15 +371,24 @@ Dumpling Folding Club
 
 <h3>Workshop Info</h3>
 
-<div class="info-row"><strong>Date:</strong> March 28</div>
-<div class="info-row"><strong>Time:</strong> 10:00-12:00 or 14:00-16:00</div>
-<div class="info-row"><strong>Participants:</strong> 4 per class</div>
+<div class="info-row"><strong>Date:</strong> <span id="display-date">March 28</span></div>
 
-<div class="price">3,900 THB / person</div>
-
-<a class="reserve-btn" href="https://line.me/R/oaMessage/@fridgeandoven/?Hello">Reserve via LINE</a>
-
+<div class="time-selector" style="margin-top: 15px;">
+    <strong style="font-size: 14px; display: block; margin-bottom: 8px;">Select Session:</strong>
+    <div class="slot-options" style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="display: flex; align-items: center; background: #f9f9f9; padding: 10px; border-radius: 8px; border: 1px solid #ddd; cursor: pointer;">
+            <input type="radio" name="time-slot" value="10:00-12:00" checked style="margin-right: 10px;">
+            <span style="font-size: 14px; font-weight: 600;">10:00 - 12:00</span>
+        </label>
+        <label style="display: flex; align-items: center; background: #f9f9f9; padding: 10px; border-radius: 8px; border: 1px solid #ddd; cursor: pointer;">
+            <input type="radio" name="time-slot" value="14:00-16:00" style="margin-right: 10px;">
+            <span style="font-size: 14px; font-weight: 600;">14:00 - 16:00</span>
+        </label>
+    </div>
 </div>
+
+<div class="price"><span id="display-price">3,900</span> THB</div>
+    <a id="btn-reserve" class="reserve-btn" href="#">Reserve Now</a></div>
 
 </div>
 
@@ -399,25 +408,41 @@ Fridge and Oven • Workshop Series
 <img id="lightbox-img" src="img/dumpling.jpg" >
 </div>
 <script>
-    const images = document.querySelectorAll(".gallery img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+    // --- 1. ดึงข้อมูลจาก URL (ที่ส่งมาจากหน้าตารางเดือน) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateVal = urlParams.get('date');
+    const menuVal = urlParams.get('menu');
+    const priceVal = urlParams.get('price');
 
-    // ส่วนนี้จะดักจับการคลิกที่รูปใน Gallery ทั้งหมด
-    images.forEach(img => {
-        img.addEventListener("click", () => {
-            lightbox.style.display = "flex";
-            lightboxImg.src = img.src; // แก้ไขจาก lightboxImgmg เป็น lightboxImg
+    // โชว์ข้อมูลที่ดึงมาลงในหน้าเว็บ
+    if (dateVal) document.getElementById('display-date').innerText = dateVal;
+    if (priceVal) document.getElementById('display-price').innerText = priceVal;
+    // (ถ้ามีที่โชว์ชื่อเมนูก็ใส่เพิ่มได้ เช่น h1)
+    if (menuVal) document.querySelector('.header h1').innerText = menuVal;
+
+    // --- 2. ฟังก์ชันจอง (รวบยอดข้อมูลส่งไปหน้า Booking) ---
+    const reserveBtn = document.getElementById('btn-reserve');
+    
+    if (reserveBtn) {
+        reserveBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // ป้องกันไม่ให้โดดไปหน้าอื่นก่อนเตรียมข้อมูลเสร็จ
+            
+            // ดึงค่าเวลาที่ลูกค้าเพิ่งจิ้มเลือกจาก Radio Button
+            const selectedTime = document.querySelector('input[name="time-slot"]:checked').value;
+            
+            // สร้าง URL ใหม่เพื่อส่งไปหน้า booking.html พร้อมค่าทั้งหมด
+            const finalUrl = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}&time=${encodeURIComponent(selectedTime)}`;
+            
+            // วาร์ปไปหน้า Booking พร้อมตั๋วใบสมบูรณ์!
+            window.location.href = finalUrl;
         });
-    });
+    }
 
-    // ฟังก์ชันสำหรับเปิด (เรียกใช้จาก onclick ใน HTML)
+    // --- ส่วน Lightbox (โค้ดเดิมของคุณพี่) ---
     function openLightbox(src) {
         document.getElementById('lightbox').style.display = 'flex';
         document.getElementById('lightbox-img').src = src;
     }
-
-    // ฟังก์ชันสำหรับปิด Lightbox เมื่อคลิกที่พื้นที่ว่างหรือตัวรูป
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
     }

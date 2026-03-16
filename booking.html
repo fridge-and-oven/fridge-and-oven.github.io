@@ -10,39 +10,62 @@
         body { font-family: 'Inter', sans-serif; background: var(--brand-red); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; box-sizing: border-box; }
         .container { background: var(--brand-cream); width: 100%; max-width: 420px; padding: 35px 25px; border-radius: 24px; border: 5px solid #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.3); text-align: center; }
         h2 { font-family: 'Playfair Display', serif; color: var(--brand-red); font-size: 28px; margin: 0 0 20px 0; }
+        
+        /* การ์ดสรุป */
         .summary-card { background: white; border-radius: 16px; padding: 20px; text-align: left; margin-bottom: 25px; }
         .summary-item { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
         .label { font-size: 11px; color: #999; text-transform: uppercase; font-weight: 600; }
         .value { font-size: 15px; font-weight: 600; color: #222; text-align: right; }
         .price-total { border-top: 2px solid var(--brand-cream); padding-top: 15px; margin-top: 15px; }
         .price-value { font-size: 20px; color: var(--brand-red); font-weight: 700; }
-        input[type="text"] { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-top: 8px; outline: none; transition: .25s; }
+
+        /* เงื่อนไขการจอง */
+        .terms-box { text-align: left; background: #fff; padding: 15px; border-radius: 12px; margin-top: 20px; border: 1px dashed #ccc; }
+        .terms-box h4 { margin: 0 0 8px 0; font-size: 13px; color: var(--brand-red); }
+        .terms-box ul { margin: 0; padding-left: 18px; font-size: 11px; color: #666; line-height: 1.6; }
+
+        input[type="text"] { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-top: 8px; outline: none; }
         input[type="text"]:focus { border-color: var(--brand-red); }
-        .btn-confirm { background: var(--line-green); color: white; display: flex; align-items: center; justify-content: center; padding: 16px; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 18px; border: none; width: 100%; cursor: pointer; margin-top: 20px; transition: .2s; }
-        .btn-confirm:active { transform: scale(0.98); opacity: 0.9; }
+
+        .btn-confirm { background: var(--line-green); color: white; display: flex; align-items: center; justify-content: center; padding: 16px; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 18px; border: none; width: 100%; cursor: pointer; margin-top: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Confirm Booking</h2>
-        <div class="summary-card">
-            <div class="summary-item">
-                <span class="label">Menu</span>
-                <span id="display-menu" class="value">Loading...</span>
-            </div>
-            <div class="summary-item">
-                <span class="label">Date</span>
-                <span id="display-date" class="value">Loading...</span>
-            </div>
-            <div class="summary-item price-total">
-                <span class="label" style="color:#333">Total Price</span>
-                <span id="display-price" class="price-value">0 THB</span>
-            </div>
-        </div>
+        
+<div class="summary-card">
+    <div class="summary-item">
+        <span class="label">Menu</span>
+        <span id="display-menu" class="value">Loading...</span>
+    </div>
+    <div class="summary-item">
+        <span class="label">Date</span>
+        <span id="display-date" class="value">Loading...</span>
+    </div>
 
+    <div id="time-row" class="summary-item">
+        <span class="label">Time</span>
+        <span id="display-time" class="value">-</span>
+    </div>
+
+    <div class="summary-item price-total">
+        <span class="label" style="color:#333">Total Price</span>
+        <span id="display-price" class="price-value">0 THB</span>
+    </div>
+</div>
         <div style="text-align:left">
             <span class="label" style="color:#333">Your Name / ชื่อผู้จอง</span>
             <input type="text" id="custName" placeholder="ระบุชื่อของคุณ">
+        </div>
+
+        <div class="terms-box">
+            <h4>Terms & Conditions</h4>
+            <ul>
+                <li>การสำรองที่นั่งจะสมบูรณ์เมือลูกค้าชำระเงินเรียบร้อยแล้ว</li>
+                <li>เมื่อสมัครแล้วจะไม่สามารถยกเลิกหรือรับเงินคืนในทุกกรณี (ยกเว้นการเจ็บป่วยหรือประสบอุบัติเหตูร้ายแรงจนไม่สามารถใช้ชีวิตปกติได้)</li>
+                <li>หากไม่สามารถมาด้วยตนเองได้สามารถส่งตัวแทนมาเรียนหรือขอรับสูตรขนมและวัตถุดิบจากร้านได้ค่ะ</li>
+            </ul>
         </div>
         
         <button onclick="sendToLine()" class="btn-confirm">Confirm via LINE</button>
@@ -50,30 +73,48 @@
     </div>
 
 <script>
-    // --- ระบบดึงข้อมูลจาก URL ---
-    const params = new URLSearchParams(window.location.search);
-    const date = params.get('date');
-    const menu = params.get('menu');
-    const price = params.get('price');
+    // 1. ดึงค่าจาก URL (ที่ส่งมาจากหน้า Detail หรือหน้าตารางเดือน)
+    const urlParams = new URLSearchParams(window.location.search);
+    const menuVal = urlParams.get('menu');
+    const dateVal = urlParams.get('date');
+    const priceVal = urlParams.get('price');
+    const timeVal = urlParams.get('time'); // ค่าเวลาใหม่ที่เราเพิ่งเพิ่มกัน
 
-    // แสดงผลข้อมูล (พร้อมเช็คกรณีไม่มีข้อมูลส่งมา)
-    document.getElementById('display-date').innerText = date ? date : 'ไม่ได้ระบุวันที่';
-    document.getElementById('display-menu').innerText = menu ? menu : 'ไม่ได้ระบุเมนู';
-    document.getElementById('display-price').innerText = (price ? price : '0') + " THB";
+    // 2. นำข้อมูลมาแสดงผลในหน้าสรุป (Summary Card)
+    if (menuVal) document.getElementById('display-menu').innerText = menuVal;
+    if (dateVal) document.getElementById('display-date').innerText = dateVal;
+    if (priceVal) document.getElementById('display-price').innerText = priceVal + " THB";
 
-    function sendToLine() {
-        const name = document.getElementById('custName').value;
-        if(!name) { 
-            alert("กรุณาใส่ชื่อผู้จองด้วยนะคะ"); 
-            return; 
+    // 3. จัดการเรื่อง "รอบเวลา" (ถ้าไม่มีให้ซ่อนแถวไปเลย)
+    const timeRow = document.getElementById('time-row');
+    const timeDisplay = document.getElementById('display-time');
+
+    if (timeVal && timeVal !== "") {
+        if (timeDisplay) timeDisplay.innerText = timeVal;
+        if (timeRow) timeRow.style.display = 'flex'; // โชว์แถวเวลา
+    } else {
+        if (timeRow) timeRow.style.display = 'none'; // ซ่อนแถวเวลาถ้าไม่มีข้อมูล
+    }
+
+    // 4. สร้าง Link สำหรับปุ่ม "Confirm via LINE"
+    // มองหาปุ่มที่มี ID เช่น id="btn-confirm-line" นะคะ
+    const confirmBtn = document.getElementById('btn-confirm-line');
+    if (confirmBtn) {
+        // เตรียมข้อความทักแชทแบบมือโปร
+        let message = `สวัสดีค่ะ สนใจจองคลาสเรียน\n`;
+        message += `🍴 เมนู: ${menuVal || '-'}\n`;
+        message += `📅 วันที่: ${dateVal || '-'}\n`;
+        
+        // ถ้ามีเวลา ให้ใส่เข้าไปในแชทด้วย
+        if (timeVal) {
+            message += `⏰ รอบเวลา: ${timeVal}\n`;
         }
         
-        // ร่างข้อความที่จะส่งเข้า LINE
-        // ใช้ชื่อเมนู วันที่ และราคา ที่ดึงมาจาก URL จริงๆ
-        const message = `สวัสดีค่ะ จอง Workshop ค่ะ\n------------------------\n🍰 เมนู: ${menu}\n📅 วันที่: ${date}\n💰 ราคา: ${price} THB\n👤 ชื่อผู้จอง: ${name}\n------------------------`;
-        
-        // ส่งข้อความไปที่ LINE OA ของร้าน (@fridgeandoven)
-        window.location.href = `https://line.me/R/oaMessage/@fridgeandoven/?${encodeURIComponent(message)}`;
+        message += `💰 ราคา: ${priceVal || '-'} THB\n`;
+        message += `\nรบกวนขอรายละเอียดการโอนเงินด้วยค่ะ ✨`;
+
+        // ใส่ Link เข้าไปในปุ่ม
+        confirmBtn.href = `https://line.me/R/oaMessage/@fridgeandoven/?${encodeURIComponent(message)}`;
     }
 </script>
 </body>

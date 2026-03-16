@@ -5,149 +5,176 @@
     <meta charset="utf-8">
     <title>FRIDGE AND OVEN: Workshop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
+    
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
     <style>
-        .workshop{
-            border-radius: 10px;
-            width: 150px;
-            height: 100px;
+        /* --- BASE STYLES --- */
+        body {
+            margin: 0;
+            background: #f4f1e8; /* พื้นหลังนวลแบบ Schedule */
+            font-family: 'Inter', sans-serif;
+            color: #222;
         }
-        .link{
-            padding: 5px;
+
+        .workshop-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 15px 100px;
+        }
+
+        /* --- HEADER (ธีมเดียวกับ Schedule) --- */
+        .header {
             text-align: center;
+            margin-bottom: 30px;
         }
-        .flex-block{
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
+
+        .brand-label {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #c62828;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
-        .grid-block{
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr);
-            justify-content: center; 
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 8vw, 72px);
+            color: #c62828;
+            margin: 0;
+            font-weight: 700;
         }
-        
-.workshop{
-    font-family:'Playfair Display', serif;
-    font-size:20px;
-}
 
-.link{
-    padding:18px 10px;
-    text-align:center;
-    text-decoration:none;
+        /* เส้นคลื่นเขียวอันเป็นเอกลักษณ์ */
+        .divider {
+            max-width: 600px;
+            margin: 15px auto 30px;
+        }
+        .divider svg {
+            width: 100%;
+            height: 16px;
+        }
 
-    background:#b3262e;     /* แดง */
-    color:#f5e4af;          /* เหลืองทอง */
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            opacity: 0.9;
+        }
 
-    border-radius:25px;
-    transition:0.25s;
-}
+        /* --- WORKSHOP BUTTONS (ก้อนๆ น่ารักแต่คุมโทน) --- */
+        .flex-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
 
-.link:hover{
-    background:#f4f1e8;     /* เหลืองอ่อน */
-    color:#b3262e;          /* ตัวหนังสือแดง */
-}
+        .link.workshop {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none !important;
+            
+            background: #579dc2; /* เปลี่ยนเป็นก้อนขาวเพื่อให้โดดเด่นบนพื้นนวล */
+            color: #f5e4af; 
+            
+            padding: 22px 35px;
+            border-radius: 50px;
+            border: 2px solid #008100; /* ขอบแดงให้ดูเหมือนงานกราฟิก */
+            
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 10px rgba(198, 40, 40, 0.08);
+            display: inline-block;
+        }
 
-.flex-block{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
+        .link.workshop:hover {
+            background: #c62828;
+            color: #f5e4af;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(198, 40, 40, 0.2);
+        }
+
+        /* --- FOOTER (คงเดิม) --- */
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .footer-link:hover { color: #f5e4af; }
+
+        @media (max-width: 576px) {
+            .link.workshop { width: 100%; }
+            .workshop-container { padding-top: 20px; }
+        }
     </style>
-
 </head>
+
 <body class="bg-cake">
 
+    <span id="navtool"></span>
+    <script src="nav.js"></script>
+    <script>window.onload = addNavTool();</script>
 
-<span id="navtool"></span>         <script src="nav.js"></script>         <script>window.onload=addNavTool();</script>
-<div class="flex-block" style="padding-bottom:50px; padding-top: 50px;">
-
-<a class="link workshop" href="workshop-monthlyschedule.html">
-Monthly Schedule
-</a>
-
-<a class="link workshop" href="index.html">
-Our Instructors
-</a>
-
-
-<a class="link workshop" href="index.html">
-Private Class
-</a>
-
-<a class="link workshop" href="workshop-classroom.html">
-Our Classroom
-</a>
-
-<a class="link workshop" href="index.html">
-Special Workshop
-</a>
-
-</div>
-    
-    
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white p-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 d-flex flex-column align-items-start">
-                <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
-                <a href="about.html" class="footer-link">ABOUT US</a>
-                <a href="https://www.instagram.com/fridgeandoven/" class="footer-link">INSTAGRAM</a>
-                <a href="locations.html" class="footer-link">LOCATIONS</a>
+    <div class="workshop-container">
+        <div class="header">
+            <div class="brand-label">FRIDGE AND OVEN</div>
+            <h1 class="title">WORKSHOPS</h1>
+            
+            <div class="divider">
+                <svg viewBox="0 0 1440 20">
+                    <path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+                        stroke="#2f8f44" stroke-width="4" fill="none" />
+                </svg>
             </div>
+            
+            <p class="intro-text">
+                "Let's make some sweet memories (and delicious messes) together."
+            </p>
+        </div>
 
-            <div class="col-6 d-flex justify-content-end align-items-end">
-                <div class="footer-logo-box bg-nav" style="padding: 15px;">
-                    <h1 class="footer-logo-text" style="color: #f5e4af; font-size: 20px; white-space: nowrap;">FRIDGE AND OVEN</h1>
+        <div class="flex-block">
+            <a class="link workshop" href="workshop-monthlyschedule.html">Monthly Schedule</a>
+            <a class="link workshop" href="index.html">Our Instructors</a>
+            <a class="link workshop" href="index.html">Private Class</a>
+            <a class="link workshop" href="workshop-classroom.html">Our Classroom</a>
+            <a class="link workshop" href="index.html">Special Workshop</a>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-primary text-white p-0">
+        <div class="container" style="padding: 50px 15px;">
+            <div class="row">
+                <div class="col-6 d-flex flex-column align-items-start">
+                    <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                    <a href="about.html" class="footer-link">ABOUT US</a>
+                    <a href="https://www.instagram.com/fridgeandoven/" class="footer-link">INSTAGRAM</a>
+                    <a href="locations.html" class="footer-link">LOCATIONS</a>
+                </div>
+
+                <div class="col-6 d-flex justify-content-end align-items-end">
+                    <div class="footer-logo-box bg-nav" style="padding: 15px; border: 1.5px solid #f5e4af;">
+                        <h1 class="footer-logo-text" style="color: #f5e4af; font-size: 20px; white-space: nowrap; margin-bottom: 0;">FRIDGE AND OVEN</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    <!-- Footer End -->
 
-
-
-    <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>

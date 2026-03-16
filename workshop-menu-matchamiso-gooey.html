@@ -92,18 +92,18 @@ body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
     const urlParams = new URLSearchParams(window.location.search);
     const dateVal = urlParams.get('date');
     const menuVal = urlParams.get('menu');
-    const priceVal = urlParams.get('price'); // ดึงราคาเพิ่ม
+    const priceVal = urlParams.get('price');
 
-    // แสดงผลในหน้าเมนู
+    // 1. แสดงผลในหน้าเมนู (ต้องมีบรรทัดนี้ราคาถึงจะขึ้น)
     if (dateVal) document.getElementById('display-date').innerText = dateVal;
     if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
+    if (priceVal) document.getElementById('display-price').innerText = priceVal; 
 
-    // ส่งต่อไปหน้า Booking (พ่วงราคาไปด้วย)
+    // 2. ส่งต่อข้อมูลไปหน้าจอง (เช็คว่า encodeURIComponent ครบทุกตัว)
     const reserveBtn = document.getElementById('btn-reserve');
     if (reserveBtn) {
         reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}`;
     }
 </script>
-
 </body>
 </html>

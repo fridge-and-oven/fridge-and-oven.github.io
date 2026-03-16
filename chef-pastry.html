@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHEF'S SIGNATURE | FRIDGE AND OVEN</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f4f1e8; font-family: 'Inter', sans-serif; }
+        .container { max-width: 700px; margin: auto; padding: 60px 15px; }
+        .chef-title { font-family: 'Playfair Display', serif; color: #c62828; text-align: center; margin-bottom: 40px; }
+        
+        /* สไตล์การ์ดเมนู */
+        .menu-card { background: #fff; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .menu-btn { width: 100%; padding: 20px; text-align: left; background: none; border: none; display: flex; justify-content: space-between; font-family: 'Playfair Display', serif; font-size: 20px; color: #c62828; font-weight: 700; cursor: pointer; }
+        
+        /* สไตล์ตารางวันที่เรียน */
+        .date-list { display: none; padding: 0 20px 20px; border-top: 1px dashed #eee; }
+        .date-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f9f9f9; }
+        .month-tag { background: #c62828; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; font-family: 'Inter'; }
+        .btn-go { background: #c62828; color: #fff; padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 12px; font-weight: 600; }
+        .btn-go:hover { background: #222; color: #fff; }
+        
+        /* ส่วนปรับปรุงใหม่ */
+.header-nav { 
+    display: flex; 
+    align-items: center; 
+    padding: 20px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* เพิ่มเส้นบางๆ ให้ดูเป็นระเบียบ */
+}
+
+.btn-back { 
+    color: #b3262e; 
+    text-decoration: none !important; 
+    font-weight: 700; 
+    font-size: 13px; 
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+.btn-back:hover { opacity: 0.7; }
+
+.chef-intro { 
+    text-align: center; 
+    padding: 20px 0 40px; 
+}
+
+/* ปรับ Title ให้ขนาดพอดี ไม่ดันขึ้นไปทับปุ่ม */
+.chef-intro h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(32px, 5vw, 42px); 
+    margin-bottom: 15px; 
+    line-height: 1.2;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header-nav">
+        <a href="workshop-instructors.html" class="btn-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            BACK TO INSTRUCTORS
+        </a>
+    </header>
+
+    <div class="chef-intro">
+        <h1 id="chef-display-name">Chef Selection</h1>
+        <p>เลือกเมนูที่คุณสนใจเพื่อดูตารางเรียนและจองคลาส</p>
+    </div>
+    
+    <div id="workshop-list">
+        </div>
+</div>
+
+<script src="workshop-data.js"></script>
+
+<script>
+    // 1. ระบุว่าหน้านี้เป็นของเชฟคนไหน (pastry / japanese / chinese)
+    const currentChef = "pastry"; 
+    
+    // 2. แก้จุดนี้!! ต้องให้ตรงกับ ID "workshop-list" ใน HTML ด้านบน
+    const container = document.getElementById('workshop-list'); 
+
+    // 3. เพิ่มส่วนนี้เข้าไปด้วยเพื่อให้ชื่อหัวข้อเปลี่ยนตามเชฟอัตโนมัติ
+    const chefTitleMap = {
+        "pastry": "Pastry Chef Selection",
+        "japanese": "Japanese Chef Selection",
+        "chinese": "Chinese Chef Selection"
+    };
+    document.getElementById('chef-display-name').innerText = chefTitleMap[currentChef];
+
+    // 4. กรองข้อมูลเฉพาะของเชฟคนนี้
+    const filteredMenus = workshopDatabase.filter(m => m.chef === currentChef);
+
+    // 5. สร้าง HTML โชว์เมนู
+    if (filteredMenus.length === 0) {
+        container.innerHTML = "<p style='text-align:center; color:#999; padding-top:20px;'>ยังไม่มีเมนูสำหรับเชฟท่านนี้ในขณะนี้</p>";
+    } else {
+        filteredMenus.forEach((menu, index) => {
+            let scheduleHTML = '';
+            menu.schedules.forEach(s => {
+                scheduleHTML += `
+                    <div class="date-row">
+                        <span><span class="month-tag">${s.month}</span> ${s.date}</span>
+                        <a href="${s.link}#${menu.id}" class="btn-go">BOOK NOW</a>
+                    </div>
+                `;
+            });
+
+            container.innerHTML += `
+                <div class="menu-card">
+                    <button class="menu-btn" onclick="toggleMenu('m${index}')">
+                        ${menu.menuName} <span>+</span>
+                    </button>
+                    <div id="m${index}" class="date-list">
+                        ${scheduleHTML}
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function toggleMenu(id) {
+        const target = document.getElementById(id);
+        // ปิดอันอื่นก่อนเพื่อให้ดูสะอาดตา (Optional)
+        if (target.style.display === 'block') {
+            target.style.display = 'none';
+        } else {
+            // ปิดทุกอันก่อนเปิดอันใหม่
+            document.querySelectorAll('.date-list').forEach(el => el.style.display = 'none');
+            target.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>
