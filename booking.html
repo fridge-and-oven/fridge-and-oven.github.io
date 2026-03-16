@@ -1,46 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-    <title>Booking | Fridge and Oven</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Booking Confirmation | Fridge and Oven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background: #f4f1e8; text-align: center; padding: 50px; }
-        .booking-box { background: white; padding: 40px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .highlight { color: #c62828; font-weight: bold; }
-        .btn-line { background: #06C755; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; display: inline-block; margin-top: 20px; font-weight: bold; }
+        :root {
+            --brand-red: #ab001a;
+            --brand-cream: #f4f1e8;
+            --line-green: #06C755;
+        }
+
+        /* ปรับให้ Body เป็น Flex และมี Padding รอบตัวเสมอเพื่อให้เห็นขอบแดง */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--brand-red); 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px; /* เว้นให้เห็นขอบแดงเสมอ */
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        .container {
+            background: var(--brand-cream);
+            width: 100%;
+            max-width: 420px; /* คุมขนาดไม่ให้กว้างเกินไป */
+            padding: 35px 25px;
+            border-radius: 24px;
+            border: 5px solid #fff;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        h2 { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--brand-red); 
+            font-size: clamp(24px, 8vw, 32px); /* ปรับขนาดฟอนต์ตามจออัตโนมัติ */
+            margin: 0 0 8px 0;
+            white-space: nowrap; /* ล็อกไม่ให้ชื่อหัวข้อเด้งลงบรรทัดใหม่ */
+        }
+
+        .step-indicator {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: left;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between; /* จัดซ้าย-ขวาในบรรทัดเดียว */
+            align-items: center;
+            gap: 10px;
+        }
+
+        .label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            text-align: right;
+            /* ป้องกันชื่อเมนูยาวเกินจนดัน layout */
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 12px 0;
+        }
+
+        .input-section {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--brand-red);
+            outline: none;
+        }
+
+        .btn-confirm {
+            background: var(--line-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 17px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-confirm:hover {
+            background: #05a346;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* ป้องกันตัวหนังสือเบี้ยวบนมือถือจอเล็กจิ๋ว */
+        @media (max-width: 360px) {
+            .container { padding: 25px 15px; }
+            .value { font-size: 13px; }
+            h2 { font-size: 22px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="booking-box">
-        <h2>Confirm Your Workshop</h2>
-        <p>You are booking for: <span id="display-month" class="highlight">...</span></p>
-        <p>Menu: <span id="display-menu" class="highlight">...</span></p>
+    <div class="container">
+        <div class="step-indicator">Final Step</div>
+        <h2>Confirm Booking</h2>
+        <p style="color: #666; margin-bottom: 20px; font-size: 14px;">ตรวจสอบข้อมูลการจองของคุณ</p>
         
-        <input type="text" id="userName" placeholder="Your Name" style="padding:10px; width:80%; margin-bottom:10px;"><br>
+        <div class="summary-card">
+            <div class="summary-item">
+                <span class="label">Menu</span>
+                <span id="display-menu" class="value">Loading...</span>
+            </div>
+            <div class="divider"></div>
+            <div class="summary-item">
+                <span class="label">Date</span>
+                <span id="display-date" class="value">Loading...</span>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <span class="label" style="color: #333; margin-bottom: 6px; display: block;">Your Name / ชื่อผู้จอง</span>
+            <input type="text" id="custName" placeholder="ระบุชื่อของคุณ">
+        </div>
         
-        <a href="#" id="lineLink" class="btn-line">Confirm via LINE</a>
+        <button onclick="sendToLine()" class="btn-confirm">
+            Confirm via LINE
+        </button>
+        
+        <a href="#" onclick="history.back();" class="back-link">← กลับไปแก้ไขรายละเอียด</a>
     </div>
 
 <script>
-    // ดึงค่าทั้งหมดจาก URL (?month=...&date=...&menu=...)
     const params = new URLSearchParams(window.location.search);
-    const month = params.get('month') || '-';
-    const date = params.get('date') || '-';
-    const menu = params.get('menu') || '-';
+    const date = params.get('date') || 'TBA';
+    const menu = params.get('menu') || 'Not selected';
 
-    // เอาไปแปะโชว์บนหน้าจอให้ลูกค้าเห็นว่าจองอะไรอยู่
-    document.getElementById('display-month').innerText = month;
     document.getElementById('display-date').innerText = date;
     document.getElementById('display-menu').innerText = menu;
 
     function sendToLine() {
         const name = document.getElementById('custName').value;
-        if(!name) { alert("กรุณาใส่ชื่อด้วยครับ"); return; }
-
-        // ข้อความที่จะเด้งเข้า LINE (จะสรุปมาให้ครบทั้ง วัน เดือน เมนู)
-        const msg = `สวัสดีค่ะ จอง Workshop ค่ะ%0A------------------------%0A🗓 เดือน: ${month}%0A📅 วันที่: ${date}%0A🍰 เมนู: ${menu}%0A👤 ชื่อผู้จอง: ${name}`;
-        
-        window.location.href = `https://line.me/R/oaMessage/@fridgeandoven/?${msg}`;
+        if(!name || name.trim() === "") { 
+            alert("กรุณาใส่ชื่อผู้จองด้วยนะคะ :)"); 
+            return; 
+        }
+        const message = `สวัสดีค่ะ จอง Workshop ค่ะ\n------------------------\n🍰 เมนู: ${menu}\n📅 วันที่: ${date}\n👤 ชื่อผู้จอง: ${name}\n------------------------`;
+        window.location.href = `https://line.me/R/oaMessage/@fridgeandoven/?${encodeURIComponent(message)}`;
     }
 </script>
 </body>

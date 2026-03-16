@@ -8,274 +8,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 /* BACKGROUND */
-
-body{
-margin:10;
-background:#ab001a;
-font-family:'Inter',sans-serif;
-}
+body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
 
 /* BACK BUTTON */
-
-.back-btn{
-position:fixed;
-top:25px;
-left:25px;
-background:#f4f1e8;
-color:#b51c33;
-padding:10px 16px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-font-size:14px;
-box-shadow:0 6px 20px rgba(0,0,0,0.15);
-z-index:999;
-transition:.25s;
-}
-
-.back-btn:hover{
-transform:translateX(-4px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
+.back-btn{ position:fixed; top:25px; left:25px; background:#f4f1e8; color:#b51c33; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; font-size:14px; box-shadow:0 6px 20px rgba(0,0,0,0.15); z-index:999; transition:.25s; }
+.back-btn:hover{ transform:translateX(-4px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
 
 /* MENU SHEET */
-
-.menu-sheet{
-max-width:1000px;
-margin:60px auto;
-background:#f4f1e8;
-padding:25px;
-border:5px solid white;
-border-radius:10px;
-box-shadow:0 20px 60px rgba(0,0,0,0.25);
-}
+.menu-sheet{ max-width:1000px; margin:60px auto; background:#f4f1e8; padding:25px; border:5px solid white; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,0.25); }
 
 /* HEADER */
-
-.header{
-text-align:center;
-margin-bottom:40px;
-}
-
-.header .category{
-font-family:'Playfair Display',serif;
-letter-spacing:4px;
-font-size:18px;
-color:#b51c33;
-}
-
-.header h1{
-font-family:'Playfair Display',serif;
-font-size:56px;
-color:#b51c33;
-margin:10px 0;
-}
-
-.header .subtitle{
-opacity:.7;
-font-size:15px;
-}
+.header{ text-align:center; margin-bottom:40px; }
+.header .category{ font-family:'Playfair Display',serif; letter-spacing:4px; font-size:18px; color:#b51c33; }
+.header h1{ font-family:'Playfair Display',serif; font-size:56px; color:#b51c33; margin:10px 0; }
+.header .subtitle{ opacity:.7; font-size:15px; }
 
 /* HERO IMAGE */
-
-.hero-image{
-width:100%;
-height:420px;
-background-size:cover;
-background-position:center;
-border-radius:14px;
-margin-bottom:40px;
-transition:transform .6s ease;
-}
-
-.hero-image:hover{
-transform:scale(1.03);
-}
+.hero-image{ width:100%; height:420px; background-size:cover; background-position:center; border-radius:14px; margin-bottom:40px; transition:transform .6s ease; }
+.hero-image:hover{ transform:scale(1.03); }
 
 /* CONTENT */
-
-.content{
-display:grid;
-grid-template-columns:1fr 340px;
-gap:40px;
-}
-
-/* DESCRIPTION */
-
-.description h2{
-font-family:'Playfair Display',serif;
-font-size:28px;
-margin-bottom:10px;
-}
-
-.description p{
-line-height:1.7;
-margin-bottom:16px;
-}
-
-.description ul{
-padding-left:18px;
-line-height:1.8;
-}
+.content{ display:grid; grid-template-columns:1fr 340px; gap:40px; }
+.description h2{ font-family:'Playfair Display',serif; font-size:28px; margin-bottom:10px; }
+.description p{ line-height:1.7; margin-bottom:16px; }
+.description ul{ padding-left:18px; line-height:1.8; }
 
 /* INFO BOX */
-
-.info-box{
-background:white;
-padding:28px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.12);
-}
-
-.info-box h3{
-margin-top:0;
-font-family:'Playfair Display',serif;
-font-size:22px;
-}
-
-.info-row{
-margin:10px 0;
-font-size:15px;
-}
-
-.price{
-font-size:26px;
-font-weight:700;
-margin:18px 0;
-}
+.info-box{ background:white; padding:28px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.12); }
+.info-box h3{ margin-top:0; font-family:'Playfair Display',serif; font-size:22px; }
+.info-row{ margin:10px 0; font-size:15px; }
+.price{ font-size:26px; font-weight:700; margin:18px 0; }
 
 /* RESERVE BUTTON */
-
-.reserve-btn{
-display:inline-block;
-padding:14px 28px;
-background:#2f8f4e;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:600;
-margin-top:10px;
-transition:.25s;
-}
-
-.reserve-btn:hover{
-background:#256c3c;
-transform:translateY(-3px);
-box-shadow:0 10px 20px rgba(0,0,0,0.18);
-}
+.reserve-btn{ display:inline-block; width:100%; text-align:center; padding:14px 0; background:#2f8f4e; color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:10px; transition:.25s; box-sizing: border-box; }
+.reserve-btn:hover{ background:#256c3c; transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.18); }
 
 /* GALLERY */
-
-.gallery{
-margin-top:40px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
+.gallery{ margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.gallery img{ width:100%; border-radius:10px; }
 
 /* FOOTER */
-
-.footer{
-margin-top:50px;
-text-align:center;
-font-size:14px;
-opacity:.7;
-}
+.footer{ margin-top:50px; text-align:center; font-size:14px; opacity:.7; }
 
 /* MOBILE */
-
 @media(max-width:900px){
-
-.content{
-grid-template-columns:1fr;
+    .content{ grid-template-columns:1fr; }
+    .hero-image{ height:300px; }
+    .gallery{ grid-template-columns:1fr 1fr; }
 }
-
-.hero-image{
-height:300px;
-}
-
-.gallery{
-grid-template-columns:1fr 1fr;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<a href="workshop-march.html" class="back-btn">← Back</a>
+<a href="#" onclick="history.back(); return false;" class="back-btn">← Back</a>
 
 <div class="menu-sheet">
+    <div class="header">
+        <div class="category">WORKSHOP MENU</div>
+        <h1 id="display-menu-title">Banana Cream Pie</h1>
+        <div class="subtitle">Fridge and Oven Workshop</div>
+    </div>
 
-<div class="header">
-<div class="category">WORKSHOP MENU</div>
-<h1>Banana Cream Pie</h1>
-<div class="subtitle">Fridge and Oven Workshop</div>
+    <div class="hero-image" style="background-image:url('img/bananacreampie.jpg')"></div>
+
+    <div class="content">
+        <div class="description">
+            <h2>About this workshop</h2>
+            <p>มาทำพายกล้วยหอมสุดละมุนด้วยกันจ้า</p>
+
+            <p>During this workshop you will learn:</p>
+            <ul>
+                <li>วิธีการผสม pâte sucrée</li>
+                <li>การรีดแป้งและการกรุแป้งทาร์ตลงพิมพ์ รวมถึงวิธีการทำให้กรอบทนทาน</li>
+                <li>การทำ crème pâtissière</li>
+                <li>ตีวิปปิ้งครีมยังไงให้พอดิบพอดีสำหรับคัสตาร์ดและการเป็นท็อปปิ้ง</li>
+                <li>การนำไปดัดแปลงเป็นเมนูต่างๆ</li>
+            </ul>
+
+            <p>ทุกคนจะได้รับผลงานตัวเองขนาดเส้นผ่านศูนย์กลาง 15 ซม. กลับบ้าน</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Workshop Info</h3>
+            <div class="info-row"><strong>Date:</strong> <span id="display-date">TBA</span></div>
+            <div class="info-row"><strong>Time:</strong> 14:00 – 17:00</div>
+            <div class="info-row"><strong>Participants:</strong> 4 per class</div>
+
+            <div class="price">5,000 THB / person</div>
+
+            <a id="btn-reserve" class="reserve-btn" href="booking.html">Reserve this Class</a>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <img src="img/bananacreampie.jpg">
+    </div>
+
+    <div class="footer">Fridge and Oven • Workshop Series</div>
 </div>
 
-<div class="hero-image" style="background-image:url('img/bananacreampie.jpg')"></div>
+<script>
+    // 1. ดึงข้อมูล วันที่ และ เมนู จาก URL
+    const params = new URLSearchParams(window.location.search);
+    const dateVal = params.get('date');
+    const menuVal = params.get('menu');
 
-<div class="content">
+    // 2. แสดงข้อมูลในหน้าเว็บ
+    if (dateVal) document.getElementById('display-date').innerText = dateVal;
+    if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
 
-<div class="description">
-
-<h2>About this workshop</h2>
-
-<p>
-มาทำพายกล้วยหอมสุดละมุนด้วยกันจ้า
-</p>
-
-<p>During this workshop you will learn:</p>
-
-<ul>
-<li>วิธีการผสม pâte sucrée</li>
-<li>การรีดแป้งและการกรุแป้งทาร์ตลงพิมพ์ รวมถึงวิธีการทำให้กรอบทนทาน</li>
-<li>การทำ crème pâtissière</li>
-<li>ตีวิปปิ้งครีมยังไงให้พอดิบพอดีสำหรับคัสตาร์ดและการเป็นท็อปปิ้ง</li>
-<li>การนำไปดัดแปลงเป็นเมนูต่างๆ</li>
-</ul>
-
-<p>
-Each participant will complete one full pie and take it home.<br>
-ทุกคนจะได้รับผลงานตัวเองขนาดเส้นผ่านศูนย์กลาง 15 ซม. กลับบ้าน
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h3>Workshop Info</h3>
-
-
-<div class="info-row"><strong>Time:</strong> 14:00 – 17:00</div>
-<div class="info-row"><strong>Participants:</strong> 4 per class</div>
-
-<div class="price">5,000 THB / person</div>
-
-<a class="reserve-btn" href="https://line.me/R/oaMessage/@fridgeandoven/?Hello">Reserve via LINE</a>
-
-</div>
-
-</div>
-
-<div class="gallery">
-<img src="img/bananacreampie.jpg">
-</div>
-
-<div class="footer">
-Fridge and Oven • Workshop Series
-</div>
-
-</div>
-
+    // 3. ปรับลิงก์ปุ่มจองให้ส่งข้อมูลต่อไปที่หน้า booking.html
+    const reserveBtn = document.getElementById('btn-reserve'); 
+    if(reserveBtn && dateVal && menuVal) {
+        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}`;
+    }
+</script>
 </body>
 </html>

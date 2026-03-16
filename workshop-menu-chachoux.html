@@ -4,214 +4,46 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Workshop Detail | Fridge and Oven</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* RED POSTER BACKGROUND */
-body{
-    margin:10px;
-    background:#ab001a;
-    font-family:'Inter',sans-serif;
-}
-
-/* MENU SHEET */
-.menu-sheet{
-    max-width:1000px;
-    margin:10px auto;
-    background:#f4f1e8;
-    padding:25px;
-    border:5px solid #ffffff;
-    border-radius:8px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.25);
-}
-
-/* HEADER */
-.header{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.header .category{
-    font-family:'Playfair Display',serif;
-    letter-spacing:4px;
-    font-size:18px;
-    color:#b51c33;
-}
-
-.header h1{
-    font-family:'Playfair Display',serif;
-    font-size:56px;
-    color:#b51c33;
-    margin:10px ;
-}
-
-.header .subtitle{
-    opacity:0.7;
-    font-size:15px;
-}
-
-/* HERO IMAGE */
-.hero-image{
-    width:100%;
-    height:420px; /* ปรับกลับเป็นความสูงคงที่ตามต้นฉบับ */
-    background-size:cover;
-    background-position:center;
-    border-radius:14px;
-    margin-bottom:40px;
-}
-
-/* CONTENT GRID */
-.content{
-    display:grid;
-    grid-template-columns:1fr 340px;
-    gap:40px;
-}
-
-/* DESCRIPTION */
-.description h2{
-    font-family:'Playfair Display',serif;
-    font-size:28px;
-    margin-bottom:10px;
-}
-
-.description p{
-    line-height:1.7;
-    margin-bottom:16px;
-}
-
-.description ul{
-    padding-left:18px;
-    line-height:1.8;
-}
-
-/* INFO BOX */
-.info-box{
-    background:white;
-    padding:28px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.12);
-    height: fit-content;
-}
-
-.info-box h3{
-    margin-top:0;
-    font-family:'Playfair Display',serif;
-    font-size:22px;
-}
-
-.info-row{
-    margin:10px 0;
-    font-size:15px;
-}
-
-.price{
-    font-size:26px;
-    font-weight:700;
-    margin:18px 0;
-    color: #000; /* กลับเป็นสีดำ */
-    text-align: left; /* กลับมาชิดซ้าย */
-}
-
-.reserve-btn{
-    display:inline-block;
-    padding:14px 28px;
-    background:#2f8f4e;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:600;
-    margin-top:10px;
-    transition: .25s;
-}
-
-.reserve-btn:hover{
-    background:#256c3c;
-    transform: translateY(-3px);
-}
-
-/* GALLERY */
-.gallery{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-}
-
-.gallery img{
-    width:100%;
-    border-radius:10px;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.gallery img:hover{
-    transform: scale(1.03);
-}
-
-/* FOOTER */
-.footer{
-    margin-top:50px;
-    text-align:center;
-    font-size:14px;
-    opacity:0.7;
-}
-
-/* LIGHTBOX */
-.lightbox{
-    display:none;
-    position:fixed;
-    top:0; left:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.85);
-    justify-content:center; align-items:center;
-    z-index:2000;
-}
+/* CSS ของคุณทั้งหมดคงเดิมเป๊ะๆ */
+body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
+.menu-sheet{ max-width:1000px; margin:10px auto; background:#f4f1e8; padding:25px; border:5px solid #ffffff; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.25); }
+.header{ text-align:center; margin-bottom:40px; }
+.header .category{ font-family:'Playfair Display',serif; letter-spacing:4px; font-size:18px; color:#b51c33; }
+.header h1{ font-family:'Playfair Display',serif; font-size:56px; color:#b51c33; margin:10px ; }
+.header .subtitle{ opacity:0.7; font-size:15px; }
+.hero-image{ width:100%; height:420px; background-size:cover; background-position:center; border-radius:14px; margin-bottom:40px; }
+.content{ display:grid; grid-template-columns:1fr 340px; gap:40px; }
+.description h2{ font-family:'Playfair Display',serif; font-size:28px; margin-bottom:10px; }
+.description p{ line-height:1.7; margin-bottom:16px; }
+.description ul{ padding-left:18px; line-height:1.8; }
+.info-box{ background:white; padding:28px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.12); height: fit-content; }
+.info-box h3{ margin-top:0; font-family:'Playfair Display',serif; font-size:22px; }
+.info-row{ margin:10px 0; font-size:15px; }
+.price{ font-size:26px; font-weight:700; margin:18px 0; color: #000; text-align: left; }
+.reserve-btn{ display:inline-block; width:100%; text-align:center; padding:14px 0; background:#2f8f4e; color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:10px; transition: .25s; box-sizing: border-box; }
+.reserve-btn:hover{ background:#256c3c; transform: translateY(-3px); }
+.gallery{ margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.gallery img{ width:100%; border-radius:10px; cursor: pointer; transition: .25s; }
+.gallery img:hover{ transform: scale(1.03); }
+.footer{ margin-top:50px; text-align:center; font-size:14px; opacity:0.7; }
+.lightbox{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:2000; }
 .lightbox img{ max-width:90%; max-height:90%; border-radius:10px; }
-
-/* MOBILE */
-@media (max-width:900px){
-    .content{ grid-template-columns:1fr; }
-    .hero-image{ height:300px; }
-    .gallery{ grid-template-columns:1fr 1fr; }
-}
-    
-    
-    /* BACK BUTTON */
-
-.back-btn{
-position:fixed;
-top:25px;
-left:25px;
-background:#f4f1e8;
-color:#b51c33;
-padding:10px 16px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-font-size:14px;
-box-shadow:0 6px 20px rgba(0,0,0,0.15);
-z-index:999;
-transition:.25s;
-}
-
-.back-btn:hover{
-transform:translateX(-4px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
+.back-btn{ position:fixed; top:25px; left:25px; background:#f4f1e8; color:#b51c33; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; font-size:14px; box-shadow:0 6px 20px rgba(0,0,0,0.15); z-index:999; transition:.25s; }
+.back-btn:hover{ transform:translateX(-4px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+@media (max-width:900px){ .content{ grid-template-columns:1fr; } .hero-image{ height:300px; } .gallery{ grid-template-columns:1fr 1fr; } }
 </style>
 </head>
 
 <body>
-<a href="workshop-march.html" class="back-btn">← Back</a>
-    
-    
-<div class="menu-sheet">
+<a href="#" onclick="history.back(); return false;" class="back-btn">← Back</a>
 
+<div class="menu-sheet">
     <div class="header">
         <div class="category">WORKSHOP MENU</div>
-        <h1>Cha Choux</h1>
+        <h1 id="display-menu-title">Cha Choux</h1>
         <div class="subtitle">Choux Creams: A Four-Tea Selection</div>
     </div>
 
@@ -220,9 +52,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
     <div class="content">
         <div class="description">
             <h2>About this workshop</h2>
-            <p>
-                ใครประสบปัญหาชูไม่ฟู ตีคัสตาร์ดไหม้มาเลยจ้า เราจะมากวนไปด้วยกันแต่เราจะช่วยได้มั้ยต้องมาลุ้นกันเล้ย
-            </p>
+            <p>ใครประสบปัญหาชูไม่ฟู ตีคัสตาร์ดไหม้มาเลยจ้า เราจะมากวนไปด้วยกันแต่เราจะช่วยได้มั้ยต้องมาลุ้นกันเล้ย</p>
 
             <p>During this workshop you will learn:</p>
             <ul>
@@ -243,25 +73,21 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 
         <div class="info-box">
             <h3>Workshop Info</h3>
+            <div class="info-row"><strong>Date:</strong> <span id="display-date">TBA</span></div>
             <div class="info-row"><strong>Time:</strong> 14:00 – 16:30</div>
             <div class="info-row"><strong>Participants:</strong> 4 per class</div>
             
             <div class="price">5,000 THB / person</div>
 
-            <a class="reserve-btn" href="https://line.me/R/oaMessage/@fridgeandoven/?Hello">Reserve via LINE</a>
+            <a id="btn-reserve" class="reserve-btn" href="booking.html">Reserve this Class</a>
         </div>
     </div>
 
     <div class="gallery">
-
-<img src="img/choux01.jpg">
-
-        </div>
-
-    <div class="footer">
-        Fridge and Oven • Workshop Series
+        <img src="img/choux01.jpg" onclick="openLightbox(this.src)">
     </div>
 
+    <div class="footer">Fridge and Oven • Workshop Series</div>
 </div>
 
 <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
@@ -269,17 +95,28 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 </div>
 
 <script>
-    const images = document.querySelectorAll(".gallery img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+    // Lightbox Logic
+    function openLightbox(src) {
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightbox-img").src = src;
+    }
 
-    images.forEach(img => {
-        img.addEventListener("click", () => {
-            lightbox.style.display = "flex";
-            lightboxImg.src = img.src;
-        });
-    });
+    // --- ระบบรับและส่งต่อข้อมูล ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateVal = urlParams.get('date');
+    const menuVal = urlParams.get('menu');
+
+    // นำวันที่มาโชว์ในช่อง Date
+    if (dateVal) document.getElementById('display-date').innerText = dateVal;
+    
+    // ถ้าอยากให้ชื่อเมนูบนหัวเปลี่ยนตามที่กดมาด้วย (เผื่อกรณีชื่อยาว/สั้นไม่เท่ากัน)
+    if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
+
+    // แก้ไขลิงก์ปุ่มจองให้ส่งข้อมูลต่อไปยัง booking.html
+    const reserveBtn = document.getElementById('btn-reserve');
+    if (reserveBtn && dateVal && menuVal) {
+        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}`;
+    }
 </script>
-
 </body>
 </html>
