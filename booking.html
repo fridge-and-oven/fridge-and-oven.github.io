@@ -58,6 +58,10 @@
             <span class="label" style="color:#333">Your Name / ชื่อผู้จอง</span>
             <input type="text" id="custName" placeholder="ระบุชื่อของคุณ">
         </div>
+        <div style="text-align:left; margin-top: 15px;">
+    <span class="label" style="color:#333">Phone Number / เบอร์โทรศัพท์</span>
+    <input type="text" id="custPhone" placeholder="08x-xxx-xxxx" maxlength="10">
+</div>
 
         <div class="terms-box">
             <h4>Terms & Conditions</h4>
@@ -71,51 +75,57 @@
         <button onclick="sendToLine()" class="btn-confirm">Confirm via LINE</button>
         <a href="#" onclick="history.back(); return false;" style="display:block; margin-top:20px; color:#888; text-decoration:none; font-size:13px;">← Back</a>
     </div>
-
 <script>
-    // 1. ดึงค่าจาก URL (ที่ส่งมาจากหน้า Detail หรือหน้าตารางเดือน)
+    // 1. ดึงข้อมูลจาก URL
     const urlParams = new URLSearchParams(window.location.search);
     const menuVal = urlParams.get('menu');
     const dateVal = urlParams.get('date');
     const priceVal = urlParams.get('price');
-    const timeVal = urlParams.get('time'); // ค่าเวลาใหม่ที่เราเพิ่งเพิ่มกัน
+    const timeVal = urlParams.get('time');
 
-    // 2. นำข้อมูลมาแสดงผลในหน้าสรุป (Summary Card)
+    // 2. แสดงผลข้อมูลในหน้าสรุป
     if (menuVal) document.getElementById('display-menu').innerText = menuVal;
     if (dateVal) document.getElementById('display-date').innerText = dateVal;
     if (priceVal) document.getElementById('display-price').innerText = priceVal + " THB";
 
-    // 3. จัดการเรื่อง "รอบเวลา" (ถ้าไม่มีให้ซ่อนแถวไปเลย)
+    // 3. จัดการเรื่องรอบเวลา
     const timeRow = document.getElementById('time-row');
     const timeDisplay = document.getElementById('display-time');
-
     if (timeVal && timeVal !== "") {
         if (timeDisplay) timeDisplay.innerText = timeVal;
-        if (timeRow) timeRow.style.display = 'flex'; // โชว์แถวเวลา
+        if (timeRow) timeRow.style.display = 'flex';
     } else {
-        if (timeRow) timeRow.style.display = 'none'; // ซ่อนแถวเวลาถ้าไม่มีข้อมูล
+        if (timeRow) timeRow.style.display = 'none';
     }
 
-    // 4. สร้าง Link สำหรับปุ่ม "Confirm via LINE"
-    // มองหาปุ่มที่มี ID เช่น id="btn-confirm-line" นะคะ
-    const confirmBtn = document.getElementById('btn-confirm-line');
-    if (confirmBtn) {
-        // เตรียมข้อความทักแชทแบบมือโปร
-        let message = `สวัสดีค่ะ สนใจจองคลาสเรียน\n`;
-        message += `🍴 เมนู: ${menuVal || '-'}\n`;
-        message += `📅 วันที่: ${dateVal || '-'}\n`;
-        
-        // ถ้ามีเวลา ให้ใส่เข้าไปในแชทด้วย
-        if (timeVal) {
-            message += `⏰ รอบเวลา: ${timeVal}\n`;
-        }
-        
-        message += `💰 ราคา: ${priceVal || '-'} THB\n`;
-        message += `\nรบกวนขอรายละเอียดการโอนเงินด้วยค่ะ ✨`;
-
-        // ใส่ Link เข้าไปในปุ่ม
-        confirmBtn.href = `https://line.me/R/oaMessage/@fridgeandoven/?${encodeURIComponent(message)}`;
+   function sendToLine() {
+    // ดึงชื่อและเบอร์โทร
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    
+    // เช็กความเรียบร้อย (บังคับใส่ทั้งชื่อและเบอร์)
+    if (name === "" || phone === "") {
+        alert("กรุณาระบุชื่อและเบอร์โทรศัพท์ เพื่อความสะดวกในการติดต่อกะทันหันนะคะ ✨");
+        return;
     }
+
+    // เตรียมข้อความ
+    let message = `สวัสดีค่ะ สนใจจองคลาสเรียน\n`;
+    message += `👤 ชื่อผู้จอง: ${name}\n`;
+    message += `📞 เบอร์โทร: ${phone}\n`; // เพิ่มบรรทัดนี้เข้าไป
+    message += `🍴 เมนู: ${menuVal || '-'}\n`;
+    message += `📅 วันที่: ${dateVal || '-'}\n`;
+    
+    if (timeVal) {
+        message += `⏰ รอบเวลา: ${timeVal}\n`;
+    }
+    
+    message += `💰 ราคา: ${priceVal || '-'} THB\n`;
+    message += `\nรบกวนขอรายละเอียดการโอนเงินด้วยค่ะ ✨`;
+
+    const lineUrl = `https://line.me/R/oaMessage/@fridgeandoven/?${encodeURIComponent(message)}`;
+    window.location.href = lineUrl;
+}
 </script>
 </body>
 </html>
