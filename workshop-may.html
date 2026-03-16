@@ -7,299 +7,213 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
 
     <style>
-        body {
-            margin: 0;
-            background: #f4f1e8;
-            font-family: "Inter", sans-serif;
-            color: #222;
-        }
+        body { margin: 0; background: #f4f1e8; font-family: "Inter", sans-serif; color: #222; }
 
-        /* SCHEDULE LAYOUT */
-        .schedule {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 0 20px;
-            position: relative;
+        .schedule { 
+            max-width: 1000px; 
+            margin: 80px auto; 
+            padding: 0 15px; 
+            position: relative; 
         }
 
         .brand-side {
-            position: absolute;
-            right: -120px;
-            top: 30px;
-            text-align: right;
-            color: #c62828;
-            line-height: 1.7;
-            font-weight: 600;
+            position: absolute; right: -120px; top: 30px; text-align: right;
+            color: #c62828; line-height: 1.7; font-weight: 600; font-size: 14px;
         }
 
         .month {
             font-family: "Playfair Display", serif;
-            font-size: 80px;
-            color: #1481de; /* สีน้ำเงินตามข้อมูลใหม่ */
+            font-size: clamp(45px, 8vw, 80px);
+            color: #1481de; /* สีน้ำเงินประจำเดือนพฤษภาคม */
             margin-bottom: 20px;
         }
 
-        /* เส้นหยักสีเขียว */
-        .divider {
-            margin: 20px 0 40px 0;
-        }
-        .divider svg {
-            width: 100%;
-            height: 16px;
-        }
+        .divider { margin: 20px 0 30px 0; }
+        .divider svg { width: 100%; height: 16px; }
 
-        /* GRID SYSTEM */
+        /* GRID SYSTEM - 2 คอลัมน์บนมือถือ */
         .workshop-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(10px, 2vw, 25px);
+        }
+        @media (min-width: 900px) {
+            .workshop-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* WORKSHOP CARD - รูปเต็มขอบชิดสนิท */
         .workshop-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
+            display: block; text-decoration: none; color: inherit;
+            background: #ffffff; border-radius: 12px; overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            border: none !important;
-            padding: 0 !important; 
+            transition: 0.3s; border: none !important; padding: 0 !important;
         }
-
-        .workshop-card:hover {
-            transform: translateY(-8px);
-        }
+        .workshop-card:hover { transform: translateY(-5px); text-decoration: none; color: inherit; }
 
         .card-image {
-            width: 100%;
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-            display: block !important;
-            margin: 0 !important; 
+            width: 100%; height: clamp(110px, 18vw, 180px);
+            background-size: cover; background-position: center;
+            display: block !important; margin: 0 !important;
         }
 
         .card-content {
-            padding: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
+            padding: clamp(10px, 2vw, 15px);
+            display: flex; align-items: flex-start; gap: clamp(8px, 1.5vw, 12px);
         }
 
-        /* DATE & DAY */
-        .date-zone {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-            width: 50px;
-        }
-
+        /* DATE ZONE */
+        .date-zone { flex-shrink: 0; text-align: center; width: clamp(35px, 10vw, 45px); }
         .date-circle {
-            width: 45px;
-            height: 45px;
-            background: #008ad3; /* สีน้ำเงินเข้ากับธีมเดือนพฤษภาคม */
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
+            width: clamp(35px, 9vw, 42px); height: clamp(35px, 9vw, 42px);
+            background: #1481de; color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: clamp(14px, 4vw, 18px);
         }
+        .day-name { font-size: clamp(9px, 2.5vw, 11px); font-weight: 700; color: #1481de; margin-top: 4px; }
 
-        .day-name {
-            font-size: 11px;
-            font-weight: 700;
-            color: #008ad3;
-            margin-top: 4px;
-        }
-
-        /* DETAILS */
+        /* DETAILS (ชื่อขึ้นบรรทัดใหม่) */
+        .card-details { flex-grow: 1; min-width: 0; }
         .card-details h2 {
-            font-family: "Playfair Display", serif;
-            color: #c62828;
-            font-size: 18px;
-            margin: 0;
-            line-height: 1.2;
+            font-family: "Playfair Display", serif; color: #c62828;
+            font-size: clamp(14px, 4vw, 18px);
+            margin: 0; line-height: 1.2;
+            word-wrap: break-word; display: block;
             text-transform: uppercase;
         }
+        .card-details .time { font-size: clamp(10px, 2.8vw, 12px); margin-top: 4px; color: #666; }
+        .card-details .price { font-size: clamp(11px, 3vw, 13px); margin-top: 2px; font-weight: 600; }
 
-        .card-details .time,
-        .card-details .price {
-            font-size: 13px;
-            margin: 3px 0;
-        }
-
-        /* FOOTER */
         .info-footer {
-            margin-top: 60px;
-            text-align: right;
-            border-top: 2px solid #1481de;
-            padding-top: 20px;
+            margin-top: 60px; text-align: right;
+            border-top: 2px solid #1481de; padding-top: 20px; font-size: 13px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .brand-side { display: none; }
-            .workshop-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 600px) {
-            .month { font-size: 50px; }
-            .workshop-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .card-image { height: 130px; }
-        }
+        @media (max-width: 900px) { .brand-side { display: none; } }
     </style>
 </head>
 
 <body>
     <span id="navtool"></span>
     <script src="nav.js"></script>
-    <script>window.onload = addNavTool;</script>
+    <script>
+        window.onload = function() {
+            if (typeof addNavTool === "function") { addNavTool(); }
+        };
+    </script>
 
     <section class="schedule">
         <div class="brand-side">FRIDGE<br />AND<br />OVEN</div>
-        
         <h1 class="month">MAY</h1>
 
         <div class="divider">
             <svg viewBox="0 0 1440 20">
                 <path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
-                    stroke="#2f8f44" stroke-width="3" fill="none" />
+                    stroke="#1481de" stroke-width="3" fill="none" />
             </svg>
         </div>
 
-<div class="workshop-grid">
-    <a href="workshop-menu-apple-tart.html?date=2%20MAY&menu=APPLE%20CRUMBLES%20TART" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/applecrumbles-tart02.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">2</div>
-                <div class="day-name">SAT</div>
-            </div>
-            <div class="card-details">
-                <h2>APPLE CRUMBLES TART</h2>
-                <p class="time">14:00 – 17:00</p>
-                <p class="price">5,000.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+        <div class="workshop-grid">
+            <a href="workshop-menu-apple-tart.html?date=2%20MAY&menu=APPLE%20CRUMBLES%20TART&price=5,000" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/applecrumbles-tart02.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">2</div><div class="day-name">SAT</div></div>
+                    <div class="card-details">
+                        <h2>APPLE CRUMBLES TART</h2>
+                        <p class="time">14:00 – 17:00</p>
+                        <p class="price">5,000.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-granola.html?date=9%20MAY&menu=HOMEMADE%20GRANOLA" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/granola.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">9</div>
-                <div class="day-name">SAT</div>
-            </div>
-            <div class="card-details">
-                <h2>HOMEMADE GRANOLA</h2>
-                <p class="time">14:00 – 15:30</p>
-                <p class="price">3,500.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+            <a href="workshop-menu-granola.html?date=9%20MAY&menu=HOMEMADE%20GRANOLA&price=3,500" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/granola.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">9</div><div class="day-name">SAT</div></div>
+                    <div class="card-details">
+                        <h2>HOMEMADE GRANOLA</h2>
+                        <p class="time">14:00 – 15:30</p>
+                        <p class="price">3,500.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-ryokucha.html?date=13%20MAY&menu=RYOKUCHA%20KUROGOMA%20CAKE" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/ryokucha-goma02.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">13</div>
-                <div class="day-name">WED</div>
-            </div>
-            <div class="card-details">
-                <h2>RYOKUCHA KUROGOMA CAKE</h2>
-                <p class="time">10:00 – 17:30</p>
-                <p class="price">12,000.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+            <a href="workshop-menu-ryokucha.html?date=13%20MAY&menu=RYOKUCHA%20KUROGOMA%20CAKE&price=12,000" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/ryokucha-goma02.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">13</div><div class="day-name">WED</div></div>
+                    <div class="card-details">
+                        <h2>RYOKUCHA KUROGOMA CAKE</h2>
+                        <p class="time">10:00 – 17:30</p>
+                        <p class="price">12,000.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-basque.html?date=16%20MAY&menu=BASQUE%20CHEESECAKE" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/plainbasque02.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">16</div>
-                <div class="day-name">SAT</div>
-            </div>
-            <div class="card-details">
-                <h2>BASQUE CHEESECAKE</h2>
-                <p class="time">14:00 – 16:30</p>
-                <p class="price">5,000.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+            <a href="workshop-menu-basque.html?date=16%20MAY&menu=BASQUE%20CHEESECAKE&price=5,000" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/plainbasque02.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">16</div><div class="day-name">SAT</div></div>
+                    <div class="card-details">
+                        <h2>BASQUE CHEESECAKE</h2>
+                        <p class="time">14:00 – 16:30</p>
+                        <p class="price">5,000.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-banana.html?date=20%20MAY&menu=BANANA%20CREAM%20PIE" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/bananacreampie.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">20</div>
-                <div class="day-name">WED</div>
-            </div>
-            <div class="card-details">
-                <h2>BANANA CREAM PIE</h2>
-                <p class="time">14:00 – 17:00</p>
-                <p class="price">5,000.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+            <a href="workshop-menu-banana.html?date=20%20MAY&menu=BANANA%20CREAM%20PIE&price=5,000" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/bananacreampie.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">20</div><div class="day-name">WED</div></div>
+                    <div class="card-details">
+                        <h2>BANANA CREAM PIE</h2>
+                        <p class="time">14:00 – 17:00</p>
+                        <p class="price">5,000.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-cookies.html?date=23%20MAY&menu=TRIPLE%20CHOCO%20%26%20PECAN%20COOKIES" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/cookies.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">23</div>
-                <div class="day-name">SAT</div>
-            </div>
-            <div class="card-details">
-                <h2>TRIPLE CHOCO & PECAN COOKIES</h2>
-                <p class="time">14:00 – 16:00</p>
-                <p class="price">6,600.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+            <a href="workshop-menu-cookies.html?date=23%20MAY&menu=TRIPLE%20CHOCO%20%26%20PECAN%20COOKIES&price=6,600" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/cookies.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">23</div><div class="day-name">SAT</div></div>
+                    <div class="card-details">
+                        <h2>TRIPLE CHOCO & PECAN COOKIES</h2>
+                        <p class="time">14:00 – 16:00</p>
+                        <p class="price">6,600.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-tiramisu.html?date=27%20MAY&menu=TIRAMISU" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/tiramisu-bowl.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">27</div>
-                <div class="day-name">WED</div>
-            </div>
-            <div class="card-details">
-                <h2>TIRAMISU</h2>
-                <p class="time">14:00 – 16:00</p>
-                <p class="price">3,900.- / PERSON</p>
-            </div>
-        </div>
-    </a>
+            <a href="workshop-menu-tiramisu.html?date=27%20MAY&menu=TIRAMISU&price=3,900" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/tiramisu-bowl.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-zone"><div class="date-circle">27</div><div class="day-name">WED</div></div></div>
+                    <div class="card-details">
+                        <h2>TIRAMISU</h2>
+                        <p class="time">14:00 – 16:00</p>
+                        <p class="price">3,900.-</p>
+                    </div>
+                </div>
+            </a>
 
-    <a href="workshop-menu-matcha-miso.html?date=30%20MAY&menu=MATCHA%20MISO%20MACADAMIA" class="workshop-card">
-        <div class="card-image" style="background-image: url('img/matchamiso-cookies.jpg')"></div>
-        <div class="card-content">
-            <div class="date-zone">
-                <div class="date-circle">30</div>
-                <div class="day-name">SAT</div>
-            </div>
-            <div class="card-details">
-                <h2>MATCHA MISO MACADAMIA</h2>
-                <p class="time">14:00 – 16:00</p>
-                <p class="price">4,500.- / PERSON</p>
-            </div>
+            <a href="workshop-menu-matcha-miso.html?date=30%20MAY&menu=MATCHA%20MISO%20MACADAMIA&price=4,500" class="workshop-card">
+                <div class="card-image" style="background-image: url('img/matchamiso-cookies.jpg')"></div>
+                <div class="card-content">
+                    <div class="date-zone"><div class="date-circle">30</div><div class="day-name">SAT</div></div>
+                    <div class="card-details">
+                        <h2>MATCHA MISO MACADAMIA</h2>
+                        <p class="time">14:00 – 16:00</p>
+                        <p class="price">4,500.-</p>
+                    </div>
+                </div>
+            </a>
         </div>
-    </a>
-</div>
 
         <div class="info-footer">
             <p>Number of Participants: <strong>4 / CLASS</strong></p>
