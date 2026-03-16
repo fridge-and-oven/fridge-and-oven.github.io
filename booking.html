@@ -16,8 +16,10 @@
         .value { font-size: 15px; font-weight: 600; color: #222; text-align: right; }
         .price-total { border-top: 2px solid var(--brand-cream); padding-top: 15px; margin-top: 15px; }
         .price-value { font-size: 20px; color: var(--brand-red); font-weight: 700; }
-        input[type="text"] { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-top: 8px; }
-        .btn-confirm { background: var(--line-green); color: white; display: flex; align-items: center; justify-content: center; padding: 16px; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 18px; border: none; width: 100%; cursor: pointer; margin-top: 20px; }
+        input[type="text"] { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-top: 8px; outline: none; transition: .25s; }
+        input[type="text"]:focus { border-color: var(--brand-red); }
+        .btn-confirm { background: var(--line-green); color: white; display: flex; align-items: center; justify-content: center; padding: 16px; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 18px; border: none; width: 100%; cursor: pointer; margin-top: 20px; transition: .2s; }
+        .btn-confirm:active { transform: scale(0.98); opacity: 0.9; }
     </style>
 </head>
 <body>
@@ -44,24 +46,33 @@
         </div>
         
         <button onclick="sendToLine()" class="btn-confirm">Confirm via LINE</button>
-        <a href="#" onclick="history.back();" style="display:block; margin-top:20px; color:#888; text-decoration:none; font-size:13px;">← Back</a>
+        <a href="#" onclick="history.back(); return false;" style="display:block; margin-top:20px; color:#888; text-decoration:none; font-size:13px;">← Back</a>
     </div>
 
 <script>
+    // --- ระบบดึงข้อมูลจาก URL ---
     const params = new URLSearchParams(window.location.search);
-    const date = params.get('date') || '-';
-    const menu = params.get('menu') || '-';
-    const price = params.get('price') || '5,000'; // ถ้าไม่ส่งมาให้ตั้ง Default ไว้
+    const date = params.get('date');
+    const menu = params.get('menu');
+    const price = params.get('price');
 
-    document.getElementById('display-date').innerText = date;
-    document.getElementById('display-menu').innerText = menu;
-    document.getElementById('display-price').innerText = price + " THB";
+    // แสดงผลข้อมูล (พร้อมเช็คกรณีไม่มีข้อมูลส่งมา)
+    document.getElementById('display-date').innerText = date ? date : 'ไม่ได้ระบุวันที่';
+    document.getElementById('display-menu').innerText = menu ? menu : 'ไม่ได้ระบุเมนู';
+    document.getElementById('display-price').innerText = (price ? price : '0') + " THB";
 
     function sendToLine() {
         const name = document.getElementById('custName').value;
-        if(!name) { alert("กรุณาใส่ชื่อผู้จองด้วยนะคะ"); return; }
+        if(!name) { 
+            alert("กรุณาใส่ชื่อผู้จองด้วยนะคะ"); 
+            return; 
+        }
         
+        // ร่างข้อความที่จะส่งเข้า LINE
+        // ใช้ชื่อเมนู วันที่ และราคา ที่ดึงมาจาก URL จริงๆ
         const message = `สวัสดีค่ะ จอง Workshop ค่ะ\n------------------------\n🍰 เมนู: ${menu}\n📅 วันที่: ${date}\n💰 ราคา: ${price} THB\n👤 ชื่อผู้จอง: ${name}\n------------------------`;
+        
+        // ส่งข้อความไปที่ LINE OA ของร้าน (@fridgeandoven)
         window.location.href = `https://line.me/R/oaMessage/@fridgeandoven/?${encodeURIComponent(message)}`;
     }
 </script>

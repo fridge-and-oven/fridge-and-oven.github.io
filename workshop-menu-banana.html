@@ -78,20 +78,16 @@
     const urlParams = new URLSearchParams(window.location.search);
     const dateVal = urlParams.get('date');
     const menuVal = urlParams.get('menu');
-    const priceVal = urlParams.get('price'); 
+    const priceVal = urlParams.get('price');
 
-    // แสดงผลข้อมูล
+    // 1. แสดงผลในหน้าเมนู (ต้องมีบรรทัดนี้ราคาถึงจะขึ้น)
     if (dateVal) document.getElementById('display-date').innerText = dateVal;
     if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
-    
-    // แสดงผลราคา (จุดที่ขาดไป)
-    if (priceVal) {
-        document.getElementById('display-price').innerText = priceVal;
-    }
+    if (priceVal) document.getElementById('display-price').innerText = priceVal; 
 
-    // ส่งข้อมูลต่อไปหน้า Booking
+    // 2. ส่งต่อข้อมูลไปหน้าจอง (เช็คว่า encodeURIComponent ครบทุกตัว)
     const reserveBtn = document.getElementById('btn-reserve');
-    if (reserveBtn && dateVal && menuVal && priceVal) {
+    if (reserveBtn) {
         reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}`;
     }
 </script>
