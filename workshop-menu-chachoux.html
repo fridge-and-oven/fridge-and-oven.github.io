@@ -95,27 +95,19 @@ body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
 </div>
 
 <script>
-    // Lightbox Logic
-    function openLightbox(src) {
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightbox-img").src = src;
-    }
-
-    // --- ระบบรับและส่งต่อข้อมูล ---
     const urlParams = new URLSearchParams(window.location.search);
     const dateVal = urlParams.get('date');
     const menuVal = urlParams.get('menu');
+    const priceVal = urlParams.get('price'); // ดึงราคาเพิ่ม
 
-    // นำวันที่มาโชว์ในช่อง Date
+    // แสดงผลในหน้าเมนู
     if (dateVal) document.getElementById('display-date').innerText = dateVal;
-    
-    // ถ้าอยากให้ชื่อเมนูบนหัวเปลี่ยนตามที่กดมาด้วย (เผื่อกรณีชื่อยาว/สั้นไม่เท่ากัน)
     if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
 
-    // แก้ไขลิงก์ปุ่มจองให้ส่งข้อมูลต่อไปยัง booking.html
+    // ส่งต่อไปหน้า Booking (พ่วงราคาไปด้วย)
     const reserveBtn = document.getElementById('btn-reserve');
-    if (reserveBtn && dateVal && menuVal) {
-        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}`;
+    if (reserveBtn) {
+        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}`;
     }
 </script>
 </body>

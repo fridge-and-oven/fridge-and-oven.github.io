@@ -89,35 +89,19 @@ body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
 </div>
 
 <script>
-    // 1. รับข้อมูลจาก URL (ที่ส่งมาจากหน้าตาราง)
     const urlParams = new URLSearchParams(window.location.search);
-    const dateData = urlParams.get('date');
-    const menuData = urlParams.get('menu');
+    const dateVal = urlParams.get('date');
+    const menuVal = urlParams.get('menu');
+    const priceVal = urlParams.get('price'); // ดึงราคาเพิ่ม
 
-    // 2. แสดงผลข้อมูลในหน้าเว็บ
-    if (dateData) {
-        document.getElementById('display-date').innerText = dateData;
-    }
-    // ถ้าอยากให้ชื่อเมนูเปลี่ยนตาม URL ด้วย (เผื่อใช้หน้าเดียวหลายเมนู)
-    if (menuData) {
-        document.getElementById('menu-title').innerText = menuData;
-    }
+    // แสดงผลในหน้าเมนู
+    if (dateVal) document.getElementById('display-date').innerText = dateVal;
+    if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
 
-    // 3. ปรับลิงก์ปุ่มจองให้ส่งข้อมูลต่อไปหน้าจอง (booking.html)
+    // ส่งต่อไปหน้า Booking (พ่วงราคาไปด้วย)
     const reserveBtn = document.getElementById('btn-reserve');
-    if (reserveBtn && dateData && menuData) {
-        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateData)}&menu=${encodeURIComponent(menuData)}`;
-    }
-
-    // Lightbox Functions
-    function openLightbox(src) {
-        const lb = document.getElementById("lightbox");
-        const lbImg = document.getElementById("lightbox-img");
-        lb.style.display = 'flex';
-        lbImg.src = src;
-    }
-    function closeLightbox() {
-        document.getElementById("lightbox").style.display = 'none';
+    if (reserveBtn) {
+        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}`;
     }
 </script>
 

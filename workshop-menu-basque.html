@@ -111,21 +111,19 @@ body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
 </div>
 
 <script>
-    // --- ระบบรับและส่งต่อข้อมูล ---
     const urlParams = new URLSearchParams(window.location.search);
     const dateVal = urlParams.get('date');
     const menuVal = urlParams.get('menu');
+    const priceVal = urlParams.get('price'); // ดึงราคาเพิ่ม
 
-    // นำวันที่มาโชว์
+    // แสดงผลในหน้าเมนู
     if (dateVal) document.getElementById('display-date').innerText = dateVal;
-    
-    // นำชื่อเมนูมาโชว์ (ถ้ามีการส่งมา)
     if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
 
-    // แก้ไขลิงก์ปุ่มจองให้ส่งข้อมูลต่อไปยัง booking.html
+    // ส่งต่อไปหน้า Booking (พ่วงราคาไปด้วย)
     const reserveBtn = document.getElementById('btn-reserve');
-    if (reserveBtn && dateVal && menuVal) {
-        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}`;
+    if (reserveBtn) {
+        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}`;
     }
 </script>
 </body>

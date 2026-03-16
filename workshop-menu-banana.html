@@ -110,19 +110,19 @@ body{ margin:10px; background:#ab001a; font-family:'Inter',sans-serif; }
 </div>
 
 <script>
-    // 1. ดึงข้อมูล วันที่ และ เมนู จาก URL
-    const params = new URLSearchParams(window.location.search);
-    const dateVal = params.get('date');
-    const menuVal = params.get('menu');
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateVal = urlParams.get('date');
+    const menuVal = urlParams.get('menu');
+    const priceVal = urlParams.get('price'); // ดึงราคาเพิ่ม
 
-    // 2. แสดงข้อมูลในหน้าเว็บ
+    // แสดงผลในหน้าเมนู
     if (dateVal) document.getElementById('display-date').innerText = dateVal;
     if (menuVal) document.getElementById('display-menu-title').innerText = menuVal;
 
-    // 3. ปรับลิงก์ปุ่มจองให้ส่งข้อมูลต่อไปที่หน้า booking.html
-    const reserveBtn = document.getElementById('btn-reserve'); 
-    if(reserveBtn && dateVal && menuVal) {
-        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}`;
+    // ส่งต่อไปหน้า Booking (พ่วงราคาไปด้วย)
+    const reserveBtn = document.getElementById('btn-reserve');
+    if (reserveBtn) {
+        reserveBtn.href = `booking.html?date=${encodeURIComponent(dateVal)}&menu=${encodeURIComponent(menuVal)}&price=${encodeURIComponent(priceVal)}`;
     }
 </script>
 </body>
