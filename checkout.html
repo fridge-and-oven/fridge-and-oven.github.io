@@ -1,0 +1,62 @@
+<div id="checkout-container">
+    <h2>สรุปรายการสั่งซื้อ</h2>
+    <div id="cart-items">
+        </div>
+
+    <hr>
+
+    <div class="shipping-options">
+        <h3>เลือกพื้นที่จัดส่ง</h3>
+        <input type="radio" name="location" value="BKK" checked onchange="updateSummary()"> กรุงเทพฯ และปริมณฑล
+        <input type="radio" name="location" value="OUTSIDE" onchange="updateSummary()"> ต่างจังหวัด
+    </div>
+
+    <div id="summary-box" style="margin-top: 20px; padding: 15px; background: #f9f9f9;">
+        <p>ราคาสินค้า: <span id="subtotal">0</span> บาท</p>
+        <p>ประเภทการส่ง: <span id="shipping-type">รอคำนวณ</span></p>
+        <p>ค่าจัดส่ง: <span id="shipping-fee">0</span> บาท</p>
+        <hr>
+        <h3>ยอดรวมสุทธิ: <span id="total-amount">0</span> บาท</h3>
+    </div>
+
+    <button onclick="sendToLine()" style="background-color: #00b900; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+        ยืนยันและชำระเงินผ่าน LINE
+    </button>
+</div>
+
+
+
+// ข้อมูลจำลองในตะกร้า (ปกติจะดึงมาจาก localStorage)
+const cart = [
+    { name: "Pain de Gêne (Almond Paste Sponge)", price: 450, weight: 0.5, type: 'normal' },
+    { name: "Peach Black Tea Entremet", price: 1200, weight: 1.0, type: 'chilled' } 
+];
+
+function updateSummary() {
+    const isBKK = document.querySelector('input[name="location"]:checked').value === 'BKK';
+    
+    let subtotal = 0;
+    let hasChilled = false;
+    
+    cart.forEach(item => {
+        subtotal += item.price;
+        if (item.type === 'chilled') hasChilled = true;
+    });
+
+    // กำหนดค่าส่ง (ตัวอย่างเรทราคา)
+    let shippingFee = 0;
+    if (hasChilled) {
+        shippingFee = isBKK ? 150 : 250; // รถเย็น
+        document.getElementById('shipping-type').innerText = "❄️ รถควบคุมอุณหภูมิ";
+    } else {
+        shippingFee = isBKK ? 50 : 80;   // พัสดุธรรมดา
+        document.getElementById('shipping-type').innerText = "📦 พัสดุธรรมดา";
+    }
+
+    document.getElementById('subtotal').innerText = subtotal.toLocaleString();
+    document.getElementById('shipping-fee').innerText = shippingFee.toLocaleString();
+    document.getElementById('total-amount').innerText = (subtotal + shippingFee).toLocaleString();
+}
+
+// เรียกให้คำนวณครั้งแรกตอนโหลดหน้า
+updateSummary();
