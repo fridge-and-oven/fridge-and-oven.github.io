@@ -1,168 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pinterest Style Gallery</title>
+    <meta charset="utf-8">
+    <title>FRIDGE AND OVEN | ARCHITECTURE & PASTRY ✨</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
+    <style>
+        :root {
+            /* Palette เดิมที่เป๊ะ + ความกุ๊กกิ๊ก */
+            --primary-red: #b3262e;
+            --primary-blue: #1D3557;
+            --primary-yellow: #FFB703;
+            --accent-green: #2f8f44;
+            --cream-bg: #f4f1e8;
+            --soft-pink: #FFE5EC;
+            --mint-green: #CAFFBF;
+        }
 
-body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-    background:#f1f1f1;
-}
+        body { 
+            margin: 0; 
+            background: var(--cream-bg); 
+            font-family: 'Inter', sans-serif; 
+            color: #222; 
+            overflow-x: hidden; 
+        }
 
-/* HEADER */
+        /* ✨ Keyframe สำหรับก้อนครีมดุ๊กดิ๊ก */
+        @keyframes morph {
+            0% { border-radius: 45% 55% 70% 30% / 30% 60% 40% 70%; }
+            50% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            100% { border-radius: 45% 55% 70% 30% / 30% 60% 40% 70%; }
+        }
 
-header{
-    position:sticky;
-    top:0;
-    background:white;
-    padding:15px 30px;
-    display:flex;
-    align-items:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
-    z-index:100;
-}
+        .floating-blob {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            filter: blur(50px);
+            z-index: -1;
+            opacity: 0.5;
+            animation: morph 8s ease-in-out infinite;
+        }
 
-.logo{
-    font-weight:700;
-    font-size:22px;
-}
+        /* 🏗️ Layout Layout */
+        section { 
+            padding: 100px 10%; 
+            position: relative; 
+            min-height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
 
-/* GALLERY */
+        .brand-label { font-size: 14px; letter-spacing: 5px; color: var(--primary-red); font-weight: 700; margin-bottom: 20px; }
+        .title-large { font-family: 'Playfair Display', serif; font-size: clamp(45px, 8vw, 85px); line-height: 0.9; color: var(--primary-blue); margin: 0; }
+        .story-p { font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin: 30px 0; color: #444; }
 
-.gallery{
-    column-count:5;
-    column-gap:16px;
-    padding:20px;
-}
+        /* 🎂 Instructor Card - นุบนิบแบบสถาปนิก */
+        .instructor-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+            margin-top: 50px; 
+        }
+        
+        .instructor-card { 
+            background: #ffffff; 
+            border-radius: 45px 15px 45px 15px; 
+            border: 3px solid var(--primary-blue); 
+            overflow: hidden; 
+            transition: 0.4s; 
+            position: relative;
+        }
 
-@media(max-width:1200px){
-.gallery{column-count:4;}
-}
+        .instructor-card:hover { 
+            transform: scale(1.02) rotate(1deg); 
+            box-shadow: 15px 15px 0px var(--primary-yellow);
+        }
 
-@media(max-width:900px){
-.gallery{column-count:3;}
-}
+        .instructor-img { 
+            height: 320px; 
+            background-size: cover; 
+            background-position: center; 
+            background-color: #ddd; 
+            margin: 15px;
+            border-radius: 35px 10px 35px 10px;
+        }
 
-@media(max-width:600px){
-.gallery{column-count:2;}
-}
+        .instructor-info { padding: 0 30px 35px; text-align: center; }
 
-.card{
-    break-inside:avoid;
-    margin-bottom:16px;
-    border-radius:16px;
-    overflow:hidden;
-    background:white;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+        /* 🏷️ Badges & Buttons */
+        .badge-kukkik {
+            display: inline-block;
+            padding: 6px 18px;
+            background: var(--soft-pink);
+            color: var(--primary-red);
+            font-weight: 800;
+            font-size: 11px;
+            border-radius: 50px 5px 50px 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px var(--primary-blue);
+        }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 18px rgba(0,0,0,0.15);
-}
+        .btn-kukkik {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 6px 6px 0px var(--primary-blue);
+            transition: 0.2s;
+        }
 
-.card img{
-    width:100%;
-    display:block;
-}
+        .btn-kukkik:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px; }
 
-.caption{
-    padding:12px;
-    font-size:14px;
-}
+        /* 🥨 Squiggle SVG Divider */
+        .squiggle-path { fill: none; stroke: var(--primary-red); stroke-width: 6; stroke-linecap: round; }
 
-/* POPUP */
-
-.popup{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.8);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    pointer-events:none;
-    transition:0.3s;
-}
-
-.popup.active{
-    opacity:1;
-    pointer-events:auto;
-}
-
-.popup img{
-    max-width:90%;
-    max-height:90%;
-    border-radius:10px;
-}
-
-.close{
-    position:absolute;
-    top:30px;
-    right:40px;
-    font-size:30px;
-    color:white;
-    cursor:pointer;
-}
-
-</style>
+    </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo">MyGallery</div>
-</header>
+    <section id="hero">
+        <div class="floating-blob" style="background: var(--soft-pink); top: 10%; right: 10%;"></div>
+        <div class="brand-label">🏠 FRIDGE AND OVEN</div>
+        <h1 class="title-large">STORYTELLING<br>IN LAYERS. ✨</h1>
+        
+        <svg class="wave-divider" width="200" height="40" viewBox="0 0 200 40" style="margin: 25px 0;">
+            <path class="squiggle-path" d="M0,20 C30,0 70,40 100,20 C130,0 170,40 200,20" />
+        </svg>
 
-<div class="gallery">
+        <p class="story-p">
+            เราไม่ใช่แค่ร้านทำขนม แต่เราเป็นสตูดิโอที่ออกแบบความสุขผ่านเลเยอร์... 
+            ตั้งแต่ความชุ่มฉ่ำของ Almond Paste ไปจนถึงความละมุนของชาพีช 
+            เราเล่าเรื่องทุกอย่าง "ยาวๆ" เพราะเราอยากให้คุณรู้ว่าทำไมขนมชิ้นนี้ถึงมีอยู่
+        </p>
+        <div>
+            <a href="#birthday" class="btn-kukkik">EXPLORE THE MENU</a>
+        </div>
+    </section>
 
-<div class="card"><img src="https://picsum.photos/400/600"><div class="caption">Nature</div></div>
-<div class="card"><img src="https://picsum.photos/400/500"><div class="caption">Mountains</div></div>
-<div class="card"><img src="https://picsum.photos/400/700"><div class="caption">Travel</div></div>
-<div class="card"><img src="https://picsum.photos/400/450"><div class="caption">Food</div></div>
-<div class="card"><img src="https://picsum.photos/400/650"><div class="caption">Photography</div></div>
-<div class="card"><img src="https://picsum.photos/400/520"><div class="caption">Art</div></div>
-<div class="card"><img src="https://picsum.photos/400/640"><div class="caption">Design</div></div>
-<div class="card"><img src="https://picsum.photos/400/560"><div class="caption">Inspiration</div></div>
+    <section id="birthday" style="background: white;">
+        <div class="floating-blob" style="background: var(--mint-green); bottom: 10%; left: 5%;"></div>
+        <div class="brand-label">CELEBRATION</div>
+        <h2 class="title-large" style="color: var(--primary-red);">BIRTHDAY<br>MESSAGES. 🎂</h2>
+        <p class="story-p">
+            เค้กวันเกิดคือสถาปัตยกรรมแห่งการเฉลิมฉลอง... 
+            เราตั้งใจออกแบบเค้กทุกปอนด์ให้เป็นมากกว่าของขวัญ 
+            แต่เป็นเรื่องราวที่คุณจะเล่าต่อได้ไม่รู้จบ
+        </p>
+        <a href="#" class="btn-kukkik" style="background: var(--primary-yellow); color: var(--primary-blue);">PRE-ORDER NOW</a>
+    </section>
 
-</div>
+    <section id="instructors">
+        <div class="header" style="text-align: center; margin-bottom: 40px;">
+            <div class="brand-label">LEARN WITH US</div>
+            <h2 class="title-large">OUR INSTRUCTORS</h2>
+        </div>
 
-<div class="popup" id="popup">
-<span class="close" id="close">&times;</span>
-<img id="popupImg">
-</div>
+        <div class="instructor-grid">
+            <div class="instructor-card">
+                <div class="instructor-img" style="background-image: url('img/chef-pastry.jpg');"></div>
+                <div class="instructor-info">
+                    <span class="badge-kukkik">🍰 PASTRY & STORY</span>
+                    <h3 style="font-family: 'Playfair Display'; font-size: 24px; margin: 0 0 10px;">Chef [Name]</h3>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 25px;">เจ้าแม่ Almond Paste และเทคนิคเลเยอร์ขนมที่ละเมียดละไมที่สุด</p>
+                    <a href="#" class="btn-kukkik" style="padding: 10px 25px; font-size: 12px;">VIEW CLASSES</a>
+                </div>
+            </div>
+            <div class="instructor-card" style="border-color: var(--accent-green);">
+                <div class="instructor-img" style="background-image: url('img/grab-delivery.jpg');"></div>
+                <div class="instructor-info">
+                    <span class="badge-kukkik" style="background: var(--mint-green); color: var(--accent-green);">🛵 GRAB READY</span>
+                    <h3 style="font-family: 'Playfair Display'; font-size: 24px; margin: 0 0 10px;">FRIDGE TO DOOR</h3>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 25px;">ส่งตรงความสุขถึงบ้านคุณ พร้อมออเดอร์แล้ววันนี้ผ่าน Grab</p>
+                    <a href="#" class="btn-kukkik" style="background: var(--accent-green); box-shadow: 6px 6px 0px var(--primary-blue);">ORDER NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-
-const cards = document.querySelectorAll(".card img")
-const popup = document.getElementById("popup")
-const popupImg = document.getElementById("popupImg")
-const close = document.getElementById("close")
-
-cards.forEach(img=>{
-    img.addEventListener("click",()=>{
-        popup.classList.add("active")
-        popupImg.src = img.src
-    })
-})
-
-close.onclick=()=>{
-    popup.classList.remove("active")
-}
-
-popup.onclick=(e)=>{
-    if(e.target===popup){
-        popup.classList.remove("active")
-    }
-}
-
-</script>
+    <section id="journal" style="background: var(--primary-blue); color: white;">
+        <div class="brand-label" style="color: var(--primary-yellow);">THE KITCHEN DIARY</div>
+        <h2 class="title-large" style="color: #f4f1e8;">BAKING<br>THOUGHTS. 📝</h2>
+        
+        <div style="margin-top: 50px; border-left: 4px solid var(--primary-yellow); padding-left: 30px;">
+            <h3 style="font-family: 'Playfair Display';">ทำไมต้อง Almond Paste?</h3>
+            <p class="story-p" style="color: #eee;">
+                หลายคนถามว่าทำไมเราไม่ใช้แป้งสปันจ์ธรรมดา... <br>
+                คำตอบอยู่ที่ "Texture" และ "Soul" ของอัลมอนด์ที่เราคั่วเอง 
+                มันให้ความฉ่ำที่แป้งทั่วไปให้ไม่ได้ และนี่คือบทความที่เราจะเล่าเบื้องหลังให้ฟัง...
+            </p>
+            <a href="#" style="color: var(--primary-yellow); text-decoration: none; font-weight: 700;">[ อ่านเรื่องราวนี้ต่อ ]</a>
+        </div>
+    </section>
 
 </body>
 </html>
