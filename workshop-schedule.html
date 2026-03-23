@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Workshops - Fridge and Oven</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+
+        <style>
+            body {
+                margin: 0;
+                background: #f4f1e8;
+                font-family: "Inter", sans-serif;
+                color: #222;
+            }
+            .schedule {
+                max-width: 1000px;
+                margin: 40px auto;
+                padding: 0 15px;
+                position: relative;
+            }
+            .brand-side {
+                position: absolute;
+                right: -120px;
+                top: 30px;
+                text-align: right;
+                color: #b3262e;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+            .month-display {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(45px, 8vw, 80px);
+                color: #b3262e;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+/* Container ครอบปุ่มเลือกเดือน */
+.month-nav-container {
+    padding: 20px 0;
+    text-align: center;
+    background: transparent; /* ให้เห็นพื้นหลังสีครีมของ body */
+}
+
+/* แถบปุ่มเลือกเดือน */
+.month-nav {
+    display: flex;
+    flex-wrap: wrap;         /* ให้ขึ้นบรรทัดใหม่เมื่อพื้นที่ไม่พอ */
+    justify-content: center;    /* จัดปุ่มให้อยู่กึ่งกลาง */
+    gap: 5px;               /* ระยะห่างระหว่างปุ่ม */
+    max-width: 600px;        /* จำกัดความกว้างเพื่อให้ตัดบรรทัดสวยๆ */
+    margin: 0 auto;          /* จัดกลุ่มปุ่มให้อยู่กลางหน้าจอ */
+    padding: 0 15px;
+}
+
+/* ปุ่มเดือน (ดึงความโค้งกลับมา) */
+.month-btn {
+    background: #f4f1e8;
+    border: 1.5px solid #b3262e;
+    color: #b3262e;
+    padding: 8px 16px;
+    border-radius: 25px;      /* เพิ่มความโค้งมนให้เป็นทรงแคปซูล */
+    font-weight: 700;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    margin-bottom: 5px;      /* ระยะห่างเมื่อขึ้นบรรทัดใหม่ */
+}
+
+/* เมื่อปุ่มโดนเลือก (Active) */
+.month-btn.active {
+    background: #b3262e;
+    color: white;
+    box-shadow: 0 4px 10px rgba(179, 38, 46, 0.2); /* เพิ่มมิตินิดนึง */
+}
+
+/* ชื่อเดือนด้านล่างปุ่ม */
+.month-display {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(40px, 8vw, 60px);
+    color: #b3262e;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+            /* CALENDAR */
+            .calendar-container {
+                background: #f4f1e8;
+                border: 2px solid #b3262e;
+                border-radius: 20px;
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+            .calendar-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 1px;
+                background: #b3262e;
+                border: 1px solid #b3262e;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+            .calendar-day-head {
+                background: #b3262e;
+                padding: 10px 0;
+                text-align: center;
+                font-weight: 700;
+                font-size: 11px;
+                color: #f4f1e8;
+                text-transform: uppercase;
+            }
+            .day-cell {
+                background: #f4f1e8;
+                aspect-ratio: 1/1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            .day-cell.other-month {
+                background: #fdfcf9 !important;
+                opacity: 0.3;
+            }
+            .day-cell span {
+                font-size: 14px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                transition: 0.3s;
+            }
+            .day-cell.has-workshop {
+                cursor: pointer;
+            }
+            .day-cell.has-workshop span {
+                color: white !important;
+            }
+
+            /* COLORS (Logic ที่คุณเพิ่งแก้มา) */
+            .bg-pastry {
+                background-color: #b3262e !important;
+            }
+            .bg-japanese {
+                background-color: #2f8f44 !important;
+            }
+            .bg-chinese {
+                background-color: #ffc574 !important;
+            }
+            .dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+            .card-details h2 {
+                font-family: "Playfair Display", serif;
+                color: #b3262e;
+                font-size: 17px;
+                margin: 0;
+                line-height: 1.2;
+            }
+            /* WORKSHOP GRID & CARD (คืนค่า Layout ดั้งเดิม) */
+            .workshop-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(10px, 2vw, 20px);
+            }
+            @media (min-width: 900px) {
+                .workshop-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 25px;
+                }
+            }
+
+            .workshop-card {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                background: #ffffff;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                transition: 0.3s;
+                border: none !important;
+                padding: 0 !important;
+            }
+            .workshop-card:hover {
+                transform: translateY(-5px);
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .card-image {
+                width: 100%;
+                height: clamp(100px, 15vw, 180px);
+                background-size: cover;
+                background-position: center;
+                margin: 0 !important;
+                display: block !important;
+            }
+            .card-content {
+                padding: clamp(10px, 2vw, 15px);
+                display: flex;
+                align-items: flex-start;
+                gap: clamp(8px, 1.5vw, 12px);
+            }
+
+            /* DATE ZONE (คืนค่าเป๊ะๆ) */
+            .date-zone {
+                flex-shrink: 0;
+                text-align: center;
+                width: clamp(35px, 10vw, 45px);
+            }
+            .date-circle {
+                width: clamp(38px, 9vw, 42px);
+                height: clamp(38px, 9vw, 42px);
+                aspect-ratio: 1 / 1; /* บังคับสัดส่วน 1:1 */
+                flex-shrink: 0; /* ห้ามโดนเบียด/บีบ */
+                border-radius: 50%;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: clamp(14px, 4vw, 18px);
+            }
+
+            .day-name {
+                color: #b3262e;
+                font-size: clamp(9px, 2.5vw, 11px);
+                font-weight: 700;
+                margin-top: 4px;
+            }
+            .info-footer {
+                border-top: 2px solid #b3262e;
+                margin-top: 40px;
+                text-align: right;
+                padding-top: 15px;
+                font-size: 13px;
+            }
+
+            /* DETAILS (คืนค่าเป๊ะๆ) */
+            .card-details {
+                flex-grow: 1;
+                min-width: 0;
+            }
+            .card-details h2 {
+                font-family: "Playfair Display", serif;
+                color: #b3262e;
+                font-size: clamp(14px, 4vw, 18px);
+                margin: 0;
+                line-height: 1.2;
+                word-wrap: break-word;
+                display: block;
+            }
+            .card-details .time {
+                font-size: clamp(10px, 2.8vw, 12px);
+                margin-top: 4px;
+                color: #666;
+            }
+            .card-details .price {
+                font-size: clamp(11px, 3vw, 13px);
+                margin-top: 2px;
+                font-weight: 600;
+            }
+
+            .divider {
+                margin: 25px 0;
+            }
+            .info-footer {
+                margin-top: 40px;
+                text-align: right;
+                border-top: 2px solid #b3262e;
+                padding-top: 15px;
+                font-size: 13px;
+            }
+            @media (max-width: 900px) {
+                .brand-side {
+                    display: none;
+                }
+            }
+            .legend-section {
+                display: flex;
+                gap: 15px;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 10px;
+            }
+            .info-footer {
+                margin-top: 40px;
+                text-align: right;
+                border-top: 2px solid #1481de;
+                padding-top: 15px;
+                font-size: 13px;
+            }
+
+            /* ชื่อแบรนด์ด้านบน */
+            .brand-header {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(32px, 6vw, 48px); /* ขนาดปรับตามหน้าจอ */
+                color: #b3262e;
+                font-weight: 700;
+                text-align: center;
+                letter-spacing: 1px;
+                margin-top: 10px;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+            }
+
+            /* คำโปรยด้านล่างชื่อแบรนด์ */
+            .brand-tagline {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(9px, 1vw, 14px);
+                color: #222;
+                text-align: center;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+            .divider {
+                margin: 5px 0;
+            }
+            .divider svg {
+                width: 100%;
+                height: 12px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <span id="navtool"></span>
+
+        <section class="schedule">
+            <div class="brand-header">Baking with <br>Fridge and Oven</div>
+            <div class="brand-tagline">"Let's make some sweet memories (and delicious messes) together."</div>
+
+            <div class="month-nav" id="month-buttons"></div>
+
+            <h1 class="month-display" id="display-month-name">MONTH</h1>
+            <div class="divider">
+                <svg viewBox="0 0 1440 20">
+                    <path
+                        d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+                        stroke="#2f8f44"
+                        stroke-width="3"
+                        fill="none" />
+                </svg>
+            </div>
+            <div id="calendar-section" class="calendar-container">
+                <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+
+            <div
+                class="legend-section"
+                style="
+                    display: flex;
+                    gap: 15px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding: 10px;
+                ">
+                <div style="display: flex; align-items: center; gap: 5px">
+                    <span class="dot bg-pastry"></span> Pastry
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px">
+                    <span class="dot bg-japanese"></span> Japanese
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px">
+                    <span class="dot bg-chinese"></span> Chinese
+                </div>
+            </div>
+
+            <div class="workshop-grid" id="workshop-cards-container"></div>
+
+            <div class="info-footer">
+                <p>Number of Participants: <strong>4 / CLASS</strong></p>
+                <p>More Info: LINE OA @fridgeandoven</p>
+            </div>
+        </section>
+
+        <script>
+            // --- 1. ข้อมูล Master Data (รวมทั้งปีที่นี่) ---
+            // month: 2 = มีนาคม, 4 = พฤษภาคม (นับ 0, 1, 2, 3, 4...)
+            const allWorkshops = [
+                // --- MARCH (month: 2) ---
+                {
+                    month: 2,
+                    date: 14,
+                    cat: "pastry",
+                    title: "BANANA CREAM PIE",
+                    dbTitle: "BANANA CREAM PIE",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/bananacreampie.jpg"
+                },
+                {
+                    month: 2,
+                    date: 18,
+                    cat: "pastry",
+                    title: "MATCHA MISO COOKIES",
+                    dbTitle: "MATCHA MISO MACADAMIA",
+                    price: "4,500",
+                    time: "14:00 – 16:00",
+                    img: "img/matchamiso-cookies.jpg"
+                },
+                {
+                    month: 2,
+                    date: 21,
+                    cat: "pastry",
+                    title: "CHA CHOUX",
+                    dbTitle: "CHA CHOUX WORKSHOP",
+                    price: "5,000",
+                    time: "14:00 – 16:30",
+                    img: "img/choux01.jpg"
+                },
+                {
+                    month: 2,
+                    date: 28,
+                    cat: "chinese",
+                    title: "DUMPLING CLUB",
+                    dbTitle: "DUMPLING FOLDING CLUB",
+                    price: "3,900",
+                    time: "Multiple Sessions",
+                    img: "img/dumpling02.jpg"
+                },
+                // --- APRIL (month: 3) ---
+                {
+                    month: 3,
+                    date: 4,
+                    cat: "pastry",
+                    title: "CARROT CAKE",
+                    price: "5,500",
+                    time: "14:00 – 16:30",
+                    img: "img/carrotcake.jpg"
+                },
+                {
+                    month: 3,
+                    date: 18,
+                    cat: "pastry",
+                    title: "EARL GREY CHOCOLATE TART",
+                    price: "12,000",
+                    time: "10:00 – 17:00",
+                    img: "img/earlgrey-chocotart.jpg"
+                },
+                {
+                    month: 3,
+                    date: 25,
+                    cat: "pastry",
+                    title: "BASQUE CHEESECAKE",
+                    price: "5,000",
+                    time: "14:00 – 16:30",
+                    img: "img/plainbasque02.jpg"
+                },
+                //---- MAY (month: 4) ------
+                {
+                    month: 4,
+                    date: 2,
+                    cat: "pastry",
+                    title: "APPLE CRUMBLES TART",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/applecrumbles-tart02.jpg"
+                },
+                {
+                    month: 4,
+                    date: 9,
+                    cat: "pastry",
+                    title: "HOMEMADE GRANOLA",
+                    price: "3,500",
+                    time: "14:00 – 15:30",
+                    img: "img/granola.jpg"
+                },
+                {
+                    month: 4,
+                    date: 13,
+                    cat: "pastry",
+                    title: "RYOKUCHA KUROGOMA CAKE",
+                    price: "12,000",
+                    time: "10:00 – 17:30",
+                    img: "img/ryokucha-goma02.jpg"
+                },
+                {
+                    month: 4,
+                    date: 16,
+                    cat: "pastry",
+                    title: "BASQUE CHEESECAKE",
+                    price: "5,000",
+                    time: "14:00 – 16:30",
+                    img: "img/plainbasque02.jpg"
+                },
+                {
+                    month: 4,
+                    date: 20,
+                    cat: "pastry",
+                    title: "BANANA CREAM PIE",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/bananacreampie.jpg"
+                },
+                {
+                    month: 4,
+                    date: 23,
+                    cat: "pastry",
+                    title: "TRIPLE CHOCO & PECAN COOKIES",
+                    price: "6,600",
+                    time: "14:00 – 16:00",
+                    img: "img/cookies.jpg"
+                },
+                {
+                    month: 4,
+                    date: 27,
+                    cat: "pastry",
+                    title: "TIRAMISU",
+                    price: "3,900",
+                    time: "14:00 – 16:00",
+                    img: "img/tiramisu-bowl.jpg"
+                },
+                {
+                    month: 4,
+                    date: 30,
+                    cat: "pastry",
+                    title: "MATCHA MISO MACADAMIA",
+                    price: "4,500",
+                    time: "14:00 – 16:00",
+                    img: "img/matchamiso-cookies.jpg"
+                },
+                //---- JUNE (month: 5) ------
+                {
+                    month: 5,
+                    date: 6,
+                    cat: "pastry",
+                    title: "ASSORTED COOKIES",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/parmesan-melt.jpg"
+                },
+                {
+                    month: 5,
+                    date: 10,
+                    cat: "pastry",
+                    title: "BANANA CREAM PIE",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/bananacreampie.jpg"
+                },
+                {
+                    month: 5,
+                    date: 13,
+                    cat: "pastry",
+                    title: "TIRAMISU",
+                    price: "3,500",
+                    time: "14:00 – 15:30",
+                    img: "img/tiramisu-bowl.jpg"
+                },
+
+                {
+                    month: 5,
+                    date: 17,
+                    cat: "pastry",
+                    title: "PEANUT BUTTER BANANA CAKE",
+                    dbTitle: "PEANUT BUTTER BANANA",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/pb-bananacake.jpg"
+                },
+                {
+                    month: 5,
+                    date: 20,
+                    cat: "pastry",
+                    title: "BANANA CREAM PIE",
+                    price: "5,000",
+                    time: "14:00 – 17:00",
+                    img: "img/bananacreampie.jpg"
+                },
+                {
+                    month: 5,
+                    date: 24,
+                    cat: "pastry",
+                    title: "SPONGE LAB",
+                    price: "6,600",
+                    time: "14:00 – 16:00",
+                    img: "img/cookies.jpg"
+                },
+                {
+                    month: 5,
+                    date: 27,
+                    cat: "pastry",
+                    title: "APPLE CHEESE PUFF",
+                    price: "5,800",
+                    time: "14:00 – 17:00",
+                    img: "img/apple-cheesepuff.jpg"
+                },
+                {
+                    month: 6,
+                    date: 7,
+                    cat: "pastry",
+                    title: "MATCHA MISO MACADAMIA",
+                    price: "4,500",
+                    time: "14:00 – 16:00",
+                    img: "img/matchamiso-cookies.jpg"
+                                },
+                {
+                    month: 6,
+                    date: 14,
+                    cat: "pastry",
+                    title: "MATCHA MISO MACADAMIA",
+                    price: "4,500",
+                    time: "14:00 – 16:00",
+                    img: "img/matchamiso-cookies.jpg"
+                                    },
+                {
+                    month: 6,
+                    date: 28,
+                    cat: "pastry",
+                    title: "MATCHA MISO MACADAMIA",
+                    price: "4,500",
+                    time: "14:00 – 16:00",
+                    img: "img/matchamiso-cookies.jpg"}
+            ];
+
+            let currentMonth = 4; // เริ่มต้นที่พฤษภาคม
+            const currentYear = 2026;
+            const monthNames = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ];
+
+            function init() {
+                renderMonthButtons();
+                updateDisplay();
+            }
+
+            function renderMonthButtons() {
+                const nav = document.getElementById("month-buttons");
+                nav.innerHTML = monthNames
+                    .map(
+                        (name, index) => `
+                <button class="month-btn ${index === currentMonth ? "active" : ""}" onclick="changeMonth(${index})">
+                    ${name.substring(0, 3).toUpperCase()}
+                </button>
+            `
+                    )
+                    .join("");
+            }
+
+            function changeMonth(m) {
+                currentMonth = m;
+                renderMonthButtons();
+                updateDisplay();
+            }
+
+            function updateDisplay() {
+                document.getElementById("display-month-name").innerText = monthNames[currentMonth];
+                const filteredData = allWorkshops.filter((ws) => ws.month === currentMonth);
+                renderCalendar(filteredData);
+                renderCards(filteredData);
+            }
+
+            function renderCalendar(data) {
+                const grid = document.getElementById("calendar-grid");
+                let html = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+                    .map((d) => `<div class="calendar-day-head">${d}</div>`)
+                    .join("");
+
+                const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+                const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+                for (let x = 0; x < firstDay; x++) html += `<div class="day-cell other-month"></div>`;
+
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const ws = data.find((w) => w.date === i);
+                    let hasClass = "",
+                        spanClass = "",
+                        clickFn = "";
+                    if (ws) {
+                        hasClass = "has-workshop";
+                        spanClass = "bg-" + ws.cat;
+                        clickFn = `onclick="window.location.href='workshop-detail.html?menu=${ws.title.replace("&", "%26")}&date=${i}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}'"`;
+                    }
+                    html += `<div class="day-cell ${hasClass}" ${clickFn}><span class="${spanClass}">${i}</span></div>`;
+                }
+                grid.innerHTML = html;
+            }
+
+            function renderCards(data) {
+                const container = document.getElementById("workshop-cards-container");
+                if (data.length === 0) {
+                    container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">No workshops scheduled for this month.</p>`;
+                    return;
+                }
+                container.innerHTML = data
+                    .sort((a, b) => a.date - b.date)
+                    .map(
+                        (ws) => `
+                <a href="workshop-detail.html?menu=${ws.title.replace("&", "%26")}&date=${ws.date}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}" class="workshop-card">
+                    <div class="card-image" style="background-image: url('${ws.img}')"></div>
+                    <div class="card-content">
+                        <div class="date-circle bg-${ws.cat}">${ws.date}</div>
+                        <div class="card-details">
+                            <h2>${ws.title}</h2>
+                            <p>${ws.time}</p>
+                            <p><strong>${ws.price}.-</strong></p>
+                        </div>
+                    </div>
+                </a>
+            `
+                    )
+                    .join("");
+            }
+
+            window.onload = init;
+        </script>
+    </body>
+</html>
