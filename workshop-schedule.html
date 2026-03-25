@@ -341,14 +341,31 @@
                 width: 100%;
                 height: 12px;
             }
+            
+            /* แถบแบรนด์ด้านบนสุด */
+.top-brand-bar {
+    background-color: #ab001a; /* สีแดงเดียวกับหน้า Workshop */
+    color: #f5e4af;           /* สีครีมเดียวกับพื้นหลังหน้า Workshop */
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: 100%;
+    position: sticky; /* ให้แถบติดอยู่ด้านบนเวลาเลื่อนจอ */
+    top: 0;
+    z-index: 1000;
+}
         </style>
     </head>
 
     <body>
-        <span id="navtool"></span>
-
+        <div class="top-brand-bar">
+    Fridge and Oven — Workshops
+</div>
         <section class="schedule">
-            <div class="brand-header">Baking with <br>Fridge and Oven</div>
+            <div class="brand-header"></div>
             <div class="brand-tagline">"Let's make some sweet memories (and delicious messes) together."</div>
 
             <div class="month-nav" id="month-buttons"></div>
@@ -636,8 +653,9 @@
                     img: "img/matchamiso-cookies.jpg"}
             ];
 
-            let currentMonth = 4; // เริ่มต้นที่พฤษภาคม
-            const currentYear = 2026;
+let currentMonth = new Date().getMonth(); 
+
+const currentYear = 2026;
             const monthNames = [
                 "January",
                 "February",
@@ -658,19 +676,24 @@
                 updateDisplay();
             }
 
-            function renderMonthButtons() {
-                const nav = document.getElementById("month-buttons");
-                nav.innerHTML = monthNames
-                    .map(
-                        (name, index) => `
-                <button class="month-btn ${index === currentMonth ? "active" : ""}" onclick="changeMonth(${index})">
-                    ${name.substring(0, 3).toUpperCase()}
-                </button>
-            `
-                    )
-                    .join("");
-            }
+function renderMonthButtons() {
+    const nav = document.getElementById("month-buttons");
+    nav.innerHTML = monthNames
+        .map(
+            (name, index) => `
+    <button id="btn-month-${index}" class="month-btn ${index === currentMonth ? "active" : ""}" onclick="changeMonth(${index})">
+        ${name.substring(0, 3).toUpperCase()}
+    </button>
+`
+        )
+        .join("");
 
+    // เพิ่มบรรทัดนี้: ให้เลื่อนไปหาปุ่มเดือนปัจจุบันอัตโนมัติ (เผื่อกรณีปุ่มล้นจอ)
+    const activeBtn = document.getElementById(`btn-month-${currentMonth}`);
+    if (activeBtn) {
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+}
             function changeMonth(m) {
                 currentMonth = m;
                 renderMonthButtons();
@@ -710,29 +733,40 @@
                 grid.innerHTML = html;
             }
 
-            function renderCards(data) {
+      function renderCards(data) {
                 const container = document.getElementById("workshop-cards-container");
+                
                 if (data.length === 0) {
                     container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">No workshops scheduled for this month.</p>`;
                     return;
                 }
+
                 container.innerHTML = data
                     .sort((a, b) => a.date - b.date)
-                    .map(
-                        (ws) => `
-                <a href="workshop-detail.html?menu=${ws.title.replace("&", "%26")}&date=${ws.date}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}" class="workshop-card">
-                    <div class="card-image" style="background-image: url('${ws.img}')"></div>
-                    <div class="card-content">
-                        <div class="date-circle bg-${ws.cat}">${ws.date}</div>
-                        <div class="card-details">
-                            <h2>${ws.title}</h2>
-                            <p>${ws.time}</p>
-                            <p><strong>${ws.price}.-</strong></p>
-                        </div>
-                    </div>
-                </a>
-            `
-                    )
+                    .map((ws) => {
+                        // คำนวณชื่อวัน (SUN, MON...)
+                        const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'short' })
+                                        .format(new Date(currentYear, currentMonth, ws.date))
+                                        .toUpperCase();
+
+                        return `
+                            <a href="workshop-detail.html?menu=${ws.title.replace("&", "%26")}&date=${ws.date}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}" class="workshop-card">
+                                <div class="card-image" style="background-image: url('${ws.img}')"></div>
+                                <div class="card-content">
+                                    <div class="date-zone">
+                                        <div class="date-circle bg-${ws.cat}">${ws.date}</div>
+                                        <div class="day-name">${dayName}</div>
+                                    </div>
+                                    
+                                    <div class="card-details">
+                                        <h2>${ws.title}</h2>
+                                        <p class="time">${ws.time}</p>
+                                        <p class="price"><strong>${ws.price}.-</strong></p>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                    })
                     .join("");
             }
 

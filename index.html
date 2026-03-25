@@ -7,7 +7,9 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;600&family=Dancing+Script:wght@700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;600&family=Dancing+Script:wght@700&family=Playfair+Display:wght@500;700&display=swap"
+            rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
@@ -16,57 +18,396 @@
         <link href="css/morestyle.css" rel="stylesheet" />
 
         <style>
-            html, body { max-width: 100%; overflow-x: hidden; font-family: 'Anuphan', sans-serif; }
-            #navtool, .navbar { background-color: #ab001a !important; border: none !important; }
-            .navbar-nav .nav-link { color: #f5e4af !important; font-weight: 600; }
-            .hero-header { background-color: transparent !important; margin-bottom: 0 !important; }
+            html,
+            body {
+                max-width: 100%;
+                overflow-x: hidden;
+                font-family: "Anuphan", sans-serif;
+            }
+            #navtool,
+            .navbar {
+                background-color: #ab001a !important;
+                border: none !important;
+            }
+            .navbar-nav .nav-link {
+                color: #f5e4af !important;
+                font-weight: 600;
+            }
+            .hero-header {
+                background-color: transparent !important;
+                margin-bottom: 0 !important;
+            }
 
             /* Fan Favorites Scroll */
             .product-scroll-container {
-                display: flex; overflow-x: auto; gap: 25px; padding: 15px 5px;
-                scrollbar-width: none; scroll-snap-type: x mandatory;
+                display: flex;
+                overflow-x: auto;
+                gap: 35px;
+                padding: 5px 5px;
+                scrollbar-width: none;
+                scroll-snap-type: x mandatory;
             }
-            .product-scroll-container::-webkit-scrollbar { display: none; }
-            .product-card {
-                flex: 0 0 280px; min-width: 280px; background: #fff; border-radius: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); overflow: hidden; scroll-snap-align: start;
+            .product-scroll-container::-webkit-scrollbar {
+                display: none;
             }
-            .product-card img { width: 100%; height: 250px; object-fit: cover; }
-            .product-info { padding: 15px; }
+            /* ปรับปรุงส่วน Product Card */
+/* ปรับปรุงส่วน Product Card */
+.product-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+    background: #fdf6dc;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* สั่งตัดขอบรูปให้มนตามการ์ดที่นี่ */
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.product-card img {
+    width: 100% !important;
+    height: 250px !important; /* บังคับความสูงให้เท่ากับความกว้างการ์ด */
+    object-fit: cover !important; /* ยืดรูปให้เต็มพื้นที่โดยไม่เสียสัดส่วน */
+    object-position: center;
+    display: block;
+    border-radius: 20px 20px 20px 20px; /* แถม: มนเฉพาะขอบบนให้รับกับความโค้ง */
+}
+
+            .product-info {
+                padding: 5px;
+                background: #fdf6dc; /* มั่นใจว่าพื้นหลังส่วนตัวหนังสือเป็นสีขาวแยกจากรูป */
+                flex-grow: 1; /* ให้ส่วนข้อมูลยืดขยายตามเนื้อหา */
+            }
 
             /* Buttons */
             .btn-shop-mini {
-                background-color: #ab001a; color: #f5e4af !important; border: 2px solid #ab001a;
-                padding: 5px 12px; border-radius: 50px; font-weight: 700; font-size: 10px;
-                text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center;
+                background-color: #ab001a;
+                color: #f5e4af !important;
+                border: 2px solid #ab001a;
+                padding: 5px 12px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 10px;
+                text-decoration: none;
+                text-transform: uppercase;
+                display: inline-flex;
+                align-items: center;
             }
             .btn-detail-link {
-                color: #f5e4af !important; background-color: #ab001a; border: 1px solid #ab001a;
-                padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-decoration: none;
+                color: #f5e4af !important;
+                background-color: #ab001a;
+                border: 1px solid #ab001a;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: 600;
+                text-decoration: none;
             }
             .btn-view-schedule {
-                background-color: #ab001a; color: #f5e4af !important; border: 2px solid #ab001a;
-                padding: 10px 25px; border-radius: 50px; font-weight: 700; font-size: 13px; text-decoration: none;
+                background-color: #ab001a;
+                color: #f5e4af !important;
+                border: 2px solid #ab001a;
+                padding: 10px 25px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 13px;
+                text-decoration: none;
             }
-            .footer-link { color: #f5e4af; text-decoration: none; font-size: 14px; font-weight: 600; margin-bottom: 5px; }
-            .footer-link:hover { color: #ffffff; }
+            .footer-link {
+                color: #f5e4af;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+            .footer-link:hover {
+                color: #ffffff;
+            }
+
+            /* ลบสีเทาเวลาจิ้มบนมือถือ (Tap Highlight) */
+   /* ลบสีเทาเวลาจิ้มบนมือถือ และสถานะต่างๆ ของลิงก์ใน Card */
+a, 
+img, 
+.product-card,
+.product-card a {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    outline: none !important;
+    text-decoration: none !important;
+}
+
+/* เจาะจงไปที่สถานะทั้งหมดของลิงก์ใน Product Card */
+.product-card a:focus,
+.product-card a:active,
+.product-card a:hover,
+.product-card a:visited {
+    background-color: transparent !important;
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: inherit !important; /* ป้องกันสีตัวอักษรเปลี่ยนเป็นสีน้ำเงิน */
+}
+
+/* เพิ่มเติม: ป้องกัน Bootstrap เติมพื้นหลังสีฟ้า/เทาอ่อนตอนกด */
+.product-card .text-decoration-none:focus {
+    background-color: transparent !important;
+}
+            
+            /* ลบเงาและขอบขาวของ Carousel ออกทั้งหมด */
+#aboutCarousel {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#aboutCarousel .carousel-item img {
+    border-radius: 0 !important; /* บังคับให้ขอบรูปตั้งฉากชิดขอบจอ */
+    height: 60vh !important; /* ปรับความสูงให้พอดีกับหน้าจอมือถือ/คอม (60% ของความสูงจอ) */
+}
+
+/* ปรับให้เนื้อหาฝั่งขวาดูโปร่งขึ้นเมื่อรูปชิดขอบ */
+@media (max-width: 991px) {
+    .col-lg-6.ps-lg-5 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+            .mini-calendar-wrap {
+    max-width: 350px; /* ขนาดกะทัดรัดแบบน้ำจิ้ม */
+    margin: 20px auto;
+    padding: 1px;
+    background: #f4f1e8;
+    border: 1.5px solid #b3262e;
+    border-radius: 15px;
+}
+
+.mini-title {
+    font-family: "Playfair Display", serif;
+    color: #b3262e;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px; /* เว้นช่องไฟนิดหน่อยให้ดูโปร่ง */
+}
+
+.mini-day-cell {
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    color: #666;
+}
+
+/* เน้นเฉพาะวันที่มีคลาส */
+.mini-day-cell {
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 50%;
+        color: #666;
+        cursor: default;
+    }
+    .mini-day-cell.has-ws {
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s, filter 0.2s;
+    }
+    .mini-day-cell.has-ws:hover {
+        transform: scale(1.15);
+        filter: brightness(1.2);
+    }
+            
+            
+  /* ส่วน Workshop Preview เดิมของคุณ */
+.workshop-preview {
+    background: #f5e4af; /* หรือใช้ #fdf6dc ให้เข้ากับส่วนอื่น */
+    border-radius: 20px;
+    margin: 20px 10px;
+    overflow: hidden;
+}
+
+/* รายการเมนูด้านซ้าย */
+.ws-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(171, 0, 10, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f4f1e8; /* สีครีมเข้มกว่าพื้นหลังนิดนึง */
+}
+
+.ws-item:hover { 
+    background-color: #ffffff; 
+}
+
+.ws-item.active {
+    background-color: #fdf6dc; /* สีเดียวกับ Product Card */
+    border-left: 6px solid #ab001a;
+}
+
+/* วงกลมวันที่ (ปรับให้มนและดูละมุนขึ้น) */
+.date-circle-mini {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 3px 6px rgba(171, 0, 26, 0.2);
+}
+
+/* ปุ่ม "View Full Schedule" ที่อยู่ใต้ลิสต์ */
+.btn-outline-schedule {
+    border: 1.5px dashed #ab001a; /* ใช้เส้นประเหมือน btn-personalized */
+    color: #ab001a;
+    font-weight: 600;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-outline-schedule:hover {
+    background-color: #ab001a;
+    color: #f5e4af !important;
+}
+
+    /* วงกลมวันที่แบบที่คุณแนบมา */
+    .date-circle-mini {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+    .day-name-mini {
+        color: #ab001a;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 2px;
+        text-transform: uppercase;
+    }
+
+    .card-details-mini h2 {
+        font-family: "Playfair Display", serif;
+        color: #ab001a;
+        font-size: 20px;
+        margin: 0;
+        line-height: 1.2;
+    }
+    .card-details-mini .price-mini {
+        font-size: 15px;
+        font-weight: 600;
+        color: #666;
+    }  
+    .dot { height: 5px; width: 5x; border-radius: 50%; display: inline-block; margin-right: 4px; }
+/* ป้องกันการล้นจอในทุกกรณี */
+.container, .container-fluid {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* ทำให้รูปภาพใน Workshop Preview ไม่ใหญ่เกินไป */
+.image-stack img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ปรับขนาดตัวอักษรหัวข้อให้เล็กลงอัตโนมัติเมื่อจอเล็กลง */
+@media (max-width: 768px) {
+    .display-1 {
+        font-size: 3rem !important;
+    }
+    .workshop-preview h2 {
+        font-size: 28px !important;
+    }
+/* ปุ่มตารางเรียน: สีแดงขอบมน ดูทางการและชัดเจน */
+/* ปุ่มหลัก: สีแดงเข้มตามแบรนด์ */
+.btn-schedule-main {
+    background-color: #ab001a;
+    color: #f5e4af;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-schedule-main:hover {
+    background-color: #8d0015;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ปุ่มรอง: เส้นประเพื่อให้ดู Homey */
+.btn-personalized {
+    background-color: transparent;
+    border: 1.5px dashed #ab001a;
+    color: #ab001a;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-personalized:hover {
+    background-color: #ab001a;
+    color: #fdf6dc;
+}
+/* ปรับระยะห่างบนมือถือ */
+@media (max-width: 576px) {
+    .btn-schedule-main, .btn-personalized {
+        width: 100%; /* เต็มจอเมื่อเปิดบนมือถือ */
+        text-align: center;
+    }
+}
         </style>
     </head>
 
     <body class="bg-index">
         <span id="navtool"></span>
         <script src="nav.js"></script>
-        <script>window.onload = addNavTool();</script>
+        <script>
+            window.onload = addNavTool();
+        </script>
 
         <div class="container-fluid p-0 hero-header">
             <div class="container py-5">
                 <div class="row g-0 align-items-center">
                     <div class="col-lg-6 py-5">
                         <h1 class="font-dancing-script text-primary">Welcome to</h1>
-                        <h1 class="display-1 mb-3">FRIDGE AND OVEN</h1>
+                        <h4 class="display-1 mb-3">FRIDGE AND OVEN</h4>
                         <div class="contact-info">
                             <h5 class="text-primary mb-0">CONTACT US</h5>
-                            <a href="https://line.me/R/oaMessage/@fridgeandoven/?Hello" class="fs-6 text-dark text-decoration-none">LINE OA: @fridgeandoven</a>
+                            <a
+                                href="https://line.me/R/oaMessage/@fridgeandoven/?Hello"
+                                class="fs-6 text-dark text-decoration-none"
+                                >LINE OA: @fridgeandoven</a
+                            >
                         </div>
                     </div>
                 </div>
@@ -80,130 +421,226 @@
                         <h2 class="mb-0 h4">Shop fan favorites!</h2>
                         <p class="text-muted small mb-0">Treat yourself with our signature bakes.</p>
                     </div>
-                    <a href="https://r.grab.com/g/6-2026..." class="btn-shop-mini">SHOP ON GRAB <i class="bi bi-arrow-right-short"></i></a>
+                    <a href="https://r.grab.com/g/6-2026..." class="btn-shop-mini"
+                        >SHOP ON GRAB <i class="bi bi-arrow-right-short"></i
+                    ></a>
                 </div>
 
                 <div class="product-scroll-container">
                     <div class="product-card text-center">
                         <a href="our-cakes-edited.html" class="text-decoration-none text-dark">
-                            <img src="img/8.jpg" alt="Hazelnut Cake">
-                            <div class="product-info"><h3 class="h6 mb-1">Hazelnut Chocolate Cake</h3><p class="text-muted mb-0" style="font-size: 11px">Pre-order only</p></div>
-                        </a>
-                    </div>
-                    <div class="product-card text-center">
-                        <a href="our-cakes-edited.html" class="text-decoration-none text-dark">
-                            <img src="img/pb-macadamia.jpg" alt="PB Cookies">
-                            <div class="product-info"><h3 class="h6 mb-1">PB Macadamia Cookies</h3><p class="text-success mb-0" style="font-size: 11px">Grab Food</p></div>
-                        </a>
-                    </div>
-                    <div class="product-card text-center">
-                        <a href="our-cakes-edited.html" class="text-decoration-none text-dark">
-                            <div class="badge bg-danger position-absolute m-2" style="font-size: 10px; font-weight: 400">Best Seller</div>
-                            <img src="img/pecan-meltaway.jpg" alt="Pecan Cookies">
-                            <div class="product-info"><h3 class="h6 mb-1">Pecan Meltaway Cookies</h3><p class="text-success mb-0" style="font-size: 11px">Grab Food</p></div>
-                        </a>
-                    </div>
-                    <div class="product-card text-center">
-                        <a href="our-cakes-edited.html" class="text-decoration-none text-dark">
-                            <div class="badge bg-danger position-absolute m-2" style="font-size: 10px; font-weight: 400">Best Seller</div>
-                            <img src="img/li-mon-pie.jpg" alt="Li-mon Pie">
-                            <div class="product-info"><h3 class="h6 mb-1">Li-mon Pie</h3><p class="text-success mb-0" style="font-size: 11px">Grab Food</p></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-5 bg-white shadow-sm mt-5">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h1 class="font-dancing-script text-primary" style="font-size: 2.5rem">Upcoming Classes</h1>
-                    <div class="mx-auto" style="width: 60px; height: 3px; background-color: #ab001a; margin-top: 10px"></div>
-                </div>
-
-                <div class="table-responsive shadow-sm mb-4" style="border-radius: 15px; overflow: hidden;">
-                    <table class="table table-hover mb-0 text-center align-middle">
-                        <thead style="background-color: #ab001a; color: #f5e4af;">
-                            <tr>
-                                <th class="py-3">MONTH</th>
-                                <th class="py-3">HIGHLIGHT MENU</th>
-                                <th class="py-3">DATE</th>
-                                <th class="py-3">STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="background-color: #fffcf2">
-                                <td class="fw-bold text-primary">MARCH</td>
-                                <td><div class="fw-bold">Banana Cream Pie</div><div class="badge bg-success" style="font-size: 10px; font-weight: 400">Available</div></td>
-                                <td class="small">March 21</td>
-                                <td><a href="workshop-menu-banana.html" class="btn-detail-link">VIEW DETAIL</a></td>
-                            </tr>
-                            <tr style="background-color: #fdfef0">
-                                <td class="fw-bold" style="color: #d4a373">APRIL</td>
-                                <td><div class="fw-bold">Earl Grey Choco Tart</div><div class="badge bg-warning text-dark" style="font-size: 10px; font-weight: 400">Soon</div></td>
-                                <td class="small">April 18</td>
-                                <td><a href="workshop-menu-earlgreychocolate-tart.html" class="btn-detail-link">VIEW DETAIL</a></td>
-                            </tr>
-                            <tr style="background-color: #fffcf2">
-                                <td class="fw-bold text-success">MAY</td>
-                                <td><div class="fw-bold">Ryokucha kurogoma Cake</div><div class="badge bg-secondary" style="font-size: 10px; font-weight: 400">Coming Up</div></td>
-                                <td class="small">May 23</td>
-                                <td><button class="btn-detail-link opacity-50" disabled>SOON</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-center mt-4">
-                    <a href="workshop-schedule.html" class="btn-view-schedule">VIEW FULL SCHEDULE <i class="bi bi-calendar3 ms-2"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-5" style="background-color: #fffcf2;">
-            <div class="container py-5">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <div id="aboutCarousel" class="carousel slide carousel-fade shadow-lg" data-bs-ride="carousel" style="border-radius: 30px; overflow: hidden; border: 8px solid #fff;">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="3000"><img src="img/pb-bananacake.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;"></div>
-                                <div class="carousel-item" data-bs-interval="3000"><img src="img/pistachio-apricotjasmine02.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;"></div>
-                                <div class="carousel-item" data-bs-interval="3000"><img src="img/gomacharcoal.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;"></div>
-                                <div class="carousel-item" data-bs-interval="3000"><img src="img/earlstraw-layer.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;"></div>
-                                <div class="carousel-item" data-bs-interval="3000"><img src="img/apollo-brownies02.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;"></div>
+                            <img src="img/8.jpg" alt="Hazelnut Cake" />
+                            <div class="product-info">
+                                <h3 class="h6 mb-1">Hazelnut Chocolate Cake</h3>
+                                <p class="text-muted mb-0" style="font-size: 11px">Pre-order only</p>
                             </div>
+                        </a>
+                    </div>
+                    <div class="product-card text-center">
+                        <a href="cookies.html" class="text-decoration-none text-dark">
+                            <img src="img/pb-macadamia.jpg" alt="PB Cookies" />
+                            <div class="product-info">
+                                <h3 class="h6 mb-1">PB Macadamia Cookies</h3>
+                                <p class="text-success mb-0" style="font-size: 11px">Grab Food</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card text-center">
+                        <a href="sables.html" class="text-decoration-none text-dark">
+                            <div
+                                class="badge bg-danger position-absolute m-2"
+                                style="font-size: 10px; font-weight: 400">
+                                Best Seller
+                            </div>
+                            <img src="img/pecan-meltaway.jpg" alt="Pecan Cookies" />
+                            <div class="product-info">
+                                <h3 class="h6 mb-1">Pecan Meltaway Cookies</h3>
+                                <p class="text-success mb-0" style="font-size: 11px">Grab Food</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card text-center">
+                        <a href="sliced-cakes.html" class="text-decoration-none text-dark">
+                            <div
+                                class="badge bg-danger position-absolute m-2"
+                                style="font-size: 10px; font-weight: 400">
+                                Best Seller
+                            </div>
+                            <img src="img/li-mon-pie.jpg" alt="Li-mon Pie" />
+                            <div class="product-info">
+                                <h3 class="h6 mb-1">Li-mon Pie</h3>
+                                <p class="text-success mb-0" style="font-size: 11px">Grab Food</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section class="workshop-preview" style="background: #fdf6dc; border-radius: 20px; margin: 20px 10px; overflow: hidden;">
+    <div class="container py-5 px-4">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <div class="image-stack mb-4">
+                    <img src="img/workshop-01.jpg" alt="Workshop" class="img-fluid" style="border-radius: 15px; box-shadow: 10px 10px 0px #ab001a;">
+                </div>
+                
+                <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+                    <a href="workshop-schedule.html" class="btn btn-schedule-main">
+                        <i class="bi bi-calendar3 me-2"></i> VIEW FULL SCHEDULE
+                    </a>
+                    <a href="workshop.html" class="btn btn-personalized">
+                        <i class="bi bi-magic me-2"></i> FIND OUT MORE
+                    </a>
+                </div>
+            </div>
+            
+<div class="col-md-6 ps-md-5">
+    <h6 style="color: #ab001a; letter-spacing: 2px; font-weight: 700; font-size: 0.8rem;">OUR WORKSHOP</h6>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: calc(1.5rem + 1.5vw); color: #333; margin-bottom: 20px;">
+        Experience the Art of <br><span style="color: #ab001a;">French Pastry</span>
+    </h2>
+    <p style="line-height: 1.8; color: #555; font-size: 15px; margin-bottom: 25px;">
+        มาร่วมเรียนรู้วิธีการทำขนมในบรรยากาศสบายๆ เป็นกันเองที่ <strong>Fridge and Oven</strong> <br>
+        เน้นสอนแบบจับมือทำ เพื่อให้คุณนำเทคนิคกลับไปใช้ที่บ้านได้จริง
+    </p>
+
+<ul style="list-style: none; padding: 0; margin: 25px 0; display: flex !important; flex-direction: column !important; gap: 15px;">
+    <li style="display: flex; align-items: center; gap: 10px; font-size: 16px;">
+        <i class="bi bi-check-circle-fill" style="color: #2f8f44;"></i>
+        <span>Small Class (Max 4 students)</span>
+    </li>
+    
+    <li style="display: flex; align-items: center; gap: 10px; font-size: 16px;">
+        <i class="bi bi-check-circle-fill" style="color: #2f8f44;"></i>
+        <span>Premium Ingredients</span>
+    </li>
+</ul>
+</div>
+        </div>
+    </div>
+</section>
+
+        <section class="py-0" style="background-color: #fffcf2; overflow: hidden">
+    <div class="container-fluid p-0">
+        <div class="row align-items-center g-0">
+            <div class="col-lg-6">
+                <div id="aboutCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/pb-bananacake.jpg" class="d-block w-100" style="height: 500px; object-fit: cover" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/pistachio-apricotjasmine02.jpg" class="d-block w-100" style="height: 500px; object-fit: cover" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/gomacharcoal.jpg" class="d-block w-100" style="height: 500px; object-fit: cover" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/earlstraw-layer.jpg" class="d-block w-100" style="height: 500px; object-fit: cover" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/apollo-brownies02.jpg" class="d-block w-100" style="height: 500px; object-fit: cover" />
                         </div>
                     </div>
-                    <div class="col-lg-6 ps-lg-5">
-                        <h1 class="font-dancing-script text-primary mb-2" style="font-size: 3rem;">About Us</h1>
-                        <h2 class="mb-4" style="font-family: 'Playfair Display', serif; font-weight: 700; color: #ab001a;">"เพราะขนมที่ดี เริ่มต้นจากความสุขในครัวเล็กๆ"</h2>
-                        <p class="mb-4 text-dark fw-bold">ที่ Fridge and Oven เราไม่ได้แค่ทำขนม แต่เราแบ่งปันความสุขร่วมกับคุณ</p>
-                        <p class="text-muted mb-4">จากความหลงรักในงาน Pastry ที่มีความซับซ้อนอย่าง Entremet ไปจนถึงคุกกี้ชิ้นโปรดที่ตั้งใจอบ... แลกเปลี่ยนเทคนิคที่เราหลงรักร่วมกับคุณ <span class="text-primary fw-bold" style="font-style: italic;">นอนไปอบไปก็ยังได้!</span></p>
-                        <div class="d-flex align-items-center mt-5">
-                            <img src="img/favicon.png" alt="Logo" style="width: 50px; opacity: 0.8;" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3081/3081918.png'">
-                            <div class="ms-3 border-start ps-3" style="border-color: #ab001a !important;">
-                                <h6 class="mb-0 fw-bold" style="color: #ab001a;">Handcrafted with Heart</h6>
-                                <small class="text-muted">Since 2013</small>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 py-5">
+                <div class="px-4 px-md-5">
+                    <h1 class="font-dancing-script text-primary mb-2" style="font-size: 3rem">About Us</h1>
+                    <h2 class="mb-4" style="font-family: 'Playfair Display', serif; font-weight: 700; color: #ab001a">
+                        "เพราะขนมที่ดี เริ่มต้นจากความสุขในครัวเล็กๆ"
+                    </h2>
+                    <p class="mb-4 text-dark fw-bold">ที่ Fridge and Oven เราไม่ได้แค่ทำขนม แต่เราทั้งล้างจาน ถูพื้น ออกแบบกราฟฟิกไปจนถึงทำเว็บ มีอะไรบ้างที่เราไม่ต้องทำเอง</p>
+                    <p class="text-muted mb-4">จากความหลงไหลในการทำขนมแบบไม่รู้ว่าถ้ามันกลายเป็นงานมันจะเป็นงานที่เรารักมั้ย ตั้งแต่ 2013 ที่เปิดเพจแรกบนเฟสบุ๊คขายแบบไม่จริงจัง ผ่านไป 7 ปีหลังจากนั้นโควิดก็ได้ทำให้เราได้ทำงานนี้อย่างจริงจังแล้วเราก็พบว่าเราหยุดทำมันไม่ได้แล้วจริงๆ เพราะเราต้องการเงินมาจ่ายค่าอุปกรณ์ 5555 ล้อเล่นนะ แม้เราจะทำงาน 7 วันต่อสัปดาห์แต่เราก็ยังรู้สึกสนุกกับมันได้ทุกวัน แม้จะไม่ได้มีความสุขในทุกๆวันแต่มันต้องมีสักช่วงเวลาที่เรารู้สึกดีกับสิ่งนี้เสมอ หวังว่ารสชาติที่เราชื่นชอบจะไปตามหาคนที่ชื่นชอบเหมือนๆกับเรามาเจอกันนะ<br>
+                        <span class="text-primary fw-bold" style="font-style: italic">ขอบคุณลูกค้าทุกคนที่สนับสนุนทำให้เราสองคนพี่น้องได้อบขนมต่อไป!</span>
+                    </p>
+                    <div class="border-start ps-3" style="border-color: #ab001a !important; border-width: 4px !important;">
+                        <h6 class="mb-0 fw-bold" style="color: #ab001a">Handcrafted with Heart</h6>
+                        <small class="text-muted">Since 2013</small>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <footer class="container-fluid bg-primary text-white p-0 mt-5" style="position: relative; min-height: 140px; overflow: hidden">
-            <div class="container py-4">
-                <div class="col-6 d-flex flex-column">
-                    <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
-                    <a href="about.html" class="footer-link">ABOUT US</a>
-                    <a href="https://www.instagram.com/fridgeandoven/" class="footer-link">INSTAGRAM</a>
-                    <a href="locations.html" class="footer-link">LOCATIONS</a>
+<script>
+// ข้อมูล Workshops
+    const highlightWorkshops = [
+        { dayName: "SAT", date: 14, dateStr: "14 March", cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
+        { dayName: "SAT", date: 28, dateStr: "28 March", cat: "chinese", title: "DUMPLING CLUB", price: "3,900", time: "10:00 – 16:00", img: "img/dumpling02.jpg" },
+        { dayName: "SAT", date: 4, dateStr: "4 April", cat: "pastry", title: "CARROT CAKE", price: "5,500", time: "14:00 – 16:30", img: "img/carrotcake.jpg" },
+        { dayName: "SAT", date: 18, dateStr: "18 April", cat: "pastry", title: "EARL GREY TART", price: "12,000", time: "10:00 – 17:00", img: "img/earlgrey-chocotart.jpg" }
+    ];
+
+// ค้นหาส่วนนี้ในโค้ดเดิมของคุณ
+function renderWorkshopList() {
+    const container = document.getElementById('workshop-list');
+    let html = "";
+    
+    highlightWorkshops.forEach((ws, index) => {
+        // ใช้สีตามหมวดหมู่ที่คุณกำหนดไว้
+        const bgColor = ws.cat === 'pastry' ? '#ab001a' : (ws.cat === 'chinese' ? '#ffc574' : '#2f8f44');
+        
+        html += `
+            <div class="ws-item ${index === 0 ? 'active' : ''}" onclick="selectHighlight(this, ${index})">
+                <div style="width: 50px; text-align: center;">
+                    <div class="date-circle-mini" style="background-color: ${bgColor};">${ws.date}</div>
+                    <div class="day-name-mini">${ws.dayName}</div>
+                </div>
+                <div class="card-details-mini">
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 18px;">${ws.title}</h2>
+                    <div class="price-mini" style="font-size: 13px;"><i class="bi bi-clock me-1"></i> ${ws.time}</div>
                 </div>
             </div>
-            <div style="background-color: #ab001a; padding: 12px 25px; position: absolute; bottom: 0; right: 0; border-radius: 15px 0 0 0;">
-                <span style="color: #f5e4af; font-size: 16px; font-weight: 700; font-family: 'Playfair Display', serif;">FRIDGE AND OVEN</span>
-            </div>
-        </footer>
+        `;
+    });
 
+    // ปุ่มดูตารางทั้งหมดแบบ "เส้นประ" ให้เข้ากับหน้า Home
+    html += `
+        <div class="p-3">
+            <a href="schedule.html" class="btn btn-outline-schedule w-100 py-2">
+                <i class="bi bi-calendar4-week me-2"></i> VIEW FULL SCHEDULE
+            </a>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+}
+function selectHighlight(element, index) {
+    document.querySelectorAll('.ws-item').forEach(el => el.classList.remove('active'));
+    element.classList.add('active');
+
+    const ws = highlightWorkshops[index];
+    const content = document.getElementById('hl-content');
+    
+    content.style.opacity = 0;
+    setTimeout(() => {
+        document.getElementById('hl-img').src = ws.img;
+        document.getElementById('hl-title').innerText = ws.title;
+        document.getElementById('hl-date').innerText = ws.dateStr + " 2026";
+        document.getElementById('hl-time').innerText = ws.time;
+        document.getElementById('hl-price').innerText = `฿${ws.price}`;
+        
+        // --- ส่วนที่แก้ไข: สร้าง Link สำหรับไปหน้ารายละเอียด ---
+        // ส่งค่าไป 3 อย่าง: menu (ชื่อ), date (วันที่), price (ราคา)
+        const detailUrl = `workshop-detail.html?menu=${encodeURIComponent(ws.title)}&date=${encodeURIComponent(ws.dateStr + " 2026")}&price=${encodeURIComponent(ws.price)}`;
+        document.getElementById('hl-link').href = detailUrl;
+        // --------------------------------------------------
+
+        const badge = document.getElementById('hl-cat');
+        badge.innerText = ws.cat.toUpperCase();
+        badge.className = `badge mb-2 p-2 px-3 bg-${ws.cat}`;
+
+        content.style.transition = "all 0.4s ease";
+        content.style.opacity = 1;
+    }, 200);
+}
+
+    document.addEventListener('DOMContentLoaded', renderWorkshopList);
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
