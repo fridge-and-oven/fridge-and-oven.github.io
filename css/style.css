@@ -1,5 +1,8 @@
 /********** Template CSS **********/
-
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -292,7 +295,81 @@
 .navbar .btn-primary:hover {
     background: var(--bs-primary);
 }
+/* Custom Navbar for Fridge and Oven */
+/* แถบแบรนด์ด้านบนสุด */
+.top-brand-bar {
+    background-color: #ab001a;
+    color: #f5e4af;
+    padding: 1px 0;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* เพิ่มบรรทัดนี้เพื่อกันล้น */
+    box-sizing: border-box; 
+}
 
+/* ปรับระยะห่างเมนูสำหรับหน้าจอทั่วไป */
+.nav-links {
+    display: flex;
+    gap: 5px; 
+}
+
+/* --- จุดสำคัญ: ปรับแต่งสำหรับมือถือ (Mobile Optimized) --- */
+@media (max-width: 480px) {
+    .top-brand-bar .container {
+        padding-left: 5px;
+        padding-right: 5px;
+        flex-direction: column; /* จัดชื่อร้านกับเมนูให้อยู่คนละบรรทัดถ้าจอแคบมาก */
+        gap: 5px;
+    }
+    
+    .nav-links {
+        gap: 5px; /* ลดระยะห่างระหว่างเมนูบนมือถือ */
+    }
+
+    .nav-links a {
+        font-size: 10px !important; /* ย่อขนาดตัวอักษรเมนู */
+    }
+
+    .top-brand-bar a:first-child {
+        font-size: 15px; /* ขนาดชื่อแบรนด์ FRIDGE AND OVEN บนมือถือ */
+    }
+}
+.nav-brand-logo {
+    color: #f5e78e !important; /* สีเหลืองนวลตามสไตล์เมนูเดิม */
+    text-decoration: none !important;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1px;
+}
+
+.nav-links a {
+    color: #f5e78e !important;
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+    border-bottom: 2px solid #f5e78e;
+}
+
+/* ปรับระยะห่างของเนื้อหาหน้า Instructors ไม่ให้โดนทับ */
+.instructor-container {
+    padding-top: 50px !important;
+}
 .primary-text{
     color: var(--bs-primary);
 }
@@ -390,7 +467,7 @@
     flex-wrap: nowrap;        /* Keeps them on one line (use 'wrap' for mobile) */
     gap: 20px;                /* Space between the cards */
     overflow-x: auto;         /* Adds a scrollbar if the screen gets too small */
-    padding: 40px;
+    padding: 10px;
     align-items: center;
     text-align: center;
 }

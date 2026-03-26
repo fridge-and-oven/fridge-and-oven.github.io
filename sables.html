@@ -2,35 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>FRIDGE AND OVEN: Our cookies</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="keywords" />
-        <meta content="" name="description" />
+        <title>Workshops - Fridge and Oven</title>
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon" />
-
-        <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap"
             rel="stylesheet" />
-
-        <!-- Icon Font Stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet" />
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-
-        <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
-
-        <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet" />
-        <script src="scripts.js"></script>
+
         <style>
             .cake-img{
                 border-radius: 20px;
@@ -79,204 +61,236 @@
             }
         
         
+            /* ชื่อแบรนด์ด้านบน */
+/* --- ชุด Navigation Bar แบบใหม่ --- */
+.top-brand-bar {
+    background-color: #b3262e; /* สีแดงหลัก */
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.top-brand-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px; /* ให้กว้างเท่ากับ schedule ของคุณ */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.brand-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: clamp(10px, 3vw, 20px);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid #3498db; /* สีน้ำเงินตอน Hover */
+}
+
+/* ปรับปรุง Mobile ให้รองรับ Flex-wrap ตามที่คุยกันก่อนหน้า */
+@media (max-width: 768px) {
+    .top-brand-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+            /* คำโปรยด้านล่างชื่อแบรนด์ */
+            .brand-tagline {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(9px, 1vw, 14px);
+                color: #222;
+                text-align: center;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+            .divider {
+                margin: 1px 1px;
+            }
+            .divider svg {
+                width: 100%;
+                height: 8px;
+            }
+        body {
+            margin: 0;
+            background: #f4f1e8; /* พื้นหลังนวลแบบ Schedule */
+            font-family: 'Inter', sans-serif;
+            color: #222;
+        }
+
+        .workshop-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 15px 10px;
+        }
+
+        /* --- HEADER (ธีมเดียวกับ Schedule) --- */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-label {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #c62828;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
         
         
         </style>
     </head>
 
-    <body class="bg-cake">
-        <!-- Spinner Start -->
-        <div
-            id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+<body class="bg-cake">
 
-        <span id="navtool"></span>
-        <script src="nav.js"></script>
-        <script>
-            window.onload = addNavTool();
-        </script>
+    <span id="navtool"></span>
+    <script src="nav.js"></script>
+    <script>window.onload = addNavTool();</script>
 
-        <!-- Hero Start -->
-        
-            <div class="container text-center py-5">
-                
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center animated slideInLeft mb-0"> </ol>
-                </nav>
-            </div>
-        
-        <!-- Hero End -->
-
-        <!-- Team Start -->
-        <div class="flex-block" style="padding-bottom: 5px ;"> 
-                <div class="text-center wow fadeIn" data-wow-delay="0.2s">
-                    <h1 class="font-dancing-script text-primary">MELTAWAY COOKIES</h1>
-                     <div class="cta-section">
-                    <p class="sub-text" >PLEASE CHECK AVAILABLE PRODUCTS ON GRAB FOOD</p>
-                    <div style="margin: 0 auto; width: 50%;"><a href="https://r.grab.com/g/6-20260205_214056_F70FA8902A7046A6A245E85E50435FEE_MEXMPS-3-C7BZRUNFJJ52E6" class="ordergrab ordernowbutton">GO TO GRAB FOOD</a>
-                    <div class="divider"></div>
-                    </div>
-                </div>
-       <div class="flex-block" style="padding-bottom: 5px ;">         
-                    <div class="cake-box">
-                            <img class="img-fluid w-100" src="img/pecan-meltaway.jpg" alt="" />
-                            <div class="w-100 align-items-center">
-                                <h4>Pecan Meltaway</h4>
-                                <p class="text-primary mb-1">melty texture vanilla base butter cookies with chopped dark roast pecan</p>
-                            </div>
-                        </div>
-
-                    <div class="cake-box">
-                            <img class="img-fluid w-100" src="img/matcha-melt.jpg" alt="" />
-                            <div class="w-100 align-items-center">
-                                <h4>Matcha Meltaway</h4>
-                                <p class="text-primary mb-1">
-                                    melty texture matcha cookies 
-                                </p>
-                            </div>
-                        </div>
-                    
-
-                    <div class="cake-box">
-                            <img class="img-fluid w-100" src="img/choc-melt.jpg" alt="" />
-                            <div class="w-100 align-items-center">
-                                <h4>Chocolate Meltaway</h4>
-                                <p class="text-primary mb-1">
-                                    melty texture dark chocolate cookies
-                                </p>
-                            </div>
-                    </div>
-                    
-                    <div class="cake-box">
-                            <img class="img-fluid w-100" src="img/parmesan-melt.jpg" alt="" />
-                            <div class="w-100 align-items-center">
-                                <h4>Purple sweet potato parmesan meltaway</h4>
-                                <p class="text-primary mb-1">purple sweet potato cookies with parmesan cheese</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                    
-
+<div class="workshop-container">
+    <div class="header">
+        <div class="brand-label">FRIDGE AND OVEN</div>
+        <h1 class="title">WORKSHOPS</h1>
     </div>
-                    
 
-                    
-                    <div class="container-fluid overflow-hidden py-5">
-                        <div class="container">
-                    <div class="text-center wow fadeIn" data-wow-delay="0.2s">
-                    <h1 class="font-dancing-script text-primary">SANDWICH COOKIES</h1>
-                    <!--h1-- class="mb-5">************************</h1-->
-                        </div>
-                        </div>
-    
-    <div class="flex-block" style="padding-bottom: 5px ;">   
-                            <div class="cake-box">
-                            <img class="img-fluid w-100" src="img/pb-raspcherry-sandcookies.jpg" alt="" />
-                            <div class="w-100 align-items-center">
-                                <h4>Peanut butter jelly sandwich cookies</h4>
-                                <p class="text-primary mb-1">Peanut butter sables with chunky peanut butter and raspberry+cherry jam</p>
-                            </div>
-                        </div>
-                    
+    <div class="divider-wrapper">
+        <div class="divider">
+            <svg viewBox="0 0 1440 20" preserveAspectRatio="none">
+                <path
+                    d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
+                    stroke="#2f8f44"
+                    stroke-width="5px"
+                    fill="none" />
+            </svg>
+                    <p class="mb-3" style="letter-spacing: 1px; font-size: 14px;">PLEASE CHECK AVAILABLE PRODUCTS ON GRAB FOOD</p>
+        <a href="https://r.grab.com/g/6-20260205_..." class="ordergrab ordernowbutton px-4 py-2">
+            <i class="bi bi-bicycle me-2"></i>GO TO GRAB FOOD
+        </a>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container-fluid py-4">
+        <div class="text-center mb-4">
+            <h2 class="font-dancing-script text-primary">Meltaway Cookies</h2>
+        </div>
         
-                            <div class="cake-box">
-                            <img class="img-fluid w-100" src="img/cookiessandwich-chocsaltedcaramel.jpg" alt="" />
-                            <div class="w-100 align-items-center">
-                                <h4>Chocolate Salted Caramel Sandwich cookies</h4>
-                                <p class="text-primary mb-1">Cocoa sables with salted caramel and Valrhona dulcey chocolate + sea salt flakes</p>
-                            </div>
-                            </div>
-            
-            
-            
-            
-            
-     </div>        
-                    </div>
-                </div>
+        <div class="flex-block"> 
+            <div class="cake-box wow fadeInUp" data-wow-delay="0.1s">
+                <img class="img-fluid cake-img mb-3" src="img/pecan-meltaway.jpg" alt="Pecan Meltaway" />
+                <h4>Pecan Meltaway</h4>
+                <p class="text-primary small">Melty texture vanilla base butter cookies with chopped dark roast pecan</p>
+            </div>
 
+            <div class="cake-box wow fadeInUp" data-wow-delay="0.2s">
+                <img class="img-fluid cake-img mb-3" src="img/matcha-melt.jpg" alt="Matcha Meltaway" />
+                <h4>Matcha Meltaway</h4>
+                <p class="text-primary small">Melty texture premium matcha cookies</p>
+            </div>
 
-        <!-- Team End -->
-
-        <!-- Footer Start -->
-        <div
-            class="container-fluid position-relative bg-primary text-white-50 py-5 mt-5 wow"
-            data-wow-delay="0.2s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div>
-                        <div class="row g-4">
-                            <div class="col-sm-6">
-                                <a href="how-to-order.html">Order Online</a>
-                                <a href="about.html">About Us</a>
-                                <a href="https://www.instagram.com/fridgeandoven/">Instagram</a>
-                                <a href="locations.html">Locations</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="cake-box wow fadeInUp" data-wow-delay="0.3s">
+                <img class="img-fluid cake-img mb-3" src="img/choc-melt.jpg" alt="Chocolate Meltaway" />
+                <h4>Chocolate Meltaway</h4>
+                <p class="text-primary small">Melty texture intense dark chocolate cookies</p>
+            </div>
+            
+            <div class="cake-box wow fadeInUp" data-wow-delay="0.4s">
+                <img class="img-fluid cake-img mb-3" src="img/parmesan-melt.jpg" alt="Parmesan Meltaway" />
+                <h4>Purple Sweet Potato</h4>
+                <p class="text-primary small">Purple sweet potato cookies with savory parmesan cheese</p>
             </div>
         </div>
-        <!-- Footer End -->
+    </div>
 
-        <div
-            id="popupContainer"
-            style="
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #00000080;
-                z-index: 9999;
-            ">
-            <div
-                id="popupContent"
-                style="
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: #f5e4af;
-                    padding: 20px;
-                    border-radius: 20px;
-                    border: 8px solid #b41212;
-                ">
-                <!-- Iframe will be inserted here -->
-                <button
-                    onclick="closePopup()"
-                    style="
-                        font-size: medium;
-                        font-weight: bolder;
-                        padding: 4px 10px;
-                        float: right;
-                        border-radius: 10px;
-                    ">
-                    &times;
-                </button>
-            </div>
+    <div class="container-fluid py-5 bg-light-section" style="background-color: rgba(255,255,255,0.3);">
+        <div class="text-center mb-4">
+            <h2 class="font-dancing-script text-primary">Sandwich Cookies</h2>
         </div>
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <div class="flex-block">   
+            <div class="cake-box wow fadeInUp" data-wow-delay="0.1s">
+                <img class="img-fluid cake-img mb-3" src="img/pb-raspcherry-sandcookies.jpg" alt="PB Jelly" />
+                <h4>PB & Jelly</h4>
+                <p class="text-primary small">Peanut butter sables with chunky peanut butter and raspberry+cherry jam</p>
+            </div>
+            
+            <div class="cake-box wow fadeInUp" data-wow-delay="0.2s">
+                <img class="img-fluid cake-img mb-3" src="img/cookiessandwich-chocsaltedcaramel.jpg" alt="Choc Salted Caramel" />
+                <h4>Chocolate Caramel</h4>
+                <p class="text-primary small">Cocoa sables with salted caramel, Valrhona Dulcey and sea salt</p>
+            </div>
+        </div> 
+    </div>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+<footer class="footer-custom" style="background-color: #b3262e; color: #f5e4af; padding: 15px 0 15px 0; margin-top: 120px; font-family: 'Inter', sans-serif;">
+    <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <style>
+                    .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
+                </style>
+                <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                <a href="about.html" class="footer-link">ABOUT US</a>
+                <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
+                <a href="locations.html" class="footer-link">LOCATIONS</a>
+            </div>
+            
+            <div class="col-md-6 text-md-end text-center">
+                <div class="footer-logo-box" style="border: 2px solid #f5e4af; padding: 12px 24px; display: inline-block; margin-bottom: 20px;">
+                    <h2 class="h5 mb-0" style="font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 1px; color: #f5e4af !important;">
+                        FRIDGE AND OVEN
+                    </h2>
+                </div>
+                </div>
+        </div>
+    </div>
+</footer>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</body>
 </html>
