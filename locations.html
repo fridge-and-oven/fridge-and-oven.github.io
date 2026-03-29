@@ -1,305 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>FRIDEG AND OVEN: Locations</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="keywords" />
-        <meta content="" name="description" />
+<head>
+    <meta charset="utf-8" />
+    <title>Locations | Fridge and Oven</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
-            rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-red: #b3262e;
+            --gold-bg: #f5e4af;
+            --card-cream: #fdfaf0;
+        }
 
-        <!-- Icon Font Stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--gold-bg);
+            color: #222;
+        }
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet" />
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+        /* --- NAVBAR --- */
+        .top-brand-bar {
+            background-color: var(--primary-red);
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        .top-brand-bar .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { border-bottom: 2px solid #3498db; }
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        /* --- LOCATIONS DESIGN --- */
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 10vw, 76px);
+            color: var(--primary-red);
+            text-align: center;
+            margin: 40px 0 10px;
+        }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet" />
-        <link href="css/morestyle.css" rel="stylesheet" />
-        <style>
-            :root {
-                --bg-blue: #6d9bb4;
-                --card-cream: #ece6d1;
-                --text-red: #cc5d4c;
-                --text-black: #000000;
-            }
+        /* แก้ไข Collapsible ให้ลื่นไหล */
+        .collapsible {
+            background-color: transparent;
+            color: var(--primary-red);
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(179, 38, 46, 0.2);
+            position: relative;
+        }
 
-            .container {
-                width: 100%;
-                max-width: 900px;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
+        .collapsible:after {
+            content: '\002B';
+            position: absolute;
+            right: 20px;
+            color: var(--primary-red);
+        }
 
-            .card {
-                background-color: var(--card-cream);
-                border-radius: 40px;
-                padding: 40px;
-                position: relative;
-                min-height: 400px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
+        .active:after { content: "\2212"; }
 
-            .content-grid {
-                display: flex;
-                gap: 40px;
-                flex-wrap: wrap;
-            }
+        .col-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out; /* สไลด์นุ่มนวล */
+            background-color: transparent;
+        }
 
-            .left-column {
-                flex: 1;
-                min-width: 300px;
-            }
+        .location-card {
+            background-color: var(--card-cream);
+            border-radius: 15px;
+            padding: clamp(20px, 5vw, 40px);
+            margin: 20px auto 40px;
+            max-width: 850px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
-            .right-column {
-                flex: 1;
-                min-width: 250px;
-                padding-top: 40px;
-            }
+        .loc-left { flex: 1; min-width: 280px; }
+        .loc-right { flex: 1.2; min-width: 280px; }
 
-            h2 {
-                color: var(--text-red);
-                font-size: 2.5rem;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                margin-top: 0;
-                margin-bottom: 20px;
-            }
+        .scrapbook-img {
+            background: white;
+            padding: 10px 10px 35px 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+        }
+        .scrapbook-img img { width: 100%; border-radius: 2px; }
+        .img-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 10px;
+            color: #555;
+        }
 
-            .image-box {
-                width: 100%;
-                height: 250px;
-                border-radius: 60px;
-                overflow: hidden;
-                border: 1px solid #79bcd9;
-                margin-bottom: 15px;
-            }
+        .loc-title {
+            color: var(--primary-red);
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
 
-            .image-box img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        .info-label { font-weight: 700; font-size: 13px; letter-spacing: 1px; color: #888; margin-top: 15px; display: block; text-transform: uppercase; }
+        .info-value { font-size: 15px; line-height: 1.6; margin-bottom: 5px; }
 
-            .caption {
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 3px;
-                font-size: 0.85rem;
-                line-height: 1.6;
-                text-align: center;
-            }
+        .btn-map {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 8px 25px;
+            border: 1.5px solid var(--primary-red);
+            color: var(--primary-red);
+            text-decoration: none !important;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-map:hover { background: var(--primary-red); color: white; }
 
-            h3 {
-                font-size: 2.2rem;
-                margin: 0 0 15px 0;
-                font-weight: 800;
-            }
+        .footer-custom {
+            background-color: var(--primary-red);
+            color: var(--gold-bg);
+            padding: 25px 0;
+            margin-top: 80px;
+        }
+        .footer-link {
+            color: var(--gold-bg) !important;
+            text-decoration: none !important;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
 
-            .info-text {
-                font-size: 0.9rem;
-                line-height: 1.5;
-                margin-bottom: 20px;
-            }
+<body>
+    <nav class="top-brand-bar">
+        <div class="container">
+            <a href="index.html" class="brand-logo">Fridge and Oven</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="workshop.html">Workshop</a>
+                <a href="how-to-order.html">Order</a>
+                <a href="locations.html">Locations</a>
+            </div>
+        </div>
+    </nav>
 
-            .status-bold {
-                font-weight: bold;
-                font-size: 0.85rem;
-                margin-top: 25px;
-                display: block;
-            }
+    <h1 class="page-title">Locations</h1>
+    <p style="text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 60px; opacity: 0.7;">Visit our kitchen</p>
 
-            .btn-resume {
-                position: absolute;
-                bottom: 30px;
-                right: 40px;
-                border: 1px solid #333;
-                padding: 8px 35px;
-                border-radius: 10px;
-                text-decoration: none;
-                color: black;
-                font-size: 0.75rem;
-                letter-spacing: 1px;
-                background: transparent;
-            }
-
-            @media (max-width: 600px) {
-                .card {
-                    padding: 25px;
-                }
-                .content-grid {
-                    flex-direction: column;
-                }
-                .btn-resume {
-                    position: static;
-                    display: block;
-                    text-align: center;
-                    margin-top: 20px;
-                }
-            }
-            .top-brand-bar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* กระจาย Logo และเมนู */
-}
-
-/* บังคับให้ nav-links ยืดเต็มพื้นที่ที่เหลือและจัด text ไว้ตรงกลาง */
-.nav-links {
-    flex-grow: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-/* กันไม่ให้ Logo โดนเบียดจนเบี้ยว */
-.nav-brand-logo {
-    flex-shrink: 0;
-}
-            .top-brand-bar .container {
-    display: flex;
-    flex-direction: column; /* จัดองค์ประกอบเป็นแนวตั้ง */
-    align-items: center;    /* จัดให้อยู่ตรงกลางแนวนอน */
-    gap: 15px;              /* ระยะห่างระหว่าง Logo กับ เมนู */
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;              /* ระยะห่างระหว่างแต่ละเมนู */
-}
-        </style>
-    </head>
-
-    <body class="bg-index">
-        <!-- Spinner Start -->
-
-        <!-- Spinner End -->
-
-    <span id="navtool"></span>
-    <script src="nav.js"></script>
-    <script>window.onload = addNavTool();</script>
-
-        <h1 style="text-align: center; font-size: 76px">Locations</h1>
-        <div style="text-align: center; padding-bottom: 270px;">
-            <button type="button" class="collapsible">CHONGNONSI</button>
-            <div class="col-content">
-                <div class="container">
-                    <div class="card">
-                        <div class="content-grid">
-                            <div class="left-column">
-                                <h2>Chongnonsi</h2>
-                                <div class="image-box">
-                                    <img src="https://via.placeholder.com/400x300" alt="Shop Interior" />
-                                </div>
-                                <div class="caption">Grab Food<br />Baking Class<br />Shop Front<br />Pick Up</div>
-                                
-                            </div>
-
-                            <div class="right-column">
-                                <h3>HOURS</h3>
-                                <div class="info-text">
-                                    Tuesday - Wednesday : 11:00-16:00<br />
-                                    Friday - Saturday : 10:30-16:00
-                                </div>
-                                <span class="status-bold">CLOSED ON SUNDAY</span>
-                                <span class="status-bold">TAKE AWAY ONLY</span>
-                            </div>
-                        </div>
-                        <a href="https://share.google/lbDQQAjTx6zduQrIb" class="btn-resume">SEE MAP</a>
+    <div class="container" style="max-width: 900px; margin-bottom: 100px;">
+        
+        <button type="button" class="collapsible">CHONGNONSI</button>
+        <div class="col-content">
+            <div class="location-card">
+                <div class="loc-left">
+                    <div class="scrapbook-img">
+                        <img src="https://via.placeholder.com/400x300" alt="Chongnonsi">
+                        <div class="img-caption">Grab / Class / Shop front</div>
                     </div>
                 </div>
-            </div>
-            <button type="button" class="collapsible">SRINAKARIN 38</button>
-            <div class="col-content">
-                <div class="card">
-                    <div class="content-grid">
-                        <div class="left-column">
-                            <h2>Srinakarin 38</h2>
-                            <div class="image-box">
-                                <img src="https://via.placeholder.com/400x300" alt="Portrait" />
-                            </div>
-                            <div class="caption">Whole Cake Pick Up Only</div>
-                                <div class="info-text">
-                                    Monday : 11:00-18:00<br />
-                                    Thursday : 11:00-18:00
-                                </div>
-                            <a href="https://share.google/2KpEUOtSyTYrGvK00" class="btn-resume">SEE MAP</a>
-                        </div>
-                        <div class="right-column"></div>
+                <div class="loc-right">
+                    <h2 class="loc-title">Chongnonsi</h2>
+                    <span class="info-label">HOURS (OPEN 4 DAYS)</span>
+                    <div class="info-value">
+                        Tue - Wed : 11:00 - 16:00<br>
+                        Fri - Sat : 10:30 - 16:00
                     </div>
+                    <span class="info-label">STATUS</span>
+                    <div class="info-value" style="font-weight: 700; color: #d9534f;">CLOSED ON MON, THU, SUN</div>
+                    <div class="info-value" style="font-size: 14px; color: var(--primary-red);">TAKE AWAY ONLY</div>
+                    
+                    <a href="https://share.google/lbDQQAjTx6zduQrIb" target="_blank" class="btn-map">SEE MAP</a>
                 </div>
             </div>
         </div>
 
-        <!-- Footer Start -->
-        <div class="container-fluid bg-primary text-white p-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 d-flex flex-column align-items-start">
-                        <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
-                        <a href="about.html" class="footer-link">ABOUT US</a>
-                        <a href="https://www.instagram.com/fridgeandoven/" class="footer-link">INSTAGRAM</a>
-                        <a href="index.html" class="footer-link">HOME</a>
+<button type="button" class="collapsible">SRINAKARIN 38</button>
+        <div class="col-content">
+            <div class="location-card">
+                <div class="loc-left">
+                    <div class="scrapbook-img" style="transform: rotate(2deg);">
+                        <img src="https://via.placeholder.com/400x300" alt="Srinakarin">
+                        <div class="img-caption">Pick Up Point Only</div>
+                    </div>
+                </div>
+                
+                <div class="loc-right" style="text-align: left !important; display: flex; flex-direction: column; align-items: flex-start;">
+                    <h2 class="loc-title" style="text-align: left; width: 100%;">Srinakarin 38</h2>
+                    
+                    <div style="background: #fff3f3; border-left: 4px solid var(--primary-red); padding: 15px; margin-bottom: 25px; width: 100%; text-align: left;">
+                        <p style="margin: 0 0 8px 0; font-weight: 700; color: var(--primary-red); font-size: 15px;">
+                            เฉพาะรายการสั่งจองล่วงหน้า:
+                        </p>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #333; list-style-position: inside; text-align: left;">
+                            <li><strong>เค้กก้อน (Whole Cake):</strong> เฉพาะพรีออเดอร์</li>
+                            <li><strong>เค้กชิ้น (Slices):</strong> ขั้นต่ำ <strong>5 ชิ้นขึ้นไป</strong></li>
+                        </ul>
                     </div>
 
-                    <div class="col-6 d-flex justify-content-end align-items-end">
-                        <div class="footer-logo-box bg-nav" style="padding: 15px">
-                            <h1 class="footer-logo-text" style="color: #f5e4af; font-size: 20px; white-space: nowrap">
-                                FRIDGE AND OVEN
-                            </h1>
+                    <div style="width: 100%; text-align: left;">
+                        <span class="info-label" style="margin-top: 0; display: block; text-align: left;">AVAILABLE FOR PICK UP ON</span>
+                        <div class="info-value" style="font-weight: 700; font-size: 18px; color: #222; margin-bottom: 5px;">
+                            MONDAY & THURSDAY ONLY
                         </div>
+                        <div class="info-value" style="color: #555; margin-bottom: 20px;">Time: 11:00 - 18:00</div>
+                        
+                        <span class="info-label" style="display: block; text-align: left;">NOTE</span>
+                        <div class="info-value" style="font-style: italic; font-size: 13px; color: #666; line-height: 1.4; margin-bottom: 20px;">
+                            *กรุณานัดหมายเวลาผ่าน LINE ก่อนเข้ามารับนะคะ<br>
+                            (จุดนี้เป็นที่ผลิตและกระจายสินค้า ไม่มีหน้าร้านค่ะ)
+                        </div>
+                        
+                        <a href="https://share.google/2KpEUOtSyTYrGvK00" target="_blank" class="btn-map">SEE MAP</a>
+                    </div>
+                </div> </div> </div></div>
+
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                    <a href="about.html" class="footer-link">ABOUT US</a>
+                    <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
+                    <a href="index.html" class="footer-link">HOME</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <div style="border: 1.5px solid var(--gold-bg); padding: 8px 15px; display: inline-block;">
+                        <h2 style="font-family: 'Playfair Display'; font-size: 18px; margin: 0; color: var(--gold-bg);">FRIDGE AND OVEN</h2>
                     </div>
                 </div>
             </div>
         </div>
+    </footer>
 
-        <!-- Footer End -->
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-        <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            }
-        </script>
-    </body>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                // เปลี่ยนจากการแก้ display เป็นการแก้ max-height เพื่อความนุ่มนวล
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
 </html>

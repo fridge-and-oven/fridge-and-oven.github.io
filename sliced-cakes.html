@@ -162,30 +162,7 @@
             margin: 0;
         }
 
-        /* --- 4. FOOTER --- */
-        .footer-custom {
-            background-color: var(--primary);
-            color: var(--yellow);
-            padding: 60px 0;
-            margin-top: 100px;
-        }
 
-        .footer-link {
-            color: var(--yellow) !important;
-            text-decoration: none !important;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .footer-logo-box {
-            border: 2px solid var(--yellow);
-            padding: 10px 20px;
-            display: inline-block;
-        }
 
 /* --- ปรับปรุงส่วน Mobile ให้เนียนขึ้น --- */
 @media (max-width: 768px) {
@@ -210,9 +187,29 @@
 
     .nav-links a { 
         font-size: 10px; 
-        padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+        padding: 4px 4px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
     }
 }
+                            .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 15px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;}
+                .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px 10px;
+        }
+
     </style>
 </head>
 
@@ -244,35 +241,19 @@
         </div>
     </div>
 
-<footer class="footer-custom" style="background-color: #b3262e; color: #f5e4af; padding: 15px 0 15px 0; margin-top: 120px; font-family: 'Inter', sans-serif;">
+<footer class="footer-custom" style="background-color: #b3262e; color: #f5e4af; padding: 15px 0 10px; margin-top: 120px; font-family: 'Inter', sans-serif;">
     <div class="container">
         <div class="row align-items-center text-center text-md-start">
             <div class="col-md-6 mb-4 mb-md-0">
-                <style>
-                    .footer-link {
-                        color: #f5e4af !important;
-                        text-decoration: none !important;
-                        display: block;
-                        margin-bottom: 15px;
-                        font-size: 11px;
-                        font-weight: 600;
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                        transition: 0.3s;
-                    }
-                    .footer-link:hover {
-                        padding-left: 5px;
-                        color: #ffffff !important;
-                    }
-                </style>
+
                 <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
-                <a href="about.html" class="footer-link">ABOUT US</a>
+                <a href="products-weuse.html" class="footer-link">ABOUT US</a>
                 <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
                 <a href="locations.html" class="footer-link">LOCATIONS</a>
             </div>
             
             <div class="col-md-6 text-md-end text-center">
-                <div class="footer-logo-box" style="border: 2px solid #f5e4af; padding: 12px 24px; display: inline-block; margin-bottom: 20px;">
+                <div class="footer-logo-box" style="border: 2px solid #f5e4af; padding: 12px 24px; display: inline-block; margin-bottom: 10px;">
                     <h2 class="h5 mb-0" style="font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 1px; color: #f5e4af !important;">
                         FRIDGE AND OVEN
                     </h2>

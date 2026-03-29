@@ -66,6 +66,46 @@
             .fontcake {
                 font-family: bebas;
             }
+            @media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 4px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
+                    .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
         </style>
     </head>
 
@@ -896,23 +936,7 @@
     <div class="container">
         <div class="row align-items-center text-center text-md-start">
             <div class="col-md-6 mb-4 mb-md-0">
-                <style>
-                    .footer-link {
-                        color: #f5e4af !important;
-                        text-decoration: none !important;
-                        display: block;
-                        margin-bottom: 1px;
-                        font-size: 11px;
-                        font-weight: 600;
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                        transition: 0.3s;
-                    }
-                    .footer-link:hover {
-                        padding-left: 5px;
-                        color: #ffffff !important;
-                    }
-                </style>
+
                 <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
                 <a href="about.html" class="footer-link">ABOUT US</a>
                 <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
@@ -983,5 +1007,6 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        </div>
     </body>
 </html>

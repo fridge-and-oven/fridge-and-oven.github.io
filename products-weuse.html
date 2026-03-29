@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Ingredients | Fridge and Oven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-green: #2f8f4e;
+            --warm-cream: #f4f1e8;
+            --dark-wood: #4a3728;
+            --accent-red: #ab001a;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--warm-cream);
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-wood);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 10px;
+            color: var(--primary-green);
+        }
+
+        .header p {
+            font-style: italic;
+            opacity: 0.8;
+        }
+/* ปรับปรุงโครงสร้าง Grid ให้เป็น 2 คอลัมน์บนมือถือ */
+.ingredient-grid {
+    display: grid;
+    /* บน Desktop แสดง 3-4 คอลัมน์ | บน Mobile แสดง 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.ingredient-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.ingredient-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ปรับขนาดโลโก้ให้เด่นพอดีๆ */
+.card-image {
+    width: 80%;
+    aspect-ratio: 1/1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 12px;
+}
+
+.card-content {
+    padding: 0;
+}
+
+.category {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--primary-green);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.card-content h3 {
+    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    color: var(--dark-wood);
+}
+
+/* แสดงคำอธิบายแบบย่อๆ (2 บรรทัดพอ) */
+.card-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* บังคับแสดงแค่ 2 บรรทัด */
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #777;
+    margin: 0;
+}
+
+/* สำหรับหน้าจอ Desktop ให้ขยายเป็น 3 หรือ 4 คอลัมน์ */
+@media (min-width: 768px) {
+    .ingredient-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .ingredient-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+        .back-home {
+            display: inline-block;
+            margin-bottom: 40px;
+            text-decoration: none;
+            color: var(--dark-wood);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        /* --- 4. FOOTER --- */
+/* ชื่อแบรนด์ด้านบน */
+/* --- ชุด Navigation Bar แบบใหม่ --- */
+.top-brand-bar {
+    background-color: #b3262e; /* สีแดงหลัก */
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.top-brand-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px; /* ให้กว้างเท่ากับ schedule ของคุณ */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.brand-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: clamp(10px, 3vw, 20px);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid #3498db; /* สีน้ำเงินตอน Hover */
+}
+
+/* ปรับปรุง Mobile ให้รองรับ Flex-wrap ตามที่คุยกันก่อนหน้า */
+@media (max-width: 768px) {
+    .top-brand-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+            /* คำโปรยด้านล่างชื่อแบรนด์ */
+            .brand-tagline {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(9px, 1vw, 14px);
+                color: #222;
+                text-align: center;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .divider {
+                margin: 1px 1px;
+            }
+            .divider svg {
+                width: 100%;
+                height: 12px;
+            }
+        /* --- 4. FOOTER --- */
+/* --- 4. FOOTER แบบ COMPACT --- */
+.footer-custom {
+    background-color: #b3262e; 
+    color: #f5e4af; 
+    padding: 10px 10ยป; /* ลด padding บน-ล่างลงให้แคบ */
+    margin-top: 60px; /* ลดระยะห่างจากเนื้อหาด้านบน ไม่ให้ดูห่างเกินไป */
+    font-family: 'Inter', sans-serif;
+}
+
+                            .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 5px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;}
+
+/* ปรับกล่องโลโก้ให้เล็กลงและชิดขึ้น */
+.footer-logo-box {
+    border: 1.5px solid #f5e4af; /* ลดความหนาเส้นขอบ */
+    padding: 6px 15px; /* ลด padding ในกล่อง */
+    display: inline-block;
+    margin-bottom: 0; /* เอา margin ด้านล่างออก */
+}
+
+.footer-logo-box h2 {
+    font-size: 16px !important; /* ลดขนาดตัวอักษรโลโก้ใน footer */
+    margin: 0;
+}
+
+/* ลบ margin ของ column ใน Bootstrap ที่ทำให้ Footer ดูหนา */
+.footer-custom .col-md-6 {
+    margin-bottom: 0 !important;
+}
+/* --- ปรับปรุงส่วน Mobile ให้เนียนขึ้น --- */
+@media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 4px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <span id="navtool"></span>
+<div class="container">
+    <a href="index.html" class="back-home">← Back to Home</a>
+
+    <div class="header">
+        <h1>The Quality Inside</h1>
+        <p>"เราเชื่อว่าขนมที่ดี เริ่มต้นจากวัตถุดิบที่ซื่อสัตย์"</p>
+    </div>
+
+   <div class="ingredient-grid">
+    
+    <div class="ingredient-card">
+        <div class="card-image" style="background-image: url('https://ใจดีออร์แกนิคเฮ้าส์.com/wp-content/uploads/2021/01/logo-jaidee.png'); background-size: contain; background-repeat: no-repeat; background-color: #fff; margin: 20px;"></div>
+        <div class="card-content">
+            <span class="category">Eggs</span>
+            <h3>Organic Free-Range Eggs</h3>
+            <p><strong>จากใจดีออร์แกนิกเฮ้าส์:</strong> ไข่ไก่สดใหม่จากแม่ไก่ที่อารมณ์ดี วิ่งเล่นในฟาร์มเปิด และทานอาหารออร์แกนิก เพื่อให้ได้เนื้อสัมผัสและสีของเค้กที่สวยงามจากธรรมชาติ</p>
+        </div>
+    </div>
+
+    <div class="ingredient-card">
+        <div class="card-image" style="background-image: url('https://www.valrhona.com/themes/custom/valrhona/logo.svg'); background-size: contain; background-repeat: no-repeat; background-color: #fff; margin: 20px;"></div>
+        <div class="card-content">
+            <span class="category">Chocolate</span>
+            <h3>Valrhona Chocolate</h3>
+            <p>ช็อกโกแลตระดับโลกจากฝรั่งเศสที่เชฟทั่วโลกไว้วางใจ ให้มิติรสชาติที่ลึกและซับซ้อน ช่วยชูรสชาติของขนมแต่ละเมนูให้โดดเด่นอย่างลงตัว</p>
+        </div>
+    </div>
+
+    <div class="ingredient-card">
+        <div class="card-image" style="background-image: url('https://www.beurre-le-gall.com/wp-content/themes/legall/img/logo.png'); background-size: contain; background-repeat: no-repeat; background-color: #fff; margin: 20px;"></div>
+        <div class="card-content">
+            <span class="category">Dairy</span>
+            <h3>Le Gall Butter</h3>
+            <p>เนยแท้จากแคว้นบริตตานี ประเทศฝรั่งเศส ผลิตด้วยกรรมวิธีดั้งเดิม (Churned Butter) เพื่อให้ได้ความหอมของน้ำนมที่เป็นเอกลักษณ์เฉพาะตัว</p>
+        </div>
+    </div>
+
+    <div class="ingredient-card">
+        <div class="card-image" style="background-image: url('https://nielsenmassey.com/wp-content/themes/nielsen-massey/assets/images/logo.svg'); background-size: contain; background-repeat: no-repeat; background-color: #fff; margin: 20px;"></div>
+        <div class="card-content">
+            <span class="category">Vanilla</span>
+            <h3>Nielsen-Massey Vanilla</h3>
+            <p>วานิลลาสกัดแท้ที่ให้กลิ่นหอมหวานละมุนและมีเสน่ห์ เราเลือกใช้เพื่อเพิ่มความกลมกล่อมและกลิ่นหอมที่ยาวนานให้กับขนมทุกคำ</p>
+        </div>
+    </div>
+
+    <div class="ingredient-card">
+        <div class="card-image" style="background-image: url('https://www.my-vb.com/public/images/logo.svg'); background-size: contain; background-repeat: no-repeat; background-color: #fff; margin: 20px;"></div>
+        <div class="card-content">
+            <span class="category">Fruit Puree</span>
+            <h3>Boiron & Ponthier</h3>
+            <p>ผลไม้บดคัดเกรดที่ดีที่สุดจากฝรั่งเศส เพื่อให้เราสามารถรักษามาตรฐานความเปรี้ยวหวานสดชื่นของผลไม้จริงไว้ได้ในทุกฤดูกาล</p>
+        </div>
+    </div>
+
+    <div class="ingredient-card">
+        <div class="card-image" style="background-image: url('https://chabarchocolate.com/cdn/shop/files/Logo_Chabar_Chocolate_Gold-02_200x.png?v=1614299474'); background-size: contain; background-repeat: no-repeat; background-color: #1a1a1a; margin: 20px;"></div>
+        <div class="card-content">
+            <span class="category">Local Chocolate</span>
+            <h3>Chabar Thai Chocolate</h3>
+            <p>ช็อกโกแลตสัญชาติไทยที่ผลิตแบบ Craft ให้รสชาติที่เป็นเอกลักษณ์จากเมล็ดโกโก้ไทย สนับสนุนเกษตรกรท้องถิ่นและนำเสนอเสน่ห์ของโกโก้บ้านเรา</p>
+        </div>
+    </div>
+
+</div>
+    </div>
+    
+<footer class="footer-custom" style="background-color: #b3262e; color: #f5e4af; padding: 5px 0 5px; margin-top: 120px; font-family: 'Inter', sans-serif;">
+    <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+            <div class="col-md-6 mb-4 mb-md-0">
+
+                <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                <a href="products-weuse.html" class="footer-link">ABOUT US</a>
+                <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
+                <a href="locations.html" class="footer-link">LOCATIONS</a>
+            </div>
+            
+            <div class="col-md-6 text-md-end text-center">
+                <div class="footer-logo-box" style="border: 2px solid #f5e4af; padding: 12px 24px; display: inline-block; margin-bottom: 10px;">
+                    <h2 class="h5 mb-0" style="font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 1px; color: #f5e4af !important;">
+                        FRIDGE AND OVEN
+                    </h2>
+                </div>
+                </div>
+        </div>
+    </div>
+</footer>
+    <script src="nav.js"></script>
+        <script>window.onload = addNavTool();</script>
+    
+</body>
+</html>
