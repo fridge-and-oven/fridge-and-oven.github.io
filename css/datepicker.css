@@ -15,10 +15,10 @@
 }
 .legend-row { display: flex; align-items: center; margin-bottom: 4px; }
 .legend-box { width: 12px; height: 12px; margin-right: 8px; border: 1px solid #ccc; border-radius: 2px; }
-.box-yellow { background-color: #ffeb3b; }
-.box-blue { background-color: #007bff; }
+.box-yellow { background-color: #4994fa; }
+.box-blue { background-color: #b45134; }
 
-.selection-group { margin-bottom: 20px; font-family: Arial, sans-serif; border: 1px solid #eee; padding: 15px; border-radius: 5px; width: fit-content; }
+.selection-group { margin-bottom: 20px; font-family: Arial, sans-serif; border: 1px solid #eeeeee; padding: 15px; border-radius: 5px; width: fit-content; }
 
 /* Container styling */
 .selection-group {
@@ -103,4 +103,36 @@ input::placeholder,
 textarea::placeholder {
     color: #000000;
     opacity: 1; /* Fixes default low opacity in some browsers */
+}
+
+
+/* ปรับหน้าตาปฏิทินให้โฮมมี่ */
+#ui-datepicker-div {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(180, 18, 18, 0.1) !important;
+    padding: 15px !important;
+    font-family: 'Work Sans', sans-serif !important;
+}
+
+/* หัวปฏิทินสีแดง */
+.ui-datepicker-header {
+    background: transparent !important;
+    border: none !important;
+    color: #b41212 !important;
+}
+
+/* ไฮไลท์สีเหลืองสำหรับศรีนครินทร์ */
+.highlight-yellow a {
+    background-color: #f5e4af !important;
+    color: #b41212 !important;
+    border-radius: 8px !important;
+}
+
+/* ไฮไลท์สีฟ้าสำหรับช่องนนทรี */
+.highlight-blue a {
+    background-color: #d1e7ff !important;
+    color: #004085 !important;
+    border-radius: 8px !important;
 }
