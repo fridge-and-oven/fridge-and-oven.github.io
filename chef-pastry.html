@@ -9,51 +9,49 @@
     <style>
         body { background: #f4f1e8; font-family: 'Inter', sans-serif; }
         .container { max-width: 700px; margin: auto; padding: 60px 15px; }
-        .chef-title { font-family: 'Playfair Display', serif; color: #c62828; text-align: center; margin-bottom: 40px; }
         
-        /* สไตล์การ์ดเมนู */
-        .menu-card { background: #fff; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
-        .menu-btn { width: 100%; padding: 20px; text-align: left; background: none; border: none; display: flex; justify-content: space-between; font-family: 'Playfair Display', serif; font-size: 20px; color: #c62828; font-weight: 700; cursor: pointer; }
+        .header-nav { display: flex; align-items: center; padding: 20px 0; margin-bottom: 40px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .btn-back { color: #b3262e; text-decoration: none !important; font-weight: 700; font-size: 13px; letter-spacing: 1px; display: flex; align-items: center; transition: 0.3s; }
+        
+        .chef-intro { text-align: center; padding: 20px 0 40px; }
+        .chef-intro h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 42px); color: #c62828; margin-bottom: 15px; }
+
+        /* สไตล์การ์ดเมนู (ปรับให้ตรงกับ Class ใน JS) */
+        .menu-item { background: #fff; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .menu-header { width: 100%; padding: 20px; text-align: left; background: none; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .menu-title { font-family: 'Playfair Display', serif; font-size: 20px; color: #c62828; font-weight: 700; margin: 0; }
         
         /* สไตล์ตารางวันที่เรียน */
-        .date-list { display: none; padding: 0 20px 20px; border-top: 1px dashed #eee; }
-        .date-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f9f9f9; }
-        .month-tag { background: #c62828; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; font-family: 'Inter'; }
-        .btn-go { background: #c62828; color: #fff; padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 12px; font-weight: 600; }
-        .btn-go:hover { background: #222; color: #fff; }
-        
-        /* ส่วนปรับปรุงใหม่ */
-.header-nav { 
-    display: flex; 
-    align-items: center; 
-    padding: 20px 0;
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgba(0,0,0,0.05); /* เพิ่มเส้นบางๆ ให้ดูเป็นระเบียบ */
-}
+        .schedule-list { display: none; padding: 0 20px 20px; border-top: 1px dashed #eee; }
+        .schedule-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f9f9f9; }
+        .month-label { background: #c62828; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; font-family: 'Inter'; font-weight: 600; }
+        .btn-book { background: #c62828; color: #fff; padding: 6px 15px; border-radius: 20px; text-decoration: none !important; font-size: 12px; font-weight: 600; transition: 0.3s; }
+        .btn-book:hover { background: #222; }
+        /* เพิ่มสีพื้นหลังตามประเภทเชฟ */
+.bg-pastry { background-color: #b3262e !important; }
+.bg-japanese { background-color: #2f8f44 !important; }
+.bg-chinese { background-color: #ffc574 !important; }
 
-.btn-back { 
-    color: #b3262e; 
-    text-decoration: none !important; 
-    font-weight: 700; 
-    font-size: 13px; 
-    letter-spacing: 1px;
+/* สไตล์วงกลมวันที่ */
+.date-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
     display: flex;
     align-items: center;
-    transition: 0.3s;
-}
-.btn-back:hover { opacity: 0.7; }
-
-.chef-intro { 
-    text-align: center; 
-    padding: 20px 0 40px; 
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 auto; /* จัดกลาง */
 }
 
-/* ปรับ Title ให้ขนาดพอดี ไม่ดันขึ้นไปทับปุ่ม */
-.chef-intro h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: clamp(32px, 5vw, 42px); 
-    margin-bottom: 15px; 
-    line-height: 1.2;
+/* ปรับแต่งไอคอนบวกให้ดูสวยขึ้น */
+.icon-plus {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    width: 24px;
+    text-align: center;
 }
     </style>
 </head>
@@ -68,7 +66,7 @@
     </header>
 
     <div class="chef-intro">
-        <h1 id="chef-display-name">Chef Selection</h1>
+        <h1 id="chef-display-name">Pastry Chef Selection</h1>
         <p>เลือกเมนูที่คุณสนใจเพื่อดูตารางเรียนและจองคลาส</p>
     </div>
     
@@ -77,62 +75,91 @@
 </div>
 
 <script src="workshop-data.js"></script>
-
 <script>
-    // 1. ระบุว่าหน้านี้เป็นของเชฟคนไหน (pastry / japanese / chinese)
     const currentChef = "pastry"; 
-    
-    // 2. แก้จุดนี้!! ต้องให้ตรงกับ ID "workshop-list" ใน HTML ด้านบน
-    const container = document.getElementById('workshop-list'); 
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    const container = document.getElementById('workshop-list');
 
-    // 3. เพิ่มส่วนนี้เข้าไปด้วยเพื่อให้ชื่อหัวข้อเปลี่ยนตามเชฟอัตโนมัติ
-    const chefTitleMap = {
-        "pastry": "Pastry Chef Selection",
-        "japanese": "Japanese Chef Selection",
-        "chinese": "Chinese Chef Selection"
-    };
-    document.getElementById('chef-display-name').innerText = chefTitleMap[currentChef];
+    // 1. เช็กว่ามี workshopDatabase จากไฟล์ workshop-data.js หรือไม่
+    const db = (typeof workshopDatabase !== 'undefined') ? workshopDatabase : {};
+    const allWS = (typeof allWorkshops !== 'undefined') ? allWorkshops : [];
 
-    // 4. กรองข้อมูลเฉพาะของเชฟคนนี้
-    const filteredMenus = workshopDatabase.filter(m => m.chef === currentChef);
+    const menuKeys = Object.keys(db);
+    let displayIndex = 0; // ใช้สำหรับ ID ของ Accordion
 
-    // 5. สร้าง HTML โชว์เมนู
-    if (filteredMenus.length === 0) {
-        container.innerHTML = "<p style='text-align:center; color:#999; padding-top:20px;'>ยังไม่มีเมนูสำหรับเชฟท่านนี้ในขณะนี้</p>";
-    } else {
-        filteredMenus.forEach((menu, index) => {
-            let scheduleHTML = '';
-            menu.schedules.forEach(s => {
-                scheduleHTML += `
-                    <div class="date-row">
-                        <span><span class="month-tag">${s.month}</span> ${s.date}</span>
-                        <a href="${s.link}#${menu.id}" class="btn-go">BOOK NOW</a>
-                    </div>
-                `;
-            });
+    container.innerHTML = ""; // ล้างค่าว่างก่อน
 
+    menuKeys.forEach(key => {
+        const menu = db[key];
+        
+        // 2. กรองเฉพาะเชฟที่กำหนด
+        if (menu.chef === currentChef) {
+            
+            // 3. กรองหาเฉพาะวันที่ "เมนูนี้" มีสอนใน allWorkshops
+            const mySchedules = allWS.filter(ws => ws.title === key);
+            
+            let schedulesHTML = '';
+            if (mySchedules.length > 0) {
+               // สร้างรายการวันที่เรียน (ดึงสไตล์วงกลมมาจากหน้าหลัก)
+                mySchedules.forEach(sched => {
+                    const mDisplay = monthNames[sched.month];
+                    schedulesHTML += `
+                        <div class="schedule-row" style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f0f0f0;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="text-align:center; width:45px;">
+                                    <div class="date-circle bg-${menu.chef}" style="width:40px; height:40px; border-radius:50%; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px;">
+                                        ${sched.date}
+                                    </div>
+                                    <div style="font-size:10px; font-weight:700; color:#b3262e; margin-top:2px; text-transform:uppercase;">
+                                        ${mDisplay}
+                                    </div>
+                                </div>
+                                <div style="font-size:13px; color:#666;">
+                                    ${sched.time}
+                                </div>
+                            </div>
+                            <a href="workshop-detail.html?menu=${encodeURIComponent(key)}&date=${sched.date}%20${mDisplay}&price=${menu.price}" class="btn-book">BOOK NOW</a>
+                        </div>`;
+                });
+            } else {
+                schedulesHTML = `<p style="font-size:12px; color:#999; padding:15px 0; text-align:center;">ยังไม่มีรอบสอนในเดือนนี้</p>`;
+            }
+
+// 4. แปะลงหน้าเว็บ (ปรับดีไซน์ให้มีวงกลมวันที่เหมือนหน้าปฏิทิน)
             container.innerHTML += `
-                <div class="menu-card">
-                    <button class="menu-btn" onclick="toggleMenu('m${index}')">
-                        ${menu.menuName} <span>+</span>
+                <div class="menu-item" style="border: 1px solid #eee; margin-bottom: 20px;">
+                    <button class="menu-header" onclick="toggleAccordion(${displayIndex})" style="padding: 15px;">
+                        <div style="display:flex; align-items:center; gap:15px;">
+                            <div style="width:60px; height:60px; border-radius:10px; background-image:url('${menu.image}'); background-size:cover; flex-shrink:0; background-position:center;"></div>
+                            <h2 class="menu-title" style="font-size:18px; margin:0;">${key}</h2>
+                        </div>
+                        <span class="icon-plus" id="icon-${displayIndex}" style="color:#b3262e; font-size:24px; font-weight:bold;">+</span>
                     </button>
-                    <div id="m${index}" class="date-list">
-                        ${scheduleHTML}
+                    
+                    <div class="schedule-list" id="sched-${displayIndex}" style="display:none; padding: 0 15px 15px;">
+                        <div style="border-top: 1px dashed #ccc; padding-top: 10px;">
+                            ${schedulesHTML}
+                        </div>
                     </div>
-                </div>
-            `;
-        });
-    }
+                </div>`;
+            
+            displayIndex++; // เพิ่มลำดับให้อันถัดไป
+        }
+    });
 
-    function toggleMenu(id) {
-        const target = document.getElementById(id);
-        // ปิดอันอื่นก่อนเพื่อให้ดูสะอาดตา (Optional)
-        if (target.style.display === 'block') {
-            target.style.display = 'none';
-        } else {
-            // ปิดทุกอันก่อนเปิดอันใหม่
-            document.querySelectorAll('.date-list').forEach(el => el.style.display = 'none');
-            target.style.display = 'block';
+    // ฟังก์ชันเปิด-ปิด Accordion
+    function toggleAccordion(idx) {
+        const list = document.getElementById(`sched-${idx}`);
+        const icon = document.getElementById(`icon-${idx}`);
+        const isVisible = list.style.display === "block";
+
+        // ปิดอันอื่นก่อน (Optional: ถ้าอยากให้เปิดได้อันเดียว)
+        document.querySelectorAll('.schedule-list').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.icon-plus').forEach(el => el.innerText = '+');
+
+        if (!isVisible) {
+            list.style.display = "block";
+            icon.innerText = "-";
         }
     }
 </script>

@@ -22,6 +22,9 @@
         .month-label { background: #2f8f44; color: #fff; padding: 2px 10px; border-radius: 5px; font-size: 10px; font-weight: 700; margin-right: 10px; }
         .btn-book { background: #2f8f44; color: #fff; padding: 8px 20px; border-radius: 50px; text-decoration: none !important; font-size: 12px; font-weight: 700; }
         .active .icon-plus { transform: rotate(45deg); color: #2f8f44; }
+        .bg-pastry { background-color: #b3262e !important; }
+.bg-japanese { background-color: #2f8f44 !important; }
+.bg-chinese { background-color: #ffc574 !important; }
     </style>
 </head>
 <body>
@@ -33,37 +36,94 @@
     </div>
     <div id="workshop-list"></div>
 </div>
+
 <script src="workshop-data.js"></script>
 <script>
     const currentChef = "japanese"; 
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     const container = document.getElementById('workshop-list');
-    const chefMenus = workshopDatabase.filter(item => item.chef === currentChef);
 
-    if (chefMenus.length === 0) {
-        container.innerHTML = "<p style='text-align:center; color:#999;'>Coming soon: เมนูใหม่กำลังเตรียมการอยู่ค่ะ</p>";
-    } else {
-        chefMenus.forEach((menu, index) => {
+    // 1. เช็กว่ามี workshopDatabase จากไฟล์ workshop-data.js หรือไม่
+    const db = (typeof workshopDatabase !== 'undefined') ? workshopDatabase : {};
+    const allWS = (typeof allWorkshops !== 'undefined') ? allWorkshops : [];
+
+    const menuKeys = Object.keys(db);
+    let displayIndex = 0; // ใช้สำหรับ ID ของ Accordion
+
+    container.innerHTML = ""; // ล้างค่าว่างก่อน
+
+    menuKeys.forEach(key => {
+        const menu = db[key];
+        
+        // 2. กรองเฉพาะเชฟที่กำหนด
+        if (menu.chef === currentChef) {
+            
+            // 3. กรองหาเฉพาะวันที่ "เมนูนี้" มีสอนใน allWorkshops
+            const mySchedules = allWS.filter(ws => ws.title === key);
+            
             let schedulesHTML = '';
-            menu.schedules.forEach(sched => {
-                schedulesHTML += `<div class="schedule-row">
-                    <div class="date-info"><span class="month-label">${sched.month}</span>${sched.date}</div>
-                    <a href="${sched.link}#${menu.id}" class="btn-book">BOOK NOW</a>
+            if (mySchedules.length > 0) {
+               // สร้างรายการวันที่เรียน (ดึงสไตล์วงกลมมาจากหน้าหลัก)
+                mySchedules.forEach(sched => {
+                    const mDisplay = monthNames[sched.month];
+                    schedulesHTML += `
+                        <div class="schedule-row" style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f0f0f0;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="text-align:center; width:45px;">
+                                    <div class="date-circle bg-${menu.chef}" style="width:40px; height:40px; border-radius:50%; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px;">
+                                        ${sched.date}
+                                    </div>
+                                    <div style="font-size:10px; font-weight:700; color:#b3262e; margin-top:2px; text-transform:uppercase;">
+                                        ${mDisplay}
+                                    </div>
+                                </div>
+                                <div style="font-size:13px; color:#666;">
+                                    ${sched.time}
+                                </div>
+                            </div>
+                            <a href="workshop-detail.html?menu=${encodeURIComponent(key)}&date=${sched.date}%20${mDisplay}&price=${menu.price}" class="btn-book">BOOK NOW</a>
+                        </div>`;
+                });
+            } else {
+                schedulesHTML = `<p style="font-size:12px; color:#999; padding:15px 0; text-align:center;">ยังไม่มีรอบสอนในเดือนนี้</p>`;
+            }
+
+// 4. แปะลงหน้าเว็บ (ปรับดีไซน์ให้มีวงกลมวันที่เหมือนหน้าปฏิทิน)
+            container.innerHTML += `
+                <div class="menu-item" style="border: 1px solid #eee; margin-bottom: 20px;">
+                    <button class="menu-header" onclick="toggleAccordion(${displayIndex})" style="padding: 15px;">
+                        <div style="display:flex; align-items:center; gap:15px;">
+                            <div style="width:60px; height:60px; border-radius:10px; background-image:url('${menu.image}'); background-size:cover; flex-shrink:0; background-position:center;"></div>
+                            <h2 class="menu-title" style="font-size:18px; margin:0;">${key}</h2>
+                        </div>
+                        <span class="icon-plus" id="icon-${displayIndex}" style="color:#b3262e; font-size:24px; font-weight:bold;">+</span>
+                    </button>
+                    
+                    <div class="schedule-list" id="sched-${displayIndex}" style="display:none; padding: 0 15px 15px;">
+                        <div style="border-top: 1px dashed #ccc; padding-top: 10px;">
+                            ${schedulesHTML}
+                        </div>
+                    </div>
                 </div>`;
-            });
-            container.innerHTML += `<div class="menu-item" id="item-${index}">
-                <button class="menu-header" onclick="toggleAccordion(${index})">
-                    <h2 class="menu-title">${menu.menuName}</h2>
-                    <span class="icon-plus">+</span>
-                </button>
-                <div class="schedule-list" id="sched-${index}">${schedulesHTML}</div>
-            </div>`;
-        });
-    }
-    function toggleAccordion(index) {
-        const list = document.getElementById(`sched-${index}`);
+            
+            displayIndex++; // เพิ่มลำดับให้อันถัดไป
+        }
+    });
+
+    // ฟังก์ชันเปิด-ปิด Accordion
+    function toggleAccordion(idx) {
+        const list = document.getElementById(`sched-${idx}`);
+        const icon = document.getElementById(`icon-${idx}`);
         const isVisible = list.style.display === "block";
+
+        // ปิดอันอื่นก่อน (Optional: ถ้าอยากให้เปิดได้อันเดียว)
         document.querySelectorAll('.schedule-list').forEach(el => el.style.display = 'none');
-        if (!isVisible) list.style.display = "block";
+        document.querySelectorAll('.icon-plus').forEach(el => el.innerText = '+');
+
+        if (!isVisible) {
+            list.style.display = "block";
+            icon.innerText = "-";
+        }
     }
 </script>
 </body>
