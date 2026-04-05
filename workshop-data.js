@@ -31,7 +31,7 @@ const workshopDatabase = [
         menuName: "DUMPLING FOLDING CLUB",
         id: "dumpling-club",
         schedules: [
-            { month: "MARCH", date: "28 March | 14:00 – 16:00", link: "workshop-march.html" }
+            { month: "APRIL", date: "24 April | 14:00 – 16:00", link: "workshop-detail.html" }
         ]
     },
 

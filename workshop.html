@@ -27,7 +27,7 @@
         .workshop-container {
             max-width: 1200px;
             margin: auto;
-            padding: 10px 15px 10px;
+            padding: 15px 15px 15px;
         }
 
         /* --- HEADER (ธีมเดียวกับ Schedule) --- */
@@ -105,82 +105,16 @@
             box-shadow: 0 8px 25px rgba(198, 40, 40, 0.2);
         }
 
-        /* --- FOOTER (คงเดิม) --- */
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .footer-link:hover { color: #f5e4af; }
-
         @media (max-width: 576px) {
             .link.workshop { width: 100%; }
             .workshop-container { padding-top: 20px; }
         }
         
-        
-            /* ชื่อแบรนด์ด้านบน */
-/* --- ชุด Navigation Bar แบบใหม่ --- */
-.top-brand-bar {
-    background-color: #b3262e; /* สีแดงหลัก */
-    padding: 10px 0;
-    margin-bottom: 20px;
-}
-
-.top-brand-bar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px; /* ให้กว้างเท่ากับ schedule ของคุณ */
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.brand-logo {
-    font-family: "Playfair Display", serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    gap: clamp(10px, 3vw, 20px);
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
-}
-
+ 
 .nav-links a:hover {
     border-bottom: 2px solid #3498db; /* สีน้ำเงินตอน Hover */
 }
 
-/* ปรับปรุง Mobile ให้รองรับ Flex-wrap ตามที่คุยกันก่อนหน้า */
-@media (max-width: 768px) {
-    .top-brand-bar .container {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
 
             /* คำโปรยด้านล่างชื่อแบรนด์ */
             .brand-tagline {
@@ -192,8 +126,70 @@
                 letter-spacing: 1px;
                 margin-bottom: 10px;
                 text-transform: uppercase;
+                text-align: center;
             }
 
+            .divider {
+                margin: 5px 1px;
+            }
+            .divider svg {
+                width: 100%;
+                height: 12px;
+            }
+        /* --- 4. FOOTER --- */
+        .footer-custom {
+            background-color: var(--primary);
+            color: var(--yellow);
+            padding: 60px 0;
+            margin-top: 100px;
+        }
+        .footer-logo-box {
+            border: 2px solid var(--yellow);
+            padding: 10px 20px;
+            display: inline-block;
+        }
+                        .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
+
+/* --- ปรับปรุงส่วน Mobile ให้เนียนขึ้น --- */
+@media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
     </style>
 </head>
 
@@ -205,18 +201,18 @@
 
     <div class="workshop-container">
         <div class="header">
-            <div class="brand-label">FRIDGE AND OVEN</div>
+
             <h1 class="title">WORKSHOPS</h1>
             
             <div class="divider">
                 <svg viewBox="0 0 1440 20">
                     <path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
-                        stroke="#2f8f44" stroke-width="4" fill="none" />
+                        stroke="#2f8f44" stroke-width="6" fill="none" />
                 </svg>
             </div>
             
-            <p class="intro-text">
-                "Let's make some sweet memories (and delicious messes) together."
+            <p class="intro-text" style="text-align: center; padding-left: 20px; padding-right: 20px;">
+                "Let's make some sweet memories <br>(and delicious messes) together."
             </p>
         </div>
 

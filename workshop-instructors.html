@@ -42,6 +42,98 @@
         .btn-red:hover { background: #f4f1e8; color: #b3262e; border: 1.5px solid #b3262e; }
         
         @media (max-width: 991px) { .instructor-grid { grid-template-columns: 1fr; max-width: 450px; margin: auto; } }
+        
+        
+.nav-links a:hover {
+    border-bottom: 2px solid #3498db; /* สีน้ำเงินตอน Hover */
+}
+
+/* ปรับปรุง Mobile ให้รองรับ Flex-wrap ตามที่คุยกันก่อนหน้า */
+@media (max-width: 768px) {
+    .top-brand-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+            /* คำโปรยด้านล่างชื่อแบรนด์ */
+            .brand-tagline {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(9px, 1vw, 14px);
+                color: #222;
+                text-align: center;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .divider {
+                margin: 1px 1px;
+            }
+            .divider svg {
+                width: 100%;
+                height: 12px;
+            }
+        /* --- 4. FOOTER --- */
+        .footer-custom {
+            background-color: var(--primary);
+            color: var(--yellow);
+            padding: 60px 0;
+            margin-top: 100px;
+        }
+        .footer-logo-box {
+            border: 2px solid var(--yellow);
+            padding: 10px 20px;
+            display: inline-block;
+        }
+                        .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
+
+/* --- ปรับปรุงส่วน Mobile ให้เนียนขึ้น --- */
+@media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
     </style>
 </head>
 <body>
@@ -65,7 +157,7 @@
                 <div class="instructor-info">
                     <span class="specialty-badge pastry">Pastry & Entremet</span>
                     <div class="instructor-name">Chef [Name]</div>
-                    <p class="instructor-bio">ผู้เชี่ยวชาญด้าน Almond Sponge และการประกอบชั้นเค้กที่ละเมียดละไม</p>
+                    <p class="instructor-bio">ผู้ก่อตั้ง Fridge and Oven คนอบขนมหนึ่งเดียวในร้าน ผู้คัดเลือกวัตถุดิบและอุปกรณ์มาหลอกขายนักเรียนในคลาส รักการสอนอย่างบันเทิงไม่เน้นสาระ แค่อยากให้ทุกคนได้เทคนิกไปแบบไม่ต้องเกร็ง หัวเราะไปทำไปทุกอย่างจะได้ฝังลงสู่จิตใต้สำนึกไม่ต้องจริงจังอะไรมากมาย ปรุงเค้กให้เหมือนปรุงน้ำพริกแต่ก็ออกมาเป็นเค้กได้ เชื่อมั้ยล่ะ</p>
                     <div class="btn-stack">
                         <a href="chef-pastry.html" class="btn-instructor btn-red">VIEW CHEF'S CLASSES</a>
                     </div>
@@ -76,8 +168,8 @@
                 <div class="instructor-img" style="background-image: url('img/chef-japanese.jpg');"></div>
                 <div class="instructor-info">
                     <span class="specialty-badge japanese">Japanese Cuisine</span>
-                    <div class="instructor-name">Chef [Name]</div>
-                    <p class="instructor-bio">ศาสตร์แห่งรสสัมผัสตามฤดูกาล ตั้งแต่ Kaiseki ไปจนถึงซูชิต้นตำรับ</p>
+                    <div class="instructor-name">Chef Champ</div>
+                    <p class="instructor-bio">ประสบการณ์เชฟร้านมีดาวเชียวนะ เรียนมาไกลถึงโอซาก้าถนัดเป็นพิเศษในการทำของยากให้ดูง่ายแต่จริงๆแล้วทำยาก</p>
                     <div class="btn-stack">
                         <a href="chef-japanese.html" class="btn-instructor btn-red">VIEW CHEF'S CLASSES</a>
                     </div>
@@ -85,11 +177,11 @@
             </div>
 
             <div class="instructor-card">
-                <div class="instructor-img" style="background-image: url('img/chef-chinese.jpg');"></div>
+                <div class="instructor-img" style="background-image: url('img/chefview.jpg');"></div>
                 <div class="instructor-info">
                     <span class="specialty-badge chinese">Chinese Culinary Art</span>
-                    <div class="instructor-name">Chef [Name]</div>
-                    <p class="instructor-bio">ศิลปะการคุมไฟและทักษะการใช้กระทะเหล็ก เปลี่ยนเมนูยากให้เป็นเรื่องสนุก</p>
+                    <div class="instructor-name">Chef View</div>
+                    <p class="instructor-bio">ดีกรีเจิดจรัสกว่าใคร ผู้เข้าแข็งขันมาสเตอร์เชฟไทยแลนด์ซีซัน 4 เชียวนะ เรื่องควงกระทะห่อเกี๊ยวรวดเร็วดังสายฟ้าฟาด จากเหล่าซือภาษาจีนสู่การเป็นคนก้นครัวที่ไม่ทอดทิ้งการถ่ายทอดวัฒนธรรมจีน คนเกิดมาเป็นครูจะให้จับอะไรก็ถ่ายทอดได้หมด</p>
                     <div class="btn-stack">
                         <a href="chef-chinese.html" class="btn-instructor btn-red">VIEW CHEF'S CLASSES</a>
                     </div>

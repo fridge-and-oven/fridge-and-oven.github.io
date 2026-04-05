@@ -391,6 +391,96 @@ img,
     }
 }
     
+.nav-links a:hover {
+    border-bottom: 2px solid #3498db; /* สีน้ำเงินตอน Hover */
+}
+
+/* ปรับปรุง Mobile ให้รองรับ Flex-wrap ตามที่คุยกันก่อนหน้า */
+@media (max-width: 768px) {
+    .top-brand-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+            /* คำโปรยด้านล่างชื่อแบรนด์ */
+            .brand-tagline {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(9px, 1vw, 14px);
+                color: #222;
+                text-align: center;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .divider {
+                margin: 1px 1px;
+            }
+            .divider svg {
+                width: 100%;
+                height: 12px;
+            }
+        /* --- 4. FOOTER --- */
+        .footer-custom {
+            background-color: var(--primary);
+            color: var(--yellow);
+            padding: 60px 0;
+            margin-top: 100px;
+        }
+        .footer-logo-box {
+            border: 2px solid var(--yellow);
+            padding: 10px 20px;
+            display: inline-block;
+        }
+                        .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
+
+/* --- ปรับปรุงส่วน Mobile ให้เนียนขึ้น --- */
+@media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
         </style>
     </head>
 
