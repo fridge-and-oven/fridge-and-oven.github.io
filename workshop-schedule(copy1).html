@@ -395,6 +395,47 @@
         padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
     }
 }
+/* --- ส่วนปฏิทิน: วันที่หยุดร้าน --- */
+
+/* กำหนดพื้นหลังสีเทาอ่อนๆ ให้ช่องวันที่หยุด */
+.day-cell.closed-day {
+    background-color: #eaeae7 !important; /* เทาอ่อนนวลๆ เข้ากับ body */
+    cursor: default; /* ปรับเมาส์เป็นปกติ (กดไม่ได้) */
+    position: relative; /* สำคัญ! เพื่อให้สร้างกากบาททับได้ */
+    overflow: hidden; /* กันเส้นกากบาทล้นช่อง */
+}
+
+/* ทำให้เลขวันที่สีจางลง */
+.day-cell.closed-day span {
+    color: #aaaaaa !important;
+    position: relative;
+    z-index: 1; /* ให้เลขอยู่หลังกากบาทนิดนึง */
+}
+
+/* --- สร้างเส้นกากบาทด้วย CSS --- */
+.day-cell.closed-day::before,
+.day-cell.closed-day::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%; /* ความยาวเส้น */
+    height: 2px; /* ความหนาเส้น */
+    background-color: #b3262e; /* สีแดงอิฐของร้าน (หรือใช้สีเทาเข้มก็ได้) */
+    z-index: 2; /* ให้กากบาทอยู่หน้าสุด */
+    transform-origin: center;
+}
+
+/* เส้นทแยงมุมเฉียงลง */
+.day-cell.closed-day::before {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* เส้นทแยงมุมเฉียงขึ้น */
+.day-cell.closed-day::after {
+    transform: translateY(-50%) rotate(-45deg);
+}
+    
         </style>
     </head>
 
@@ -402,7 +443,11 @@
     <span id="navtool"></span>
 
         <section class="schedule">
-            <div class="brand-header"></div>
+            <div class="brand-header"></div><section id="schedule-section">
+    <h2 class="homey-title" style="text-align: center;">Workshop Schedule & Shop Holidays</h2>
+    <div id="workshop-grid-container">
+        </div>
+</section>
             <div class="brand-tagline">"Let's make some sweet memories (and delicious messes) together."</div>
 
             <div class="month-nav" id="month-buttons"></div>
@@ -530,20 +575,38 @@ function renderCalendar(data) {
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
+    // ส่วนที่ 1: เติมช่องว่างเดือนก่อนหน้า
     for (let x = 0; x < firstDay; x++) html += `<div class="day-cell other-month"></div>`;
 
+    // ส่วนที่ 2: สร้างวันที่ 1 จนถึงสิ้นเดือน
     for (let i = 1; i <= daysInMonth; i++) {
-        const ws = data.find((w) => w.date === i);
+        // ค้นหา Workshop หรือวันหยุดที่ตรงกับวันที่ i (รองรับทั้งวันเดียวและช่วงวันที่ endDate)
+        const ws = allWorkshops.find((w) => {
+            if (w.month !== currentMonth) return false;
+            if (w.endDate) {
+                return i >= w.date && i <= w.endDate;
+            }
+            return w.date === i;
+        });
+
         let hasClass = "", spanClass = "", clickFn = "";
-        if (ws) {
-    hasClass = "has-workshop";
-    spanClass = "bg-" + ws.cat;
-    const encodedTitle = encodeURIComponent(ws.title);
-    const formattedDate = `${i}%20${monthNames[currentMonth].toUpperCase()}`;
-    
-    // เขียนให้จบในบรรทัดเดียว หรือต่อ String ให้ชัดเจน
-    clickFn = `onclick="window.location.href='workshop-detail.html?menu=${encodedTitle}&date=${formattedDate}&price=${ws.price}'"`;
+
+if (ws) {
+    if (ws.showInCard === false) {
+        // --- ส่วนที่แก้: ถ้าเป็นวันหยุด ให้ใช้สีเทา (bg-closed) ---
+        spanClass = "bg-closed"; 
+        hasClass = "closed-day"; // เพิ่ม class เพื่อให้กดไม่ได้
+        clickFn = "";            // ไม่ให้มีคำสั่งคลิก
+    } else {
+        // --- ส่วนของ Workshop ปกติ ---
+        hasClass = "has-workshop";
+        spanClass = "bg-" + (ws.cat || "pastry");
+        const encodedTitle = encodeURIComponent(ws.title);
+        const formattedDate = `${i}%20${monthNames[currentMonth].toUpperCase()}`;
+        clickFn = `onclick="window.location.href='workshop-detail.html?menu=${encodedTitle}&date=${formattedDate}&price=${ws.price}'"`;
+    }
 }
+
         html += `<div class="day-cell ${hasClass}" ${clickFn}><span class="${spanClass}">${i}</span></div>`;
     }
     grid.innerHTML = html;
@@ -551,16 +614,18 @@ function renderCalendar(data) {
 
 function renderCards(data) {
     const container = document.getElementById("workshop-cards-container");
-    if (!data || data.length === 0) {
+    
+    // กรองเอาเฉพาะตัวที่ไม่ได้สั่งซ่อนการ์ด (showInCard !== false)
+    const displayData = data.filter(ws => ws.showInCard !== false);
+
+    if (!displayData || displayData.length === 0) {
         container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">No workshops scheduled.</p>`;
         return;
     }
 
-    container.innerHTML = data.sort((a, b) => a.date - b.date).map(ws => {
-        // เช็กก่อนว่า workshopDatabase มีอยู่จริงไหม ถ้าไม่มีให้สร้าง Object ว่างๆ รอไว้
+    // ใช้ displayData แทน data เดิมในการแสดงผล
+    container.innerHTML = displayData.sort((a, b) => a.date - b.date).map(ws => {
         const db = (typeof workshopDatabase !== 'undefined') ? workshopDatabase : {};
-        
-        // ดึงข้อมูลเสริม (ถ้าหาไม่เจอจริงๆ จะเอาค่า Default มาใช้ การ์ดจะได้ไม่หาย)
         const extraInfo = db[ws.title] || { 
             price: ws.price || "N/A", 
             image: ws.img || "img/default.jpg", 

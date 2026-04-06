@@ -3,16 +3,15 @@ const workshopDatabase = {
         chef: "chinese",
         category: "GUEST WORKSHOP",
         subtitle: "by chef view (MasterChef Thailand)",
-        about: "Dumpling Folding Club พลพรรคนักห่อเกี๊ยว...",
-        learning: ["วิธีทำแผ่นแป้ง", "เทคนิคผสมไส้"],
+        about: "Dumpling Folding Club พลพรรคนักห่อเกี๊ยว โดย วิว มาสเตอร์เชฟซีซั่น4, เกี๊ยวจีน กินง่าย แล้วใครอยากจะห่อเป็นบ้าง?, วันที่ 28 มีนาคม นี้ ใครที่ยังมีเวลาว่าง รักการหม่ำ “เกี๊ยว” และอยากทดลองปั้นมือด้วยตัวเอง อยากชวนมาเข้าแก๊งนักห่อฝึกหัด, ล้อมโต๊ะทำกันทั้งหมด 3 ไส้ คลาสสิคสไตล์ตงเป่ย",
+        learning: ["🥟 วิธีทำแผ่นแป้งเกี๊ยวจีนแบบสดพร้อมวิธีเก็บ", "🥟 เทคนิคการผสมไส้ให้ฉ่ำ ไม่แห้งกระด้าง ได้กลิ่นหอมแบบชาวจีนแท้ เหมือนโล้สำเภามาด้วยกัน", "เทคนิคผสมไส้ หมูกุ๋ยช่าย หมูผักกาดขาว หมูกุ้งเคี้ยวหนุบหนับ", "🥟 วิธีห่อเกี๊ยวไม่ให้ไส้ทะลัก ไม่ทำให้แป้งแตก", "🥟 เทคนิคการเก็บเกี๊ยวของเราให้สดใหม่ ทำ 1 ครั้ง แต่เก็บไว้ทานได้ยาวๆ ตลอดเดือน"],
         image: "img/dumpling02.jpg",
         price: 3900,
         isSession: true,
         sessions: ["10:00 - 12:00", "14:00 - 16:00"],
-        schedules: [
-            { month: "APRIL", date: "24 April", time: "14:00 – 16:00" }
-        ]
-    },    "EARL GREY CHOCOLATE TART": {
+        extra: "พิเศษสำหรับพลพรรคกลุ่มแรกที่สมัครใจเข้ามาห่อเกี๊ยวร่วมกัน เรามีชุดอุปกรณ์รีดแป้งขั้นพื้นฐานให้ติดไม้ติดมือกันไปเลยฟรีๆคนละชุด ให้ไปฝึกรีดแป้งกันได้ทุกที่ อยู่ไหนก็ใช้ได้เลย"
+    },   
+        "EARL GREY CHOCOLATE TART": {
         chef: "pastry",
             category: "WORKSHOP MENU",
             subtitle: "Complex Layers & Textures",
@@ -174,15 +173,15 @@ const workshopDatabase = {
         },
         "JAPANESE SUMMER MENU": {
             chef: "japanese",
-            category: "CLASSIC BAKING",
-            subtitle: "์ทำแป้งพายแบบง่าย ไม่ต้องแยกเนยแยกแป้ง รีดด้วยกำลังแขนของเราเอง",
-            about: "เมนูเดียวที่เอาไปแปลงร่างเป็นของหวานหลังอาหารง่ายๆ เชิดหน้าชูตาได้สบายเลยจ้า",
-            learning: ["การทำ brown butter แบบปลอดภัยไม่ต้องกลัวเสียโฉม(หมายถึงเนยน่ะ)", "การตีเนยที่พอเหมาะพอดีสำหรับเค้กเนื้อเนย ผสมยังไงดีนะให้เนื้อเนียนนุ่ม",
-                "frosting เนยไหม้ที่หอมไปอีก 1 ขั้นด้วยการเหนื่อยไปอีก 1 จังหวะ 5555"
+            category: "心を冷やしましょう",
+            subtitle: "ดับร้อนด้วยเมนูเย็นฉ่ามใจกันไปกับเชฟแชมป์",
+            about: "coming soon",
+            learning: [""
             ],
             image: "img/japanesews.jpg",
-            price: 55555555,
-            time: "14:00 – 17:00",
+            price: 4200,
+            isSession: true,
+            sessions: ["10:00 - 13:00", "14:00 - 17:00"],
             gallery: [""]
         }                  // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
 };
@@ -204,7 +203,7 @@ const workshopDatabase = {
     { month: 4, date: 13, cat: "pastry", title: "RYOKUCHA KUROGOMA CAKE", price: "12,000", time: "10:00 – 17:30", img: "img/ryokucha-goma02.jpg" },
     { month: 4, date: 16, cat: "pastry", title: "BASQUE CHEESECAKE", price: "5,000", time: "14:00 – 16:30", img: "img/plainbasque02.jpg" },
     { month: 4, date: 20, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
-    { month: 4, date: 23, cat: "japanese", title: "JAPANESE SUMMER MENU", price: "6,600", time: "14:00 – 16:00", img: "img/japanesews.jpg" },
+    { month: 4, date: 23, cat: "japanese", title: "JAPANESE SUMMER MENU", price: "4200", time: "Multiple Sessions", img: "img/japanesews.jpg" },
     { month: 4, date: 27, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 16:00", img: "img/tiramisu-bowl.jpg" },
     { month: 4, date: 30, cat: "pastry", title: "MATCHA MISO MACADAMIA", price: "4,500", time: "14:00 – 16:00", img: "img/matchamiso-cookies.jpg" },
     // --- JUNE (month: 5) ---
@@ -214,5 +213,13 @@ const workshopDatabase = {
     { month: 5, date: 17, cat: "pastry", title: "PEANUT BUTTER BANANA CAKE", price: "5,000", time: "14:00 – 17:00", img: "img/pb-bananacake.jpg" },
     { month: 5, date: 20, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
     { month: 5, date: 24, cat: "pastry", title: "SPONGE LAB", price: "6,600", time: "14:00 – 16:00", img: "img/cookies.jpg" },
-    { month: 5, date: 27, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg" }
+    { month: 5, date: 27, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg" },
+{ 
+    month: 3, 
+    date: 10, 
+    endDate: 16, 
+    title: "SHOP CLOSED", 
+    showInCard: false // ระบบจะเปลี่ยนเป็นสีเทาให้อัตโนมัติจาก Logic ข้อ 2
+}
+
     ];
