@@ -4,6 +4,8 @@
         <meta charset="utf-8" />
         <title>FRIDGE AND OVEN : ORDER</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="keywords" />
+        <meta content="" name="description" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -270,6 +272,18 @@ body.bg-cake {
     min-width: 140px; /* ให้ปุ่มมีขนาดเท่าๆ กัน ดูเป็นระเบียบ */
 }
 
+    /* เมื่อกดเลือกแล้ว ให้พื้นหลังเป็นสีแดง และตัวหนังสือเป็นสีครีม (Background) */
+.custom-radio input[type="radio"]:checked + label {
+    background-color: var(--fo-red) !important;
+    color: var(--fo-cream) !important; /* เปลี่ยนจากสีดำ/ขาว เป็นสีครีมของเว็บ */
+    border-color: var(--fo-red);
+}
+
+/* เพิ่มเติม: ปรับตอน Hover (เอาเมาส์วาง) ให้ดูนวลขึ้นด้วย */
+.custom-radio label:hover {
+    background-color: rgba(179, 38, 46, 0.1); /* สีแดงจางๆ */
+    color: var(--fo-red);
+}
 /* แยกส่วน 'สถานที่' ให้เด่นชัดจาก 'วิธีรับ' */
 #pickupMethodContainer {
     margin-top: 30px; /* ดันกลุ่มเลือกสถานที่ลงมา ไม่ให้ชิดกับวิธีรับ */
@@ -315,6 +329,66 @@ body.bg-cake {
     box-shadow: 0 4px 10px rgba(179, 38, 46, 0.2);
     transform: translateY(-1px);
 }
+   /* คอนเทนเนอร์หลัก */
+.confirm-checkbox-wrapper {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* ซ่อน Checkbox จริงของ Browser */
+.fancy-checkbox {
+    display: none;
+}
+
+/* สไตล์ของ Label และช่องติ๊ก */
+.fancy-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--fo-red);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* สร้างช่องสี่เหลี่ยมจำลอง */
+.checkbox-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--fo-red);
+    border-radius: 4px; /* มนเล็กลงให้ดู artisanal */
+    margin-right: 12px;
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+/* เมื่อติ๊กแล้ว (Checked) ให้ช่องเป็นสีแดง */
+.fancy-checkbox:checked + .fancy-checkbox-label .checkbox-box {
+    background-color: var(--fo-red);
+}
+
+/* สร้างเครื่องหมายติ๊กถูก (Checkmark) ด้วย CSS */
+.fancy-checkbox:checked + .fancy-checkbox-label .checkbox-box::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--fo-cream); /* สีเครื่องหมายติ๊กถูก */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* เอฟเฟกต์ตอน Hover ให้ดูมีปฏิกิริยา */
+.fancy-checkbox-label:hover .checkbox-box {
+    box-shadow: 0 0 8px rgba(179, 38, 46, 0.3);
+    transform: scale(1.05);
+}
+    
         </style>
     </head>
 
@@ -324,41 +398,26 @@ body.bg-cake {
         <script>window.onload = addNavTool();</script>
 
 <div class="container order-hero animated fadeIn">
-    <h1 class="display-1">Cake Order</h1>
+    <h1 class="display-1  mt-4">Cake Order</h1>
     <p class="hero-subtitle text-uppercase">Crafted with heart, baked for your joy.</p>
 </div>
+        
+
+        
         <div class="container animated fadeInUpDelay">
             <div class="order-card">
                 <div class="row g-5">
                     
-                    <div class="col-lg-5 order-lg-1 order-2">
-                        <div class="cake-preview-container">
-                            <img src="img/cake-signature.jpg" alt="Signature Cake" class="cake-main-img" />
+
+
 
                             
-                            <div class="w-100 mt-5 text-start px-3">
-                                <h6 class="font-weight-bold text-muted mb-3">Service Locations & Days:</h6>
-                                <div class="datepicker-footer-legend border-0 p-0">
-                                    <div class="legend-row">
-                                        <div class="legend-box box-yellow"></div>
-                                        <span>Srinakarin 38 (Mon/Thu)</span>
-                                    </div>
-                                    <div class="legend-row">
-                                        <div class="legend-box box-blue"></div>
-                                        <span>Chongnonsi (Tue/Wed/Fri/Sat)</span>
-                                    </div>
-                                    <div class="legend-row mt-2">
-                                        <i class="fa fa-times-circle text-danger me-2"></i>
-                                        <span>Closed on Sunday</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            
 
                     <div class="col-lg-7 order-lg-2 order-1">
                         <div class="order-form-content">
-                            <h2 class="order-form-title">Tell us your preferences</h2>
+                            <h2 class="order-form-title" id="cake">Pre Order</h2>
+
                             <p class="order-lead-time">** รบกวนสั่งล่วงหน้าอย่างน้อย 5 วันจ้า (not including Sundays) **</p>
                             
                             <div class="row g-4">
@@ -376,7 +435,7 @@ body.bg-cake {
                                     </div>
                                 </div>
                                 
-                         <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select" id="size" name="size" required>
                                             <option value="" selected disabled>Select Cake Size</option>
@@ -430,6 +489,24 @@ body.bg-cake {
                 <input type="radio" id="home" name="pickupMethod" value="Chongnonsi">
                 <label for="home">Chongnonsi (Tue-Sat)</label>
             </div>
+                    <div class="w-100 mt-2 text-start px-3">
+                                <h6 class="font-weight-bold text-muted mb-3">Service Locations & Days:</h6>
+                                <div class="datepicker-footer-legend border-0 p-0">
+                                    <div class="legend-row">
+                                        <div class="legend-box box-yellow"></div>
+                                        <span>Srinakarin 38 (Mon/Thu)</span>
+                                    </div>
+                                    <div class="legend-row">
+                                        <div class="legend-box box-blue"></div>
+                                        <span>Chongnonsi (Tue/Wed/Fri/Sat)</span>
+                                    </div>
+                                    <div class="legend-row mt-2">
+                                        <i class="fa fa-times-circle text-danger me-2"></i>
+                                        <span>Closed on Sunday</span>
+                                    </div>
+                                </div>
+
+                    </div>
         </div></div></div></div>
 
                                         
@@ -467,7 +544,16 @@ body.bg-cake {
                                     <p id="validationMsg" class="bg-light text-danger small mb-3 p-3 rounded" style="display: none;">
                                         <i class="bi bi-exclamation-circle me-1"></i>Please fill in all fields before submitting<br>
                                     </p>
-                                    
+                                   
+<div class="col-12 mt-3 text-start">
+    <div class="confirm-checkbox-wrapper">
+        <input type="checkbox" id="noQuestions" class="fancy-checkbox">
+        <label for="noQuestions" class="fancy-checkbox-label">
+            <span class="checkbox-box"></span>
+            ยืนยันไม่มีคำถามเพิ่มเติมหรือการเปลี่ยนแปลง (รับส่วนลด 10% ทันที!)
+        </label>
+    </div>
+</div>
                                     <button class="btn btn-order btn-lg w-100 animated pulse infiniteDelay" id="orderButton" onclick="order()" disabled>
                                         <i class="fa fa-paper-plane me-2"></i>Order on LINE
                                     </button>
@@ -504,7 +590,7 @@ body.bg-cake {
         <!-- JavaScript Libraries -->
 
         <!-- cake order form -->
-        <script src="js/cakeOrderForm.js"></script>
+        <script src="js/cakeOrderForm(copy%201).js"></script>
 
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -530,6 +616,16 @@ body.bg-cake {
                 $('.fadeInDownDelay').addClass('animated fadeInDown');
                 $('.fadeInUpDelay').addClass('animated fadeInUp');
             });
+            
+            
+            function updatePriceDisplay() {
+    const select = document.getElementById('size');
+    const selectedOption = select.options[select.selectedIndex];
+    const price = selectedOption.getAttribute('data-price');
+    
+    // ถ้ามี element สำหรับโชว์ราคารวม สามารถสั่งให้แสดงตรงนี้ได้
+    // ตัวอย่าง: document.getElementById('totalPrice').innerText = price + " THB";
+}
         </script>
     </body>
 </html>

@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>FRIDGE AND OVEN: Our Cakes</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="keywords" />
+        <meta content="" name="description" />
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon" />
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
+            rel="stylesheet" />
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet" />
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet" />
+        <script src="scripts.js"></script>
+        <style>
+            .cake-img {
+                border-radius: 20px;
+            }
+            .cake-box {
+                width: 140px;
+                height: 100%;
+                overflow: hidden;
+                padding: 10px;
+                text-align: center;
+            }
+            .flex-block {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .grid-block {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-content: center;
+            }
+            .btt {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            .link {
+                padding: 0 px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .fontcake {
+                font-family: bebas;
+            }
+            @media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 4px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
+                    .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
+        </style>
+    </head>
+
+    <body class="bg-cake">
+        <!-- Spinner Start -->
+        <div
+            id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <span id="navtool"></span>
+        <script src="nav.js"></script>
+        <script>
+            window.onload = addNavTool();
+        </script>
+
+        <!-- Hero Start -->
+        <div class="flex-box padding-top: 50px;">
+            <div class="container text-center py-5">
+                <h1 class="display-1 animated slideInLeft">Our Cakes</h1>
+
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <!-- Team Start -->
+        <div>
+            <div>
+                
+                        <div class="flex-block" style="padding-bottom: 5px ;"> 
+                <div class="text-center wow fadeIn" data-wow-delay="0.2s">
+                    <p class="sub-text">ร้านเรามีกันแค่ 2 คน รบกวนสั่งล่วงหน้ากันนิดนึงนาาาาา<br>
+                        ตอนนี้มีโปรโมชั่นกด Pre oder กรอกข้อมูลครบถ้วนไม่มีคำถาม<br>และไม่มีการเปลี่ยนแปลงรับไปเลย ลดราคา 10% จ้า<br><br>กดที่รูปภาพเพื่อดูรายละเอียดได้เลยจ้า</p>
+                    
+                    
+                             <div class="divider"></div>
+                        </div>
+                </div>
+                            
+                        
+                
+                    
+                    
+                <div class="flex-block" style="padding-bottom: 5px">
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/8.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details.html')" />
+                        <div class="w-100 align-items-center">
+                            <h5 style="font-family: bebas">Hazelnut Chocolate Cake</h5>
+                            <a class="orderbutton preorderbutton" href="order-test.html?cake=Hazelnut-Chocolate-Cake&sizes=1lb(15CM)%202,990.-{2lb(18CM)%203,500.-{3lb(21CM)%203,990.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/peanutbutter-choco.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(peanut-choco).html')" />
+                        <div class="w-100 align-items-center">
+                            <h5 style="font-family: bebas">Peanut Butter Chocolate Cake</h5>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Peanut-Butter-Chocolate-Cake&sizes=1lb(15CM)%202,890.-{2lb(18CM)%203,400.-{3lb(21CM)%203,890.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/tropic-yo.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(yogurtexotique).html')" />
+                        <div class="w-100 align-items-center">
+                            <h5 style="font-family: bebas">Yogurt Exotique</h5>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Yogurt-Exotique&sizes=1lb(15CM)%202,450.-{2lb(18CM)%203,00.-{3lb(21CM)%203,500.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/foret-vert.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(foretvert).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Foret Vert</h4>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Foret-Vert&sizes=1lb(15CM)%203,200.-{2lb(18CM)%203,960.-{3lb(21CM)%204,290.-">pre order</a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/ryokucha-goma.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(ryokucha).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Ryokucha Kurogoma</h4>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Ryokucha-Kurogoma&sizes=1lb(15CM)%202,890.-{2lb(18CM)%203,400.-{3lb(21CM)%203,890.-">pre order</a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/jasmine-caramel.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(vanillajasminenuts).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Vanilla jasmine caramel nuts</h4>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Vanilla-jasmine-caramel-nuts&sizes=1lb(15CM)%202,550.-{2lb(18CM)%203,100.-{3lb(21CM)%203,600.-">pre order</a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/limon-intart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(limon-intart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Li-mon Pie in Tart</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Li-mon-Pie-in-Tart&sizes=0.5lb(15CM)%201,500.-{2lb(18CM)%201,990.-{3lb(21CM)%202,550.-">pre order</a>
+                    </div>
+                    </div>
+                        
+                        <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/li-monpie-jumbocup.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(limon-jumbo).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Li-mon Pie Jumbo cup</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Li-mon-Pie-Jumbo-Cup&sizes=1lb(15CM)%201,200-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/appleoolong-tart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(appleoolong-tart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Apple Caramel Oolong Tart</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Apple-Caramel-Oolong-Tart&sizes=1lb(15CM)%202,400.-{2lb(18CM)%203,350.-{3lb(21CM)%203,990.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/earlgrey-chocotart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(earlgreychocolate-tart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Earlgrey Chocolate Tart</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Earlgrey-Chocolate-Tart&sizes=1lb(15CM)%202,550.-{2lb(18CM)%203,300.-{3lb(21CM)%204,190.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/yuzulavender-tart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(yuzulavender-tart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Yuzu Lavender Cheese Tart</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Yuzu-Lavender-Cheese-Tart&sizes=1lb(15CM)%202,400.-{2lb(18CM)%203,350.-{3lb(21CM)%203,950.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/cinnamon-cappu-honore.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(saint-honore-cinnamon).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Cinnamon Cappucino Saint Honore</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Cinnamon-Cappucino-Saint-Honore&sizes=1lb(15CM)%202,950.-{2lb(18CM)%203,450.-{3lb(21CM)%203,990.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/misochoc-tart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(misocaramel-choctart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Miso Caramel Chocolate Tart</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Miso-Caramel-Chocolate-Tart&sizes=1lb(15CM)%202,400.-{2lb(18CM)%203,350.-{3lb(21CM)%203,890.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/hazelchoc-exotique.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(hazelnut-exotique).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Hazelnut exotique</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-Exotique&sizes=1lb(15CM)%202,890.-{2lb(18CM)%203,400.-{3lb(21CM)%203,890.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/mocha-almond.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(mochaalmond).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Mocha Almond</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Mocha-Almond-Cake&sizes=1lb(15CM)%202,200.-{2lb(18CM)%202,900.-{3lb(21CM)%203,480.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/hojicha-cherry.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(hojicha-cherry).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Hojicha cherry</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Hojicha-Cherry-Cake&sizes=1lb(15CM)%202,400.-{2lb(18CM)%203,050.-{3lb(21CM)%203,550.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/lemoncheesepie-dacqcake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(daquoise-lemon).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Lemon Cheese Pie Dacquoise Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Lemon-Cheese-Pie-Dacquoise-Cake&sizes=1lb(15CM)%201,200.-{2lb(18CM)%202,400.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pb-bananacake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pb-banana).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 style="font-family: bebas">Peanut Butter Banana Cake</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Peanut-Butter-Banana-Cake&sizes=1lb(15CM)%201,690.-{2lb(18CM)%202,440.-{3lb(21CM)%202,800.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/apollo-brownies.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(appollo-brownies).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Apollo Brownies Sandwich Cake</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Apollo-Brownies&sizes=1lb(15CM)%201,850.-{2lb(18CM)%202,400.-{3lb(21CM)%203,600.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/raspberry-coffee-fig.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(raspberry-coffeefig).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Raspberry Coffee Fig</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Raspberry-Coffee-Fig-Cake&sizes=1lb(15CM)%202,990.-{2lb(18CM)%203,500.-{3lb(21CM)%203,990.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pistachio-rasp.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pistachio-rasp).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Pistachio Raspberry Cake</h4>
+                            <p class="text-primary mb-1"></p>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Raspberry-Cake&sizes=1lb(15CM)%202,990.-{2lb(18CM)%203,500.-{3lb(21CM)%203,990.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/hazel-yuzu.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(hazelnut-yuzu).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Hazelnut Yuzu Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-yuzu-cake&sizes=1lb(15CM)%202,200.-{2lb(18CM)%202,900.-{3lb(21CM)%203,480.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/hojicha-miso.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(hojicha-miso).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Hojicha Miso Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Hojicha-Miso-Cake&sizes=1lb(15CM)%202,990.-{2lb(18CM)%203,500.-{3lb(21CM)%203,990.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/carrotcake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(carrotcake).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Carrot Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Carrot-Cake&sizes=1lb(15CM)%201,250.-{2lb(18CM)%201,790.-{3lb(21CM)%202,500.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/strawberry-tart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(strawberry-tart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Strawberry Tart</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Strawberry-tart&sizes=1lb(15CM)%202,600.-{2lb(18CM)%203,600.-{3lb(21CM)%204,200.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/apple-pie.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(apple-pie).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Apple Pie</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Apple-Pie&sizes=2lb(21CM)%202,800.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/hazelnut-parisbrest.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(hazelnut-parisbrest).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Paris-Brest</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-ParisBrest&sizes=1lb(15CM)%201,550.-{2lb(18CM)%202,350.-{3lb(21CM)%203,550.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/vanilla-mascarpone-millefeuille.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(millefeuille).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Mille feuille</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Mille-feuille&sizes=1lb(15CM)%202,550.-{2lb(18CM)%203,000.-{3lb(21CM)%203,590.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/matchagenmai-dacqcake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(daquoise-matchagenmai).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Matcha and Genmai Dacquoise Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Matcha-Genmai-Dacquoise-Cake&sizes=1lb(15CM)%201,450.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/raspberry-creamcheese-dacqcake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(daquoise-rasp).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Raspberry Cream Cheese Dacquoise Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Raspberry-Cream-Cheese-Dacquoise-Cake&sizes=1lb(15CM)%201,250.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/hazelchoco-dacqcake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(hazelchoc-dacquoise).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Hazelnut Chocolate Dacquoise Cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Hazelnut-Chocolate-Dacquoise-Cake&sizes=1lb(15CM)%201,450.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/tartetatin.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(apple-tatin).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Tarte Tatin</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Tarte-Tatin&sizes=2lb(21CM)%202,500.-"> pre order </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/earlstraw-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(earlstraw-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Earlgrey Strawberry Basque Cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Earlgrey-Strawberry-Basque-Cheesecake&sizes=Plain%20earlgrey%201lb(15CM)%201,250.-{Plain%20earlgrey%202lb(18CM)%201,790.-{Plain%20earlgrey%203lb(21CM)%202,500.-{Earlgrey%20strawberry%201lb(15CM)%201,990.-{Earlgrey%20strawberry%202lb(18CM)%202,490.-{Earlgrey%20strawberry%203lb(21CM)%203,600.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/straw-sourcreamcheesecake.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(sourcream-cheesecake).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Vanilla Sour Cream Cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a
+                                class="orderbutton preorderbutton"
+                                href="order.html?cake=Vanilla-Sour-Cream-Cheesecake&sizes=Plain%201lb(15CM)%201,890.-{Plain%202lb(18CM)%202,520.-{With%20strawberry%201lb(15CM)%202,50.-{With%20strawberry%202lb(18CM)%202,950.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pistachio-tiramisu.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(tiramisu-pistachio).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Pistachio Tiramisu</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Tiramisu-Tart&sizes=1lb(15CM)%202,650.-{2lb(18CM)%203,600.-{3lb(21CM)%204,200.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pistachio-apricotjasmine.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pistachio-apricotjasmine-tart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Pistachio Apricot Jasmine Tart</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Apricot-Jasmine-Tart&sizes=1%20lb(15CM)%202,550.-{2%20lb(18CM)%203,200.-{3%20lb(21CM)%203,800.-">
+                                pre order
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/tiramisu-bowl.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(tiramisu-bowl).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Tiramisu Bowl</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Tiramisu-Bowl&sizes=1%20lb(15CM)%201,200.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/earlstraw-layer.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(earlgrey-straw-layer).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Earlgrey strawberry layer cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Earlgrey-Strawberry-Layer-Cake&sizes=1%20lb(15CM)%202,590.-{2%20lb(18CM)%203,200.-{3%20lb(21CM)%203,750.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/100pistachio.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pistachio100).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">100% pistachio cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=100%pistachio-cake&sizes=1%20lb(15CM)%203,300.-{2lb(18CM)%204,060.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pistachio-cherry.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pistachio-cherrycake).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">pistachio cherry cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Cherry-Cake&sizes=1%20lb(15CM)%203,200.-{2%20lb(18CM)%203,890.-{3%20lb(21CM)%204,500.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/passionfruitmeringuetart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(passion-meringue).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">passion fruit meringue tart</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Passion-Fruit-Meringue-Tart&sizes=1%20lb(15CM)%201,200.-{2%20lb(18CM)%201,750.-{3%20lb(21CM)%202,200.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/bananacreampie.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(banana-creampie).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">banana cream pie</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Banana-Cream-Pie&sizes=1%20lb(15CM)%201,250.-{2%20lb(18CM)%201,790.-{3%20lb(21CM)%202,000."> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/fotenoire-alapistache.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(foretnoire-alapistache).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Foret noire a la pistache</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Foret-Noire-A-La-Pistache&sizes=1%20lb(15CM)%203,300.-{2%20lb(18CM)%204,060.-{3%20lb(21CM)%204,600.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/foretnoire.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(foretnoire).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">foret noire</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Foret-Noire&sizes=1%20lb(15CM)%202,990.-{2%20lb(18CM)%203,500.-{3%20lb(21CM)%203,990.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/blackstickyrice-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(blacksticky-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">black sticky rice basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Black-Sticky-Rice-Basque-Cheesecake&sizes=1%20lb(15CM)%201,650.-{2%20lb(18CM)%202,100.-{3%20lb(21CM)%202,900.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/plainbasque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(plain-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Plain basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Plain-Basque-Cheesecake&sizes=1%20lb(15CM)%20950.-{2%20lb(18CM)%201,350.-{3%20lb(21CM)%201,900.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/matcha-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(matcha-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Matcha basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Matcha-Basque-Cheesecake&sizes=1%20lb(15CM)%201,450.-{2%20lb(18CM)%202,250.-{3%20lb(21CM)%202,850.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/choc-hazelnut-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(choco-hazelnut-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Chocolate basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Chocolate-Basque-Cheesecake&sizes=Plain%20chocolate%201%20lb(15CM)%201,350.-{Plain%20chocolate%202%20lb(18CM)%201,850.-{Plain%20chocolate%203%20lb(21CM)%202,700.-{Chocolate%20basque%20with%20hazelnut%20cream%201%20lb(15CM)%201,890.-{Chocolate%20basque%20with%20hazelnut%20cream%202%20lb(18CM)%202,650.-{Chocolate%20basque%20with%20hazelnut%20cream%203%20lb(21CM)%203,800.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%201%20lb(15CM)%201,890.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%202%20lb(18CM)%202,650.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%203%20lb(21CM)%203,800.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pistachio-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pistachio-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">pistachio basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Basque-Cheesecake&sizes=1%20lb(15CM)%201,750.-{2%20lb(18CM)%202,550.-{3%20lb(21CM)%203,500.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                     <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/blackforest-basque.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(blackforest-basque).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">black forest basque cheesecake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Black-Forest-Basque-Cheesecake&sizes=1%20lb(15CM)%202,250.-{2%20lb(18CM)%203,390.-{3%20lb(21CM)%203,800.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/applecrumbles-tart.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(applecrumbles-tart).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Apple crumbles tart</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Apple-crumbles-tart&sizes=1%20lb(15CM)%202,200.-{2%20lb(18CM)%203,150.-{3%20lb(21CM)%203,750.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/pistachio-ispahan03.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(pistachio-ispahan).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">pistachio Ispahan</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Ispahan-Cake&sizes=1%20lb(15CM)%203,300.-{2%20lb(18CM)%204,060.-{3%20lb(21CM)%204,590.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/gomacharcoal.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(goma-charcoal).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Goma Charcoal</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Goma-Charcoal&sizes=1%20lb(15CM)%202,550.-{2%20lb(18CM)%203,300.-{3%20lb(21CM)%203,990.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                                        <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/strawberry-chiffon02.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(strawberry-chiffon).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">strawberry chiffon cake</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Strawberry-Chiffon-Cake&sizes=1%20lb(15CM)%201,550.-{2%20lb(18CM)%202,000.-{3%20lb(21CM)%202,550.-{1%20lb filled with strawberries(15CM)%202,550.-{2%20lb filled with strawberries(18CM)%203,000.-{3%20lb filled with strawberries(21CM)%203,990.-"> pre order </a>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <!-- Team End -->
+
+            <!-- Footer Start -->
+<footer class="footer-custom" style="background-color: #b3262e; color: #f5e4af; padding: 15px 0 15px 0; margin-top: 120px; font-family: 'Inter', sans-serif;">
+    <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+            <div class="col-md-6 mb-4 mb-md-0">
+
+                <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                <a href="about.html" class="footer-link">ABOUT US</a>
+                <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
+                <a href="locations.html" class="footer-link">LOCATIONS</a>
+            </div>
+            
+            <div class="col-md-6 text-md-end text-center">
+                <div class="footer-logo-box" style="border: 2px solid #f5e4af; padding: 12px 24px; display: inline-block; margin-bottom: 20px;">
+                    <h2 class="h5 mb-0" style="font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 1px; color: #f5e4af !important;">
+                        FRIDGE AND OVEN
+                    </h2>
+                </div>
+                </div>
+        </div>
+    </div>
+</footer>
+        <!-- Footer End -->
+
+        <div
+            id="popupContainer"
+            style="
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #00000080;
+                z-index: 9999;
+            ">
+            <div
+                id="popupContent"
+                style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #f5e4af;
+                    padding: 20px;
+                    border-radius: 20px;
+                    border: 8px solid #b41212;
+                ">
+                <!-- Iframe will be inserted here -->
+                <button
+                    onclick="closePopup()"
+                    style="
+                        font-size: medium;
+                        font-weight: bolder;
+                        padding: 4px 10px;
+                        float: right;
+                        border-radius: 10px;
+                    ">
+                    &times;
+                </button>
+            </div>
+        </div>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        </div>
+    </body>
+</html>
