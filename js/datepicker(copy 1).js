@@ -1,5 +1,14 @@
 /* eslint-disable complexity */
-$(function () {
+$(function () {  
+    // === [ส่วนที่เพิ่มใหม่: เช็ครหัสด่วนจาก URL] ===
+    const urlParams = new URLSearchParams(window.location.search);
+    const isFast = urlParams.get('type') === 'fast'; 
+    var minD = isFast ? 3 : 5; // ถ้ามี type=fast จะเหลือ 3 วัน ถ้าไม่มีจะเป็น 5 วัน
+
+    // ปรับข้อความแจ้งเตือนตามเงื่อนไขวัน
+    if (isFast) {
+        $('#demo').html('Pre order needs to be at least 3 days before delivery date. (not including Sundays)');
+    }
     // 1. New Validation Function
     function validateForm() {
         var name = $('#name').val().trim();
@@ -59,7 +68,7 @@ $(function () {
 
     // เริ่มตั้งค่า Datepicker
     $("#datepicker").datepicker({
-        minDate: +5, 
+        minDate: minD, // <--- ใช้ตัวแปร minD ที่คำนวณไว้ข้างบน (3 หรือ 5)
         dateFormat: 'dd/mm/yy',
         beforeShow: addLegend, // แสดง Legend สีข้างล่างปฏิทิน
         onChangeMonthYear: addLegend,

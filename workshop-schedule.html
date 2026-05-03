@@ -303,49 +303,7 @@
                 font-size: 13px;
             }
         /* --- 4. FOOTER --- */
- ชื่อแบรนด์ด้านบน */
-/* --- ชุด Navigation Bar แบบใหม่ --- */
-.top-brand-bar {
-    background-color: #b3262e; /* สีแดงหลัก */
-    padding: 10px 0;
-    margin-bottom: 20px;
-}
 
-.top-brand-bar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px; /* ให้กว้างเท่ากับ schedule ของคุณ */
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.brand-logo {
-    font-family: "Playfair Display", serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    gap: clamp(10px, 3vw, 20px);
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
-}
 
 .nav-links a:hover {
     border-bottom: 2px solid #3498db; /* สีน้ำเงินตอน Hover */
@@ -373,6 +331,7 @@
                 letter-spacing: 1px;
                 margin-bottom: 10px;
                 text-transform: uppercase;
+                text-align: center;
             }
 
             .divider {
@@ -389,23 +348,26 @@
             padding: 60px 0;
             margin-top: 100px;
         }
-
-        .footer-link {
-            color: var(--yellow) !important;
-            text-decoration: none !important;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
         .footer-logo-box {
             border: 2px solid var(--yellow);
             padding: 10px 20px;
             display: inline-block;
         }
+                        .footer-link {
+                        color: #f5e4af !important;
+                        text-decoration: none !important;
+                        display: block;
+                        margin-bottom: 1px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                    }
+                    .footer-link:hover {
+                        padding-left: 5px;
+                        color: #ffffff !important;
+                    }
 
 /* --- ปรับปรุงส่วน Mobile ให้เนียนขึ้น --- */
 @media (max-width: 768px) {
@@ -429,19 +391,63 @@
     }
 
     .nav-links a { 
-        font-size: 10px; 
+        font-size: 12px; 
         padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
     }
 }
+/* --- ส่วนปฏิทิน: วันที่หยุดร้าน --- */
+
+/* กำหนดพื้นหลังสีเทาอ่อนๆ ให้ช่องวันที่หยุด */
+.day-cell.closed-day {
+    background-color: #eaeae7 !important; /* เทาอ่อนนวลๆ เข้ากับ body */
+    cursor: default; /* ปรับเมาส์เป็นปกติ (กดไม่ได้) */
+    position: relative; /* สำคัญ! เพื่อให้สร้างกากบาททับได้ */
+    overflow: hidden; /* กันเส้นกากบาทล้นช่อง */
+}
+
+/* ทำให้เลขวันที่สีจางลง */
+.day-cell.closed-day span {
+    color: #aaaaaa !important;
+    position: relative;
+    z-index: 1; /* ให้เลขอยู่หลังกากบาทนิดนึง */
+}
+
+/* --- สร้างเส้นกากบาทด้วย CSS --- */
+.day-cell.closed-day::before,
+.day-cell.closed-day::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%; /* ความยาวเส้น */
+    height: 2px; /* ความหนาเส้น */
+    background-color: #b3262e; /* สีแดงอิฐของร้าน (หรือใช้สีเทาเข้มก็ได้) */
+    z-index: 2; /* ให้กากบาทอยู่หน้าสุด */
+    transform-origin: center;
+}
+
+/* เส้นทแยงมุมเฉียงลง */
+.day-cell.closed-day::before {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* เส้นทแยงมุมเฉียงขึ้น */
+.day-cell.closed-day::after {
+    transform: translateY(-50%) rotate(-45deg);
+}
+    
         </style>
     </head>
 
     <body>
     <span id="navtool"></span>
-    <script src="nav.js"></script>
 
         <section class="schedule">
-            <div class="brand-header"></div>
+            <div class="brand-header"></div><section id="schedule-section">
+    <h2 class="homey-title" style="text-align: center;">Workshop Schedule & Shop Holidays</h2>
+    <div id="workshop-grid-container">
+        </div>
+</section>
             <div class="brand-tagline">"Let's make some sweet memories (and delicious messes) together."</div>
 
             <div class="month-nav" id="month-buttons"></div>
@@ -492,23 +498,7 @@
     <div class="container">
         <div class="row align-items-center text-center text-md-start">
             <div class="col-md-6 mb-4 mb-md-0">
-                <style>
-                    .footer-link {
-                        color: #f5e4af !important;
-                        text-decoration: none !important;
-                        display: block;
-                        margin-bottom: 1px;
-                        font-size: 11px;
-                        font-weight: 600;
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                        transition: 0.3s;
-                    }
-                    .footer-link:hover {
-                        padding-left: 5px;
-                        color: #ffffff !important;
-                    }
-                </style>
+
                 <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
                 <a href="about.html" class="footer-link">ABOUT US</a>
                 <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank">INSTAGRAM</a>
@@ -525,363 +515,159 @@
         </div>
     </div>
 </footer>
-        <script>
-            // --- 1. ข้อมูล Master Data (รวมทั้งปีที่นี่) ---
-            // month: 2 = มีนาคม, 4 = พฤษภาคม (นับ 0, 1, 2, 3, 4...)
-            const allWorkshops = [
-                // --- MARCH (month: 2) ---
-                {
-                    month: 2,
-                    date: 14,
-                    cat: "pastry",
-                    title: "BANANA CREAM PIE",
-                    dbTitle: "BANANA CREAM PIE",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/bananacreampie.jpg"
-                },
-                {
-                    month: 2,
-                    date: 18,
-                    cat: "pastry",
-                    title: "MATCHA MISO COOKIES",
-                    dbTitle: "MATCHA MISO MACADAMIA",
-                    price: "4,500",
-                    time: "14:00 – 16:00",
-                    img: "img/matchamiso-cookies.jpg"
-                },
-                {
-                    month: 2,
-                    date: 21,
-                    cat: "pastry",
-                    title: "CHA CHOUX",
-                    dbTitle: "CHA CHOUX",
-                    price: "5,000",
-                    time: "14:00 – 16:30",
-                    img: "img/choux01.jpg"
-                },
-                {
-                    month: 2,
-                    date: 28,
-                    cat: "chinese",
-                    title: "DUMPLING FOLDING CLUB",
-                    dbTitle: "DUMPLING FOLDING CLUB",
-                    price: "3,900",
-                    time: "Multiple Sessions",
-                    img: "img/dumpling02.jpg"
-                },
-                // --- APRIL (month: 3) ---
-                {
-                    month: 3,
-                    date: 4,
-                    cat: "pastry",
-                    title: "CARROT CAKE",
-                    price: "5,500",
-                    time: "14:00 – 16:30",
-                    img: "img/carrotcake.jpg"
-                },
-                {
-                    month: 3,
-                    date: 18,
-                    cat: "pastry",
-                    title: "EARL GREY CHOCOLATE TART",
-                    price: "12,000",
-                    time: "10:00 – 17:00",
-                    img: "img/earlgrey-chocotart.jpg"
-                },
-                {
-                    month: 3,
-                    date: 25,
-                    cat: "pastry",
-                    title: "BASQUE CHEESECAKE",
-                    price: "5,000",
-                    time: "14:00 – 16:30",
-                    img: "img/plainbasque02.jpg"
-                },
-                //---- MAY (month: 4) ------
-                {
-                    month: 4,
-                    date: 2,
-                    cat: "pastry",
-                    title: "APPLE CRUMBLES TART",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/applecrumbles-tart02.jpg"
-                },
-                {
-                    month: 4,
-                    date: 9,
-                    cat: "pastry",
-                    title: "HOMEMADE GRANOLA",
-                    price: "3,500",
-                    time: "14:00 – 15:30",
-                    img: "img/granola.jpg"
-                },
-                {
-                    month: 4,
-                    date: 13,
-                    cat: "pastry",
-                    title: "RYOKUCHA KUROGOMA CAKE",
-                    price: "12,000",
-                    time: "10:00 – 17:30",
-                    img: "img/ryokucha-goma02.jpg"
-                },
-                {
-                    month: 4,
-                    date: 16,
-                    cat: "pastry",
-                    title: "BASQUE CHEESECAKE",
-                    price: "5,000",
-                    time: "14:00 – 16:30",
-                    img: "img/plainbasque02.jpg"
-                },
-                {
-                    month: 4,
-                    date: 20,
-                    cat: "pastry",
-                    title: "BANANA CREAM PIE",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/bananacreampie.jpg"
-                },
-                {
-                    month: 4,
-                    date: 23,
-                    cat: "pastry",
-                    title: "TRIPLE CHOCO & PECAN COOKIES",
-                    price: "6,600",
-                    time: "14:00 – 16:00",
-                    img: "img/cookies.jpg"
-                },
-                {
-                    month: 4,
-                    date: 27,
-                    cat: "pastry",
-                    title: "TIRAMISU",
-                    price: "3,900",
-                    time: "14:00 – 16:00",
-                    img: "img/tiramisu-bowl.jpg"
-                },
-                {
-                    month: 4,
-                    date: 30,
-                    cat: "pastry",
-                    title: "MATCHA MISO MACADAMIA",
-                    price: "4,500",
-                    time: "14:00 – 16:00",
-                    img: "img/matchamiso-cookies.jpg"
-                },
-                //---- JUNE (month: 5) ------
-                {
-                    month: 5,
-                    date: 6,
-                    cat: "pastry",
-                    title: "ASSORTED COOKIES",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/parmesan-melt.jpg"
-                },
-                {
-                    month: 5,
-                    date: 10,
-                    cat: "pastry",
-                    title: "BANANA CREAM PIE",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/bananacreampie.jpg"
-                },
-                {
-                    month: 5,
-                    date: 13,
-                    cat: "pastry",
-                    title: "TIRAMISU",
-                    price: "3,900",
-                    time: "14:00 – 15:30",
-                    img: "img/tiramisu-bowl.jpg"
-                },
+<script src="nav.js"></script>
+<script src="workshop-data.js"></script> 
+<script>
 
-                {
-                    month: 5,
-                    date: 17,
-                    cat: "pastry",
-                    title: "PEANUT BUTTER BANANA CAKE",
-                    dbTitle: "PEANUT BUTTER BANANA",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/pb-bananacake.jpg"
-                },
-                {
-                    month: 5,
-                    date: 20,
-                    cat: "pastry",
-                    title: "BANANA CREAM PIE",
-                    price: "5,000",
-                    time: "14:00 – 17:00",
-                    img: "img/bananacreampie.jpg"
-                },
-                {
-                    month: 5,
-                    date: 24,
-                    cat: "pastry",
-                    title: "SPONGE LAB",
-                    price: "6,600",
-                    time: "14:00 – 16:00",
-                    img: "img/cookies.jpg"
-                },
-                {
-                    month: 5,
-                    date: 27,
-                    cat: "pastry",
-                    title: "APPLE CHEESE PUFF",
-                    price: "5,800",
-                    time: "14:00 – 17:00",
-                    img: "img/apple-cheesepuff.jpg"
-                },
-                {
-                    month: 6,
-                    date: 7,
-                    cat: "pastry",
-                    title: "MATCHA MISO MACADAMIA",
-                    price: "4,500",
-                    time: "14:00 – 16:00",
-                    img: "img/matchamiso-cookies.jpg"
-                                },
-                {
-                    month: 6,
-                    date: 14,
-                    cat: "pastry",
-                    title: "MATCHA MISO MACADAMIA",
-                    price: "4,500",
-                    time: "14:00 – 16:00",
-                    img: "img/matchamiso-cookies.jpg"
-                                    },
-                {
-                    month: 6,
-                    date: 28,
-                    cat: "pastry",
-                    title: "MATCHA MISO MACADAMIA",
-                    price: "4,500",
-                    time: "14:00 – 16:00",
-                    img: "img/matchamiso-cookies.jpg"}
-            ];
-
-let currentMonth = new Date().getMonth(); 
-
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const currentYear = 2026;
-            const monthNames = [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-            ];
 
+// ฟังก์ชันดึงค่าจาก URL
+function getMonthFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.has('m') ? parseInt(params.get('m')) : new Date().getMonth();
+}
+
+let currentMonth = getMonthFromURL();
 
 function renderMonthButtons() {
     const nav = document.getElementById("month-buttons");
-    nav.innerHTML = monthNames
-        .map(
-            (name, index) => `
-    <button id="btn-month-${index}" class="month-btn ${index === currentMonth ? "active" : ""}" onclick="changeMonth(${index})">
-        ${name.substring(0, 3).toUpperCase()}
-    </button>
-`
-        )
-        .join("");
+    nav.innerHTML = monthNames.map((name, index) => `
+        <button id="btn-month-${index}" class="month-btn ${index === currentMonth ? "active" : ""}" onclick="changeMonth(${index})">
+            ${name.substring(0, 3).toUpperCase()}
+        </button>
+    `).join("");
 
-    // เพิ่มบรรทัดนี้: ให้เลื่อนไปหาปุ่มเดือนปัจจุบันอัตโนมัติ (เผื่อกรณีปุ่มล้นจอ)
     const activeBtn = document.getElementById(`btn-month-${currentMonth}`);
     if (activeBtn) {
         activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 }
-            function changeMonth(m) {
-                currentMonth = m;
-                renderMonthButtons();
-                updateDisplay();
-            }
 
-            function updateDisplay() {
-                document.getElementById("display-month-name").innerText = monthNames[currentMonth];
-                const filteredData = allWorkshops.filter((ws) => ws.month === currentMonth);
-                renderCalendar(filteredData);
-                renderCards(filteredData);
-            }
-
-            function renderCalendar(data) {
-                const grid = document.getElementById("calendar-grid");
-                let html = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-                    .map((d) => `<div class="calendar-day-head">${d}</div>`)
-                    .join("");
-
-                const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-                const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-                for (let x = 0; x < firstDay; x++) html += `<div class="day-cell other-month"></div>`;
-
-                for (let i = 1; i <= daysInMonth; i++) {
-                    const ws = data.find((w) => w.date === i);
-                    let hasClass = "",
-                        spanClass = "",
-                        clickFn = "";
-                    if (ws) {
-                        hasClass = "has-workshop";
-                        spanClass = "bg-" + ws.cat;
-                        clickFn = `onclick="window.location.href='workshop-detail.html?menu=${ws.title.replace("&", "%26")}&date=${i}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}'"`;
-                    }
-                    html += `<div class="day-cell ${hasClass}" ${clickFn}><span class="${spanClass}">${i}</span></div>`;
-                }
-                grid.innerHTML = html;
-            }
-
-      function renderCards(data) {
-                const container = document.getElementById("workshop-cards-container");
-                
-                if (data.length === 0) {
-                    container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">No workshops scheduled for this month.</p>`;
-                    return;
-                }
-
-               container.innerHTML = data.sort((a, b) => a.date - b.date).map(ws => {
-                const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'short' })
-                    .format(new Date(currentYear, currentMonth, ws.date)).toUpperCase();
-                const url = `workshop-detail.html?menu=${encodeURIComponent(ws.title)}&date=${ws.date}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}`;
-
-                return `
-                            <a href="workshop-detail.html?menu=${ws.title.replace("&", "%26")}&date=${ws.date}%20${monthNames[currentMonth].toUpperCase()}&price=${ws.price}" class="workshop-card">
-                                <div class="card-image" style="background-image: url('${ws.img}')"></div>
-                                <div class="card-content">
-                                    <div class="date-zone">
-                                        <div class="date-circle bg-${ws.cat}">${ws.date}</div>
-                                        <div class="day-name">${dayName}</div>
-                                    </div>
-                                    
-                                    <div class="card-details">
-                                        <h2>${ws.title}</h2>
-                                        <p class="time">${ws.time}</p>
-                                        <p class="price"><strong>${ws.price}.-</strong></p>
-                                    </div>
-                                </div>
-                            </a>
-                        `;
-                    })
-                    .join("");
-            }
-
-            window.onload = init;
-            function init() {
-    addNavTool(); // เรียก Nav ก่อน
+function changeMonth(m) {
+    currentMonth = m;
+    const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?m=' + m;
+    window.history.pushState({ path: newurl }, '', newurl);
     renderMonthButtons();
     updateDisplay();
 }
-        </script>
+
+function updateDisplay() {
+    // แสดงชื่อเดือนบนหัวข้อ
+    document.getElementById("display-month-name").innerText = monthNames[currentMonth];
+    
+    // กรองข้อมูล
+    const filteredData = allWorkshops.filter((ws) => ws.month === currentMonth);
+    
+    // --- จุดเช็คของ ---
+    console.log("กำลังดูเดือนที่:", currentMonth); // เช็คใน F12 ว่าเลขอะไรขึ้น
+    console.log("ข้อมูลที่กรองได้:", filteredData); 
+
+    renderCalendar(filteredData);
+    renderCards(filteredData);
+}
+
+function renderCalendar(data) {
+    const grid = document.getElementById("calendar-grid");
+    let html = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        .map((d) => `<div class="calendar-day-head">${d}</div>`).join("");
+
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+    // ส่วนที่ 1: เติมช่องว่างเดือนก่อนหน้า
+    for (let x = 0; x < firstDay; x++) html += `<div class="day-cell other-month"></div>`;
+
+    // ส่วนที่ 2: สร้างวันที่ 1 จนถึงสิ้นเดือน
+    for (let i = 1; i <= daysInMonth; i++) {
+        // ค้นหา Workshop หรือวันหยุดที่ตรงกับวันที่ i (รองรับทั้งวันเดียวและช่วงวันที่ endDate)
+        const ws = allWorkshops.find((w) => {
+            if (w.month !== currentMonth) return false;
+            if (w.endDate) {
+                return i >= w.date && i <= w.endDate;
+            }
+            return w.date === i;
+        });
+
+        let hasClass = "", spanClass = "", clickFn = "";
+
+if (ws) {
+    if (ws.showInCard === false) {
+        // --- ส่วนที่แก้: ถ้าเป็นวันหยุด ให้ใช้สีเทา (bg-closed) ---
+        spanClass = "bg-closed"; 
+        hasClass = "closed-day"; // เพิ่ม class เพื่อให้กดไม่ได้
+        clickFn = "";            // ไม่ให้มีคำสั่งคลิก
+    } else {
+        // --- ส่วนของ Workshop ปกติ ---
+        hasClass = "has-workshop";
+        spanClass = "bg-" + (ws.cat || "pastry");
+        const encodedTitle = encodeURIComponent(ws.title);
+        const formattedDate = `${i}%20${monthNames[currentMonth].toUpperCase()}`;
+        clickFn = `onclick="window.location.href='workshop-detail.html?menu=${encodedTitle}&date=${formattedDate}&price=${ws.price}'"`;
+    }
+}
+
+        html += `<div class="day-cell ${hasClass}" ${clickFn}><span class="${spanClass}">${i}</span></div>`;
+    }
+    grid.innerHTML = html;
+}
+
+function renderCards(data) {
+    const container = document.getElementById("workshop-cards-container");
+    
+    // กรองเอาเฉพาะตัวที่ไม่ได้สั่งซ่อนการ์ด (showInCard !== false)
+    const displayData = data.filter(ws => ws.showInCard !== false);
+
+    if (!displayData || displayData.length === 0) {
+        container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">No workshops scheduled.</p>`;
+        return;
+    }
+
+    // ใช้ displayData แทน data เดิมในการแสดงผล
+    container.innerHTML = displayData.sort((a, b) => a.date - b.date).map(ws => {
+        const db = (typeof workshopDatabase !== 'undefined') ? workshopDatabase : {};
+        const extraInfo = db[ws.title] || { 
+            price: ws.price || "N/A", 
+            image: ws.img || "img/default.jpg", 
+            chef: ws.cat || "pastry" 
+        };
         
+        const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'short' })
+            .format(new Date(currentYear, currentMonth, ws.date)).toUpperCase();
+        
+        return `
+            <a href="workshop-detail.html?menu=${encodeURIComponent(ws.title)}&date=${ws.date}%20${monthNames[currentMonth].toUpperCase()}&price=${extraInfo.price}" class="workshop-card">
+                <div class="card-image" style="background-image: url('${extraInfo.image}')"></div>
+                <div class="card-content">
+                    <div class="date-zone">
+                        <div class="date-circle bg-${extraInfo.chef}">${ws.date}</div>
+                        <div class="day-name">${dayName}</div>
+                    </div>
+                    <div class="card-details">
+                        <h2>${ws.title}</h2>
+                        <p class="time">${ws.time}</p>
+                        <p class="price"><strong>${extraInfo.price}.-</strong></p>
+                    </div>
+                </div>
+            </a>`;
+    }).join("");
+}
+
+// จัดการการกดปุ่ม Back/Forward ของ Browser
+window.onpopstate = function() {
+    currentMonth = getMonthFromURL();
+    renderMonthButtons();
+    updateDisplay();
+};
+
+// สั่งทำงานตอนโหลดหน้าแรก
+function init() {
+        addNavTool();
+    renderMonthButtons();
+    updateDisplay();
+}
+
+    document.addEventListener('DOMContentLoaded', init);
+        </script>
     </body>
 </html>
