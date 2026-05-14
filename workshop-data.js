@@ -183,7 +183,19 @@ const workshopDatabase = {
             isSession: true,
             sessions: ["10:00 - 13:00", "14:00 - 17:00"],
             gallery: ["img/champ-japanesesummer02.jpg", "img/champ-japanesesummer03.jpg", "img/champ-japanesesummer.jpg", "img/champ-japanesesummer04.jpg"]
-        }                  // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
+        },
+        "ASSORTED COOKIES": {
+            chef: "pastry",
+            category: "EASY BAKING",
+            subtitle: "คุกกี้สาระพัดรส ทำก็สนุกกินก็อาโหร่ยยยย",
+            about: ["คุกกี้รสขายดีเวอร์ชั่น 2 "],
+            learning: ["purple sweet potato parmesan melt away cookies","earl grey passionfruit sandwich cookies", "hazelnut pinwheel cookies"
+            ],
+            image: "img/assortedver02.jpg",
+            price: 5000,
+            time: "14:00 – 17:00",
+            gallery: ["img/parmesan-melt.jpg", "img/champ-japanesesummer03.jpg", "img/champ-japanesesummer.jpg", "img/champ-japanesesummer04.jpg"]
+        }               // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
 };
     const allWorkshops = [
     // --- MARCH (month: 2) ---
@@ -195,13 +207,13 @@ const workshopDatabase = {
     { month: 3, date: 4, cat: "pastry", title: "CARROT CAKE", price: "5,500", time: "14:00 – 16:30", img: "img/carrotcake.jpg" },
     { month: 3, date: 18, cat: "pastry", title: "EARL GREY CHOCOLATE TART", price: "12,000", time: "10:00 – 17:00", img: "img/earlgrey-chocotart.jpg" },
     { month: 3, date: 24, cat: "chinese", title: "DUMPLING FOLDING CLUB", price: "3,900", time: "Multiple Sessions", img: "img/dumpling02.jpg" },
-    { month: 3, date: 25, cat: "pastry", title: "BASQUE CHEESECAKE", price: "5,000", time: "14:00 – 16:30", img: "img/plainbasque02.jpg" },
+    { month: 3, date: 25, cat: "pastry", title: "BASQUE CHEESECAKE", price: "5,500", time: "14:00 – 16:30", img: "img/plainbasque02.jpg" },
      
         // --- MAY (month: 4) ---
     { month: 4, date: 2, cat: "pastry", title: "APPLE CRUMBLES TART", price: "5,000", time: "14:00 – 17:00", img: "img/applecrumbles-tart02.jpg" },
     { month: 4, date: 9, cat: "pastry", title: "HOMEMADE GRANOLA", price: "3,500", time: "14:00 – 15:30", img: "img/granola.jpg" },
     { month: 4, date: 13, cat: "pastry", title: "RYOKUCHA KUROGOMA CAKE", price: "12,000", time: "10:00 – 17:30", img: "img/ryokucha-goma02.jpg" },
-    { month: 4, date: 16, cat: "pastry", title: "BASQUE CHEESECAKE", price: "5,000", time: "14:00 – 16:30", img: "img/plainbasque02.jpg" },
+    { month: 4, date: 16, cat: "pastry", title: "BASQUE CHEESECAKE", price: "5,500", time: "14:00 – 16:30", img: "img/plainbasque02.jpg" },
     { month: 4, date: 20, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
     { month: 4, date: 23, cat: "japanese", title: "JAPANESE SUMMER MENU", price: "4200", time: "Multiple Sessions", img: "img/japanesews.jpg" },
     { month: 4, date: 27, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 16:00", img: "img/tiramisu-bowl.jpg" },
