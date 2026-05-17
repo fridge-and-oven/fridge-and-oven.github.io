@@ -195,7 +195,32 @@ const workshopDatabase = {
             price: 5000,
             time: "14:00 – 17:00",
             gallery: ["img/parmesan-melt.jpg", "img/champ-japanesesummer03.jpg", "img/champ-japanesesummer.jpg", "img/champ-japanesesummer04.jpg"]
-        }               // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
+        },
+        "SPONGE LAB": {
+            chef: "pastry",
+            category: "EXPERIMENTAL BAKING",
+            subtitle: "Pure & Fluffy: เบสิกบัตเตอร์และสปันจ์เค้กไร้สารเสริม สไตล์ Fridge and Oven",
+            about: ["มาทำสปันจ์ขั้นพื้นฐานด้วยกันจ้า สปันจ์ที่มีทักษะและสูตรไว้อุ่นใจแน่นอน คลาสแรกรุ่นทดลองราคาพิเศษจ้า  คลาสเรียนนี้เราจะมาทำ -เนื้อเค้กเบสิก- ให้ออกมานุ่ม ฟู เบาสบาย โดยไม่พึ่งสารเสริมสังเคราะห์ (No SP/Ovalet) 100%! เรียนรู้และเข้าใจวิทยาศาสตร์เบเกอรี่ผ่าน 3 กลไกการขึ้นฟูจากวัตถุดิบธรรมชาติ"],
+            learning: ["Classic Butter Cake (Hands-on): เทคนิคการตีเนยสดให้ดักจับอากาศ เนื้อแน่นฉ่ำ หอมละมุน","Separate-Egg Soft Sponge (Hands-on): เทคนิคการแยกตีเมอแรงค์ธรรมชาติ เพื่อเนื้อสัมผัสนุ่มเด้ง เบาสบายสไตล์เอเชีย", "Traditional Genoise (Chef’s Demo): สปันจ์ดั้งเดิมสไตล์ฝรั่งเศส กับการตีกระตุ้นไข่ด้วยความร้อน (Bain-Marie)", "Pain de Gêne (Chef’s Demo): สปันจ์อัลมอนด์เพสต์เนื้อฉ่ำนุ่มนวลหอมมันนนนน"
+            ],
+            image: "img/spongelab-genoise.jpg",
+            price: 6900,
+            time: "14:00 – 18:00",
+            gallery: ["img/spongelab-genoise.jpg", "img/spongelab-buttercake.jpg", "img/spongelab-almondpaste.jpg", "img/spongelab-chiffon.jpg"],
+            extra: "**ในคลาสจะมีแค่การทำสปันจ์นะคะ ไม่ได้ทำจนได้ออกมาเป็นเมนูเค้กค่ะ ภาพเป็นแค่ตัวอย่างสปันจ์รูปแบบต่างๆค่ะ"
+        },
+        "HAZELNUT PARIS-BREST": {
+            chef: "pastry",
+            category: "CLASSIC FRENCH",
+            subtitle: "ขนมฝรั่งเศสสุดคลาสสิกที่เป้นที่รักของครอบครัวเราเอง",
+            about: ["coming soon"],
+            learning: ["coming soon"],
+            image: "img/hazelnut-parisbrest02.jpg",
+            price: 5500,
+            time: "14:00 – 18:00",
+            gallery: ["img/hazelnut-parisbrest03.jpg", "img/hazelnut-parisbrest04.jpg"],
+            extra: "**รับวงล้อฝีมือตัวเองขนาด 1 ปอนด์กลับไปซิ่งได้เลยจ้า สามารถรักโลกได้ด้วยการเตรียมกล่องและถุงเย็นมาเพื่อพาน้องกลับบ้าน หรือใครจะไปเที่ยวไหนต่อยาวๆแนะนำให้พกกล่องโฟมติดรถไว้จ้า"
+        } // // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
 };
     const allWorkshops = [
     // --- MARCH (month: 2) ---
@@ -223,9 +248,16 @@ const workshopDatabase = {
     { month: 5, date: 10, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
     { month: 5, date: 13, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 15:30", img: "img/tiramisu-bowl.jpg" },
     { month: 5, date: 17, cat: "pastry", title: "PEANUT BUTTER BANANA CAKE", price: "5,000", time: "14:00 – 17:00", img: "img/pb-bananacake.jpg" },
-    { month: 5, date: 20, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
-    { month: 5, date: 24, cat: "pastry", title: "SPONGE LAB", price: "6,600", time: "14:00 – 16:00", img: "img/cookies.jpg" },
-    { month: 5, date: 27, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg" },
+    { month: 5, date: 20, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg"},
+    { month: 5, date: 27, cat: "pastry", title: "SPONGE LAB", price: "6,900", time: "10:00 – 18:00", img: "img/cookies.jpg" },
+        // --- JULY (month: 6) ---
+    { month: 6, date: 4, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:00", img: "img/parmesan-melt.jpg" },
+    { month: 6, date: 11, cat: "pastry", title: "MATCHA MISO MACADAMIA", price: "4,500", time: "14:00 – 16:00", img: "img/matchamiso-cookies.jpg" },
+    { month: 6, date: 15, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 15:30", img: "img/tiramisu-bowl.jpg" },
+    { month: 6, date: 18, cat: "pastry", title: "HAZELNUT PARIS-BREST", price: "5,500", time: "14:00 – 17:00", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 6, date: 29, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
+    { month: 6, date: 22, cat: "pastry", title: "SPONGE LAB", price: "6,900", time: "10:00 – 18:00", img: "img/spongelab-genoise.jpg" },
+    { month: 6, date: 29, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg" },
 { 
     month: 3, 
     date: 10, 
