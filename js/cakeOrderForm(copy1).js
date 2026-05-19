@@ -52,11 +52,19 @@ function order() {
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
     var sizeElement = document.getElementById('size').value;
-    var size = sizeElement.value;
+    //var size = sizeElement.value;
     var amount = parseInt(document.getElementById('amount').value) || 1;
     
     // --- ส่วนคำนวณราคาและส่วนลด ---
-    var pricePerUnit = parseFloat(sizeElement.options[sizeElement.selectedIndex].getAttribute('data-price')) || 0;
+    var pricepu = sizeElement.match(/([\d,.]+)(?=-\.)/);
+    var pricePerUnit = 0;
+    if (pricepu) {
+  // 2. Remove the comma from "2,990" and convert to an actual number
+      pricePerUnit = Number(pricepu[1].replace(/,/g, ''));
+
+      console.log(num); // 2990
+    }
+    //parseFloat(sizeElement.options[sizeElement.selectedIndex].getAttribute('data-price')) || 0;
     var totalPrice = pricePerUnit * amount;
     var discountDetail = "";
 
@@ -103,3 +111,4 @@ ${locationDetail}`;
     var message = encodeURIComponent(rawMessage);
     window.open(url + message);
 }
+window.onload = setCake();
