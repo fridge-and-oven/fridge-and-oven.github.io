@@ -54,7 +54,7 @@ function order() {
     var sizeElement = document.getElementById('size').value;
     //var size = sizeElement.value;
     var amount = parseInt(document.getElementById('amount').value) || 1;
-    
+    console.log(sizeElement);
     // --- ส่วนคำนวณราคาและส่วนลด ---
     var pricepu = sizeElement.match(/([\d,.]+)(?=-\.)/);
     var pricePerUnit = 0;
@@ -62,7 +62,7 @@ function order() {
   // 2. Remove the comma from "2,990" and convert to an actual number
       pricePerUnit = Number(pricepu[1].replace(/,/g, ''));
 
-      console.log(num); // 2990
+      console.log(pricePerUnit); // 2990
     }
     //parseFloat(sizeElement.options[sizeElement.selectedIndex].getAttribute('data-price')) || 0;
     var totalPrice = pricePerUnit * amount;
