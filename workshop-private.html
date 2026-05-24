@@ -1,248 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>May Workshops - Fridge and Oven</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description" content="Baking & Pastry Workshops by Fridge and Oven" />
+        <title>Workshops - Fridge and Oven</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
 
-    <style>
-        body { margin: 0; background: #f4f1e8; font-family: "Inter", sans-serif; color: #222; }
-        .schedule { max-width: 1000px; margin: 60px auto; padding: 0 15px; position: relative; }
-        .brand-side { position: absolute; right: -120px; top: 30px; text-align: right; color: #c62828; font-weight: 600; font-size: 14px; line-height: 1.7; }
-        .month { font-family: "Playfair Display", serif; font-size: clamp(45px, 8vw, 80px); color: #1481de; margin-bottom: 20px; }
-
-        /* CALENDAR SYSTEM */
-        .calendar-container { background: #f4f1e8; border: 2px solid #1481de; border-radius: 20px; padding: 20px; margin: 30px 0 20px 0; }
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #1481de; border: 1px solid #1481de; border-radius: 12px; overflow: hidden; }
-        .calendar-day-head { background: #1481de; padding: 12px 0; text-align: center; font-weight: 700; font-size: 11px; color: #f4f1e8; text-transform: uppercase; }
-        .day-cell { background: #f4f1e8; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; position: relative; }
-        .day-cell.other-month { background: #fdfcf9 !important; }
-        .day-cell span { font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: 0.3s; }
-        .day-cell.has-workshop { cursor: pointer; }
-        .day-cell.has-workshop span { color: #ffffff !important; background-color: #1481de; }
-        .day-cell.has-workshop:hover span { transform: scale(1.1); background-color: #b51c33; }
-
-        /* LEGEND */
-        .calendar-legend { display: flex; gap: 20px; margin-bottom: 40px; font-size: 12px; font-weight: 600; color: #666; justify-content: flex-start; padding-left: 10px; }
-        .legend-item { display: flex; align-items: center; gap: 8px; }
-        
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .dot.blue { background: #1481de; }
-
-        /* WORKSHOP GRID */
-        .workshop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(10px, 2vw, 20px); }
-        @media (min-width: 900px) { .workshop-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; } }
-
-        .workshop-card { display: block; text-decoration: none; color: inherit; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); transition: 0.3s; border: none !important; padding: 0 !important; }
-        .workshop-card:hover { transform: translateY(-5px); }
-        .card-image { width: 100%; height: clamp(100px, 15vw, 180px); background-size: cover; background-position: center; display: block; }
-        .card-content { padding: clamp(10px, 2vw, 15px); display: flex; align-items: flex-start; gap: clamp(8px, 1.5vw, 12px); }
-        
-        .date-zone { flex-shrink: 0; text-align: center; width: clamp(35px, 10vw, 45px); }
-        .date-circle { width: clamp(35px, 9vw, 42px); height: clamp(35px, 9vw, 42px); color: white; background: #1481de; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: clamp(14px, 4vw, 18px); }
-        .day-name { font-size: clamp(9px, 2.5vw, 11px); font-weight: 700; color: #1481de; margin-top: 4px; }
-        
-        .card-details { flex-grow: 1; min-width: 0; }
-        .card-details h2 { font-family: "Playfair Display", serif; font-size: clamp(14px, 4vw, 18px); margin: 0; line-height: 1.2; text-transform: uppercase; }
-        .card-details .time { font-size: clamp(10px, 2.8vw, 12px); margin-top: 4px; color: #666; }
-        .card-details .price { font-size: clamp(11px, 3vw, 13px); margin-top: 2px; font-weight: 600; }
-
-        /* CATEGORY COLORS */
-        .bg-pastry { background-color: #b3262e !important; }   /* แดง */
-        .bg-japanese { background-color: #2f8f44 !important; } /* เขียว */
-        .bg-chinese { background-color: #ffc574 !important; }  /* ส้ม/เหลือง */
-
-        /* ปรับแต่งจุดใน Legend */
-        .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
-
-        .divider { margin: 25px 0; }
-        .info-footer { margin-top: 40px; text-align: right; border-top: 2px solid #1481de; padding-top: 15px; font-size: 13px; }
-        @media (max-width: 900px) { .brand-side { display: none; } }
-    </style>
-</head>
-
-<body>
-    <span id="navtool"></span>
-
-    <section class="schedule">
-        <div class="brand-side">FRIDGE<br />AND<br />OVEN</div>
-        <h1 class="month">MAY</h1>
-
-        <div class="divider">
-            <svg viewBox="0 0 1440 20">
-                <path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10"
-                    stroke="#1481de" stroke-width="4" fill="none" />
-            </svg>
-        </div>
-
-        <div id="calendar-section" class="calendar-container">
-            <div class="calendar-grid"></div>
-<div class="legend-section" style="display: flex; justify-content: left; flex-wrap: wrap; gap: 20px; margin-top: 15px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-    <div class="legend-item"><span class="dot bg-pastry"></span><span>Pastry</span></div>
-    <div class="legend-item"><span class="dot bg-japanese"></span><span>Japanese</span></div>
-    <div class="legend-item"><span class="dot bg-chinese"></span><span>Chinese</span></div>
-</div>
-
-        </div>
-
-
-        <div class="workshop-grid">
-            <a href="workshop-detail.html?menu=APPLE CRUMBLES TART&date=2 MAY&price=5,000" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/applecrumbles-tart02.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">2</div><div class="day-name">SAT</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-fruit">APPLE CRUMBLES TART</h2>
-                        <p class="time">14:00 – 17:00</p>
-                        <p class="price">5,000.-</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="workshop-detail.html?menu=HOMEMADE GRANOLA&date=9 MAY&price=3,500" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/granola.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">9</div><div class="day-name">SAT</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-classic">HOMEMADE GRANOLA</h2>
-                        <p class="time">14:00 – 15:30</p>
-                        <p class="price">3,500.-</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="workshop-detail.html?menu=RYOKUCHA KUROGOMA CAKE&date=13 MAY&price=12,000" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/ryokucha-goma02.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">13</div><div class="day-name">WED</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-advanced">RYOKUCHA KUROGOMA CAKE</h2>
-                        <p class="time">10:00 – 17:30</p>
-                        <p class="price">12,000.-</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="workshop-detail.html?menu=BASQUE CHEESECAKE&date=16 MAY&price=5,000" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/plainbasque02.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">16</div><div class="day-name">SAT</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-classic">BASQUE CHEESECAKE</h2>
-                        <p class="time">14:00 – 16:30</p>
-                        <p class="price">5,000.-</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="workshop-detail.html?menu=BANANA CREAM PIE&date=20 MAY&price=5,000" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/bananacreampie.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">20</div><div class="day-name">WED</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-fruit">BANANA CREAM PIE</h2>
-                        <p class="time">14:00 – 17:00</p>
-                        <p class="price">5,000.-</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="workshop-detail.html?menu=TRIPLE CHOCO %26 PECAN COOKIES&date=23 MAY&price=6,600" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/cookies.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">23</div><div class="day-name">SAT</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-classic">TRIPLE CHOCO & PECAN</h2>
-                        <p class="time">14:00 – 16:00</p>
-                        <p class="price">6,600.-</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="workshop-detail.html?menu=TIRAMISU&date=27 MAY&price=3,900" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/tiramisu-bowl.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">27</div><div class="day-name">WED</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-advanced">TIRAMISU</h2>
-                        <p class="time">14:00 – 16:00</p>
-                        <p class="price">3,900.-</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="workshop-detail.html?menu=MATCHA MISO MACADAMIA&date=30 MAY&price=4,500" class="workshop-card">
-                <div class="card-image" style="background-image: url('img/matchamiso-cookies.jpg')"></div>
-                <div class="card-content">
-                    <div class="date-zone"><div class="date-circle bg-pastry">30</div><div class="day-name">SAT</div></div>
-                    <div class="card-details">
-                        <h2 class="cat-advanced">MATCHA MISO MACADAMIA</h2>
-                        <p class="time">14:00 – 16:00</p>
-                        <p class="price">4,500.-</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="info-footer">
-            <p>Number of Participants: <strong>4 / CLASS</strong></p>
-            <p>More Info: LINE OA @fridgeandoven</p>
-        </div>
-    </section>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="nav.js"></script>
-
-    <script>
-const workshopsData = [
-            { date: 2, cat: "pastry", title: "APPLE CRUMBLES TART", price: "5,000" },
-            { date: 9, cat: "pastry", title: "HOMEMADE GRANOLA", price: "3,500" },
-            { date: 13, cat: "pastry", title: "RYOKUCHA KUROGOMA CAKE", price: "12,000" },
-            { date: 16, cat: "pastry", title: "BASQUE CHEESECAKE", price: "5,000" },
-            { date: 20, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000" },
-            { date: 23, cat: "pastry", title: "TRIPLE CHOCO & PECAN COOKIES", price: "6,600" },
-            { date: 27, cat: "pastry", title: "TIRAMISU", price: "3,900" },
-            { date: 30, cat: "pastry", title: "MATCHA MISO MACADAMIA", price: "4,500" }
-        ];
-
-function renderCalendar() {
-            const grid = document.querySelector(".calendar-grid");
-            if (!grid) return;
-
-            let html = '<div class="calendar-day-head">Sun</div><div class="calendar-day-head">Mon</div><div class="calendar-day-head">Tue</div><div class="calendar-day-head">Wed</div><div class="calendar-day-head">Thu</div><div class="calendar-day-head">Fri</div><div class="calendar-day-head">Sat</div>';
-
-            const firstDay = new Date(2026, 4, 1).getDay();
-            for (let x = 0; x < firstDay; x++) { html += `<div class="day-cell other-month"></div>`; }
-
-            for (let i = 1; i <= 31; i++) {
-                const ws = workshopsData.find((w) => w.date === i);
-                let hasClass = "", clickFn = "", spanClass = "";
-
-                if (ws) {
-                    hasClass = "has-workshop";
-                    // ดึงชื่อ class สี (bg-pastry ฯลฯ) มาใส่ในวงกลม
-                    spanClass = "bg-" + ws.cat; 
-                    const safeTitle = ws.title.replace('&', '%26');
-                    const detailUrl = `workshop-detail.html?menu=${safeTitle}&date=${i}%20MAY&price=${ws.price}`;
-                    clickFn = `onclick="window.location.href='${detailUrl}'"`;
-                }
-                html += `<div class="day-cell ${hasClass}" ${clickFn}><span class="${spanClass}">${i}</span></div>`;
+        <style>
+            :root {
+                --primary-red: #b3262e;
+                --cream-bg: #f4f1e8;
+                --accent-green: #2f8f44;
+                --chinese-yellow: #ffc574;
+                --pure-white: #ffffff;
+                --dark-charcoal: #222222;
+                --soft-blue-gray: #d4e2f4; 
             }
-            grid.innerHTML = html;
-        }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            renderCalendar();
-            if (typeof addNavTool === "function") addNavTool();
-        });
-    </script>
-</body>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: var(--cream-bg);
+                font-family: "Inter", sans-serif;
+                color: var(--dark-charcoal);
+            }
+
+            /* --- GLOBAL NAVIGATION HEADER --- */
+            header {
+                background-color: var(--primary-red);
+                padding: 22px 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 3px solid var(--dark-charcoal);
+                position: relative;
+                z-index: 10;
+            }
+
+            .logo {
+                font-family: "Playfair Display", serif;
+                font-weight: 900;
+                font-size: 28px;
+                color: var(--cream-bg);
+                text-decoration: none;
+                letter-spacing: 0.5px;
+            }
+
+            .logo:hover { color: #f5e4af; text-decoration: none; }
+
+            /* --- SECTION 1: ASYMMETRIC HERO AREA --- */
+            .hero-asymmetric-section {
+                display: grid;
+                grid-template-columns: 1fr 1.1fr;
+                border-bottom: 3px solid var(--primary-red);
+                background-color: #fffcf7;
+            }
+
+            /* ฝั่งซ้าย: พื้นหลังลายทางแนวตั้ง + กรอบรูปมนเด่นๆ */
+            .hero-stripes-side {
+                background: repeating-linear-gradient(
+                    90deg,
+                    var(--soft-blue-gray),
+                    var(--soft-blue-gray) 20px,
+                    var(--pure-white) 20px,
+                    var(--pure-white) 40px
+                );
+                padding: 60px 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-right: 3px solid var(--primary-red);
+            }
+
+            .hero-image-frame {
+                width: 100%;
+                max-width: 400px;
+                aspect-ratio: 0.8 / 1;
+                background-image: url('img/hero-waffle.jpg'); /* ใส่รูปบรรยากาศทำขนมหรือรูปขนมสวยๆ */
+                background-size: cover;
+                background-position: center;
+                border: 3px solid var(--primary-red);
+                border-radius: 40px; 
+                box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            }
+
+            /* ฝั่งขวา: ข้อความพาดหัว และรายละเอียด */
+            .hero-text-side {
+                padding: 80px 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+            }
+
+            .hero-text-side h1 {
+                font-family: "Playfair Display", serif;
+                font-weight: 700;
+                font-size: clamp(32px, 4.5vw, 48px);
+                color: var(--primary-red);
+                line-height: 1.2;
+                margin-bottom: 24px;
+            }
+
+            .hero-text-side p {
+                font-size: 15px;
+                line-height: 1.6;
+                color: #555;
+                max-width: 500px;
+                margin-bottom: 30px;
+            }
+
+            .capsule-btn {
+                display: inline-block;
+                align-self: flex-start;
+                background-color: var(--soft-blue-gray);
+                color: var(--primary-red);
+                font-weight: 700;
+                font-size: 12px;
+                padding: 10px 24px;
+                border-radius: 50px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border: 1.5px solid var(--primary-red);
+                text-decoration: none;
+                transition: all 0.2s ease;
+            }
+
+            .capsule-btn:hover {
+                background-color: var(--primary-red);
+                color: var(--cream-bg);
+                text-decoration: none;
+            }
+
+            /* --- MIDDLE RIBBON BANNER --- */
+            .middle-ribbon {
+                background-color: #a70b0b; 
+                color: var(--pure-white);
+                text-align: center;
+                padding: 12px 20px;
+                font-weight: 700;
+                font-size: 12px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                border-bottom: 3px solid var(--primary-red);
+            }
+
+            /* --- SECTION 2: PARALLEL MISSION BOXES --- */
+            .mission-boxes-section {
+                background-color: #f5e4af; 
+                padding: 60px 40px;
+                border-bottom: 3px solid var(--dark-charcoal);
+            }
+
+            .mission-container {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .intro-card {
+                background-color: var(--cream-bg);
+                border-radius: 20px;
+                padding: 40px;
+                border: 2px solid var(--dark-charcoal);
+            }
+
+            .intro-card h2 {
+                font-family: "Playfair Display", serif;
+                font-style: italic;
+                font-weight: 700;
+                color: var(--primary-red);
+                font-size: 28px;
+                margin-bottom: 15px;
+                border-bottom: 1.5px solid rgba(179, 38, 46, 0.2);
+                padding-bottom: 10px;
+            }
+
+            .intro-card p {
+                font-size: 18px;
+                line-height: 1.6;
+                color: #444;
+                margin: 0;
+            }
+
+            /* --- SECTION 3: WAYS TO SUPPORT ZONE (ปรับเป็นไฮไลท์คลาสเรียน) --- */
+            .support-zone {
+                padding: 80px 20px;
+                background-color: var(--cream-bg);
+                border-bottom: 2px dashed rgba(179, 38, 46, 0.2);
+            }
+
+            .support-zone-title {
+                font-family: "Playfair Display", serif;
+                font-style: italic;
+                font-weight: 700;
+                color: var(--primary-red);
+                text-align: center;
+                font-size: 38px;
+                margin-bottom: 45px;
+            }
+
+            .support-grid {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+
+            .support-card {
+                background-color: #e8f0fa; 
+                border: 2px solid var(--primary-red);
+                border-radius: 16px;
+                padding: 25px;
+                display: flex;
+                gap: 20px;
+                align-items: flex-start;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .support-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 20px rgba(179, 38, 46, 0.1);
+            }
+
+            .support-icon {
+                width: 60px;
+                height: 60px;
+                background-color: var(--pure-white);
+                border: 1.5px solid var(--primary-red);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .support-content h3 {
+                font-family: "Playfair Display", serif;
+                color: var(--primary-red);
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0 0 8px 0;
+            }
+
+            .support-content p {
+                font-size: 15px;
+                line-height: 1.5;
+                color: #555;
+                margin-bottom: 12px;
+            }
+
+            .card-meta-tags {
+                display: flex;
+                gap: 15px;
+                font-size: 18px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #666;
+            }
+
+            /* --- CALENDAR & WORKSHOP SCHEDULE SECTION --- */
+            .calendar-section {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 80px 20px;
+            }
+
+            .calendar-section-title {
+                font-family: "Playfair Display", serif;
+                font-style: italic;
+                font-weight: 700;
+                color: var(--primary-red);
+                text-align: center;
+                font-size: 38px;
+                margin-bottom: 35px;
+            }
+
+            /* --- GLOBAL FOOTER --- */
+            .footer-custom {
+                background-color: var(--primary-red);
+                color: #f5e4af;
+                padding: 40px 0;
+                border-top: 3px solid var(--dark-charcoal);
+            }
+
+            .footer-logo-box {
+                border: 2px solid #f5e4af;
+                padding: 12px 24px;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .footer-link {
+                color: #f5e4af !important;
+                text-decoration: none !important;
+                display: block;
+                margin-bottom: 8px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: padding 0.2s ease;
+            }
+
+            .footer-link:hover { padding-left: 6px; color: var(--pure-white) !important; }
+
+            /* --- RESPONSIVE MOBILE HANDLERS --- */
+            @media (max-width: 850px) {
+                header {
+                    flex-direction: column;
+                    gap: 15px;
+                    text-align: center;
+                    padding: 20px 15px;
+                }
+                .hero-asymmetric-section {
+                    grid-template-columns: 1fr;
+                }
+                .hero-stripes-side {
+                    border-right: none;
+                    border-bottom: 3px solid var(--primary-red);
+                    padding: 40px 20px;
+                }
+                .hero-text-side {
+                    padding: 40px 20px;
+                }
+                .mission-container, .support-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            
+            @media (max-width: 768px) {
+    .top-brand-bar { 
+        height: auto; 
+        padding: 15px 0; 
+    }
+    
+    .top-brand-bar .container { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center;
+    }
+
+    .nav-links { 
+        display: flex;
+        flex-wrap: wrap;         /* ถ้าเมนูยาว ให้ตกลงมาบรรทัดใหม่ได้ */
+        justify-content: center; /* จัดให้อยู่กึ่งกลางเสมอ ไม่เบี้ยวซ้าย */
+        gap: 12px; 
+        padding: 0 10px;
+    }
+
+    .nav-links a { 
+        font-size: 12px; 
+        padding: 4px 8px;       /* เพิ่มพื้นที่กดให้ง่ายขึ้นในมือถือ */
+    }
+}
+            /* ตกแต่งรูปภาพใน Hero */
+.hero-image-frame {
+    overflow: hidden; /* ป้องกันรูปภาพล้นกรอบ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ทำให้รูปภาพขยายเต็มกรอบโดยไม่เสียสัดส่วน */
+    border-radius: 40px; /* ขอบมนเท่ากับกรอบ */
+}
+            
+            
+            /* ใส่สไตล์นี้ลงในส่วน <style> ของคุณ */
+.cute-link {
+    text-decoration: none; /* เอาเส้นใต้เดิมออก */
+    position: relative;
+    color: var(--primary-red);
+    font-weight: 700;
+    padding-bottom: 2px;
+}
+
+.cute-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6px; /* ความหนาของเส้น */
+    background: #ffc574; /* ใช้สีเหลืองโทนละมุนๆ เหมือนปากกาไฮไลท์ */
+    opacity: 0.6; /* ทำให้จางๆ หน่อย ดูน่ารัก */
+    z-index: -1;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.cute-link:hover::after {
+    height: 100%; /* เวลาเอาเมาส์ชี้ เส้นจะขยายเป็นไฮไลท์เต็มตัวอักษร เก๋มาก! */
+    opacity: 0.8;
+}
+        </style>
+    </head>
+
+    <body>
+        <span id="navtool"></span>
+
+<section class="hero-asymmetric-section">
+            <div class="hero-stripes-side">
+                <div class="hero-image-frame">
+                    <img src="img/classroom012.jpg" alt="บรรยากาศคลาสเรียนทำขนมสุดอบอุ่น" class="img-fluid hero-img">
+                </div>
+            </div>
+<div class="hero-text-side">
+                <h1>Baking classes designed around your life and taste</h1>
+                <p>ถ้าใครเคยรู้สึกกลัวการทำขนม หรือกังวลว่าอุปกรณ์ที่บ้านจะไม่พร้อม... เราอยากบอกว่าคุณทำได้แน่นอนค่ะ คลาสไพรเวทของเราตั้งใจเปิดขึ้นมาเพื่อเป็นพื้นที่เซฟโซนอุ่นๆ ให้ทุกคนได้ถามทุกข้อสงสัย และเรียนรู้ตามจังหวะความเร็วของตัวเอง เรายินดีช่วยดูแลและให้คำปรึกษาในทุกๆ ขั้นตอน ตั้งแต่เริ่มทำความเข้าใจวัตถุดิบและสัดส่วนแรก ไปจนถึงขั้นตอนการออกแบบ ตกแต่งขนมให้ออกมาสวยงามในสไตล์ที่คุณชอบ มาสร้างความมั่นใจไปด้วยกันนะคะ แล้วคุณจะพบว่าการทำขนมจริงๆ แล้วไม่ใช่เรื่องตึงเครียด แต่เป็นงานอดิเรกที่สนุกและช่วยฮีลใจได้ดีที่สุดเลย</p>
+                
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="#calendar-anchor" class="capsule-btn">ดูเมนูของเรา</a>
+                    <a href="workshop-classroom.html" class="capsule-btn" style="background-color: transparent; color: var(--primary-red); border-color: var(--primary-red);">
+                        ✨ แอบดูบรรยากาศห้องเรียน
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="middle-ribbon">
+            "Forget the rules, just bake and create it your way."
+        </div>
+
+        <section class="mission-boxes-section">
+                        <div class="container" style="max-width: 850px;">
+                <h2 class="font-playfair text-center" style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; color: var(--primary-red); font-size: 32px; margin-bottom: 40px;">
+                    Class Guidelines & Pricing
+                </h2>
+            <div class="mission-container">
+                <div class="intro-card">
+                    <h2>Choosing Your Menus</h2>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.8; color: #444;">
+                                <li style="margin-bottom: 12px;">
+                                    <strong>• เรียน 1 คน (Solo):</strong> เริ่มต้นขั้นต่ำ 3 เมนู <br>
+                                    <span style="color: #777;">(ยกเว้นเมนูที่ใช้เวลาทำนานเกิน 5 ชั่วโมง สามารถเลือกเรียนที่ 2 เมนูได้ค่ะ)</span>
+                                </li>
+                                <li>
+                                    <strong>• เรียน 2 คนขึ้นไป (Group):</strong> เริ่มต้นขั้นต่ำคนละ 2 เมนู ชวนเพื่อนมาลุยด้วยกันได้เลยค่ะ
+                                </li>
+                    </ul></div>
+                            
+                <div class="intro-card">
+                    <h2>How We Calculate Fees</h2>
+                   <p style="font-size: 13px; line-height: 1.8; color: #444; margin: 0;">
+                                คลาสไพรเวทของเรา <strong>คิดราคาเป็นรายบุคคล (Per Person)</strong> นะคะ ไม่ได้คิดเป็นราคาเหมาต่อเมนูแล้วเข้ากี่คนก็ได้น้า <br><br>
+                                ที่ต้องคิดแบบนี้เพราะเราอยากเตรียมวัตถุดิบพรีเมียม จัดเตาอบ และเตรียมอุปกรณ์แยกให้ทุกคนได้ลงมือทำเองตั้งแต่เคลียร์โต๊ะไปจนถึงอบเสร็จ เพื่อให้กลับไปทำเองที่บ้านได้อย่างมั่นใจที่สุดค่ะ
+                            </p></div>
+                                <p class="text-center" style="font-size: 15px; color: #666; font-style: italic; margin-top: 30px;">
+                    *แอบกระซิบ: ถ้าเลือกจับคู่เมนูที่มีวัตถุดิบบางส่วนลิงก์กัน หรือใช้เบสขนมคล้ายกัน เรามีส่วนลดพิเศษค่าคอร์สลดหย่อนลงให้อีกด้วยนะ ทักมาจัดเซตเมนูคุ้มๆ กันได้เลยค่ะ
+                </p>
+            </div></div></section>
+    
+            <section class="support-zone">
+            <h2 class="support-zone-title">Let's Design Your Baking Class</h2>
+            
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div class="support-content">
+                        <h3>ตามใจคนเรียน ทั้งวันและเมนู</h3>
+                        <p>รู้ว่าทุกคนคิวแน่น! ถ้าตารางชีวิตไม่ตรงกับรอบทั่วไป หรืออยากเรียนแค่บางเมนูจริงๆ ทักมานัดวัน-เวลาที่สะดวกแล้วเลือกเมนูที่อยากทำได้เลยค่ะ ล็อคเวลามาลุยกันแบบเต็มที่ แป๊บเดียวทำเป็นแน่นอน</p>
+                        <div class="card-meta-tags">
+                            <span>✔ นัดวันเวลาเอง</span>
+                            <span>✔ เลือกเมนูที่อยากทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </div>
+                    <div class="support-content">
+                        <h3>แชร์หมดเปลือกสำหรับคนทำขาย</h3>
+                        <p>ใครจะเอาไปต่อยอดทำคาเฟ่หรือเปิดร้าน ทักมาบอกกันก่อนได้เลยนะ เราจะช่วยเสริมเรื่องการเลือกวัตถุดิบ แนะนำแหล่งซื้อราคาดี วิธีเก็บรักษาขนมให้จดจำง่าย และวิธีจัดสต็อกให้ไม่เหลือทิ้ง เรียนรอบเดียวเอาไปปรับระบบร้านได้ยาวๆ ค่ะ</p>
+                        <div class="card-meta-tags">
+                            <span>✔ แนะนำแหล่งวัตถุดิบ</span>
+                            <span>✔ วิธีเก็บและจัดสต็อก</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <div class="support-content">
+                        <h3>ดีไซน์ให้เข้ากับครัวที่บ้าน</h3>
+                        <p>ไม่ว่าจะเป็นคุณแม่ที่อยากอบขนมให้ลูกๆ หรือคนทำงานประจำที่อยากมีงานอดิเรกฮีลใจ เราจะช่วยปรับขั้นตอนและวิธีคิดให้เข้ากับอุปกรณ์หรือเตาอบที่คุณมีที่บ้านเลยค่ะ กลับไปแล้วจะได้ทำซ้ำได้จริง ไม่ใช่ทำได้แค่ในห้องเรียน</p>
+                        <div class="card-meta-tags">
+                            <span>✔ อิงตามอุปกรณ์ที่บ้าน</span>
+                            <span>✔ มือใหม่ก็สบายใจได้</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <div class="support-content">
+                        <h3>อยากปรับสูตรตรงไหน...คุยกันได้เลย</h3>
+                        <p>แอบชอบขนมตัวนี้แต่ไม่อยากใส่สารเสริม หรืออยากลดหวานลงอีก? ทักมาปรึกษากันก่อนได้นะ ยินดีช่วยดีไซน์คอร์สให้เข้ากับความชอบและงบประมาณ หรือถ้าเลือกจับคู่เมนูที่มีวัตถุดิบเหลื่อมกัน เราก็มีส่วนลดพิเศษให้ด้วยค่ะ</p>
+                        <div class="card-meta-tags">
+                            <span>✔ ปรับสูตรตามรีเควส</span>
+                            <span>✔ ทักมาคุยกันก่อนได้</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="location-section" style="padding: 80px 20px; background-color: var(--cream-bg); border-top: 3px solid var(--dark-charcoal);">
+            <div class="container" style="max-width: 900px; margin: 0 auto;">
+                <div class="row align-items-center g-5">
+                    
+                    <div class="col-md-6">
+                        <h2 class="font-playfair" style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; color: var(--primary-red); font-size: 32px; margin-bottom: 5px;">
+                            Our Cozy Kitchen
+                        </h2>
+
+                        <p style="font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 5px;">
+    สตูดิโอของเราเป็นบ้านส่วนตัวบรรยากาศอบอุ่น ตั้งอยู่ใจกลางเมืองติดกับ **BTS ช่องนนทรี** เลยค่ะ เดินทางสะดวกมากๆ ไม่ต้องกังวลเรื่องรถติดหรือเดินทางไกลเลย <br><br>
+    🚝 <strong>สำหรับคนเดินทางด้วยรถไฟฟ้า:</strong> สะดวกที่สุดเลยค่ะ ลงที่สถานี BTS ช่องนนทรี แล้วเดินต่อเข้าซอยมาอีกนิดเดียวก็ถึงหน้าเตาอบของเราแล้ว นั่งรถไฟฟ้ามาเรียนได้ชิลๆ ปล่อยใจจอยๆ เลยค่ะ <br>
+    🚗 <strong>สำหรับคนขับรถมาเอง:</strong> ห้องเรียนของเราไม่มีที่จอดรถค่ะ แต่มีบริการรับฝากรถอยู่ในซอยสาทร 10 และ สีลม 9 ค่าใช้จ่ายชั่วโมงละ 50 บาท
+</p>
+ <span style="display: block; margin-top: 1px;">
+        <a href="https://maps.app.goo.gl/UYdjHh3JyfyJ5boa6" class="cute-link" target="_blank">
+            👉 Parking @Silom9 สีลม09
+        </a>
+    </span>
+                         <span style="display: block; margin-top: 1px; margin-bottom: 10px;">
+        <a href="https://maps.app.goo.gl/QQKykWbAJLdN5pMv6" class="cute-link" target="_blank">
+            👉 HAKKA CAR PARK
+        </a>
+    </span>
+     
+<a href="https://share.google/RCfl0DMkY5602BeoN" target="_blank" rel="noopener" class="capsule-btn" style="background-color: transparent; color: var(--primary-red); border-color: var(--primary-red); font-size: 15px;">
+    📍 ตำแหน่งร้าน Google Maps
+</a>
+                    </div>
+
+<div class="col-md-6">
+                        <div style="border: 2px solid var(--dark-charcoal); border-radius: 20px; overflow: hidden; box-shadow: 8px 8px 0px var(--primary-red); aspect-ratio: 1.2 / 1; background-color: var(--pure-white); position: relative;">
+                            
+                            <img src="img/classroom03.jpg" alt="Our Studio near BTS Chong Nonsi" style="width: 100%; height: 100%; object-fit: cover;">
+                            
+                            <div style="position: absolute; bottom: 15px; left: 15px; background: var(--dark-charcoal); color: var(--cream-bg); padding: 6px 14px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px;">
+                                Bangkok, Thailand
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+        </section>
+        
+<section class="calendar-section" id="calendar-anchor" style="background-color: #fffcf7; border-top: 2px dashed rgba(179, 38, 46, 0.2); border-bottom: 3px solid var(--dark-charcoal);">
+            <div class="container text-center" style="max-width: 700px; padding: 20px 0;">
+                <h2 class="font-playfair" style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; color: var(--primary-red); font-size: 36px; margin-bottom: 20px;">
+                    Are you interested?
+                </h2>
+                <p style="font-size: 15px; line-height: 1.7; color: #555; margin-bottom: 35px;">
+                    ชอบทานรสชาติแบบไหน มีพื้นฐานเท่าไหร่ หรืออยากเน้นเทคนิคอะไรเป็นพิเศษ <br class="d-none d-md-block">
+                    ทักมาคุยรายละเอียด วัน-เวลา และเมนูที่อยากเรียนกับเราก่อนได้เลยค่ะ ยินดีให้คำแนะนำและช่วยปรับคอร์สให้ตอบโจทย์ชีวิตประจำวันของแต่ละคนที่สุดเลยนะ
+                </p>
+                
+                <a href="https://line.me/R/oaMessage/@fridgeandoven/?Hello" target="_blank" rel="noopener" class="capsule-btn" style="padding: 14px 40px; font-size: 14px; background-color: var(--primary-red); color: var(--cream-bg); border-color: var(--dark-charcoal); box-shadow: 0 4px 12px rgba(179, 38, 46, 0.15);">
+                    ทักมาคุยกันใน LINE ได้เลยค่ะ
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer-custom">
+            <div class="container">
+                <div class="row align-items-center text-center text-md-start">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <a href="how-to-order.html" class="footer-link">ORDER ONLINE</a>
+                        <a href="about.html" class="footer-link">ABOUT US</a>
+                        <a href="https://www.instagram.com/fridgeandoven/" class="footer-link" target="_blank" rel="noopener">INSTAGRAM</a>
+                        <a href="locations.html" class="footer-link">LOCATIONS</a>
+                    </div>
+                    
+                    <div class="col-md-6 text-md-end text-center">
+                        <div class="footer-logo-box">
+                            <h2 class="h5 mb-0" style="font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 1px; color: #f5e4af !important;">
+                                FRIDGE AND OVEN
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="nav.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof addNavTool === 'function') {
+                    addNavTool(); 
+                }
+            });
+        </script>
+
+        <script>
+            if (typeof allWorkshops === 'undefined') { window.allWorkshops = []; }
+        </script>
+    </body>
 </html>
