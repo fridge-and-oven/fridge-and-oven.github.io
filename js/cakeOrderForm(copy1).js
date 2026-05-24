@@ -48,6 +48,7 @@ function setCakeSizes(urlParams){
     }
 
 }
+// eslint-disable-next-line
 function order() {
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
@@ -100,7 +101,7 @@ function order() {
     var rawMessage = `Pre-order: ${cakeName}
 Name: ${name}
 Phone: ${phone}
-Size: ${size}
+Size: ${sizeElement}
 Amount: ${amount}
 Total Price: ${totalPrice.toLocaleString()} THB ${discountDetail}
 Delivery Date: ${deliveryDate}
