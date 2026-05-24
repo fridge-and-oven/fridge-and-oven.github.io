@@ -11,6 +11,17 @@ const workshopDatabase = {
         sessions: ["10:00 - 12:00", "14:00 - 16:00"],
         extra: "พิเศษสำหรับพลพรรคกลุ่มแรกที่สมัครใจเข้ามาห่อเกี๊ยวร่วมกัน เรามีชุดอุปกรณ์รีดแป้งขั้นพื้นฐานให้ติดไม้ติดมือกันไปเลยฟรีๆคนละชุด ให้ไปฝึกรีดแป้งกันได้ทุกที่ อยู่ไหนก็ใช้ได้เลย"
     },   
+        "SHUMAI": {
+            chef: "chinese",
+            category: "POPULAR CHINESE FOOD",
+            subtitle: "ขนมจีบหมู อยากจีบม้าาาาา",
+            about: ["รอเชฟส่งข้อมูลมาอยู่งับ"],
+            learning: ["คัมมิ่งซูน"],
+            image: "img/view-workshop.jpg",
+            price: 5500,
+            time: "14:00 – 16:00",
+            gallery: [""],
+     },
         "EARL GREY CHOCOLATE TART": {
         chef: "pastry",
             category: "WORKSHOP MENU",
@@ -162,14 +173,14 @@ const workshopDatabase = {
             chef: "pastry",
             category: "CLASSIC BAKING",
             subtitle: "์ทำแป้งพายแบบง่าย ไม่ต้องแยกเนยแยกแป้ง รีดด้วยกำลังแขนของเราเอง",
-            about: "เมนูเดียวที่เอาไปแปลงร่างเป็นของหวานหลังอาหารง่ายๆ เชิดหน้าชูตาได้สบายเลยจ้า",
-            learning: ["การทำ brown butter แบบปลอดภัยไม่ต้องกลัวเสียโฉม(หมายถึงเนยน่ะ)", "การตีเนยที่พอเหมาะพอดีสำหรับเค้กเนื้อเนย ผสมยังไงดีนะให้เนื้อเนียนนุ่ม",
-                "frosting เนยไหม้ที่หอมไปอีก 1 ขั้นด้วยการเหนื่อยไปอีก 1 จังหวะ 5555"
+            about: "แอปเปิ้ลพายขนาดมือถือพกพาไปที่ไหนก็สะดวก ทนร้อนทนฝนเหมาะกับการทำแจกเพื่อนหรือทำไปฝากญาติสนิทมิตรสหายมากๆ ท้าวความเลยว่าเราเเป็นคนที่ชอบกินพายมากๆ และชอบพายอบสีเข้มเพราะมันจะหอมกว่าใคร แต่ไม่ค่อยมีใครทำพายสีเข้มขายกันเลย และนอกจากนี้เราก็ยังเป็นคนชอบกินเปรี้ยวจะหาไส้แอปเปิ้ลจี๊ดจ๊าดถูกใจก็ไม่มี สุดท้ายด้วยความหิวพายแอปเปิ้ลเราก็เลยลงไม้ลงมือทำซะเองเลย Apple ผัดกับซินนามอนหอมๆ ปรุงรสตามใจเรา กับแป้งพายกรุบกรอบ ร่วนซุยกินที่ไหนเลอะที่นั่น อยู่มาวันนึงทำชีสเค้กเกินออเดอร์ไม่รู้จะเอาไปกำจัดที่ไหน ขณะที่ห่อแอปเปิ้ลพัฟนี้อยู่นั้นเราก็เลยเอามาใส่รวมกันซะเลย ได้เป็นความเปรี้ยวตัดกับความครีมมี่หอมวนิลลากลายมาเป็นเมนูขายดีตัวนี้จนได้",
+            learning: ["มาทำแป้งพายอย่างง่ายแต่มีชั้นสวยงามด้วยกันจ้า เทคนิกการทำแป้งพายให้แยกชั้นชัดเจนอะไรคือหลักการสำคัญ ไม่ต้องแยกแป้งแยกเนยก็ออกมาเป็นชั้นได้", "ใช้แอปเปิ้ลอะไรทำดี เราสามารถปรุงรสแอปเปิ้ลได้ด้วยอะไรบ้าง",
+                "vanilla sour cream cheesecake ตัวสร้างความละมุนตัดเปรี้ยวของแอปเปิ้ลเรา ไม่ได้ดีแค่อยู่ในไส้นะ อยากเอาไปทำอะไรต่อต้องมาแล้ววว"
             ],
             image: "img/apple-cheesepuff.jpg",
             price: 5800,
             time: "14:00 – 17:00",
-            gallery: ["img/pb-bananacake02.jpg", "img/pb-bananacake03.jpg", "img/pb-bananacake04.jpg"]
+            gallery: ["img/apple-cheesepuff.jpg"]
         },
         "JAPANESE SUMMER MENU": {
             chef: "japanese",
@@ -189,7 +200,7 @@ const workshopDatabase = {
             category: "EASY BAKING",
             subtitle: "คุกกี้สาระพัดรส ทำก็สนุกกินก็อาโหร่ยยยย",
             about: ["คุกกี้รสขายดีเวอร์ชั่น 2 "],
-            learning: ["purple sweet potato parmesan melt away cookies","earl grey passionfruit sandwich cookies", "hazelnut pinwheel cookies"
+            learning: ["purple sweet potato parmesan melt away cookies คุกกี้รสมันม่วงหอมหวานแบบเค็ม ปั้นยังไงให้น้องกลมดิ๊ก","earl grey passionfruit sandwich cookies ชอร์ทเบรดเอิร์ลเกรย์หอมฟุ้งบางกรอบสอดไส้ด้วยแยมเสาวรสจี๊ดจ๊าด ทำทั้งคุกกี้ทั้งแยมเล้ย", "hazelnut pinwheel cookies คุกกี้เฮเซลนัทอัดแน่นทุกอนู เบากรอบ ทำยังไงให้เป็นลายเกลียวๆแบบนี้ได้นะ","chocolate pistachio thumbprint cookies คุกกี้ช็อคโกแลตจริงๆไม่ได้มีแค่โกโก้นะ เติมหลุมให้เติมเต็มด้วย white chocolate pistachio"
             ],
             image: "img/assortedver02.jpg",
             price: 5000,
@@ -213,13 +224,25 @@ const workshopDatabase = {
             chef: "pastry",
             category: "CLASSIC FRENCH",
             subtitle: "ขนมฝรั่งเศสสุดคลาสสิกที่เป้นที่รักของครอบครัวเราเอง",
-            about: ["coming soon"],
-            learning: ["coming soon"],
+            about: ["ขนมหรูหราที่สุดที่เราได้ร่ำเรียนมาจากโรงเรียนทำอาหารเลย สมัยที่เราไปเรียนทำอาหารที่ญี่ปุ่นโลกแห่งขนมหวานอาจจะยังไม่เว่อร์วังอลังการเหมือนวันนี้ เมนูนี้คือสิ่งที่เราตื่นตาตื่นใจที่สุดในคอร์สเรียนแล้ว เรามักจะเห็นขนมนี้ผ่านตามาตลอดแต่ไม่กล้าทำเพราะหน้าตามันช่างวิริศมาร่ามากๆ แต่พอได้เรียนแล้วก็พบว่ามันเป็นงานที่ไม่ยากแต่เชิดหน้าชูตาได้เลยนะ ขนมนี้เป็นขนมที่คิดมาเพื่อเฉลิมฉลองในงานแข่งจักรยานจากเมืองปารีสไปยังเมืองเบรส คุณเชฟได้ไอเดียจากล้อจักรยานขนมจากแป้งชูตัวนี้เลยได้กลายร่างออกมาเป็นทรงวงล้อเช่นนี้ ด้านบนจะถูกโปะไว้ด้วยอัลมอนด์สไลดส์ ด้านในสอดไส้ไว้ด้วยครีมเฮเซลนัทหรืออัลมอนด์ ซึ่งปัจจุบันมีคนนำมาครีเอทออกมาเป็นรสชาติที่หลากหลายมากๆคงไว้แต่เพียงรูปทรงล้อและใช้ชื่อ paris-brest รสชาติต่างๆ แต่ในคลาสนี้เราจะมาทำรสชาติคลาสสิกแต่ถูกปรับให้ละมุนขึ้นเหมาะกับชาวเอเชี่ยนอย่างเรา"],
+            learning: ["basic choux pastry กวนแป้งชูยังไงให้พอเหมาะพอดีนะ ใส่ไข่แค่ไหนชูเราถึงจะเติบโต","craquelin ของออริจืนอลเขาไม่ใส่แต่เราอยากจะกรอบ เรียนแล้วจะทำหรือไม่ทำก็ได้นี่ของแถมจากคุณครูจ้า","creme patissier ครีมเบสของขนมนุ่มละมุนต่างๆ กวนยังไงไม่ให้เป็นไข่คน", "creme au praline ครีมรสเฮลนัทเข้มข้น ตียังไงให้เนียนสวยไม่แตกบีบออกมาสวยทุกคนปรบมือแน่นอนนนนนน"],
             image: "img/hazelnut-parisbrest02.jpg",
             price: 5500,
             time: "14:00 – 18:00",
             gallery: ["img/hazelnut-parisbrest03.jpg", "img/hazelnut-parisbrest04.jpg"],
             extra: "**รับวงล้อฝีมือตัวเองขนาด 1 ปอนด์กลับไปซิ่งได้เลยจ้า สามารถรักโลกได้ด้วยการเตรียมกล่องและถุงเย็นมาเพื่อพาน้องกลับบ้าน หรือใครจะไปเที่ยวไหนต่อยาวๆแนะนำให้พกกล่องโฟมติดรถไว้จ้า"
+        },
+        "COMING SOON": {
+            chef: "pastry",
+            category: "STAY TUNED",
+            subtitle: "กำลังปั้นข้อมูล รอติดตามได้ในอนาคตจ้า",
+            about: ["บอกเลยว่านี่คือสิ่งที่คุณรอคอยยยยยยย"],
+            learning: ["มันต้องน่าสนใจแน่ๆ"],
+            image: "img/classroom04.jpg",
+            price: 1000000000,
+            time: "00:00 – 00:00",
+            gallery: [],
+            extra: "ได้รับความบันเทิงกลับไปแน่นอน"
         } // // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
 };
     const allWorkshops = [
@@ -254,9 +277,10 @@ const workshopDatabase = {
     { month: 6, date: 4, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:00", img: "img/parmesan-melt.jpg" },
     { month: 6, date: 11, cat: "pastry", title: "MATCHA MISO MACADAMIA", price: "4,500", time: "14:00 – 16:00", img: "img/matchamiso-cookies.jpg" },
     { month: 6, date: 15, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 15:30", img: "img/tiramisu-bowl.jpg" },
-    { month: 6, date: 18, cat: "pastry", title: "HAZELNUT PARIS-BREST", price: "5,500", time: "14:00 – 17:00", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 6, date: 18, cat: "japanese", title: "COMING SOON", price: "5,500", time: "14:00 – 17:00", img: "img/hazelnut-parisbrest04.jpg" },
     { month: 6, date: 29, cat: "pastry", title: "BANANA CREAM PIE", price: "5,000", time: "14:00 – 17:00", img: "img/bananacreampie.jpg" },
     { month: 6, date: 22, cat: "pastry", title: "SPONGE LAB", price: "6,900", time: "10:00 – 18:00", img: "img/spongelab-genoise.jpg" },
+    { month: 6, date: 25, cat: "chinese", title: "SHUMAI", price: "xxxx", time: "10:00 – 18:00", img: "img/spongelab-genoise.jpg" },
     { month: 6, date: 29, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg" },
 { 
     month: 3, 
