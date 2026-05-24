@@ -530,7 +530,20 @@ body.bg-cake {
                                                 <label for="pickup-time">Select Time</label>
                                             </div>
                                         </div>
-
+                                <!-- Delivery Address (Hidden by default) -->
+                                <div class="col-12" id="deliveryAddressContainer" style="display: none;">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="deliveryAddress" placeholder="Enter Delivery Address">
+                                        <label for="deliveryAddress">Delivery Address</label>
+                                    </div>
+                                </div>
+                                <!-- Delivery Address PIN (Hidden by default) -->
+                                <div class="col-12" id="deliveryAddressPinContainer" style="display: none;">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="deliveryAddressPin" placeholder="Copy Link For Delivery Location Pin Here">
+                                        <label for="deliveryAddress">Copy Link For Delivery Location Pin Here</label>
+                                    </div>
+                                </div>
 
                                 <div class="col-12 mt-5">
                                     <div class="form-floating">
@@ -539,6 +552,7 @@ body.bg-cake {
                                     </div>
                                     <p class="text-muted small mt-2">* ลายมือคนทำขนมเลวร้ายมากเลยไม่สามารถเขียนหน้าเค้กได้ แต่เรามีป้ายและเทียนแถมไปให้นะคะ</p>
                                 </div>
+                                
                                 
                                 <div class="col-12 text-center mt-5">
                                     <p id="validationMsg" class="bg-light text-danger small mb-3 p-3 rounded" style="display: none;">
@@ -564,6 +578,46 @@ body.bg-cake {
                     </div>
                 </div>
 
+        <div
+            id="popupContainer"
+            style="
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #00000080;
+                z-index: 9999;
+            ">
+            <div
+                id="popupContent"
+                style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #f5e4af;
+                    padding: 10px;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                    border-radius: 20px;
+                    border: 8px solid #b41212;
+                ">
+                <!-- Iframe will be inserted here -->
+                <button
+                    onclick="closePopup()"
+                    style="
+                        font-size: medium;
+                        font-weight: bolder;
+                        padding: 4px 10px;
+                        float: right;
+                        border-radius: 10px;
+                    ">
+                    &times;
+                </button>
+            </div>
+        </div>
 
 <footer class="footer-custom" style="background-color: #b3262e; color: #f5e4af; padding: 15px 0 15px 0; margin-top: 15px; font-family: 'Inter', sans-serif;">
     <div class="container">
@@ -590,7 +644,7 @@ body.bg-cake {
         <!-- JavaScript Libraries -->
 
         <!-- cake order form -->
-        <script src="js/cakeOrderForm(copy%201).js"></script>
+        <script src="js/cakeOrderForm(copy1).js"></script>
 
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -604,7 +658,7 @@ body.bg-cake {
         <script src="js/main.js"></script>
 
         <!-- datepicker Javascript -->
-        <script src="js/datepicker(copy%201).js"></script>
+        <script src="js/datepicker(copy1).js"></script>
         
         <!-- iframe popup Javascript -->
         <script src="scripts.js"></script>
