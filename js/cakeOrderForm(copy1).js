@@ -55,15 +55,20 @@ function order() {
     var sizeElement = document.getElementById('size').value;
     //var size = sizeElement.value;
     var amount = parseInt(document.getElementById('amount').value) || 1;
-    console.log(sizeElement);
+    
     // --- ส่วนคำนวณราคาและส่วนลด ---
-    var pricepu = sizeElement.match(/([\d,.]+)(?=-\.)/);
+    // 1. Matches only numbers and commas that are immediately followed by .-
+    var pricepu = sizeElement.match(/([\d,]+)(?=\.-)/);
     var pricePerUnit = 0;
     if (pricepu) {
-  // 2. Remove the comma from "2,990" and convert to an actual number
-      pricePerUnit = Number(pricepu[1].replace(/,/g, ''));
-
-      console.log(pricePerUnit); // 2990
+    // 2. pricepu[1] contains the string "3,990". Remove the comma and convert to a number.
+    pricePerUnit = Number(pricepu[1].replace(/,/g, ''));
+    } else {
+        // Fallback: If ".-" is missing, grab the very last number group in the string
+        var backupMatch = sizeElement.match(/([\d,]+)$/);
+        if (backupMatch) {
+            pricePerUnit = Number(backupMatch[1].replace(/,/g, ''));
+        }
     }
     //parseFloat(sizeElement.options[sizeElement.selectedIndex].getAttribute('data-price')) || 0;
     var totalPrice = pricePerUnit * amount;
@@ -109,6 +114,7 @@ Pickup Time: ${pickupTime}
 Notes: ${notes}
 ${locationDetail}`;
 
+    console.log(rawMessage);
     var message = encodeURIComponent(rawMessage);
     window.open(url + message);
 }
