@@ -51,6 +51,45 @@ $(function () {
         }
     }
 
+    // Reusable price calculation engine
+    function calculateTotal() {
+        var sizeElement = $('#size').val(); // Grab selected dropdown string
+        var amount = parseInt($('#amount').val()) || 1;
+        var pricePerUnit = 0;
+
+        if (sizeElement) {
+            // Looks for numbers directly followed by .- (e.g. extracts "3,990" from "3lb(21cm) 3,990.-")
+            var pricepu = sizeElement.match(/([\d,]+)(?=\.-)/);
+            if (pricepu) {
+                pricePerUnit = Number(pricepu[1].replace(/,/g, ''));
+            } else {
+                // Fallback match if .- is omitted
+                var backupMatch = sizeElement.match(/([\d,]+)$/);
+                if (backupMatch) {
+                    pricePerUnit = Number(backupMatch[1].replace(/,/g, ''));
+                }
+            }
+        }
+
+        var totalPrice = pricePerUnit * amount;
+
+        // Check discount status dynamically
+        var noQuestions = $('#noQuestions').is(':checked');
+        if (noQuestions && totalPrice > 0) {
+            var discount = totalPrice * 0.10;
+            totalPrice = totalPrice - discount;
+        }
+
+        return totalPrice;
+    }
+
+    // Dom manipulator to visually update the HTML string
+    function updatePriceDisplay() {
+        var finalPrice = calculateTotal();
+        $('#liveTotalPrice').text(finalPrice.toLocaleString());
+    }
+
+
     function addLegend() {
         setTimeout(function() {
             var footer = $('<div class="datepicker-footer-legend">' +
@@ -99,7 +138,10 @@ $(function () {
     }); // <--- ปิด Datepicker ตรงนี้ให้ครบ
 
     // 3. Listeners for input changes
-    $('#name, #phone, #amount, #size, #pickup-time, #deliveryAddress, #deliveryAddressPin').on('keyup change input', validateForm);
+    $('#name, #phone, #amount, #size, #pickup-time, #deliveryAddress, #deliveryAddressPin, #noQuestions').on('keyup change input', function() {
+        validateForm();        // Keeps form validation running
+        updatePriceDisplay();  // Triggers live pricing updates
+    });
 
     $("input[name='pickupMethod']").on("change", function() {
         $("#datepicker").val(""); 

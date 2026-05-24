@@ -559,15 +559,25 @@ body.bg-cake {
                                         <i class="bi bi-exclamation-circle me-1"></i>Please fill in all fields before submitting<br>
                                     </p>
                                    
-<div class="col-12 mt-3 text-start">
-    <div class="confirm-checkbox-wrapper">
-        <input type="checkbox" id="noQuestions" class="fancy-checkbox">
-        <label for="noQuestions" class="fancy-checkbox-label">
-            <span class="checkbox-box"></span>
-            ยืนยันไม่มีคำถามเพิ่มเติมหรือการเปลี่ยนแปลง (รับส่วนลด 10% ทันที!)
-        </label>
-    </div>
-</div>
+                                    <div class="col-12 mt-3 text-start">
+                                        <div class="confirm-checkbox-wrapper">
+                                            <input type="checkbox" id="noQuestions" class="fancy-checkbox">
+                                            <label for="noQuestions" class="fancy-checkbox-label">
+                                                <span class="checkbox-box"></span>
+                                                ยืนยันไม่มีคำถามเพิ่มเติมหรือการเปลี่ยนแปลง (รับส่วนลด 10% ทันที!)
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-center align-items-baseline mt-3 mb-2">
+                                        <h4 style="font-family: 'Playfair Display', serif; color: #b3262e; font-weight: 700; margin: 0;">
+                                            Total Price: 
+                                            <span id="liveTotalPrice" style="font-family: 'Inter', sans-serif; font-weight: 700; margin: 0 6px;">0</span> 
+                                            THB
+                                        </h4>
+                                    </div>
+                                    
+
                                     <button class="btn btn-order btn-lg w-100 animated pulse infiniteDelay" id="orderButton" onclick="order()" disabled>
                                         <i class="fa fa-paper-plane me-2"></i>Order on LINE
                                     </button>
