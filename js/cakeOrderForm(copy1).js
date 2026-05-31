@@ -83,10 +83,13 @@ function order() {
     }
     // ----------------------------
 
-    var deliveryDate = document.getElementById('datepicker').value;
+    var deliveryDateRaw = document.getElementById('datepicker').value;
     var pickupTime = document.getElementById('pickup-time').value;
     var notes = document.getElementById('notes').value;
     var serviceType = document.querySelector('input[name="serviceType"]:checked').value;
+
+    // Convert the date
+    var deliveryDate = formatDate(deliveryDateRaw);
 
     var url = "https://line.me/R/oaMessage/@fridgeandoven/?";
     var method = document.querySelector('input[name="pickupMethod"]:checked').value;
@@ -118,4 +121,44 @@ ${locationDetail}`;
     var message = encodeURIComponent(rawMessage);
     window.open(url + message);
 }
+
+// Helper function to format MM/DD/YYYY to "Month DaySuffix, Year"
+// eslint-disable-next-line
+function formatDate(dateStr) {
+    if (!dateStr) return "";
+    
+    // Split the DD/MM/YYYY string by the forward slash
+    var parts = dateStr.split('/');
+    
+    // If it doesn't have exactly day, month, and year, return original text safely
+    if (parts.length !== 3) return dateStr; 
+
+    var day = parseInt(parts[0], 10);
+    var monthIndex = parseInt(parts[1], 10) - 1; // JavaScript months are 0-11
+    var year = parseInt(parts[2], 10);
+
+    // Create a safe local date object using individual integers (Year, MonthIndex, Day)
+    var date = new Date(year, monthIndex, day);
+
+    // Final safety check to make sure it's a real date
+    if (isNaN(date.getTime())) return dateStr; 
+
+    var months = ["January", "February", "March", "April", "May", "June", 
+                  "July", "August", "September", "October", "November", "December"];
+    
+    var monthName = months[date.getMonth()];
+
+    // Determine the correct ordinal suffix (st, nd, rd, th) for the day
+    var suffix = "th";
+    if (day < 11 || day > 13) {
+        switch (day % 10) {
+            case 1: suffix = "st"; break;
+            case 2: suffix = "nd"; break;
+            case 3: suffix = "rd"; break;
+        }
+    }
+
+    return `${monthName} ${day}${suffix}, ${year}`;
+}
+
 window.onload = setCake();
