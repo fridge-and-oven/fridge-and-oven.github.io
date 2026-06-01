@@ -106,6 +106,12 @@
                         padding-left: 5px;
                         color: #ffffff !important;
                     }
+                                .instructor-container { max-width: 1200px; margin: auto; padding: 5px 15px 1px; }
+        .header { text-align: center; margin-bottom: 5px; }
+        .brand-label { font-size: 14px; letter-spacing: 3px; color: #b3262e; font-weight: 700; margin-bottom: 8px; }
+        .title { font-family: 'Playfair Display', serif; font-size: clamp(35px, 8vw, 35px); color: #b3262e; font-weight: 700; margin: 0; }
+        .divider { max-width: 600px; margin: 15px auto 15px; }
+        .divider svg { width: 100%; height: 16px; }
         </style>
     </head>
 
@@ -127,11 +133,17 @@
         </script>
 
         <!-- Hero Start -->
-        <div class="flex-box padding-top: 50px;">
-            <div class="container text-center py-5">
-                <h1 class="display-1 animated slideInLeft">Our Cakes</h1>
-
+    <div class="instructor-container">
+        <div class="header">
+            <h1 class="title">OUR CAKES</h1>
+            <div class="divider">
+                <svg viewBox="0 0 1440 20"><path d="M0 10 Q 20 0 40 10 T 80 10 T 120 10 T 160 10 T 200 10 T 240 10 T 280 10 T 320 10 T 360 10 T 400 10 T 440 10 T 480 10 T 520 10 T 560 10 T 600 10 T 640 10 T 680 10 T 720 10 T 760 10 T 800 10 T 840 10 T 880 10 T 920 10 T 960 10 T 1000 10 T 1040 10 T 1080 10 T 1120 10 T 1160 10 T 1200 10 T 1240 10 T 1280 10 T 1320 10 T 1360 10 T 1400 10" stroke="#2f8f44" stroke-width="4" fill="none" /></svg>
             </div>
+            <p>ร้านเรามีกันแค่ 2 คน รบกวนสั่งล่วงหน้ากันนิดนึงนาาาาา<br>
+                        ตอนนี้มีโปรโมชั่นกด Pre oder กรอกข้อมูลครบถ้วนไม่มีคำถาม<br>และไม่มีการเปลี่ยนแปลงรับไปเลย ลดราคา 10% จ้า<br><br>กดที่รูปภาพเพื่อดูรายละเอียดได้เลยจ้า</p>
+                    
+                   
+        </div>
         </div>
         <!-- Hero End -->
 
@@ -139,19 +151,7 @@
         <div>
             <div>
                 
-                        <div class="flex-block" style="padding-bottom: 5px ;"> 
-                <div class="text-center wow fadeIn" data-wow-delay="0.2s">
-                    <p class="sub-text">ร้านเรามีกันแค่ 2 คน รบกวนสั่งล่วงหน้ากันนิดนึงนาาาาา<br>
-                        ตอนนี้มีโปรโมชั่นกด Pre oder กรอกข้อมูลครบถ้วนไม่มีคำถาม<br>และไม่มีการเปลี่ยนแปลงรับไปเลย ลดราคา 10% จ้า<br><br>กดที่รูปภาพเพื่อดูรายละเอียดได้เลยจ้า</p>
-                    
-                    
-                             <div class="divider"></div>
-                        </div>
-                </div>
-                            
-                        
-                
-                    
+      
                     
                 <div class="flex-block" style="padding-bottom: 5px">
                     <div class="cake-box">
@@ -162,7 +162,7 @@
                             onclick="openIframePopup('cake-details/cake-details.html')" />
                         <div class="w-100 align-items-center">
                             <h5 style="font-family: bebas">Hazelnut Chocolate Cake</h5>
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-Chocolate-Cake&sizes=1lb(15CM)%202,990.-{2lb(18CM)%203,500.-{3lb(21CM)%203,990.-">
+                            <a class="orderbutton preorderbutton" href="order-test.html?cake=Hazelnut-Chocolate-Cake&sizes=1lb(15CM)%202,990.-{2lb(18CM)%203,500.-{3lb(21CM)%203,990.-">
                                 pre order
                             </a>
                         </div>
@@ -379,7 +379,7 @@
 
                             <a
                                 class="orderbutton preorderbutton"
-                                href="order.html?cake=Lemon-Cheese-Pie-Dacquoise-Cake&sizes=1lb(15CM)%201,200.-{2lb(18CM)%202,400.-">
+                                href="order.html?cake=Lemon-Cheese-Pie-Dacquoise-Cake&type=fast&sizes=1lb(15CM)%201,200.-{2lb(18CM)%202,400.-">
                                 pre order
                             </a>
                         </div>
@@ -522,7 +522,7 @@
                             <h4 class="fontcake">Paris-Brest</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-ParisBrest&sizes=1lb(15CM)%201,550.-{2lb(18CM)%202,350.-{3lb(21CM)%203,550.-">
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Hazelnut-ParisBrest&type=fast&sizes=1lb(15CM)%201,550.-{2lb(18CM)%202,350.-{3lb(21CM)%203,550.-">
                                 pre order
                             </a>
                         </div>
@@ -550,7 +550,7 @@
                             <h4 class="fontcake">Matcha and Genmai Dacquoise Cake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Matcha-Genmai-Dacquoise-Cake&sizes=1lb(15CM)%201,450.-">
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Matcha-Genmai-Dacquoise-Cake&type=fast&sizes=1lb(15CM)%201,450.-">
                                 pre order
                             </a>
                         </div>
@@ -567,7 +567,7 @@
 
                             <a
                                 class="orderbutton preorderbutton"
-                                href="order.html?cake=Raspberry-Cream-Cheese-Dacquoise-Cake&sizes=1lb(15CM)%201,250.-">
+                                href="order.html?cake=Raspberry-Cream-Cheese-Dacquoise-Cake&type=fast&sizes=1lb(15CM)%201,250.-">
                                 pre order
                             </a>
                         </div>
@@ -584,7 +584,7 @@
 
                             <a
                                 class="orderbutton preorderbutton"
-                                href="order.html?cake=Hazelnut-Chocolate-Dacquoise-Cake&sizes=1lb(15CM)%201,450.-">
+                                href="order.html?cake=Hazelnut-Chocolate-Dacquoise-Cake&type=fast&sizes=1lb(15CM)%201,450.-">
                                 pre order
                             </a>
                         </div>
@@ -678,7 +678,7 @@
                             <h4 class="fontcake">Tiramisu Bowl</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Tiramisu-Bowl&sizes=1%20lb(15CM)%201,200.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Tiramisu-Bowl&type=fast&sizes=1%20lb(15CM)%201,200.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -707,7 +707,7 @@
                             <h4 class="fontcake">100% pistachio cake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=100%pistachio-cake&sizes=1%20lb(15CM)%203,300.-{2lb(18CM)%204,060.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=100%pistachio-cake&type=fast&sizes=1%20lb(15CM)%203,300.-{2lb(18CM)%204,060.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -794,7 +794,7 @@
                             <h4 class="fontcake">black sticky rice basque cheesecake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Black-Sticky-Rice-Basque-Cheesecake&sizes=1%20lb(15CM)%201,650.-{2%20lb(18CM)%202,100.-{3%20lb(21CM)%202,900.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Black-Sticky-Rice-Basque-Cheesecake&type=fast&sizes=1%20lb(15CM)%201,650.-{2%20lb(18CM)%202,100.-{3%20lb(21CM)%202,900.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -809,7 +809,7 @@
                             <h4 class="fontcake">Plain basque cheesecake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Plain-Basque-Cheesecake&sizes=1%20lb(15CM)%20950.-{2%20lb(18CM)%201,350.-{3%20lb(21CM)%201,900.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Plain-Basque-Cheesecake&type=fast&sizes=1%20lb(15CM)%20950.-{2%20lb(18CM)%201,350.-{3%20lb(21CM)%201,900.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -823,7 +823,7 @@
                             <h4 class="fontcake">Matcha basque cheesecake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Matcha-Basque-Cheesecake&sizes=1%20lb(15CM)%201,450.-{2%20lb(18CM)%202,250.-{3%20lb(21CM)%202,850.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Matcha-Basque-Cheesecake&type=fast&sizes=1%20lb(15CM)%201,450.-{2%20lb(18CM)%202,250.-{3%20lb(21CM)%202,850.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -837,7 +837,7 @@
                             <h4 class="fontcake">Chocolate basque cheesecake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Chocolate-Basque-Cheesecake&sizes=Plain%20chocolate%201%20lb(15CM)%201,350.-{Plain%20chocolate%202%20lb(18CM)%201,850.-{Plain%20chocolate%203%20lb(21CM)%202,700.-{Chocolate%20basque%20with%20hazelnut%20cream%201%20lb(15CM)%201,890.-{Chocolate%20basque%20with%20hazelnut%20cream%202%20lb(18CM)%202,650.-{Chocolate%20basque%20with%20hazelnut%20cream%203%20lb(21CM)%203,800.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%201%20lb(15CM)%201,890.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%202%20lb(18CM)%202,650.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%203%20lb(21CM)%203,800.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Chocolate-Basque-Cheesecake&type=fast&sizes=Plain%20chocolate%201%20lb(15CM)%201,350.-{Plain%20chocolate%202%20lb(18CM)%201,850.-{Plain%20chocolate%203%20lb(21CM)%202,700.-{Chocolate%20basque%20with%20hazelnut%20cream%201%20lb(15CM)%201,890.-{Chocolate%20basque%20with%20hazelnut%20cream%202%20lb(18CM)%202,650.-{Chocolate%20basque%20with%20hazelnut%20cream%203%20lb(21CM)%203,800.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%201%20lb(15CM)%201,890.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%202%20lb(18CM)%202,650.-{Mocha(Chocolate%20basque%20with%20coffee%20cream)%203%20lb(21CM)%203,800.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -851,7 +851,7 @@
                             <h4 class="fontcake">pistachio basque cheesecake</h4>
                             <p class="text-primary mb-1"></p>
 
-                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Basque-Cheesecake&sizes=1%20lb(15CM)%201,750.-{2%20lb(18CM)%202,550.-{3%20lb(21CM)%203,500.-"> pre order </a>
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Pistachio-Basque-Cheesecake&type=fast&sizes=1%20lb(15CM)%201,750.-{2%20lb(18CM)%202,550.-{3%20lb(21CM)%203,500.-"> pre order </a>
                         </div>
                     </div>
                     
@@ -912,7 +912,7 @@
                     </div>
                     
                     
-                                        <div class="cake-box">
+                    <div class="cake-box">
                         <img
                             class="cake-img link"
                             src="img/strawberry-chiffon02.jpg"
@@ -926,6 +926,20 @@
                         </div>
                     </div>
                     
+                    
+                     <div class="cake-box">
+                        <img
+                            class="cake-img link"
+                            src="img/strawberry-chiffon02.jpg"
+                            alt=""
+                            onclick="openIframePopup('cake-details/cake-details(tangerinecaramel).html')" />
+                        <div class="w-100 align-items-center">
+                            <h4 class="fontcake">Tangerine vanilla caramel nuts</h4>
+                            <p class="text-primary mb-1"></p>
+
+                            <a class="orderbutton preorderbutton" href="order.html?cake=Tangerine-Vanilla-Caramel-Nuts&sizes=1%20lb(15CM)%202,590.-{2%20lb(18CM)%203,200.-{3%20lb(21CM)%203,750.--"> pre order </a>
+                        </div>
+                    </div>
                     
                 </div>
             </div>
