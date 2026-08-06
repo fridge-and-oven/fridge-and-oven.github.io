@@ -243,7 +243,19 @@ const workshopDatabase = {
             time: "00:00 – 00:00",
             gallery: [],
             extra: "ได้รับความบันเทิงกลับไปแน่นอน"
-        } // // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
+        },
+        "APPLE SHORTBREAD : DEMO": {
+            chef: "pastry",
+            category: "fruity but flaky",
+            subtitle: "Apple shortbread ตัวก๊อปปี้จากของ trader Joe's ที่เราประทับใจ",
+            about: ["ด้วยความรักที่มีต่อสิ่งใดก็ได้ที่มีรสแอปเปิ้ล"],
+            learning: ["การเสอะหาความเป็นแอปเปิ้ลเราต้องใช้อะไรบ้าง","การผสมส่วนผสม แต่ก่อนจะผสมจะเตรียมอะไรไว้กับอะไรดีนะวัตถุดิบเยอะแยะไปหมด","รีดและตัดคุกกี้ยังไงให้สวยงาม จริงๆแล้วมีหนทาง แต่ที่ขายอาจจะไม่สวยมากเพราะคอนเซปโฮมเมดแต่มันดีกว่านี้ได้นะ", "***คลาส Demo ไม่มีบริการหลังการขาย ถามตอบได้เฉพาะในคลาสเท่านั้น"],
+            image: "img/appleshortbread.jpeg",
+            price:  2999,
+            time: "10:30 – 12:00",
+            gallery: ["img/appleshortbread02.jpeg", "img/appleshortbread03.jpeg"],
+            extra: "**รับสูตรขนมและ apple shortbread กลับบ้านไปเล้ยยย 1 กระปุก มูลค่า 290.-"
+        }// // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
 };
     const allWorkshops = [
     // --- MARCH (month: 2) ---
@@ -282,7 +294,19 @@ const workshopDatabase = {
     { month: 6, date: 22, cat: "pastry", title: "SPONGE LAB", price: "6,900", time: "10:00 – 18:00", img: "img/spongelab-genoise.jpg" },
     { month: 6, date: 25, cat: "chinese", title: "SHUMAI", price: "xxxx", time: "10:00 – 18:00", img: "img/spongelab-genoise.jpg" },
     { month: 6, date: 29, cat: "pastry", title: "APPLE CHEESE PUFF", price: "5,800", time: "14:00 – 17:00", img: "img/apple-cheesepuff.jpg" },
-{ 
+     // --- AUGUST (month: 7) ---
+    { month: 7, date: 15, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "10:30 – 12:00", img: "img/appleshortbread.jpeg" },
+    { month: 7, date: 15, cat: "pastry", title: "APPLE SHORTBREAD : HANDS ON", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
+    { month: 7, date: 19, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : DEMO", price: "3,900", time: "14:00 – 15:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 7, date: 26, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 7, date: 29, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
+         // --- SEPTEMBER (month: 8) ---
+    { month: 8, date: 5, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "10:30 – 12:00", img: "img/appleshortbread.jpeg" },
+    { month: 8, date: 9, cat: "pastry", title: "APPLE SHORTBREAD : HANDS ON", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
+    { month: 8, date: 12, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : DEMO", price: "3,900", time: "14:00 – 15:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 8, date: 19, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 8, date: 30, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
+    { 
     month: 3, 
     date: 10, 
     endDate: 16, 
