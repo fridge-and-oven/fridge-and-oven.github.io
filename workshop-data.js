@@ -301,10 +301,10 @@ const workshopDatabase = {
     { month: 7, date: 26, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
     { month: 7, date: 29, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
          // --- SEPTEMBER (month: 8) ---
-    { month: 8, date: 5, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "10:30 – 12:00", img: "img/appleshortbread.jpeg" },
-    { month: 8, date: 9, cat: "pastry", title: "APPLE SHORTBREAD : HANDS ON", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
-    { month: 8, date: 12, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : DEMO", price: "3,900", time: "14:00 – 15:30", img: "img/darkbeerssalt.jpeg" },
-    { month: 8, date: 19, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 8, date: 5, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
+    { month: 8, date: 9, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
+    { month: 8, date: 12, cat: "pastry", title: "COOKIES SANDWICH", price: "3,900", time: "14:00 – 15:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 8, date: 19, cat: "pastry", title: "PECAN PIE", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
     { month: 8, date: 30, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
     { 
     month: 3, 
