@@ -313,9 +313,9 @@ const workshopDatabase = {
     { month: 7, date: 26, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
     { month: 7, date: 29, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
          // --- SEPTEMBER (month: 8) ---
-    { month: 8, date: 12, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
-    { month: 8, date: 19, cat: "pastry", title: "BUTTER TTEOK", price: "2,999", time: "14:00 – 17:30", img: "img/hazelnut-parisbrest04.jpg" },
-    { month: 8, date: 30, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 16:00", img: "img/tiramisu.jpeg" },
+    { month: 8, date: 12, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/assortedver02.jpg" },
+    { month: 8, date: 19, cat: "pastry", title: "BUTTER TTEOK", price: "3,990", time: "14:00 – 16:30", img: "img/buttertteok.jpeg" },
+    { month: 8, date: 30, cat: "pastry", title: "BUTTER TTEOK", price: "3,990", time: "14:00 – 16:30", img: "img/buttertteok.jpeg" },
         // --- OCTOBER (month: 9) ---
     { month: 9, date: 3, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/buttertteok02.jpeg" },
     { month: 9, date: 10, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
