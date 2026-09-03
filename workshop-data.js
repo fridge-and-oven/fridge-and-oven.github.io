@@ -51,7 +51,7 @@ const workshopDatabase = {
             category: "WORKSHOP MENU",
             subtitle: "Homemade soft and silky TIRAMISU เมื่อเราไม่อยากใช้เลดีฟิงเกอร์สำเร็จรูปและเราก็อยากจะนุ่มไปหมดทุกส่วน",
             about: "TIRAMISU สูตรที่เพื่อนขอร้องมา เมนูนี้เราเริ่มต้นด้วยเพื่อนคนนึงที่บอกว่าขนมหวานโปรดคือทีรามิสุและฉันกินมานับไม่ถ้วนบอกได้เลยว่าเพื่อนคนนี้นี่แหล่ะจะนำพาเธอไปสู่ทีรามิสุแสนอร่อยได้ด้วยประสบการณ์ทีรามิสุทั้งชีวิตของฉัน เราลองแล้วลองเล่าจนมาลงตัวที่สูตรนี้ที่เราบอกกับตัวเองว่ามันไม่จำเป็นจะต้องเป็นเลดีฟิงเกอร์เสมอไปและใครที่อยากทำขนมแบบทำเองตั้งแต่เบส นี่เลยทีรามิสุคือขนมที่ทำง่ายๆวัตถุดิบไม่มากมายแค่หากาแฟที่ถูกใจให้ได้ก็พอ มั้ยนะ...",
-            learning: ["Cocoa genoise sponge from scratch", "Safe egg yolk Mascarpone cream"],
+            learning: ["Cocoa genoise sponge ใครอยากฝึกวิชามือเบาต้องมาเลย ผสมเค้กยังไงให้นุ้มมมฟู", "Mascarpone cream สูตรของเราใส่อะไรบ้าง ตียังไงให้เนื้อแน่นไม่เหลวเป็นน้ำ"],
             image: "img/tiramisu-bowl03.jpg",
             price: 3900,
             time: "14:00 – 16:00",
@@ -255,6 +255,18 @@ const workshopDatabase = {
             time: "10:30 – 12:00",
             gallery: ["img/appleshortbread02.jpeg", "img/appleshortbread03.jpeg"],
             extra: "**รับสูตรขนมและ apple shortbread กลับบ้านไปเล้ยยย 1 กระปุก มูลค่า 290.-"
+        },
+        "BUTTER TTEOK": {
+            chef: "pastry",
+            category: "Easy baking",
+            subtitle: "เมนูสุดฮิตเมื่อหลายวันที่แล้ว แต่ขี้เกียจขายแล้วใครอยากอบกินเองมากันเล้ยยย",
+            about: ["เมนูสุดแสนจะทำง่าย ง่ายจนเราเบื่อจะทำขายแต่ก็มีคนเรียกร้องมามากมาย มาเลยจ้ามาเอาสูตรไปอบกันเองไม่ต้องมาง้อร้านอีกแล้ว"],
+            learning: ["Butter Tteok 5 รสชาติ original/chocolate/matcha/tripple cheese/pumpkin ทุกรสเลยนะที่เคยทำมา","การเตรียมพิมพ์และการผสมส่วนผสม ผสมยังไงให้ต๊อกไม่คายน้ำมันออกมาท่วมพิมพ์","หลักการการปรับสูตรสำหรับแต่ละรสชาติและวัตถุดิบด้วยหลักการที่เข้าใจง่าย", "เก็บยังไงดีนะทั้งแป้งทั้งขนมที่อบแล้ว หรือใครมีคำถามเพิ่มเติมก็มาเล้ยยย"],
+            image: "img/buttertteok05.jpeg",
+            price:  3990,
+            time: "14:00 – 16:30",
+            gallery: ["img/buttertteok02.jpeg", "img/buttertteok03.jpeg", "img/buttertteok04.jpeg", "img/buttertteok06.jpeg"],
+            extra: "**รับสูตรขนมและ butter tteok ที่ช่วยกันลงมืออบในร้านกลับบ้านไปเล้ยยยย จะได้กี่ชิ้นอาจจะขึ้นอยู่กับว่าชิมไปแล้วกี่ชิ้นนาาา และขึ้นอยู่กับการเทขนมของตนเองและเพื่อนร่วมคลาสจ้า"
         }// // ..// ... เติมเมนูอื่นๆ ให้ครบตามนี้ ...
 };
     const allWorkshops = [
@@ -301,15 +313,22 @@ const workshopDatabase = {
     { month: 7, date: 26, cat: "pastry", title: "APPLE SHORTBREAD : DEMO", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
     { month: 7, date: 29, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
          // --- SEPTEMBER (month: 8) ---
-    { month: 8, date: 5, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
-    { month: 8, date: 9, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/appleshortbread.jpeg" },
-    { month: 8, date: 12, cat: "pastry", title: "COOKIES SANDWICH", price: "3,900", time: "14:00 – 15:30", img: "img/darkbeerssalt.jpeg" },
-    { month: 8, date: 19, cat: "pastry", title: "PECAN PIE", price: "2,999", time: "14:00 – 15:30", img: "img/hazelnut-parisbrest04.jpg" },
-    { month: 8, date: 30, cat: "pastry", title: "DARK BEERS SALTED CARAMEL CAKE : HANDS ON", price: "5,000", time: "14:00 – 17:00", img: "img/darkbeerssalt.jpeg" },
-    { 
-    month: 3, 
-    date: 10, 
-    endDate: 16, 
+    { month: 8, date: 12, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 8, date: 19, cat: "pastry", title: "BUTTER TTEOK", price: "2,999", time: "14:00 – 17:30", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 8, date: 30, cat: "pastry", title: "TIRAMISU", price: "3,900", time: "14:00 – 16:00", img: "img/tiramisu.jpeg" },
+        // --- OCTOBER (month: 9) ---
+    { month: 9, date: 3, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/buttertteok02.jpeg" },
+    { month: 9, date: 10, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 9, date: 17, cat: "pastry", title: "PECAN PIE", price: "2,999", time: "14:00 – 17:30", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 9, date: 24, cat: "pastry", title: "BUTTER TTEOK", price: "3,900", time: "14:00 – 16:00", img: "img/buttertteok02.jpeg" },
+    { month: 9, date: 31, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 9, date: 19, cat: "pastry", title: "PECAN PIE", price: "2,999", time: "14:00 – 17:30", img: "img/hazelnut-parisbrest04.jpg" },
+
+        
+        { 
+    month: 8, 
+    date: 21, 
+    endDate: 28, 
     title: "SHOP CLOSED", 
     showInCard: false // ระบบจะเปลี่ยนเป็นสีเทาให้อัตโนมัติจาก Logic ข้อ 2
 }
