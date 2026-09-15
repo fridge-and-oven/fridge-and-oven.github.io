@@ -317,10 +317,10 @@ const workshopDatabase = {
     { month: 8, date: 19, cat: "pastry", title: "BUTTER TTEOK", price: "3,990", time: "14:00 – 16:30", img: "img/buttertteok.jpeg" },
     { month: 8, date: 30, cat: "pastry", title: "BUTTER TTEOK", price: "3,990", time: "14:00 – 16:30", img: "img/buttertteok.jpeg" },
         // --- OCTOBER (month: 9) ---
-    { month: 9, date: 3, cat: "pastry", title: "APPLE PIE", price: "5,000", time: "14:00 – 16:00", img: "img/buttertteok02.jpeg" },
-    { month: 9, date: 10, cat: "pastry", title: "PUMPKIN SPICE BUTTER CAKE", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
-    { month: 9, date: 17, cat: "pastry", title: "TOFFEE NUT LATTE TART", price: "2,999", time: "14:00 – 17:30", img: "img/hazelnut-parisbrest04.jpg" },
-    { month: 9, date: 24, cat: "pastry", title: "AUTUMN SANDWICH COOKIES", price: "3,900", time: "14:00 – 16:00", img: "img/buttertteok02.jpeg" },
+    { month: 9, date: 3, cat: "pastry", title: "APPLE PIE", price: "5,000", time: "14:00 – 17:30", img: "img/buttertteok02.jpeg" },
+    { month: 9, date: 10, cat: "pastry", title: "PUMPKIN SPICE CAKE", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
+    { month: 9, date: 17, cat: "pastry", title: "TOFFEE NUT LATTE TART", price: "5,500", time: "14:00 – 17:30", img: "img/hazelnut-parisbrest04.jpg" },
+    { month: 9, date: 24, cat: "pastry", title: "AUTUMN SANDWICH COOKIES", price: "5,000", time: "14:00 – 16:00", img: "img/buttertteok02.jpeg" },
     { month: 9, date: 31, cat: "pastry", title: "ASSORTED COOKIES", price: "5,000", time: "14:00 – 17:30", img: "img/darkbeerssalt.jpeg" },
 
         
